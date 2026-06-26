@@ -1,0 +1,176 @@
+{
+  "country": "japan",
+  "countryNameZh": "日本",
+  "updatedAt": "2026-06-26",
+  "bestSeasons": [
+    {
+      "season": "spring",
+      "reason": "3月底至4月初樱花盛开、气候宜人，是东京最具代表性的季节(也是最热门、价格最高的时段)。",
+      "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-tokyo"
+    },
+    {
+      "season": "autumn",
+      "reason": "10-11月凉爽舒适、红叶(koyo)绚烂，比春季人少、节奏更慢，最适合悠闲游览与拍照。",
+      "source": "https://www.japanhighlights.com/japan/tokyo/best-time-to-visit"
+    },
+    {
+      "season": "winter",
+      "reason": "1月至3月初为淡季，价格更低、游客更少，可享受冬季灯饰与温泉。",
+      "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-tokyo"
+    }
+  ],
+  "moodTags": ["culture", "food", "explore", "shopping", "scenery"],
+  "idealDuration": {
+    "minDays": 3,
+    "maxDays": 7,
+    "note": "3天可覆盖浅草古寺到新宿/涩谷的核心地标；5天为黄金时长，能加入富士山或日光/镰仓等一日游；5-7天则可从容游览并深入特定兴趣。",
+    "source": "https://www.roughguides.com/japan/how-many-days-do-you-need-in-tokyo/"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": ["樱花观赏(新宿御苑樱花祭)", "千鸟ヶ渊乘船赏樱与夜樱点灯"],
+      "source": "https://www.fun-japan.jp/en/articlesPromotion/14239"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": ["隅田川花火大会(7月)", "盆踊り与七夕等夏日祭典"],
+      "source": "https://www.fun-japan.jp/en/articlesPromotion/14239"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": ["红叶观赏(明治神宫外苑、六义园)", "东京红叶约11月中旬至12月初，晚于日本多数地区"],
+      "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-tokyo"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": ["冬季灯饰(12月全城点灯)", "温泉与暖锅料理"],
+      "source": "https://www.fun-japan.jp/en/articlesPromotion/14239"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "tk-sensoji",
+      "name": "浅草寺 (Senso-ji)",
+      "region": "东京/浅草",
+      "summary": "东京最古老的寺庙(建于628年)，雷门、仲见世商店街与五重塔，免费参观。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "explore", "food"],
+      "source": "https://www.gotokyo.org/en/spot/15/index.html"
+    },
+    {
+      "id": "tk-skytree",
+      "name": "东京晴空塔 (Tokyo Skytree)",
+      "region": "东京/墨田区",
+      "summary": "高空瞭望台可俯瞰东京全景，设美食与活动，建议网上预约购票。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["scenery", "explore"],
+      "source": "https://en.tokyo-skytree.jp/"
+    },
+    {
+      "id": "tk-meiji",
+      "name": "明治神宫 (Meiji Jingu)",
+      "region": "东京/原宿",
+      "summary": "紧邻原宿站的庄严神社，被城市森林环绕，适合静心漫步。",
+      "suggestedDurationMin": 75,
+      "moodTags": ["culture", "relax", "slow"],
+      "source": "https://www.japan.travel/en/spot/1666/"
+    },
+    {
+      "id": "tk-shibuya",
+      "name": "涩谷天空 / 涩谷十字路口 (Shibuya Sky)",
+      "region": "东京/涩谷",
+      "summary": "世界最繁忙的十字路口前的高空观景台，360度俯瞰东京。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["scenery", "explore", "shopping"],
+      "source": "https://www.gotokyo.org/en/spot/1749/index.html"
+    },
+    {
+      "id": "tk-shinjukugyoen",
+      "name": "新宿御苑 (Shinjuku Gyoen)",
+      "region": "东京/新宿",
+      "summary": "融合日式、英式、法式园林的大型庭园，春季著名赏樱地、秋季红叶。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["relax", "scenery", "slow"],
+      "source": "https://www.fun-japan.jp/en/articlesPromotion/14239"
+    }
+  ],
+  "foods": [
+    {
+      "id": "jp-edomae-sushi",
+      "name": "江户前寿司 (Edomae Sushi)",
+      "type": "寿司",
+      "region": "东京",
+      "reason": "东京原创寿司流派，源自江户时代，鱼经熟成处理而非即切即食。",
+      "source": "https://www.foodinjapan.org/kanto-food-guide/tokyo-food-guide/"
+    },
+    {
+      "id": "jp-shoyu-ramen",
+      "name": "酱油拉面 (Shoyu Ramen)",
+      "type": "拉面",
+      "region": "东京",
+      "reason": "东京代表性的酱油味拉面，汤底配小麦面与叉烧、笋干等配料。",
+      "source": "https://www.foodinjapan.org/kanto-food-guide/tokyo-food-guide/"
+    },
+    {
+      "id": "jp-tempura",
+      "name": "天妇罗 (Tempura)",
+      "type": "炸物",
+      "region": "东京",
+      "reason": "江户传统料理，鱼鲜与蔬菜裹薄蛋面糊油炸，外酥内嫩。",
+      "source": "https://www.japan-guide.com/e/e3075.html"
+    },
+    {
+      "id": "jp-monjayaki",
+      "name": "文字烧 (Monjayaki)",
+      "type": "铁板烧",
+      "region": "东京/月岛",
+      "reason": "东京特色铁板料理，与大阪烧不同，月岛是其发源地。",
+      "source": "https://www.foodinjapan.org/kanto-food-guide/tokyo-food-guide/"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "jp-ghibli",
+      "name": "三鹰之森吉卜力美术馆 (Ghibli Museum, Mitaka)",
+      "region": "东京/三鹰",
+      "method": "仅限提前预约，通过Lawson Ticket官方平台，每月10日上午10点(日本时间)开售次月门票，须选定入场时段且姓名与护照一致。",
+      "leadTime": "提前约1个月，开售当日尽早登录抢票。",
+      "source": "https://www.ghibli-museum.jp/en/tickets/"
+    },
+    {
+      "id": "jp-teamlab",
+      "name": "teamLab Planets TOKYO",
+      "region": "东京/丰洲",
+      "method": "官方票务网站定时入场制(teamlabplanets.dmm.com)，提前选择日期与时段。",
+      "leadTime": "至少提前2周，周末与樱花季、黄金周常提前2-3周售罄。",
+      "source": "https://teamlabplanets.dmm.com/en"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "樱花花期每年浮动约一周，且为最贵最挤的季节，机票、酒店、新干线请尽早预订。",
+      "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-tokyo"
+    },
+    {
+      "season": "summer",
+      "tip": "6月初至7月中为梅雨季，湿度高、降雨多，备轻便雨伞；阴天紫外线仍强，户外活动宜安排在清晨或傍晚。",
+      "source": "https://tokyo.how/guides/rainy-season-tokyo-guide"
+    },
+    {
+      "season": "autumn",
+      "tip": "东京红叶较日本多数地区晚，约11月中旬至12月初达高峰，赏枫行程可安排在11月下旬。",
+      "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-tokyo"
+    },
+    {
+      "season": "winter",
+      "tip": "东京冬季干燥寒冷(约0-10°C)，降雪罕见但1-2月有可能，注意保暖与室内外温差。",
+      "source": "https://www.japanhighlights.com/japan/rainy-season"
+    }
+  ]
+}

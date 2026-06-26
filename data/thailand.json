@@ -1,0 +1,176 @@
+{
+  "country": "thailand",
+  "countryNameZh": "泰国",
+  "updatedAt": "2026-06-26",
+  "bestSeasons": [
+    {
+      "season": "winter",
+      "reason": "凉季(11月至次年2月)是曼谷最佳旅游季节，天气晴朗、湿度较低、夜晚凉爽，最适合参观大皇宫、卧佛寺、郑王庙及夜游河滨与屋顶酒吧，也是旅游旺季。",
+      "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-bangkok"
+    },
+    {
+      "season": "spring",
+      "reason": "热季(3-5月)气温最高，但4月13-15日的宋干节(泼水节)是泰国最盛大的节日，曼谷考山路、是隆路有大型泼水庆典，2023年列入联合国教科文组织非物质文化遗产。",
+      "source": "https://en.wikipedia.org/wiki/Songkran_(Thailand)"
+    },
+    {
+      "season": "summer",
+      "reason": "雨季(6-10月)景色翠绿、游客较少、酒店与机票更便宜，雨水多为午后短时阵雨，鲜少全天下雨，性价比高。",
+      "source": "https://www.selectiveasia.com/thailand-holidays/weather"
+    }
+  ],
+  "moodTags": ["culture", "food", "relax", "shopping", "island"],
+  "idealDuration": {
+    "minDays": 3,
+    "maxDays": 5,
+    "note": "3天足以游览大皇宫、主要寺庙、屋顶酒吧及唐人街；4天可加入恰图恰周末市场或吉姆汤普森之家；5天适合悠闲节奏并安排大城(Ayutthaya)或水上市场一日游。",
+    "source": "https://www.nomadicmatt.com/travel-blogs/visit-bangkok-itinerary/"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": ["宋干节泼水节(4月13-15日，考山路、是隆路)", "热季避暑：商场避暑与泰式Spa按摩"],
+      "source": "https://www.thailandhighlights.com/thailand/songkran-festival"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": ["翠绿雨季观光，享受较少人潮与低价酒店", "午后阵雨间游览寺庙与博物馆等室内景点"],
+      "source": "https://www.selectiveasia.com/thailand-holidays/weather"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": ["水灯节 Loy Krathong(11月，于湄南河、ICONSIAM、Lumphini公园放水灯)", "曼谷河滨节(Bangkok River Festival)沿湄南河庆典"],
+      "source": "https://www.tourismthailand.org/Articles/loi-krathong-2025-all-area-en"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": ["凉季舒适天气游览大皇宫、卧佛寺、郑王庙", "恰图恰周末市场、唐人街与屋顶酒吧夜游"],
+      "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-bangkok"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "bkk-grand-palace",
+      "name": "大皇宫 (Grand Palace)",
+      "region": "曼谷",
+      "summary": "泰国最著名地标，曾为皇室居所，内含玉佛寺(Wat Phra Kaew)。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "explore", "scenery"],
+      "source": "https://grandpalacebangkok.org/opening-hours-best-time/"
+    },
+    {
+      "id": "bkk-wat-pho",
+      "name": "卧佛寺 (Wat Pho)",
+      "region": "曼谷",
+      "summary": "以巨大的卧佛与泰式按摩发源地闻名，邻近大皇宫。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "relax", "explore"],
+      "source": "https://www.thethaipass.com/attractions/wat-pho-bangkok"
+    },
+    {
+      "id": "bkk-wat-arun",
+      "name": "郑王庙 / 黎明寺 (Wat Arun)",
+      "region": "曼谷",
+      "summary": "湄南河西岸的黎明寺，瓷片镶嵌的高塔是曼谷标志性剪影。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["scenery", "culture", "explore"],
+      "source": "https://www.thethaipass.com/attractions/wat-arun-bangkok"
+    },
+    {
+      "id": "bkk-chatuchak-market",
+      "name": "恰图恰周末市场 (Chatuchak Weekend Market)",
+      "region": "曼谷",
+      "summary": "全球最大的周末市场之一，逾万摊位售卖服饰、手工艺与美食。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["shopping", "food", "explore"],
+      "source": "https://www.odynovotours.com/thailand/bangkok/chatuchak-weekend-market.html"
+    },
+    {
+      "id": "bkk-chao-phraya-river",
+      "name": "湄南河 (Chao Phraya River)",
+      "region": "曼谷",
+      "summary": "曼谷的母亲河，可乘船游览大皇宫、郑王庙、ICONSIAM与Asiatique等沿岸地标。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["scenery", "relax", "slow"],
+      "source": "https://www.bangkok-river-cruise.com/"
+    }
+  ],
+  "foods": [
+    {
+      "id": "th-pad-thai",
+      "name": "泰式炒河粉 (Pad Thai)",
+      "type": "面食",
+      "region": "曼谷",
+      "reason": "全球最知名的泰国菜，以米粉炒蛋、豆腐、虾或鸡、豆芽与花生制成。",
+      "source": "https://www.thailandhighlights.com/thailand/top-dishes"
+    },
+    {
+      "id": "th-tom-yum-goong",
+      "name": "冬阴功汤 (Tom Yum Goong)",
+      "type": "汤",
+      "region": "曼谷",
+      "reason": "泰国最具代表性的酸辣虾汤，以香茅、青柠叶、南姜与辣椒调味。",
+      "source": "https://www.thailandhighlights.com/thailand/top-dishes"
+    },
+    {
+      "id": "th-green-curry",
+      "name": "绿咖喱 (Gaeng Keow Wan)",
+      "type": "咖喱",
+      "region": "曼谷",
+      "reason": "以绿咖喱酱与椰奶熬煮的经典泰式咖喱，香浓微辣。",
+      "source": "https://www.thailandhighlights.com/thailand/top-dishes"
+    },
+    {
+      "id": "th-mango-sticky-rice",
+      "name": "芒果糯米饭 (Mango Sticky Rice)",
+      "type": "甜点",
+      "region": "曼谷",
+      "reason": "泰国最受欢迎的甜点，熟芒果配椰浆糯米，热季芒果最甜。",
+      "source": "https://www.thailandhighlights.com/thailand/top-dishes"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "th-lebua-sky-bar",
+      "name": "Sky Bar / Sirocco by lebua (State Tower 64楼屋顶酒吧)",
+      "region": "曼谷",
+      "method": "官网预订或致电酒店(+66 2 624 9555)，需支付订金确认，订金可于账单中抵扣。",
+      "leadTime": "建议提前数日预订，日落与晚餐时段尤其抢手。",
+      "source": "https://lebua.com/restaurants/sirocco/"
+    },
+    {
+      "id": "th-sorn",
+      "name": "Sorn (米其林三星泰南料理)",
+      "region": "曼谷",
+      "method": "每月25日中午12:00(曼谷时间)于TableCheck开放次月订位，亦可邮件 reservation@sornfinesouthern.com。",
+      "leadTime": "建议提前约3个月规划，订位常于开放后短时内售罄。",
+      "source": "https://guide.michelin.com/us/en/bangkok-region/bangkok/restaurant/sorn"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "泼水节期间随身电子物品请用防水袋保护；此为全年最炎热时段，需防晒补水。",
+      "source": "https://www.thailandhighlights.com/thailand/songkran-festival"
+    },
+    {
+      "season": "summer",
+      "tip": "雨季雨水多集中在午后短时阵雨，建议把户外景点安排在上午，随身携带折叠雨伞或雨衣。",
+      "source": "https://www.thailandhighlights.com/thailand/rainy-season-travel-guide"
+    },
+    {
+      "season": "autumn",
+      "tip": "水灯节当晚河滨与各大公园人潮拥挤，建议提前抵达占位，并使用环保水灯。",
+      "source": "https://www.tourismthailand.org/Articles/loi-krathong-2025-all-area-en"
+    },
+    {
+      "season": "winter",
+      "tip": "凉季天气最舒适，但1月PM2.5空气污染较重，呼吸敏感者建议关注AQI并备口罩。",
+      "source": "https://en.wikipedia.org/wiki/2025_Bangkok_smog"
+    }
+  ]
+}

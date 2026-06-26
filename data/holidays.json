@@ -1,0 +1,357 @@
+[
+  {
+    "region": "china",
+    "year": 2026,
+    "lastReviewed": "2026-06-26",
+    "holidays": [
+      {
+        "id": "cn-2026-new-year",
+        "nameZh": "元旦",
+        "start": "2026-01-01",
+        "end": "2026-01-03",
+        "type": "statutory_holiday",
+        "makeupWorkdays": ["2026-01-04"],
+        "bridgeHint": "自然三天小长假，1月4日(周日)需补班。",
+        "source": "https://www.beijing.gov.cn/ywdt/yaowen/202511/t20251104_4258911.html"
+      },
+      {
+        "id": "cn-2026-spring-festival",
+        "nameZh": "春节",
+        "start": "2026-02-15",
+        "end": "2026-02-23",
+        "type": "both",
+        "makeupWorkdays": ["2026-02-14", "2026-02-28"],
+        "bridgeHint": "法定放假9天(腊月廿八至正月初七)；请2天年假(2月24-25日)可拼出约11天超长假。",
+        "source": "http://politics.people.com.cn/n1/2025/1104/c1001-40596715.html"
+      },
+      {
+        "id": "cn-2026-qingming",
+        "nameZh": "清明节",
+        "start": "2026-04-04",
+        "end": "2026-04-06",
+        "type": "both",
+        "bridgeHint": "不调休；请4天年假(4月7-10日)可拼出9天长假。",
+        "source": "https://www.beijing.gov.cn/ywdt/yaowen/202511/t20251104_4258911.html"
+      },
+      {
+        "id": "cn-2026-labour-day",
+        "nameZh": "劳动节",
+        "start": "2026-05-01",
+        "end": "2026-05-05",
+        "type": "statutory_holiday",
+        "makeupWorkdays": ["2026-05-09"],
+        "bridgeHint": "法定放假5天；5月9日(周六)需补班，请3天年假(5月6-8日)可拼出更长假期。",
+        "source": "http://politics.people.com.cn/n1/2025/1104/c1001-40596715.html"
+      },
+      {
+        "id": "cn-2026-dragon-boat",
+        "nameZh": "端午节",
+        "start": "2026-06-19",
+        "end": "2026-06-21",
+        "type": "both",
+        "bridgeHint": "不调休；请4天年假(6月22-25日)可拼出9天长假。",
+        "source": "http://politics.people.com.cn/n1/2025/1104/c1001-40596715.html"
+      },
+      {
+        "id": "cn-2026-mid-autumn",
+        "nameZh": "中秋节",
+        "start": "2026-09-25",
+        "end": "2026-09-27",
+        "type": "both",
+        "bridgeHint": "不调休；请3天年假(9月28-30日)可直接拼接国庆，9月25日至10月7日连休约13天。",
+        "source": "http://politics.people.com.cn/n1/2025/1104/c1001-40596715.html"
+      },
+      {
+        "id": "cn-2026-national-day",
+        "nameZh": "国庆节",
+        "start": "2026-10-01",
+        "end": "2026-10-07",
+        "type": "both",
+        "makeupWorkdays": ["2026-09-20", "2026-10-10"],
+        "bridgeHint": "法定放假7天；请3天年假(9月28-30日)可衔接中秋，连休约13天(9月25日-10月7日)。9月20日、10月10日需补班。",
+        "source": "https://www.news.cn/politics/20251104/88bcffd88ae249e58c699b8772548e3d/c.html"
+      }
+    ]
+  },
+  {
+    "region": "japan",
+    "year": 2026,
+    "lastReviewed": "2026-06-26",
+    "holidays": [
+      {
+        "id": "jp-2026-new-year",
+        "nameZh": "元旦",
+        "nameLocal": "元日",
+        "start": "2026-01-01",
+        "end": "2026-01-01",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "1月1-3日多数商铺、餐厅、博物馆休息，神社初詣人潮拥挤。"
+        },
+        "source": "https://www.nippon.com/en/japan-data/h02302/"
+      },
+      {
+        "id": "jp-2026-coming-of-age",
+        "nameZh": "成人之日",
+        "nameLocal": "成人の日",
+        "start": "2026-01-12",
+        "end": "2026-01-12",
+        "type": "statutory_holiday",
+        "source": "https://www.nippon.com/en/japan-data/h02302/"
+      },
+      {
+        "id": "jp-2026-golden-week",
+        "nameZh": "黄金周",
+        "nameLocal": "ゴールデンウィーク",
+        "start": "2026-04-29",
+        "end": "2026-05-06",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "日本全年最大出行高峰。新干线与机票常售罄涨价、酒店爆满、景点排长队，建议尽早预订。包含昭和日(4/29)、宪法纪念日(5/3)、绿之日(5/4)、儿童节(5/5)及振替休日(5/6)。"
+        },
+        "source": "https://www.japan-guide.com/e/e2282.html"
+      },
+      {
+        "id": "jp-2026-marine-day",
+        "nameZh": "海之日",
+        "nameLocal": "海の日",
+        "start": "2026-07-20",
+        "end": "2026-07-20",
+        "type": "statutory_holiday",
+        "source": "https://www.nippon.com/en/japan-data/h02302/"
+      },
+      {
+        "id": "jp-2026-obon",
+        "nameZh": "盂兰盆节",
+        "nameLocal": "お盆",
+        "start": "2026-08-13",
+        "end": "2026-08-16",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "盂兰盆并非法定假日，但多数企业放假3-4天形成返乡出行高峰，高速与列车严重拥堵；同时有盆踊及京都五山送火(8/16)等节庆看点，交通需尽早预订。"
+        },
+        "source": "https://www.nippon.com/en/japan-data/h02302/"
+      },
+      {
+        "id": "jp-2026-mountain-day",
+        "nameZh": "山之日",
+        "nameLocal": "山の日",
+        "start": "2026-08-11",
+        "end": "2026-08-11",
+        "type": "statutory_holiday",
+        "source": "https://www.nippon.com/en/japan-data/h02302/"
+      },
+      {
+        "id": "jp-2026-silver-week",
+        "nameZh": "白银周",
+        "nameLocal": "シルバーウィーク",
+        "start": "2026-09-19",
+        "end": "2026-09-23",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "因9月22日为衔接假日，敬老日(9/21)与秋分日(9/23)连成5天连休，是自2015年以来罕见的白银周，出行人潮较多。"
+        },
+        "source": "https://www.nippon.com/en/japan-data/h02302/"
+      },
+      {
+        "id": "jp-2026-culture-day",
+        "nameZh": "文化日",
+        "nameLocal": "文化の日",
+        "start": "2026-11-03",
+        "end": "2026-11-03",
+        "type": "statutory_holiday",
+        "source": "https://www.nippon.com/en/japan-data/h02302/"
+      }
+    ]
+  },
+  {
+    "region": "thailand",
+    "year": 2026,
+    "lastReviewed": "2026-06-26",
+    "holidays": [
+      {
+        "id": "th-2026-new-year",
+        "nameZh": "元旦",
+        "nameLocal": "วันขึ้นปีใหม่",
+        "start": "2026-01-01",
+        "end": "2026-01-01",
+        "type": "statutory_holiday",
+        "source": "https://thailandknowledge.com/thailand-public-holidays-2026"
+      },
+      {
+        "id": "th-2026-makha-bucha",
+        "nameZh": "万佛节",
+        "nameLocal": "วันมาฆบูชา",
+        "start": "2026-03-03",
+        "end": "2026-03-03",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "佛教节日，全国禁止售酒；部分政府与场所可能调整营业时间。"
+        },
+        "source": "https://www.timeanddate.com/holidays/thailand/2026"
+      },
+      {
+        "id": "th-2026-chakri-day",
+        "nameZh": "却克里王朝纪念日",
+        "nameLocal": "วันจักรี",
+        "start": "2026-04-06",
+        "end": "2026-04-06",
+        "type": "statutory_holiday",
+        "source": "https://www.timeanddate.com/holidays/thailand/2026"
+      },
+      {
+        "id": "th-2026-songkran",
+        "nameZh": "宋干节(泼水节)",
+        "nameLocal": "เทศกาลสงกรานต์",
+        "start": "2026-04-13",
+        "end": "2026-04-15",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "泰国最盛大的节日与顶级看点，全国泼水庆典(曼谷考山路、清迈、普吉)；同时银行/政府/许多商铺关闭、交通爆满、酒店涨价、人潮道路拥堵，需提前规划预订。"
+        },
+        "source": "https://thailandknowledge.com/thailand-public-holidays-2026"
+      },
+      {
+        "id": "th-2026-labour-day",
+        "nameZh": "劳动节",
+        "nameLocal": "วันแรงงานแห่งชาติ",
+        "start": "2026-05-01",
+        "end": "2026-05-01",
+        "type": "statutory_holiday",
+        "source": "https://thailandknowledge.com/thailand-public-holidays-2026"
+      },
+      {
+        "id": "th-2026-coronation-day",
+        "nameZh": "国王登基纪念日",
+        "nameLocal": "วันฉัตรมงคล",
+        "start": "2026-05-04",
+        "end": "2026-05-04",
+        "type": "statutory_holiday",
+        "source": "https://www.timeanddate.com/holidays/thailand/2026"
+      },
+      {
+        "id": "th-2026-king-birthday",
+        "nameZh": "国王哇集拉隆功诞辰",
+        "nameLocal": "วันเฉลิมพระชนมพรรษา ร.10",
+        "start": "2026-07-28",
+        "end": "2026-07-28",
+        "type": "statutory_holiday",
+        "source": "https://thailandknowledge.com/thailand-public-holidays-2026"
+      },
+      {
+        "id": "th-2026-loy-krathong",
+        "nameZh": "水灯节",
+        "nameLocal": "เทศกาลลอยกระทง",
+        "start": "2026-11-24",
+        "end": "2026-11-24",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "festival",
+          "note": "重要节庆看点，全国河湖放水灯；清迈同期有天灯节(Yi Peng)放天灯。河滨区域(曼谷、清迈、素可泰)非常拥挤，清迈酒店爆满；当日并非公休，商铺照常营业。"
+        },
+        "source": "https://thailandknowledge.com/thailand-public-holidays-2026"
+      }
+    ]
+  },
+  {
+    "region": "france",
+    "year": 2026,
+    "lastReviewed": "2026-06-26",
+    "holidays": [
+      {
+        "id": "fr-2026-new-year",
+        "nameZh": "元旦",
+        "nameLocal": "Jour de l'An",
+        "start": "2026-01-01",
+        "end": "2026-01-01",
+        "type": "statutory_holiday",
+        "source": "https://www.service-public.gouv.fr/particuliers/actualites/A18558"
+      },
+      {
+        "id": "fr-2026-easter-monday",
+        "nameZh": "复活节星期一",
+        "nameLocal": "Lundi de Pâques",
+        "start": "2026-04-06",
+        "end": "2026-04-06",
+        "type": "statutory_holiday",
+        "source": "https://www.service-public.gouv.fr/particuliers/actualites/A18558"
+      },
+      {
+        "id": "fr-2026-labour-day",
+        "nameZh": "劳动节",
+        "nameLocal": "Fête du Travail",
+        "start": "2026-05-01",
+        "end": "2026-05-01",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "法国唯一全员强制停工的假日，多数商铺与景点关闭。"
+        },
+        "source": "https://www.service-public.gouv.fr/particuliers/actualites/A18558"
+      },
+      {
+        "id": "fr-2026-ascension",
+        "nameZh": "耶稣升天节",
+        "nameLocal": "Ascension",
+        "start": "2026-05-14",
+        "end": "2026-05-14",
+        "type": "statutory_holiday",
+        "source": "https://www.service-public.gouv.fr/particuliers/actualites/A18558"
+      },
+      {
+        "id": "fr-2026-fete-musique",
+        "nameZh": "音乐节",
+        "nameLocal": "Fête de la Musique",
+        "start": "2026-06-21",
+        "end": "2026-06-21",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "festival",
+          "note": "夏至全国免费音乐节，巴黎及全法街头与场馆有数千场免费演出，傍晚街头热闹拥挤；非公休，商铺照常营业。"
+        },
+        "source": "https://www.france.fr/en/article/major-events-france-thisyear/"
+      },
+      {
+        "id": "fr-2026-bastille-day",
+        "nameZh": "国庆日(巴士底日)",
+        "nameLocal": "Fête nationale",
+        "start": "2026-07-14",
+        "end": "2026-07-14",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "重大节庆看点：香榭丽舍大道阅兵、埃菲尔铁塔塞纳河上空烟火、消防员舞会与街头庆典；巴黎市中心极度拥挤、阅兵与烟火区域有道路/地铁封闭，公休日部分商铺关闭。"
+        },
+        "source": "https://www.service-public.gouv.fr/particuliers/actualites/A18558"
+      },
+      {
+        "id": "fr-2026-assumption",
+        "nameZh": "圣母升天节",
+        "nameLocal": "Assomption",
+        "start": "2026-08-15",
+        "end": "2026-08-15",
+        "type": "statutory_holiday",
+        "source": "https://www.service-public.gouv.fr/particuliers/actualites/A18558"
+      },
+      {
+        "id": "fr-2026-christmas",
+        "nameZh": "圣诞节",
+        "nameLocal": "Noël",
+        "start": "2026-12-25",
+        "end": "2026-12-25",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "圣诞市集是重要看点(斯特拉斯堡与阿尔萨斯最负盛名，约11月底至12月下旬)；但12月25日当天多数商铺、餐厅、景点与公共交通缩减或关闭，市集通常在12月24日前结束，阿尔萨斯住宿需尽早预订。"
+        },
+        "source": "https://www.service-public.gouv.fr/particuliers/actualites/A18558"
+      }
+    ]
+  }
+]

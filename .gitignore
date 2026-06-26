@@ -1,0 +1,7 @@
+# 本地 API key，禁止入库
+config.js
+
+# 杂项
+.DS_Store
+node_modules/
+*.log

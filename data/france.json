@@ -1,0 +1,171 @@
+{
+  "country": "france",
+  "countryNameZh": "法国",
+  "updatedAt": "2026-06-26",
+  "bestSeasons": [
+    {
+      "season": "spring",
+      "reason": "春季(4-6月)气候温和(约10-21°C)，花园盛放、绿意盎然，是漫步、户外咖啡馆与观光的理想季节。",
+      "source": "https://travel.usnews.com/Paris_France/When_To_Visit/"
+    },
+    {
+      "season": "autumn",
+      "reason": "秋季(9-10月)天气晴朗凉爽、落叶金黄，被许多人视为巴黎最美的季节，且游客较夏季少。",
+      "source": "https://www.roughguides.com/france/how-many-days-do-you-need-in-paris/"
+    }
+  ],
+  "moodTags": ["culture", "food", "shopping", "scenery", "slow"],
+  "idealDuration": {
+    "minDays": 3,
+    "maxDays": 7,
+    "note": "首次到访建议至少3天看主要地标；4天是公认的甜蜜点，可涵盖卢浮宫、奥赛、埃菲尔铁塔并安排凡尔赛一日游；5-7天适合慢游与周边短途。",
+    "source": "https://www.airalo.com/blog/how-many-days-do-you-need-in-paris"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": ["卢森堡公园/杜乐丽花园赏花漫步", "塞纳河畔露天咖啡馆与户外观光", "凉爽晴朗天气下登埃菲尔铁塔观景"],
+      "source": "https://travel.usnews.com/Paris_France/When_To_Visit/"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": ["Paris Plages巴黎沙滩节(7月初至8月底，塞纳河畔免费活动)", "Bastille Day国庆日(7月14日香榭丽舍阅兵+战神广场烟火)", "夏季塞纳河畔节庆与音乐会"],
+      "source": "https://parisjetaime.com/eng/event/paris-plages-e013"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": ["杜乐丽、卢森堡公园金黄落叶赏秋", "凉爽晴朗天气下的博物馆与地标观光(游客较少)", "蒙马特高地秋色散步"],
+      "source": "https://www.roughguides.com/france/how-many-days-do-you-need-in-paris/"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": ["圣诞市集(杜乐丽、Saint-Germain-des-Prés一带)", "节日灯饰(香榭丽舍大道，约11月底亮灯至次年1月中)", "老佛爷等百货公司橱窗灯光秀"],
+      "source": "https://parisjetaime.com/eng/article/christmas-lights-in-paris-a016"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "par-eiffel",
+      "name": "埃菲尔铁塔 (Eiffel Tower)",
+      "region": "巴黎",
+      "summary": "巴黎的标志性铁塔，可登二层与顶层俯瞰全城。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["scenery", "explore", "culture"],
+      "source": "https://www.toureiffel.paris/en/faq/getting-tower/how-long-does-visit-take"
+    },
+    {
+      "id": "par-louvre",
+      "name": "卢浮宫 (Louvre Museum)",
+      "region": "巴黎",
+      "summary": "世界最大的艺术博物馆之一，藏有《蒙娜丽莎》与《断臂维纳斯》。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["culture", "explore", "slow"],
+      "source": "https://www.louvre.fr/en/visit/hours-admission"
+    },
+    {
+      "id": "par-orsay",
+      "name": "奥赛博物馆 (Musée d'Orsay)",
+      "region": "巴黎",
+      "summary": "由旧火车站改建，收藏丰富的印象派与后印象派杰作。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "explore", "slow"],
+      "source": "https://www.musee-orsay.fr/en/visit/hours-admission"
+    },
+    {
+      "id": "par-montmartre",
+      "name": "蒙马特与圣心大教堂 (Montmartre / Sacré-Cœur)",
+      "region": "巴黎",
+      "summary": "山丘上的艺术家街区与白色圆顶教堂，可俯瞰巴黎全景。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["scenery", "explore", "slow"],
+      "source": "https://parisjetaime.com/eng/cultural-site/basilique-du-sacre-coeur-de-montmartre-p1747"
+    },
+    {
+      "id": "par-versailles",
+      "name": "凡尔赛宫 (Palace of Versailles)",
+      "region": "凡尔赛(巴黎近郊)",
+      "summary": "法国王室的宏伟宫殿与花园，是热门的一日游目的地。",
+      "suggestedDurationMin": 240,
+      "moodTags": ["culture", "scenery", "explore"],
+      "source": "https://en.chateauversailles.fr/plan-your-visit/practical-information"
+    }
+  ],
+  "foods": [
+    {
+      "id": "fr-croissant",
+      "name": "黄油可颂 (Croissant au beurre)",
+      "type": "酥皮糕点",
+      "region": "巴黎",
+      "reason": "最具法式代表性的早餐：温热、酥脆多层，配黑咖啡绝佳。",
+      "source": "https://devourtours.com/blog/famous-food-in-paris/"
+    },
+    {
+      "id": "fr-macaron",
+      "name": "马卡龙 (Macaron)",
+      "type": "甜点",
+      "region": "巴黎",
+      "reason": "杏仁粉制成的轻盈外壳夹浓郁内馅，经典口味有巧克力、咸焦糖、香草、开心果。",
+      "source": "https://devourtours.com/blog/famous-food-in-paris/"
+    },
+    {
+      "id": "fr-escargot",
+      "name": "焗蜗牛 (Escargots)",
+      "type": "前菜",
+      "region": "法国",
+      "reason": "经典法式做法，以欧芹大蒜黄油焗制，常配面包蘸取浓郁黄油汁。",
+      "source": "https://www.cnn.com/travel/20-classic-french-dishes-to-try"
+    },
+    {
+      "id": "fr-baguette",
+      "name": "法棍面包 (Baguette)",
+      "type": "面包",
+      "region": "巴黎",
+      "reason": "法国日常主食，外脆内软，是巴黎面包房文化的象征。",
+      "source": "https://www.bloggeratlarge.com/the-absolute-best-things-to-eat-in-paris/"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "fr-eiffel-summit",
+      "name": "埃菲尔铁塔顶层门票 (Eiffel Tower summit)",
+      "region": "巴黎",
+      "method": "官方在线售票 ticket.toureiffel.paris(顶层门票现已无法现场购买)。",
+      "leadTime": "电梯票最早可提前约60天预订，建议尽早预订以确保理想时段。",
+      "source": "https://www.toureiffel.paris/en/news/visit/all-our-tips-buying-ticket-visit-eiffel-tower"
+    },
+    {
+      "id": "fr-louvre",
+      "name": "卢浮宫定时入场票 (Louvre timed-entry)",
+      "region": "巴黎",
+      "method": "官方在线售票 ticket.louvre.fr，强制预约(含免费入场者)。",
+      "leadTime": "强烈建议提前预订定时票，仅预约可保证入场，票限所选日期与时段。",
+      "source": "https://contact.louvre.fr/hc/en-gb/articles/12837462851229"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "春季气温在10-21°C间，早晚仍偏凉，建议分层穿搭并带薄外套，方便整日户外漫步与花园游览。",
+      "source": "https://travel.usnews.com/Paris_France/When_To_Visit/"
+    },
+    {
+      "season": "summer",
+      "tip": "Paris Plages等夏季活动免费、无需预约；塞纳河畔傍晚暑气消退后氛围最佳，避开正午高温。",
+      "source": "https://parisjetaime.com/eng/event/paris-plages-e013"
+    },
+    {
+      "season": "autumn",
+      "tip": "九月底至十月秋色最美但雨水可能在十一月到来，建议备好雨具并把握晴朗日子游览户外景点。",
+      "source": "https://www.roughguides.com/france/how-many-days-do-you-need-in-paris/"
+    },
+    {
+      "season": "winter",
+      "tip": "节日灯饰约11月底亮灯至次年1月中，傍晚天黑后观赏香榭丽舍与百货橱窗灯光效果最佳。",
+      "source": "https://www.cometoparis.com/blog-guide-illuminations-paris-s1287"
+    }
+  ]
+}

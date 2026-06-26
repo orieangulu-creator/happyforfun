@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>悠行 · 旅游行程规划 (Demo)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="wrap">
+      <h1>悠行 <span class="logo-sub">YouXing</span></h1>
+      <p class="tagline">想好了去哪 → 帮你排行程；还没想好 → 帮你选地方。<b>什么都不填也能开始。</b></p>
+      <span id="modeBadge" class="mode-badge">检测中…</span>
+    </div>
+  </header>
+
+  <main class="wrap layout">
+    <!-- ============ 输入区（全部可选，零必填） ============ -->
+    <section class="panel input-panel" aria-label="输入区">
+      <h2 class="panel-title">说说你的情况 <small>（每一项都可以留空）</small></h2>
+
+      <div class="field">
+        <label for="origin">出发地</label>
+        <input id="origin" type="text" placeholder="如：上海（留空也行）" />
+      </div>
+
+      <div class="field">
+        <label>时间 <small>选个范围，或一键选中国假期</small></label>
+        <div class="date-row">
+          <input id="dateStart" type="date" />
+          <span class="date-sep">→</span>
+          <input id="dateEnd" type="date" />
+        </div>
+        <div id="holidayChips" class="chips holiday-chips"></div>
+        <div id="dateHint" class="hint"></div>
+        <div id="destHolidayHint" class="hint dest-holiday-hint"></div>
+      </div>
+
+      <div class="field">
+        <label>目的地 <small>四种粒度，都可不填</small></label>
+        <div class="seg" id="granSeg">
+          <button type="button" data-gran="country" class="seg-btn active">具体国家</button>
+          <button type="button" data-gran="region" class="seg-btn">模糊区域</button>
+          <button type="button" data-gran="playstyle" class="seg-btn">玩法</button>
+          <button type="button" data-gran="none" class="seg-btn">还没想好</button>
+        </div>
+        <div class="gran-body">
+          <select id="destCountry" class="gran-input">
+            <option value="">— 选择国家 —</option>
+            <option value="japan">日本</option>
+            <option value="thailand">泰国</option>
+            <option value="france">法国</option>
+          </select>
+          <input id="destRegion" class="gran-input hidden" type="text" placeholder="如：东南亚 / 欧洲" />
+          <div id="destPlaystyle" class="chips gran-input hidden"></div>
+          <p id="destNone" class="gran-input hidden hint">不填目的地，我来帮你推荐 👍</p>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>想要什么 <small>快捷标签（可多选）</small></label>
+        <div id="moodChips" class="chips"></div>
+      </div>
+
+      <div class="field">
+        <label for="freeText">一句话描述 <small>优先级最高，可覆盖上面任何选择</small></label>
+        <textarea id="freeText" maxlength="500" rows="3"
+          placeholder="如：带爸妈躺平一周，别太累，想吃当地美食"></textarea>
+        <div class="counter"><span id="ftCount">0</span>/500</div>
+      </div>
+
+      <div class="field two-col">
+        <div>
+          <label>节奏</label>
+          <select id="pace">
+            <option value="">自动（默认均衡）</option>
+            <option value="intense">特种兵 · 玩满</option>
+            <option value="balanced">均衡</option>
+            <option value="relaxed">悠闲 · 不累</option>
+          </select>
+        </div>
+        <div>
+          <label>同行人</label>
+          <select id="companion">
+            <option value="">不指定</option>
+            <option value="solo">独自</option>
+            <option value="couple">情侣/蜜月</option>
+            <option value="family_kids">亲子带娃</option>
+            <option value="elderly">长辈同行</option>
+            <option value="friends">朋友结伴</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="generateBtn" class="btn-primary">开始规划 →</button>
+      <p id="inputError" class="error-text"></p>
+    </section>
+
+    <!-- ============ 输出区（单屏渐进展示） ============ -->
+    <section class="panel output-panel" aria-label="输出区">
+      <div id="placeholder" class="placeholder">
+        <div class="ph-emoji">🧭</div>
+        <p>左侧随便填点（或什么都不填），点「开始规划」试试。</p>
+      </div>
+      <div id="loading" class="loading hidden"><div class="spinner"></div><span id="loadingText">生成中…</span></div>
+      <div id="stageRecommend" class="stage hidden"></div>
+      <div id="stageCompare" class="stage hidden"></div>
+      <div id="stageBestTime" class="stage hidden"></div>
+      <div id="stageTrip" class="stage hidden"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer wrap">
+    <span>悠行 Demo · 纯前端本地运行 · 数据带来源</span>
+  </footer>
+
+  <!-- config.js 可选：存在且填了 key 则走 Claude，否则本地规则引擎 DEMO -->
+  <script>window.APP_CONFIG = window.APP_CONFIG || null;</script>
+  <script src="config.js" onerror="void 0"></script>
+  <script src="js/data.js"></script>
+  <script src="js/generate.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
