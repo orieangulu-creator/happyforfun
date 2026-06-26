@@ -160,4 +160,19 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--b
 .source a { color: var(--muted); }
 .demo-trip-note { font-size: 12px; color: var(--warn-ink); background: var(--warn-bg); border-radius: 8px; padding: 8px 11px; margin-top: 10px; }
 
+/* version bar */
+.version-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--line); }
+.version-bar .vb-label { font-size: 12px; color: var(--muted); margin-right: 2px; }
+.vtab { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: #fff; border-radius: 18px; padding: 5px 12px 5px 8px; cursor: pointer; font-size: 13px; }
+.vtab.active { border-color: var(--brand); background: #eef6f3; color: var(--brand-d); font-weight: 600; }
+.vtab input { width: auto; margin: 0; cursor: pointer; }
+.vb-actions { margin-left: auto; display: flex; gap: 8px; }
+.vb-actions button { font-size: 12px; padding: 5px 12px; }
+.vb-actions button:disabled { opacity: .4; cursor: not-allowed; }
+.vcmp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.vcmp-table th, .vcmp-table td { border: 1px solid var(--line); padding: 9px 11px; text-align: left; vertical-align: top; }
+.vcmp-table th { background: #f3f6f9; }
+.vcmp-table tr.diff td, .vcmp-table tr.diff th { background: #fff7ed; }
+.vcmp-table tr.diff th::after { content: " ⚡"; }
+
 .app-footer { padding: 20px; color: var(--muted); font-size: 12px; text-align: center; }

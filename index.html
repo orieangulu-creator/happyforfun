@@ -94,11 +94,13 @@
       </div>
 
       <button id="generateBtn" class="btn-primary">开始规划 →</button>
+      <button id="newPlanBtn" class="btn-ghost hidden" style="width:100%;margin-top:8px">＋ 生成新方案（另存为新版本）</button>
       <p id="inputError" class="error-text"></p>
     </section>
 
     <!-- ============ 输出区（单屏渐进展示） ============ -->
     <section class="panel output-panel" aria-label="输出区">
+      <div id="versionBar" class="version-bar hidden"></div>
       <div id="placeholder" class="placeholder">
         <div class="ph-emoji">🧭</div>
         <p>左侧随便填点（或什么都不填），点「开始规划」试试。</p>
@@ -108,6 +110,7 @@
       <div id="stageCompare" class="stage hidden"></div>
       <div id="stageBestTime" class="stage hidden"></div>
       <div id="stageTrip" class="stage hidden"></div>
+      <div id="stageVersionCompare" class="stage hidden"></div>
     </section>
   </main>
 
