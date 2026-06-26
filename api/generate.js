@@ -3,6 +3,26 @@
 // 三层防滥用：① IP 限流 ② 域名锁(Origin) ③ 访问码；外加请求大小上限 + 输入/输出校验。
 const crypto = require("crypto");
 
+// 可插拔大模型供应商：默认 DeepSeek(OpenAI 兼容)，可用 LLM_PROVIDER=anthropic 切回 Claude
+const PROVIDERS = {
+  deepseek: {
+    keyEnv: "DEEPSEEK_API_KEY",
+    url: "https://api.deepseek.com/chat/completions",
+    model: "deepseek-chat",
+    headers: (key) => ({ "content-type": "application/json", "authorization": "Bearer " + key }),
+    body: (model, prompt) => ({ model, messages: [{ role: "user", content: prompt }], max_tokens: 4096, temperature: 0.7, response_format: { type: "json_object" } }),
+    extract: (d) => (d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content) || ""
+  },
+  anthropic: {
+    keyEnv: "ANTHROPIC_API_KEY",
+    url: "https://api.anthropic.com/v1/messages",
+    model: "claude-opus-4-8",
+    headers: (key) => ({ "content-type": "application/json", "x-api-key": key, "anthropic-version": "2023-06-01" }),
+    body: (model, prompt) => ({ model, max_tokens: 4096, messages: [{ role: "user", content: prompt }] }),
+    extract: (d) => (d.content || []).map(b => b.text || "").join("")
+  }
+};
+
 // —— IP 限流（进程内基线；多实例硬性限流见 README：可换 Vercel KV/Upstash）——
 const RL = new Map(); // ip -> [timestamps]
 function rateLimit(ip, max, windowMs) {
@@ -75,14 +95,15 @@ async function handler(req, res) {
   if (req.method === "GET") { res.status(200).json({ ok: true, live: true, requiresAccessCode: true }); return; }
   if (req.method !== "POST") { res.status(405).json({ error: "method_not_allowed" }); return; }
 
-  const API_KEY = process.env.ANTHROPIC_API_KEY;
+  const prov = PROVIDERS[(process.env.LLM_PROVIDER || "deepseek").toLowerCase()] || PROVIDERS.deepseek;
+  const API_KEY = process.env[prov.keyEnv];
   const ACCESS_CODE = process.env.ACCESS_CODE;
   const ALLOWED = (process.env.ALLOWED_ORIGIN || "").split(",").map(s => s.trim()).filter(Boolean);
-  const MODEL = process.env.CLAUDE_MODEL || "claude-opus-4-8";
+  const MODEL = process.env.LLM_MODEL || prov.model;
   const MAX_PER_MIN = parseInt(process.env.RATE_LIMIT_PER_MIN || "15", 10);
 
   // 安全默认：缺密钥/访问码一律拒绝，强制安全配置
-  if (!API_KEY) { res.status(503).json({ error: "server_misconfig", message: "服务端未配置 ANTHROPIC_API_KEY" }); return; }
+  if (!API_KEY) { res.status(503).json({ error: "server_misconfig", message: "服务端未配置 " + prov.keyEnv }); return; }
   if (!ACCESS_CODE) { res.status(503).json({ error: "server_misconfig", message: "服务端未配置 ACCESS_CODE" }); return; }
 
   // ① 域名锁
@@ -107,14 +128,10 @@ async function handler(req, res) {
   let lastErr;
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
-      const r = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: { "content-type": "application/json", "x-api-key": API_KEY, "anthropic-version": "2023-06-01" },
-        body: JSON.stringify({ model: MODEL, max_tokens: 4096, messages: [{ role: "user", content: prompt }] })
-      });
-      if (!r.ok) throw new Error("claude_http_" + r.status);
+      const r = await fetch(prov.url, { method: "POST", headers: prov.headers(API_KEY), body: JSON.stringify(prov.body(MODEL, prompt)) });
+      if (!r.ok) throw new Error("llm_http_" + r.status);
       const data = await r.json();
-      const text = (data.content || []).map(b => b.text || "").join("").trim();
+      const text = (prov.extract(data) || "").trim();
       const out = JSON.parse(text.replace(/^```json?\s*/i, "").replace(/```$/, "").trim());
       const v = validateOutput(branch.type, out);
       if (!v.ok) throw new Error("schema:" + v.errors.join(";"));

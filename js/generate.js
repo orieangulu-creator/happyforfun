@@ -244,7 +244,7 @@
     let c = "";
     try { c = localStorage.getItem(CODE_KEY) || ""; } catch (e) {}
     if (force || !c) {
-      c = (window.prompt("请输入访问码以使用 Claude 实时生成：", "") || "").trim();
+      c = (window.prompt("请输入访问码以使用 AI 实时生成：", "") || "").trim();
       try { if (c) localStorage.setItem(CODE_KEY, c); } catch (e) {}
     }
     return c;
