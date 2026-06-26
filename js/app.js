@@ -42,7 +42,9 @@
     const bar = $("summaryBar"), txt = $("summaryText");
     if (!v) { bar.classList.add("hidden"); return; }
     bar.classList.remove("hidden");
-    txt.textContent = buildSummaryText(v.input);
+    const summary = buildSummaryText(v.input);
+    txt.textContent = summary;
+    const rail = $("railEditBtn"); if (rail) rail.title = "展开修改 · " + summary;
   }
   function buildSummaryText(input) {
     input = input || {};
@@ -78,6 +80,14 @@
     $("generateBtn").addEventListener("click", () => onGenerate(false));
     $("newPlanBtn").addEventListener("click", () => onGenerate(true));
     $("editReqBtn").addEventListener("click", () => { renderSummaryBar(); setFocus("edit"); });
+    // 折叠侧栏：展开符号 → 修改当前；＋ → 展开并引导生成新方案
+    $("railEditBtn").addEventListener("click", () => setFocus("edit"));
+    $("railNewBtn").addEventListener("click", () => {
+      setFocus("edit");
+      const b = $("newPlanBtn");
+      b.classList.add("pulse"); b.scrollIntoView({ block: "nearest" });
+      setTimeout(() => b.classList.remove("pulse"), 1300);
+    });
   }
 
   function setModeBadge() {

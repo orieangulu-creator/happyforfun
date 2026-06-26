@@ -18,7 +18,13 @@
   <main class="wrap layout">
     <!-- ============ 输入区（全部可选，零必填） ============ -->
     <section class="panel input-panel" aria-label="输入区">
-      <!-- 需求摘要条：OUTPUT 态显示，点「修改需求」展开表单回到 EDIT 态 -->
+      <!-- 折叠侧栏：OUTPUT/COMPARE 态显示——仅「＋新方案」与展开符号，输入区最小化 -->
+      <div id="inputRail" class="input-rail">
+        <button id="railNewBtn" type="button" class="rail-btn rail-plus" title="生成新方案">＋</button>
+        <button id="railEditBtn" type="button" class="rail-btn rail-edit" title="展开 / 修改需求">⟩</button>
+        <span class="rail-vlabel">修改需求</span>
+      </div>
+      <!-- 需求摘要条（保留元素，当前由折叠侧栏取代，默认隐藏） -->
       <div id="summaryBar" class="summary-bar hidden">
         <span id="summaryText" class="summary-text"></span>
         <button id="editReqBtn" type="button" class="btn-edit-req">✏️ 修改需求</button>

@@ -180,70 +180,59 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--b
 .app-footer { padding: 20px; color: var(--muted); font-size: 12px; text-align: center; }
 
 /* ============================================================
-   焦点态（focus states）—— 视觉主次 + 稳定外框
+   焦点态（focus states）—— 以「大小/折叠」分主次 + 稳定外框
    body.focus-input | focus-output | focus-edit | focus-compare
+   主内容最大化、其余折叠最小化；EDIT 态另叠加主灰弱化
    ============================================================ */
+.layout { transition: grid-template-columns .28s ease; }
+.input-panel, .output-panel { transition: box-shadow .25s ease, background .25s ease; }
 
-/* 需求摘要条（OUTPUT 态显示，EDIT/INPUT 态隐藏） */
-.summary-bar {
-  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-  background: #eef6f3; border: 1px solid #d4e9e2; border-radius: 10px;
-  padding: 9px 12px; margin-bottom: 4px;
-}
+/* 需求摘要条（保留元素，现由折叠侧栏取代，默认不展示） */
+.summary-bar { display: none; align-items: center; gap: 10px; }
 .summary-text { font-size: 13px; color: var(--brand-d); font-weight: 600; flex: 1; min-width: 0; }
-.btn-edit-req {
-  border: 1px solid var(--brand); background: #fff; color: var(--brand-d);
-  border-radius: 16px; padding: 5px 12px; cursor: pointer; font-size: 12px; white-space: nowrap;
-  transition: background .15s;
-}
-.btn-edit-req:hover { background: #f0f8f5; }
+.btn-edit-req { border: 1px solid var(--brand); background: #fff; color: var(--brand-d); border-radius: 16px; padding: 5px 12px; cursor: pointer; font-size: 12px; white-space: nowrap; }
 
-/* 输入表单展开/收起平滑过渡的基础容器 */
-.input-form { transition: opacity .25s ease; }
+/* 折叠侧栏：仅「＋」与展开符号 */
+.input-rail { display: none; flex-direction: column; align-items: center; gap: 12px; padding: 4px 0; }
+.rail-btn { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--brand); background: #fff; color: var(--brand-d); font-size: 18px; line-height: 1; cursor: pointer; display: grid; place-items: center; transition: background .15s, transform .15s; }
+.rail-btn:hover { background: #eaf5f1; }
+.rail-plus { background: var(--brand); color: #fff; font-weight: 700; }
+.rail-plus:hover { background: var(--brand-d); }
+.rail-vlabel { writing-mode: vertical-rl; font-size: 12px; color: var(--muted); letter-spacing: 3px; margin-top: 2px; }
+.pulse { animation: pulse 1s ease 2; }
+@keyframes pulse { 50% { transform: scale(1.15); } }
 
-/* —— INPUT 态：输入区是主角，输出区只放安静占位 —— */
-body.focus-input .summary-bar { display: none; }
+/* —— INPUT：输入区主角，无折叠 —— */
+body.focus-input .input-rail, body.focus-input .summary-bar { display: none; }
 body.focus-input .input-form { display: block; }
 
-/* —— OUTPUT 态：输出物是主角；输入区收起为一行需求摘要条 —— */
-body.focus-output .summary-bar { display: flex; }
-body.focus-output .input-form { display: none; }
-body.focus-output .input-panel { box-shadow: none; background: #fbfcfd; }
+/* —— OUTPUT / COMPARE：输入区收成窄侧栏，输出最大化 —— */
+body.focus-output .layout, body.focus-compare .layout { grid-template-columns: 64px 1fr; }
+body.focus-output .input-rail, body.focus-compare .input-rail { display: flex; }
+body.focus-output .summary-bar, body.focus-compare .summary-bar,
+body.focus-output .input-form, body.focus-compare .input-form { display: none; }
+body.focus-output .input-panel, body.focus-compare .input-panel { padding: 12px 6px; box-shadow: none; background: #fbfcfd; }
 body.focus-output .output-panel { box-shadow: 0 4px 22px rgba(31,39,51,.12); }
 
-/* —— EDIT 态：输入区展开高亮拉回焦点；输出区保留但视觉弱化 —— */
-body.focus-edit .summary-bar { display: none; }
+/* —— EDIT：输入区展开拉回焦点；输出保留但主灰弱化（用户认可） —— */
+body.focus-edit .input-rail, body.focus-edit .summary-bar { display: none; }
 body.focus-edit .input-form { display: block; }
-body.focus-edit .input-panel {
-  box-shadow: 0 0 0 2px var(--brand), 0 6px 24px rgba(47,125,107,.18);
-}
-body.focus-edit .output-panel { box-shadow: var(--shadow); }
-body.focus-edit .output-scroll {
-  opacity: .42; filter: grayscale(.7); pointer-events: none;
-  transition: opacity .25s ease, filter .25s ease;
-}
-/* 生成中：取消弱化，让 spinner 清晰可见 */
-body.is-loading.focus-edit .output-scroll {
-  opacity: 1; filter: none;
-}
+body.focus-edit .input-panel { box-shadow: 0 0 0 2px var(--brand), 0 6px 24px rgba(47,125,107,.18); }
+body.focus-edit .output-scroll { opacity: .5; filter: grayscale(.55); pointer-events: none; transition: opacity .25s ease, filter .25s ease; }
+body.is-loading.focus-edit .output-scroll { opacity: 1; filter: none; }
 
-/* —— COMPARE 态：对比视图是主角，其余 UI 弱化 —— */
-body.focus-compare .summary-bar { display: flex; }
-body.focus-compare .input-form { display: none; }
-body.focus-compare .input-panel { box-shadow: none; background: #fbfcfd; opacity: .85; }
-/* 弱化非对比的其它阶段 */
-body.focus-compare #stageRecommend,
-body.focus-compare #stageCompare,
-body.focus-compare #stageBestTime,
-body.focus-compare #stageTrip { display: none !important; }
-
-/* 对比表：只突出差异，相同行淡化（可折叠） */
+/* —— COMPARE：只突出差异，相同行淡化可折叠 —— */
+body.focus-compare #stageRecommend, body.focus-compare #stageCompare,
+body.focus-compare #stageBestTime, body.focus-compare #stageTrip { display: none !important; }
 .same-row td, .same-row th { color: #9aa6b2; background: #fafbfc; }
-.vcmp-table tr.diff td, .vcmp-table tr.diff th,
-.cmp-table tr.diff td, .cmp-table tr.diff th { font-weight: 500; }
 body.focus-compare.hide-same .same-row { display: none; }
-.same-toggle {
-  display: inline-flex; align-items: center; gap: 6px; margin: 10px 0 0;
-  font-size: 12px; color: var(--muted); cursor: pointer; user-select: none;
-}
+.same-toggle { display: inline-flex; align-items: center; gap: 6px; margin: 10px 0 0; font-size: 12px; color: var(--muted); cursor: pointer; user-select: none; }
 .same-toggle input { width: auto; margin: 0; cursor: pointer; }
+
+/* 窄屏：取消分栏与折叠，整页堆叠；侧栏横排 */
+@media (max-width: 880px) {
+  body.focus-output .layout, body.focus-compare .layout,
+  body.focus-edit .layout, body.focus-input .layout { grid-template-columns: 1fr; }
+  body.focus-output .input-rail, body.focus-compare .input-rail { flex-direction: row; justify-content: center; }
+  .rail-vlabel { writing-mode: horizontal-tb; }
+}
