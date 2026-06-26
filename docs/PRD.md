@@ -491,3 +491,39 @@ flowchart TD
 - 天数弹性 `dayType`：`core` | `optional`
 - （v2 预留）主题 `themes`：`food` | `nature` | `history` | `shopping` | `photography` | `kids_fun`
 - （v2 预留）预算 `budget`：`economy` | `comfort` | `luxury`
+
+---
+
+## 12. 生产与安全架构（v3）
+
+进入生产后，生成不再由前端直连 Claude，而是经服务端安全代理。
+
+### 12.1 Key 安全（核心原则）
+
+**API key 绝不下发浏览器。** 任何进入前端的 key 都可被用户在开发者工具看到、盗用，无法加密。故采用后端代理：
+
+```
+浏览器 → /api/generate（服务端持 key）→ Claude
+         key 仅存 Vercel 环境变量 ANTHROPIC_API_KEY，永不下发
+```
+
+### 12.2 端点防滥用（三层 + 加固）
+
+避免 key 被陌生人刷爆额度：
+
+1. **访问码**：请求头 `x-access-code` 与服务端 `ACCESS_CODE` 比对（timing-safe）。用户首次生成时输入，存浏览器本地。
+2. **域名锁**：`Origin` 必须在 `ALLOWED_ORIGIN` 白名单内。
+3. **IP 限流**：每 IP 每分钟 ≤ `RATE_LIMIT_PER_MIN`（默认 15）。
+
+加固：请求体 ≤ 200KB；`freeText` ≤ 500 字（G10）；服务端输出 schema 校验 + 失败重试 1 次（G5）；缺 `ANTHROPIC_API_KEY`/`ACCESS_CODE` 一律 503（安全默认）。
+
+> 限流为进程内基线；跨实例硬性限流可将 `api/generate.js` 的 `RL` 换为 Vercel KV / Upstash 共享计数。
+
+### 12.3 双运行模式
+
+- **DEMO**：纯静态打开（无 `/api`）→ 本地规则引擎，离线零配置。
+- **生产 live**：部署 Vercel（有 `/api/generate`）→ Claude 实时生成。前端启动探测 `/api/generate`，可用走 live，否则回落 DEMO。
+
+### 12.4 部署
+
+Vercel 零配置（静态站点 + `api/` Serverless Function）。环境变量见 `.env.example`，部署说明见 `README.md`。`.env`/真实 key 绝不入 git。

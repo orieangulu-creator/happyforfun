@@ -70,6 +70,7 @@
   // ---------- 初始化 ----------
   async function init() {
     await DATA.load();
+    await Generator.probe();
     setModeBadge();
     renderChips($("moodChips"), MOODS, state.mood);
     renderChips($("destPlaystyle"), PLAYSTYLES, state.playstyle);
@@ -92,7 +93,7 @@
 
   function setModeBadge() {
     const b = $("modeBadge");
-    if (Generator.isLive()) { b.textContent = "Claude 实时生成"; b.className = "mode-badge live"; }
+    if (Generator.isLive()) { b.textContent = "Claude 实时生成 · 需访问码"; b.className = "mode-badge live"; }
     else { b.textContent = "DEMO · 本地规则引擎" + (DATA.usingFallback ? "（内联数据）" : ""); b.className = "mode-badge demo"; }
   }
 

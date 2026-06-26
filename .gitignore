@@ -1,4 +1,8 @@
-# 本地 API key，禁止入库
+# 机密：服务端环境变量与本地覆盖，禁止入库
+.env
+.env.local
+.env.*.local
+.vercel
 config.js
 
 # 杂项
