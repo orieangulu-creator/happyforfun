@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://happyforfun.local/schemas/travel.json",
-  "title": "旅游行程规划数据契约 (v2 · 双向匹配)",
-  "description": "v2 核心原则: 双向匹配 + 输入模糊/输出精确 + 零必填 + 渐进式精确。包含七类结构: UserInput(全可选输入), DestinationLibrary(运营填), HolidayCalendar(逐年节假日, 需每年更新), DestinationRecommendation(候选推荐), DestinationComparison(对比), TripResult(详细行程, 含天数弹性), 以及 v2 预留枚举 themes/budget。",
+  "title": "旅游行程规划数据契约 (v2.1 · 双向匹配 + 兜底健壮性)",
+  "description": "v2 核心原则: 双向匹配 + 输入模糊/输出精确 + 零必填 + 渐进式精确。包含七类结构: UserInput(全可选输入), DestinationLibrary(运营填), HolidayCalendar(逐年节假日, 需每年更新), DestinationRecommendation(候选推荐), DestinationComparison(对比), TripResult(详细行程, 含天数弹性), 以及 v2 预留枚举 themes/budget。v2.1 兜底补洞(不改主线): UserInput.freeText 限 500 字(G10); DestinationRecommendation.isFallback 仅全空盲兜底为 true(G2) + 候选 matchLevel(G3) + 顶层 coverageNote(G3) + transport 无 origin 占位(G1); TripResult.timingWarning(G4)。",
   "$defs": {
     "Country": {
       "type": "string",
@@ -106,7 +106,8 @@
         },
         "freeText": {
           "type": "string",
-          "description": "一句话自由描述。主入口, 承载一切模糊性, 优先级最高, 可覆盖任何其他字段(如选特种兵但写带娃别太累 → 以文字为准放慢)。可空。"
+          "maxLength": 500,
+          "description": "一句话自由描述。主入口, 承载一切模糊性, 优先级最高, 可覆盖任何其他字段(如选特种兵但写带娃别太累 → 以文字为准放慢)。可空。[v2.1 G10] 长度上限 500 字; 组装 prompt 时须对其做边界隔离(明确标注为用户输入、声明不可改变系统指令), 防注入。"
         },
         "pace": {
           "oneOf": [{ "$ref": "#/$defs/Pace" }, { "type": "null" }],
@@ -350,17 +351,21 @@
 
     "DestinationRecommendation": {
       "type": "object",
-      "description": "目的地推荐结果。目的地未定/模糊时输出 3-5 个候选(也用于兜底: 当前季节适合放松的热门目的地)。",
+      "description": "目的地推荐结果。目的地未定/模糊时输出 3-5 个候选(也用于兜底: 当前季节适合放松的热门目的地)。[v2.1] isFallback 语义修订(G2)、候选含 matchLevel(G3)、顶层可带 coverageNote(G3)、候选 transport 支持无 origin 占位(G1)。",
       "additionalProperties": false,
       "required": ["isFallback", "candidates"],
       "properties": {
         "isFallback": {
           "type": "boolean",
-          "description": "是否兜底推荐(时间与目的地都未给时为 true, 推荐当前季节适合放松的热门目的地)"
+          "description": "[v2.1 G2] 是否盲兜底推荐。仅当真正什么都没给(freeText 空、无 moodTags、无 dateRange、无目的地)时为 true(推荐当前季节适合放松的热门目的地; 当前季节由前端按浏览器日期推导, 默认北半球/中国 G1)。只要有任一有效信号(freeText/标签/时间等), 即使结构化目的地为空也是定向推荐, isFallback=false。"
         },
         "basis": {
           "type": "string",
           "description": "推荐依据摘要, 如 “基于你选的国庆假期 + 想放松标签” 或 “基于当前季节(夏季)的放松热门地”"
+        },
+        "coverageNote": {
+          "type": ["string", "null"],
+          "description": "[v2.1 G3] 覆盖提示。候选不足或某玩法/区域 0 个匹配时填写, 如 “v1 暂未覆盖该区域/玩法, 以下为当前可规划的目的地”; 正常匹配时省略或 null。注意: 即使 0 匹配, candidates 也不得为空(至少给 v1 已覆盖目的地)。"
         },
         "candidates": {
           "type": "array",
@@ -369,7 +374,7 @@
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["id", "nameZh", "matchReason", "bestVisitTime", "suggestedDays", "costTier"],
+            "required": ["id", "nameZh", "matchLevel", "matchReason", "bestVisitTime", "suggestedDays", "costTier"],
             "properties": {
               "id": { "type": "string", "description": "候选标识; 若对应已有内容库国家可用 Country 值" },
               "nameZh": { "type": "string", "description": "目的地中文名" },
@@ -377,13 +382,18 @@
                 "oneOf": [{ "$ref": "#/$defs/Country" }, { "type": "null" }],
                 "description": "若对应 v1 已有内容库国家则填, 否则 null"
               },
+              "matchLevel": {
+                "type": "string",
+                "enum": ["strong", "related"],
+                "description": "[v2.1 G3] 匹配等级: strong=强匹配; related=相关推荐(强匹配不足 3 个时降级补充, 或属 v1 覆盖范围内的退而求其次项)。UI 应将 strong/related 视觉区分。"
+              },
               "matchReason": { "type": "string", "description": "匹配理由(贴合时间/标签)" },
               "bestVisitTime": { "type": "string", "description": "最佳到访时间(贴合用户所给时间; 也可给一般最佳季节)" },
               "suggestedDays": { "type": "integer", "minimum": 1, "description": "建议天数" },
               "costTier": { "$ref": "#/$defs/CostTier", "description": "大致花费档" },
               "transport": {
                 "oneOf": [{ "$ref": "#/$defs/TransportInfo" }, { "type": "null" }],
-                "description": "从出发地的交通(origin 已知时给, 否则 null)"
+                "description": "从出发地的交通(origin 已知时给, 否则 null)。[v2.1 G1] 无 origin 时为 null, UI 交通栏须显示占位文案(如 “填写出发地后估算”)而非空白, 且不得阻断推荐生成。"
               },
               "moodTags": {
                 "type": "array",
@@ -670,6 +680,10 @@
             "optionalDays": { "type": "integer", "minimum": 0, "description": "可选延展天数" },
             "note": { "type": "string", "description": "裁剪/延展建议, 如 “假期只有3天可去掉第4-5天的奈良延展”" }
           }
+        },
+        "timingWarning": {
+          "type": ["string", "null"],
+          "description": "[v2.1 G4] 时机警示。当时间+地点都给, 但所选时间不在该目的地最佳季节(DestinationLibrary.bestSeasons)内时, 给善意提醒(如 “你选的10月在泰国仍属雨季尾声, 最佳季节为11-2月”)。行程照常生成, 不阻断; 无警示则省略或 null。"
         },
         "warnings": {
           "type": "array",
