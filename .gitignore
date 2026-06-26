@@ -5,3 +5,7 @@ config.js
 .DS_Store
 node_modules/
 *.log
+
+# 测试工具依赖（产品本身零依赖，纯静态）
+package.json
+package-lock.json
