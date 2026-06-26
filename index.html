@@ -18,6 +18,13 @@
   <main class="wrap layout">
     <!-- ============ 输入区（全部可选，零必填） ============ -->
     <section class="panel input-panel" aria-label="输入区">
+      <!-- 需求摘要条：OUTPUT 态显示，点「修改需求」展开表单回到 EDIT 态 -->
+      <div id="summaryBar" class="summary-bar hidden">
+        <span id="summaryText" class="summary-text"></span>
+        <button id="editReqBtn" type="button" class="btn-edit-req">✏️ 修改需求</button>
+      </div>
+
+      <div id="inputForm" class="input-form">
       <h2 class="panel-title">说说你的情况 <small>（每一项都可以留空）</small></h2>
 
       <div class="field">
@@ -96,21 +103,24 @@
       <button id="generateBtn" class="btn-primary">开始规划 →</button>
       <button id="newPlanBtn" class="btn-ghost hidden" style="width:100%;margin-top:8px">＋ 生成新方案（另存为新版本）</button>
       <p id="inputError" class="error-text"></p>
+      </div><!-- /#inputForm -->
     </section>
 
     <!-- ============ 输出区（单屏渐进展示） ============ -->
     <section class="panel output-panel" aria-label="输出区">
       <div id="versionBar" class="version-bar hidden"></div>
-      <div id="placeholder" class="placeholder">
-        <div class="ph-emoji">🧭</div>
-        <p>左侧随便填点（或什么都不填），点「开始规划」试试。</p>
+      <div class="output-scroll">
+        <div id="placeholder" class="placeholder">
+          <div class="ph-emoji">🧭</div>
+          <p>左侧随便填点（或什么都不填），点「开始规划」试试。</p>
+        </div>
+        <div id="loading" class="loading hidden"><div class="spinner"></div><span id="loadingText">生成中…</span></div>
+        <div id="stageRecommend" class="stage hidden"></div>
+        <div id="stageCompare" class="stage hidden"></div>
+        <div id="stageBestTime" class="stage hidden"></div>
+        <div id="stageTrip" class="stage hidden"></div>
+        <div id="stageVersionCompare" class="stage hidden"></div>
       </div>
-      <div id="loading" class="loading hidden"><div class="spinner"></div><span id="loadingText">生成中…</span></div>
-      <div id="stageRecommend" class="stage hidden"></div>
-      <div id="stageCompare" class="stage hidden"></div>
-      <div id="stageBestTime" class="stage hidden"></div>
-      <div id="stageTrip" class="stage hidden"></div>
-      <div id="stageVersionCompare" class="stage hidden"></div>
     </section>
   </main>
 

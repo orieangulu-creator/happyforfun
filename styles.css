@@ -40,7 +40,7 @@ body {
 @media (max-width: 880px) { .layout { grid-template-columns: 1fr; } }
 
 .panel { background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
-.input-panel { position: sticky; top: 16px; }
+.input-panel { position: sticky; top: 16px; transition: box-shadow .25s ease, transform .25s ease; }
 .panel-title { margin: 0 0 14px; font-size: 17px; }
 .panel-title small, label small { color: var(--muted); font-weight: 400; font-size: 12px; }
 
@@ -88,8 +88,10 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--b
 .btn-ghost { border: 1px solid var(--brand); background: #fff; color: var(--brand-d); border-radius: 9px; padding: 8px 16px; cursor: pointer; font-size: 14px; }
 .btn-ghost:hover { background: #f0f8f5; }
 
-/* output */
-.output-panel { min-height: 320px; }
+/* output —— 稳定外框：固定 min-height，内容在框内滚动 */
+.output-panel { min-height: 520px; display: flex; flex-direction: column; }
+.output-scroll { flex: 1; min-height: 0; max-height: calc(100vh - 140px); overflow-y: auto; overflow-x: hidden; padding-right: 4px; }
+@media (max-width: 880px) { .output-scroll { max-height: none; } }
 .placeholder { text-align: center; color: var(--muted); padding: 70px 20px; }
 .ph-emoji { font-size: 46px; }
 .loading { display: flex; align-items: center; gap: 12px; padding: 40px; color: var(--muted); }
@@ -176,3 +178,72 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--b
 .vcmp-table tr.diff th::after { content: " ⚡"; }
 
 .app-footer { padding: 20px; color: var(--muted); font-size: 12px; text-align: center; }
+
+/* ============================================================
+   焦点态（focus states）—— 视觉主次 + 稳定外框
+   body.focus-input | focus-output | focus-edit | focus-compare
+   ============================================================ */
+
+/* 需求摘要条（OUTPUT 态显示，EDIT/INPUT 态隐藏） */
+.summary-bar {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  background: #eef6f3; border: 1px solid #d4e9e2; border-radius: 10px;
+  padding: 9px 12px; margin-bottom: 4px;
+}
+.summary-text { font-size: 13px; color: var(--brand-d); font-weight: 600; flex: 1; min-width: 0; }
+.btn-edit-req {
+  border: 1px solid var(--brand); background: #fff; color: var(--brand-d);
+  border-radius: 16px; padding: 5px 12px; cursor: pointer; font-size: 12px; white-space: nowrap;
+  transition: background .15s;
+}
+.btn-edit-req:hover { background: #f0f8f5; }
+
+/* 输入表单展开/收起平滑过渡的基础容器 */
+.input-form { transition: opacity .25s ease; }
+
+/* —— INPUT 态：输入区是主角，输出区只放安静占位 —— */
+body.focus-input .summary-bar { display: none; }
+body.focus-input .input-form { display: block; }
+
+/* —— OUTPUT 态：输出物是主角；输入区收起为一行需求摘要条 —— */
+body.focus-output .summary-bar { display: flex; }
+body.focus-output .input-form { display: none; }
+body.focus-output .input-panel { box-shadow: none; background: #fbfcfd; }
+body.focus-output .output-panel { box-shadow: 0 4px 22px rgba(31,39,51,.12); }
+
+/* —— EDIT 态：输入区展开高亮拉回焦点；输出区保留但视觉弱化 —— */
+body.focus-edit .summary-bar { display: none; }
+body.focus-edit .input-form { display: block; }
+body.focus-edit .input-panel {
+  box-shadow: 0 0 0 2px var(--brand), 0 6px 24px rgba(47,125,107,.18);
+}
+body.focus-edit .output-panel { box-shadow: var(--shadow); }
+body.focus-edit .output-scroll {
+  opacity: .42; filter: grayscale(.7); pointer-events: none;
+  transition: opacity .25s ease, filter .25s ease;
+}
+/* 生成中：取消弱化，让 spinner 清晰可见 */
+body.is-loading.focus-edit .output-scroll {
+  opacity: 1; filter: none;
+}
+
+/* —— COMPARE 态：对比视图是主角，其余 UI 弱化 —— */
+body.focus-compare .summary-bar { display: flex; }
+body.focus-compare .input-form { display: none; }
+body.focus-compare .input-panel { box-shadow: none; background: #fbfcfd; opacity: .85; }
+/* 弱化非对比的其它阶段 */
+body.focus-compare #stageRecommend,
+body.focus-compare #stageCompare,
+body.focus-compare #stageBestTime,
+body.focus-compare #stageTrip { display: none !important; }
+
+/* 对比表：只突出差异，相同行淡化（可折叠） */
+.same-row td, .same-row th { color: #9aa6b2; background: #fafbfc; }
+.vcmp-table tr.diff td, .vcmp-table tr.diff th,
+.cmp-table tr.diff td, .cmp-table tr.diff th { font-weight: 500; }
+body.focus-compare.hide-same .same-row { display: none; }
+.same-toggle {
+  display: inline-flex; align-items: center; gap: 6px; margin: 10px 0 0;
+  font-size: 12px; color: var(--muted); cursor: pointer; user-select: none;
+}
+.same-toggle input { width: auto; margin: 0; cursor: pointer; }

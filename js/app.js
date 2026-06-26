@@ -23,6 +23,48 @@
   };
   const active = () => state.plans.find(p => p.id === state.activeId);
 
+  // ---------- 焦点态（视觉主次）：input | output | edit | compare ----------
+  const FOCUS_CLASSES = ["focus-input", "focus-output", "focus-edit", "focus-compare"];
+  state.focus = "input";
+  function setFocus(mode) {
+    state.focus = mode;
+    const b = document.body;
+    FOCUS_CLASSES.forEach(c => b.classList.remove(c));
+    b.classList.add("focus-" + mode);
+    if (mode !== "compare") b.classList.remove("hide-same");
+    // 进入 EDIT 态时把焦点拉回表单
+    if (mode === "edit") { try { $("origin").focus({ preventScroll: true }); } catch (e) {} }
+  }
+
+  // 需求摘要条：用激活版本的输入生成一行摘要
+  function renderSummaryBar() {
+    const v = active();
+    const bar = $("summaryBar"), txt = $("summaryText");
+    if (!v) { bar.classList.add("hidden"); return; }
+    bar.classList.remove("hidden");
+    txt.textContent = buildSummaryText(v.input);
+  }
+  function buildSummaryText(input) {
+    input = input || {};
+    const parts = [];
+    if (input.origin) parts.push(input.origin);
+    const d = input.destination || {};
+    let dest = "";
+    if (d.granularity === "country" && d.country) dest = DATA.libraries[d.country] ? DATA.libraries[d.country].countryNameZh : d.country;
+    else if (d.granularity === "region" && d.regionText) dest = d.regionText;
+    else if (d.granularity === "playstyle" && (d.playstyleTags || []).length) dest = (d.playstyleTags).join("/");
+    else dest = "目的地待定";
+    parts.push(dest);
+    if (input.dateRange) {
+      const fmt = s => (s || "").slice(5).replace("-", "/");
+      parts.push(`${fmt(input.dateRange.start)}–${fmt(input.dateRange.end)}`);
+    }
+    if (input.pace) parts.push(PACE_ZH[input.pace] || input.pace);
+    else if ((input.moodTags || []).includes("relax")) parts.push("悠闲");
+    if (input.companion) parts.push(COMP_ZH[input.companion] || input.companion);
+    return parts.filter(Boolean).join(" · ");
+  }
+
   // ---------- 初始化 ----------
   async function init() {
     await DATA.load();
@@ -32,8 +74,10 @@
     renderHolidayChips();
     wireGranularity();
     wireMisc();
+    setFocus("input");
     $("generateBtn").addEventListener("click", () => onGenerate(false));
     $("newPlanBtn").addEventListener("click", () => onGenerate(true));
+    $("editReqBtn").addEventListener("click", () => { renderSummaryBar(); setFocus("edit"); });
   }
 
   function setModeBadge() {
@@ -159,8 +203,8 @@
     setGranularity(d.granularity || "country");
   }
 
-  function showLoading(t) { $("placeholder").classList.add("hidden"); $("loadingText").textContent = t || "生成中…"; $("loading").classList.remove("hidden"); }
-  function hideLoading() { $("loading").classList.add("hidden"); }
+  function showLoading(t) { document.body.classList.add("is-loading"); $("placeholder").classList.add("hidden"); $("loadingText").textContent = t || "生成中…"; $("loading").classList.remove("hidden"); }
+  function hideLoading() { document.body.classList.remove("is-loading"); $("loading").classList.add("hidden"); }
   function clearStages() {
     ["stageRecommend", "stageCompare", "stageBestTime", "stageTrip", "stageVersionCompare"]
       .forEach(id => { $(id).innerHTML = ""; $(id).classList.add("hidden"); });
@@ -200,6 +244,8 @@
     $("newPlanBtn").classList.remove("hidden");
     $("generateBtn").textContent = "更新当前方案 ↻";
     renderVersionBar();
+    renderSummaryBar();
+    setFocus("output"); // 出方案/更新成功 → 回到 OUTPUT 态并收起输入区
   }
 
   // 按当前 result 渲染（用于生成后 & 版本切换）
@@ -249,6 +295,8 @@
     setFormFromInput(v.input);
     renderResult(v);
     renderVersionBar();
+    renderSummaryBar();
+    setFocus("output");
   }
   function undo() {
     const v = active();
@@ -257,6 +305,8 @@
     setFormFromInput(v.input);
     renderResult(v);
     renderVersionBar();
+    renderSummaryBar();
+    setFocus("output");
   }
   function toggleVcompare(id, on) {
     if (on) { if (state.vcompare.size >= 3) { alert("最多对比 3 个版本"); renderVersionBar(); return; } state.vcompare.add(id); }
@@ -351,6 +401,8 @@
     v.result = res; v.picked = country;
     renderBestTime(res, country);
     renderVersionBar();
+    renderSummaryBar();
+    setFocus("output");
   }
   function renderBestTime(res, country) {
     const b = res.data, box = $("stageBestTime");
@@ -367,7 +419,7 @@
       const r = await Generator.generate(v.input, { forceBranch: { type: "trip" } });
       hideLoading();
       v.result = r; v.picked = country;
-      renderTrip(r); renderVersionBar();
+      renderTrip(r); renderVersionBar(); renderSummaryBar(); setFocus("output");
     });
     box.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
@@ -435,19 +487,32 @@
     const vs = state.plans.filter(p => state.vcompare.has(p.id));
     const sums = vs.map(versionSummary);
     const rows = [["dest", "目的地"], ["time", "时间"], ["days", "天数"], ["pace", "节奏"], ["companion", "同行人"], ["tags", "偏好标签"], ["holiday", "当地节假日"], ["cost", "花费档"]];
-    let html = `<div class="stage-head"><span class="step">版本对比</span><h3>方案并排对比</h3></div>
-      <p class="stage-sub">⚡ 标记的行是各版本差异显著项（含同地不同时间）</p>
-      <table class="vcmp-table"><thead><tr><th>维度</th>`;
-    vs.forEach(v => html += `<th>${esc(versionLabel(v))}</th>`);
-    html += `</tr></thead><tbody>`;
+    let sameCount = 0;
+    let body = "";
     rows.forEach(([k, label]) => {
       const vals = sums.map(s => s[k]);
       const diff = new Set(vals).size > 1;
-      html += `<tr class="${diff ? "diff" : ""}"><th>${label}</th>${vals.map(x => `<td>${esc(x)}</td>`).join("")}</tr>`;
+      if (!diff) sameCount++;
+      body += `<tr class="${diff ? "diff" : "same-row"}"><th>${label}</th>${vals.map(x => `<td>${esc(x)}</td>`).join("")}</tr>`;
     });
-    html += `</tbody></table>`;
+    let html = `<div class="stage-head"><span class="step">版本对比</span><h3>方案并排对比</h3>
+        <button type="button" class="btn-ghost" id="exitCmpBtn" style="margin-left:auto;font-size:12px;padding:5px 12px">← 返回方案</button></div>
+      <p class="stage-sub">⚡ 只突出差异：差异行高亮，相同行已淡化${sameCount ? "（默认折叠）" : ""}。</p>
+      <table class="vcmp-table"><thead><tr><th>维度</th>`;
+    vs.forEach(v => html += `<th>${esc(versionLabel(v))}</th>`);
+    html += `</tr></thead><tbody>${body}</tbody></table>`;
+    if (sameCount) html += `<label class="same-toggle"><input type="checkbox" id="sameToggle"/> 展开相同项（${sameCount}）</label>`;
     const box = $("stageVersionCompare");
     box.innerHTML = html; box.classList.remove("hidden");
+    // 默认折叠相同行；其余 UI 弱化
+    document.body.classList.add("hide-same");
+    setFocus("compare");
+    const tgl = $("sameToggle");
+    if (tgl) tgl.addEventListener("change", () => document.body.classList.toggle("hide-same", !tgl.checked));
+    $("exitCmpBtn").addEventListener("click", () => {
+      box.classList.add("hidden");
+      setFocus("output");
+    });
     box.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 
