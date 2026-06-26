@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://happyforfun.local/schemas/travel.json",
-  "title": "旅游行程规划数据契约 (M1)",
-  "description": "包含两类核心结构: DestinationLibrary(运营填) 与 TripResult(生成结果)。标注 v2 的字段为预留, v1 可选/留空。",
+  "title": "旅游行程规划数据契约 (v2 · 双向匹配)",
+  "description": "v2 核心原则: 双向匹配 + 输入模糊/输出精确 + 零必填 + 渐进式精确。包含七类结构: UserInput(全可选输入), DestinationLibrary(运营填), HolidayCalendar(逐年节假日, 需每年更新), DestinationRecommendation(候选推荐), DestinationComparison(对比), TripResult(详细行程, 含天数弹性), 以及 v2 预留枚举 themes/budget。",
   "$defs": {
     "Country": {
       "type": "string",
       "enum": ["japan", "thailand", "france"],
-      "description": "v1 支持的目的地国家"
+      "description": "v1 支持的目的地国家(精确粒度时使用)"
     },
     "Season": {
       "type": "string",
@@ -16,33 +16,180 @@
     "Pace": {
       "type": "string",
       "enum": ["intense", "balanced", "relaxed"],
-      "description": "节奏强度: 特种兵 / 均衡 / 悠闲"
+      "description": "节奏强度: 特种兵 / 均衡 / 悠闲。可选, 不选默认 balanced"
     },
     "Companion": {
       "type": "string",
       "enum": ["solo", "couple", "family_kids", "elderly", "friends"],
-      "description": "同行人结构: 独自 / 情侣蜜月 / 亲子带娃 / 长辈同行 / 朋友结伴"
+      "description": "同行人结构: 独自 / 情侣蜜月 / 亲子带娃 / 长辈同行 / 朋友结伴。可选, 不选走通用"
+    },
+    "MoodTag": {
+      "type": "string",
+      "description": "快捷标签 / 心情玩法标签。本质是自由文字的一键填充, 非结构化维度; 同时兼做玩法型模糊匹配的桥梁。建议值(可扩展): relax(想放松) / explore(想玩透) / food(想吃好吃的) / scenery(想看风景) / island(海岛) / snow(雪山) / hotspring(温泉) / slow(慢城) / culture(文化) / shopping(购物)。运营在 DestinationLibrary.moodTags 中复用同一套取值以实现匹配。"
+    },
+    "DestinationGranularity": {
+      "type": "string",
+      "enum": ["country", "region", "playstyle", "none"],
+      "description": "目的地粒度: 具体国家 / 模糊地理区域(如东南亚、欧洲) / 模糊玩法(如海岛、雪山、温泉) / 完全留空"
     },
     "Theme": {
       "type": "string",
       "enum": ["food", "nature", "history", "shopping", "photography", "kids_fun"],
-      "description": "(v2) 主题偏好维度"
+      "description": "(v2 预留) 主题偏好维度。Schema 留字段, v1 前端不渲染、AI 不读取。"
     },
     "Budget": {
       "type": "string",
       "enum": ["economy", "comfort", "luxury"],
-      "description": "(v2) 预算档位维度"
+      "description": "(v2 预留) 预算档位维度。Schema 留字段, v1 前端不渲染、AI 不读取。"
+    },
+    "CostTier": {
+      "type": "string",
+      "enum": ["low", "medium", "high"],
+      "description": "大致花费档(用于推荐/对比的粗粒度展示, 不等同于 v2 预留的 budget 输入维度)"
+    },
+    "Source": {
+      "type": "string",
+      "description": "信息来源(URL 或出处描述)。所有内容条目必填, 禁止编造。"
+    },
+
+    "DateRange": {
+      "type": "object",
+      "description": "节假日感知日期选择器的输出: 一次同时确定时间与天数。可整体留空(走兜底推荐)。",
+      "additionalProperties": false,
+      "properties": {
+        "start": { "type": "string", "format": "date", "description": "开始日期 YYYY-MM-DD" },
+        "end": { "type": "string", "format": "date", "description": "结束日期 YYYY-MM-DD" },
+        "days": { "type": "integer", "minimum": 1, "maximum": 60, "description": "天数, 由 start/end 推导, 也可只给 days 不给具体日期" },
+        "anchoredHolidayId": { "type": "string", "description": "若用户通过一键选中某段法定假期而来, 记录该假期 id(对应 HolidayCalendar.holidays[].id)" }
+      }
+    },
+
+    "UserInput": {
+      "type": "object",
+      "description": "用户查询输入模型。v2 核心: 所有字段可选(零必填), 体现双向匹配——用户固定哪一头, 系统补全另一头。freeText 优先级最高, 可覆盖任何其他字段。",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "origin": {
+          "type": "string",
+          "description": "出发地, 可选, 记忆上次。影响出发地法定节假日高亮与交通估算。"
+        },
+        "dateRange": {
+          "$ref": "#/$defs/DateRange",
+          "description": "时间(=节假日感知日期选择器结果)。可选; 留空走兜底推荐当前季节目的地。"
+        },
+        "destination": {
+          "type": "object",
+          "description": "目的地, 可选, 支持四种粒度。",
+          "additionalProperties": false,
+          "properties": {
+            "granularity": { "$ref": "#/$defs/DestinationGranularity" },
+            "country": {
+              "oneOf": [{ "$ref": "#/$defs/Country" }, { "type": "null" }],
+              "description": "granularity=country 时填; 其他粒度为 null"
+            },
+            "regionText": {
+              "type": "string",
+              "description": "granularity=region 时填模糊地理区域, 如 东南亚 / 欧洲"
+            },
+            "playstyleTags": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/MoodTag" },
+              "description": "granularity=playstyle 时填模糊玩法, 如 island / snow / hotspring"
+            }
+          }
+        },
+        "moodTags": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/MoodTag" },
+          "description": "快捷标签(心情/目的)。喂给推荐引擎, 同时影响选地与默认节奏。可空。"
+        },
+        "freeText": {
+          "type": "string",
+          "description": "一句话自由描述。主入口, 承载一切模糊性, 优先级最高, 可覆盖任何其他字段(如选特种兵但写带娃别太累 → 以文字为准放慢)。可空。"
+        },
+        "pace": {
+          "oneOf": [{ "$ref": "#/$defs/Pace" }, { "type": "null" }],
+          "description": "节奏。可选; 不选→默认 balanced(若 moodTags 含 relax 则默认 relaxed)。"
+        },
+        "companion": {
+          "oneOf": [{ "$ref": "#/$defs/Companion" }, { "type": "null" }],
+          "description": "同行人。可选; 不选→通用。"
+        },
+        "themes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Theme" },
+          "description": "(v2 预留) v1 前端不渲染、不传入。"
+        },
+        "budget": {
+          "oneOf": [{ "$ref": "#/$defs/Budget" }, { "type": "null" }],
+          "description": "(v2 预留) v1 前端不渲染、不传入。"
+        }
+      }
     },
 
     "DestinationLibrary": {
       "type": "object",
-      "description": "目的地内容库 - 运营 agent 为每个国家填写真实数据",
+      "description": "目的地内容库 - 运营 agent 为每个国家填写真实数据。v1 必交: japan / thailand / france。每条内容强制带 source。",
       "additionalProperties": false,
-      "required": ["country", "countryNameZh", "updatedAt", "attractions", "foods", "reservations", "seasonalTips"],
+      "required": ["country", "countryNameZh", "updatedAt", "bestSeasons", "moodTags", "idealDuration", "signatureExperiencesByPeriod", "attractions", "foods", "reservations", "seasonalTips"],
       "properties": {
         "country": { "$ref": "#/$defs/Country" },
         "countryNameZh": { "type": "string" },
         "updatedAt": { "type": "string", "format": "date" },
+        "bestSeasons": {
+          "type": "array",
+          "description": "最佳季节(支持双向匹配: 给地点→给最佳时间)。",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["season", "reason", "source"],
+            "properties": {
+              "season": { "$ref": "#/$defs/Season" },
+              "reason": { "type": "string", "description": "为何此季节最佳" },
+              "source": { "$ref": "#/$defs/Source" }
+            }
+          }
+        },
+        "moodTags": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/MoodTag" },
+          "description": "该目的地适合的心情/玩法标签。兼做玩法型模糊匹配的桥梁(与 UserInput.moodTags / playstyleTags 同一套取值)。"
+        },
+        "idealDuration": {
+          "type": "object",
+          "description": "黄金时长建议(天)。",
+          "additionalProperties": false,
+          "required": ["minDays", "maxDays", "source"],
+          "properties": {
+            "minDays": { "type": "integer", "minimum": 1 },
+            "maxDays": { "type": "integer", "minimum": 1 },
+            "note": { "type": "string", "description": "时长说明(可选)" },
+            "source": { "$ref": "#/$defs/Source" }
+          }
+        },
+        "signatureExperiencesByPeriod": {
+          "type": "array",
+          "description": "各时段核心旅游体验(支持双向匹配: 给地点→给各时段核心体验, 如日本春樱/夏祭花火/秋枫/冬雪温泉)。可按季或按月列出。",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["period", "experiences", "source"],
+            "properties": {
+              "period": { "type": "string", "description": "时段标识, 如 spring / 3月 / 7-8月" },
+              "season": {
+                "oneOf": [{ "$ref": "#/$defs/Season" }, { "type": "null" }],
+                "description": "可对齐到的季节(便于按季节匹配; 不适用则 null)"
+              },
+              "experiences": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "该时段的标志性玩法, 如 [赏樱, 夜樱点灯]"
+              },
+              "source": { "$ref": "#/$defs/Source" }
+            }
+          }
+        },
         "attractions": {
           "type": "array",
           "items": {
@@ -55,12 +202,17 @@
               "region": { "type": "string", "description": "所在城市/区域" },
               "summary": { "type": "string" },
               "suggestedDurationMin": { "type": "integer", "minimum": 0 },
+              "moodTags": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/MoodTag" },
+                "description": "该景点契合的心情/玩法标签(可选, 助力匹配)"
+              },
               "tags": {
                 "type": "array",
                 "items": { "$ref": "#/$defs/Theme" },
-                "description": "(v2) 主题标签, v1 可选"
+                "description": "(v2 预留) 主题标签"
               },
-              "source": { "type": "string", "description": "信息来源(必填)" }
+              "source": { "$ref": "#/$defs/Source" }
             }
           }
         },
@@ -80,7 +232,7 @@
                 "type": "array",
                 "items": { "$ref": "#/$defs/Theme" }
               },
-              "source": { "type": "string" }
+              "source": { "$ref": "#/$defs/Source" }
             }
           }
         },
@@ -97,7 +249,7 @@
               "method": { "type": "string", "description": "预约方式" },
               "leadTime": { "type": "string", "description": "建议提前时长" },
               "note": { "type": "string" },
-              "source": { "type": "string" }
+              "source": { "$ref": "#/$defs/Source" }
             }
           }
         },
@@ -111,69 +263,284 @@
             "properties": {
               "season": { "$ref": "#/$defs/Season" },
               "tip": { "type": "string" },
-              "source": { "type": "string" }
+              "source": { "$ref": "#/$defs/Source" }
             }
           }
         },
         "budgetNotes": {
           "type": ["string", "null"],
-          "description": "(v2) 预算相关备注, v1 留空"
+          "description": "(v2 预留) 预算相关备注, v1 留空"
         }
       }
     },
 
-    "UserInput": {
+    "HolidayCalendar": {
       "type": "object",
-      "description": "用户核心输入 / 生成请求参数",
+      "description": "节假日数据集。逐年维护(含 year), 含调休, 覆盖 2026(如已公布则含 2027)。地区覆盖: 中国(出发地高亮) + 日本/泰国/法国(目的地条件高亮)。每条带 source。⚠️ 这是需每年更新维护的数据: 各国法定节假日与中国调休安排逐年由政府公布, 运营须每年滚动更新本数据集。",
       "additionalProperties": false,
-      "required": ["origin", "destinationCountry", "days", "season", "pace", "companion"],
+      "required": ["region", "year", "holidays"],
       "properties": {
-        "origin": { "type": "string", "description": "出发地" },
-        "destinationCountry": { "$ref": "#/$defs/Country" },
-        "days": { "type": "integer", "minimum": 1, "maximum": 30 },
-        "season": { "$ref": "#/$defs/Season" },
-        "pace": { "$ref": "#/$defs/Pace" },
-        "companion": { "$ref": "#/$defs/Companion" },
-        "customNote": { "type": "string", "description": "自由文字定制层, 凌驾于结构化维度" },
-        "themes": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/Theme" },
-          "description": "(v2) v1 留空数组"
+        "region": {
+          "type": "string",
+          "enum": ["china", "japan", "thailand", "france"],
+          "description": "节假日所属地区。china 用于出发地常驻高亮; 其余用于目的地条件高亮。"
         },
-        "budget": {
-          "oneOf": [{ "$ref": "#/$defs/Budget" }, { "type": "null" }],
-          "description": "(v2) v1 为 null"
+        "year": { "type": "integer", "minimum": 2026, "description": "年份。逐年维护, 每年滚动更新。" },
+        "lastReviewed": { "type": "string", "format": "date", "description": "本年度数据最近核对日期" },
+        "holidays": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "nameZh", "start", "end", "source"],
+            "properties": {
+              "id": { "type": "string", "description": "唯一标识, 如 cn-2026-spring-festival" },
+              "nameZh": { "type": "string", "description": "节假日中文名" },
+              "nameLocal": { "type": "string", "description": "当地名称(可选)" },
+              "start": { "type": "string", "format": "date", "description": "假期开始日(含调休后实际放假首日)" },
+              "end": { "type": "string", "format": "date", "description": "假期结束日" },
+              "type": {
+                "type": "string",
+                "enum": ["statutory_holiday", "festival", "both"],
+                "description": "statutory_holiday=法定放假(可能闭馆/人多/涨价 ⚠️); festival=节庆看点 🎉; both=两者皆是"
+              },
+              "makeupWorkdays": {
+                "type": "array",
+                "items": { "type": "string", "format": "date" },
+                "description": "调休补班日(主要用于 china)。用于拼假/调休提示。"
+              },
+              "bridgeHint": {
+                "type": "string",
+                "description": "拼假/调休提示文案, 如 “请2天年假可拼出9天长假”(主要用于 china 出发地)"
+              },
+              "destinationImpact": {
+                "type": "object",
+                "description": "目的地侧双向提示(用于目的地法定节假日条件高亮)。",
+                "additionalProperties": false,
+                "properties": {
+                  "highlight": {
+                    "type": "string",
+                    "enum": ["festival", "closure_crowd_price", "both"],
+                    "description": "🎉当地节庆(看点) / ⚠️当地放假(闭馆、人多、涨价) / both"
+                  },
+                  "note": { "type": "string", "description": "提示文案" }
+                }
+              },
+              "source": { "$ref": "#/$defs/Source" }
+            }
+          }
+        }
+      }
+    },
+
+    "TransportInfo": {
+      "type": "object",
+      "description": "出发地→目的地交通信息(origin 相关, 可估算)。用于推荐/对比/详细行程。",
+      "additionalProperties": false,
+      "required": ["origin", "destinationNameZh"],
+      "properties": {
+        "origin": { "type": "string" },
+        "destinationNameZh": { "type": "string" },
+        "directFlight": { "type": ["boolean", "null"], "description": "是否有直飞(估算, 可空)" },
+        "flightHours": { "type": ["number", "null"], "minimum": 0, "description": "大致飞行时长(小时, 估算)" },
+        "note": { "type": "string", "description": "交通说明(可选)" },
+        "source": { "$ref": "#/$defs/Source" }
+      }
+    },
+
+    "DestinationRecommendation": {
+      "type": "object",
+      "description": "目的地推荐结果。目的地未定/模糊时输出 3-5 个候选(也用于兜底: 当前季节适合放松的热门目的地)。",
+      "additionalProperties": false,
+      "required": ["isFallback", "candidates"],
+      "properties": {
+        "isFallback": {
+          "type": "boolean",
+          "description": "是否兜底推荐(时间与目的地都未给时为 true, 推荐当前季节适合放松的热门目的地)"
+        },
+        "basis": {
+          "type": "string",
+          "description": "推荐依据摘要, 如 “基于你选的国庆假期 + 想放松标签” 或 “基于当前季节(夏季)的放松热门地”"
+        },
+        "candidates": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "nameZh", "matchReason", "bestVisitTime", "suggestedDays", "costTier"],
+            "properties": {
+              "id": { "type": "string", "description": "候选标识; 若对应已有内容库国家可用 Country 值" },
+              "nameZh": { "type": "string", "description": "目的地中文名" },
+              "country": {
+                "oneOf": [{ "$ref": "#/$defs/Country" }, { "type": "null" }],
+                "description": "若对应 v1 已有内容库国家则填, 否则 null"
+              },
+              "matchReason": { "type": "string", "description": "匹配理由(贴合时间/标签)" },
+              "bestVisitTime": { "type": "string", "description": "最佳到访时间(贴合用户所给时间; 也可给一般最佳季节)" },
+              "suggestedDays": { "type": "integer", "minimum": 1, "description": "建议天数" },
+              "costTier": { "$ref": "#/$defs/CostTier", "description": "大致花费档" },
+              "transport": {
+                "oneOf": [{ "$ref": "#/$defs/TransportInfo" }, { "type": "null" }],
+                "description": "从出发地的交通(origin 已知时给, 否则 null)"
+              },
+              "moodTags": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/MoodTag" },
+                "description": "该候选的玩法/心情标签(用于呈现与对比)"
+              },
+              "source": { "$ref": "#/$defs/Source" }
+            }
+          }
+        }
+      }
+    },
+
+    "DestinationComparison": {
+      "type": "object",
+      "description": "对比视图。用户从推荐里多选 2-3 个还在纠结的候选 → 并排呈现 + 高亮差异 + 决策摘要。",
+      "additionalProperties": false,
+      "required": ["items", "dimensions"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 3,
+          "description": "参与对比的候选(2-3 个)",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "nameZh", "cells"],
+            "properties": {
+              "id": { "type": "string" },
+              "nameZh": { "type": "string" },
+              "cells": {
+                "type": "object",
+                "description": "各对比维度的取值。key 须取自 dimensions[].key。",
+                "additionalProperties": false,
+                "properties": {
+                  "timeFit": { "type": "string", "description": "与所选时间的契合度(结合当地节假日)" },
+                  "daysVsHoliday": { "type": "string", "description": "建议天数 vs 假期长度" },
+                  "costTier": { "type": "string", "description": "花费档" },
+                  "fatigue": { "type": "string", "description": "累不累(节奏)" },
+                  "highlights": { "type": "string", "description": "特色侧重" },
+                  "transport": { "type": "string", "description": "出发地交通" }
+                }
+              }
+            }
+          }
+        },
+        "dimensions": {
+          "type": "array",
+          "description": "对比维度定义, 含差异高亮标记。",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["key", "labelZh", "highlightDiff"],
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": ["timeFit", "daysVsHoliday", "costTier", "fatigue", "highlights", "transport"],
+                "description": "对应 items[].cells 的 key: 与时间契合度 / 天数vs假期 / 花费档 / 累不累 / 特色侧重 / 出发地交通"
+              },
+              "labelZh": { "type": "string", "description": "维度中文标签" },
+              "highlightDiff": {
+                "type": "boolean",
+                "description": "差异高亮: 该维度在各候选间差异显著、UI 应高亮"
+              }
+            }
+          }
+        },
+        "decisionSummary": {
+          "type": "string",
+          "description": "决策摘要: 一句话 “为什么选 A 不选 B”"
+        }
+      }
+    },
+
+    "BestTimeOverview": {
+      "type": "object",
+      "description": "目的地已定时, 先展示的【最佳旅游时间 + 各时段核心体验】(详细行程前的过渡阶段)。",
+      "additionalProperties": false,
+      "required": ["destinationNameZh", "bestSeasons", "periods"],
+      "properties": {
+        "destinationNameZh": { "type": "string" },
+        "country": {
+          "oneOf": [{ "$ref": "#/$defs/Country" }, { "type": "null" }]
+        },
+        "bestSeasons": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["season", "reason", "source"],
+            "properties": {
+              "season": { "$ref": "#/$defs/Season" },
+              "reason": { "type": "string" },
+              "source": { "$ref": "#/$defs/Source" }
+            }
+          }
+        },
+        "periods": {
+          "type": "array",
+          "description": "各时段核心体验(来自内容库 signatureExperiencesByPeriod)",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["period", "experiences", "source"],
+            "properties": {
+              "period": { "type": "string" },
+              "experiences": { "type": "array", "items": { "type": "string" } },
+              "source": { "$ref": "#/$defs/Source" }
+            }
+          }
         }
       }
     },
 
     "TripResult": {
       "type": "object",
-      "description": "生成行程结果 - AI 生成 agent 输出, UI 据此渲染 6 大模块",
+      "description": "详细行程结果 - AI 生成 agent 输出, UI 据此渲染固定 6 大模块。含每日 intensity 节奏标记与天数弹性(core/optional 天)。",
       "additionalProperties": false,
       "required": ["meta", "route", "dailyPlan", "reservations", "seasonalTips"],
       "properties": {
         "meta": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["origin", "destinationCountry", "destinationNameZh", "days", "season", "pace", "companion", "generatedBy"],
+          "required": ["destinationCountry", "destinationNameZh", "days", "pace", "generatedBy"],
           "properties": {
-            "origin": { "type": "string" },
+            "origin": { "type": ["string", "null"], "description": "出发地, 可空(未给时为 null)" },
             "destinationCountry": { "$ref": "#/$defs/Country" },
             "destinationNameZh": { "type": "string" },
-            "days": { "type": "integer", "minimum": 1 },
-            "season": { "$ref": "#/$defs/Season" },
-            "pace": { "$ref": "#/$defs/Pace" },
-            "companion": { "$ref": "#/$defs/Companion" },
-            "customNote": { "type": "string" },
+            "days": { "type": "integer", "minimum": 1, "description": "本行程总天数(=核心天 + 已采用的延展天)" },
+            "dateRange": {
+              "oneOf": [{ "$ref": "#/$defs/DateRange" }, { "type": "null" }],
+              "description": "用户所选日期(可空)"
+            },
+            "season": {
+              "oneOf": [{ "$ref": "#/$defs/Season" }, { "type": "null" }],
+              "description": "出行季节(由 dateRange 推导或留空)"
+            },
+            "pace": { "$ref": "#/$defs/Pace", "description": "节奏(未给时取默认 balanced)" },
+            "companion": {
+              "oneOf": [{ "$ref": "#/$defs/Companion" }, { "type": "null" }],
+              "description": "同行人(可空→通用)"
+            },
+            "moodTags": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/MoodTag" },
+              "description": "回显快捷标签"
+            },
+            "freeText": { "type": "string", "description": "用户自由文字(可空)" },
             "themes": {
               "type": "array",
               "items": { "$ref": "#/$defs/Theme" },
-              "description": "(v2) v1 空数组"
+              "description": "(v2 预留) v1 空数组"
             },
             "budget": {
               "oneOf": [{ "$ref": "#/$defs/Budget" }, { "type": "null" }],
-              "description": "(v2) v1 null"
+              "description": "(v2 预留) v1 null"
             },
             "generatedBy": { "type": "string", "const": "claude-opus-4-8" },
             "generatedAt": { "type": "string", "format": "date-time" }
@@ -197,25 +564,30 @@
                   "from": { "type": "string" },
                   "to": { "type": "string" },
                   "detail": { "type": "string" },
-                  "source": { "type": "string" }
+                  "source": { "$ref": "#/$defs/Source" }
                 }
               }
             },
             "tips": { "type": "string" },
-            "source": { "type": "string" }
+            "source": { "$ref": "#/$defs/Source" }
           }
         },
         "dailyPlan": {
           "type": "array",
-          "description": "模块2 按天安排, 长度应等于 meta.days; 体现节奏强度",
+          "description": "模块2 按天安排; 体现节奏强度与天数弹性。每天标记 dayType=core(核心天)或 optional(可选延展天), 便于按实际假期裁剪。",
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["day", "title", "intensity", "activities", "meals"],
+            "required": ["day", "title", "intensity", "dayType", "activities", "meals"],
             "properties": {
               "day": { "type": "integer", "minimum": 1 },
               "title": { "type": "string" },
               "intensity": { "$ref": "#/$defs/Pace", "description": "当天密度, 对齐顶层 pace" },
+              "dayType": {
+                "type": "string",
+                "enum": ["core", "optional"],
+                "description": "天数弹性: core=核心天(假期短也保留); optional=可选延展天(假期长时加上)"
+              },
               "activities": {
                 "type": "array",
                 "description": "模块3 景点/活动",
@@ -229,7 +601,7 @@
                     "timeSlot": { "type": "string", "description": "时间段: 上午/下午/傍晚/晚上" },
                     "durationMin": { "type": "integer", "minimum": 0 },
                     "summary": { "type": "string" },
-                    "source": { "type": "string" }
+                    "source": { "$ref": "#/$defs/Source" }
                   }
                 }
               },
@@ -245,7 +617,7 @@
                     "name": { "type": "string" },
                     "slot": { "type": "string", "enum": ["breakfast", "lunch", "dinner", "snack"] },
                     "reason": { "type": "string" },
-                    "source": { "type": "string" }
+                    "source": { "$ref": "#/$defs/Source" }
                   }
                 }
               },
@@ -271,7 +643,7 @@
               "day": { "type": "integer", "minimum": 1, "description": "关联第几天(可选)" },
               "method": { "type": "string" },
               "leadTime": { "type": "string" },
-              "source": { "type": "string" }
+              "source": { "$ref": "#/$defs/Source" }
             }
           }
         },
@@ -285,14 +657,24 @@
             "properties": {
               "season": { "$ref": "#/$defs/Season" },
               "tip": { "type": "string" },
-              "source": { "type": "string" }
+              "source": { "$ref": "#/$defs/Source" }
             }
+          }
+        },
+        "flexibility": {
+          "type": "object",
+          "description": "天数弹性汇总, 便于 UI 提示可裁剪/延展。",
+          "additionalProperties": false,
+          "properties": {
+            "coreDays": { "type": "integer", "minimum": 1, "description": "核心天数(最少建议)" },
+            "optionalDays": { "type": "integer", "minimum": 0, "description": "可选延展天数" },
+            "note": { "type": "string", "description": "裁剪/延展建议, 如 “假期只有3天可去掉第4-5天的奈良延展”" }
           }
         },
         "warnings": {
           "type": "array",
           "items": { "type": "string" },
-          "description": "生成提示/注意事项(可选)"
+          "description": "生成提示/注意事项(可选, 如素材不足、目的地放假闭馆提醒)"
         }
       }
     }
