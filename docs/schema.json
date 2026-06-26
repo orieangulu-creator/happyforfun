@@ -1,0 +1,300 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://happyforfun.local/schemas/travel.json",
+  "title": "旅游行程规划数据契约 (M1)",
+  "description": "包含两类核心结构: DestinationLibrary(运营填) 与 TripResult(生成结果)。标注 v2 的字段为预留, v1 可选/留空。",
+  "$defs": {
+    "Country": {
+      "type": "string",
+      "enum": ["japan", "thailand", "france"],
+      "description": "v1 支持的目的地国家"
+    },
+    "Season": {
+      "type": "string",
+      "enum": ["spring", "summer", "autumn", "winter"]
+    },
+    "Pace": {
+      "type": "string",
+      "enum": ["intense", "balanced", "relaxed"],
+      "description": "节奏强度: 特种兵 / 均衡 / 悠闲"
+    },
+    "Companion": {
+      "type": "string",
+      "enum": ["solo", "couple", "family_kids", "elderly", "friends"],
+      "description": "同行人结构: 独自 / 情侣蜜月 / 亲子带娃 / 长辈同行 / 朋友结伴"
+    },
+    "Theme": {
+      "type": "string",
+      "enum": ["food", "nature", "history", "shopping", "photography", "kids_fun"],
+      "description": "(v2) 主题偏好维度"
+    },
+    "Budget": {
+      "type": "string",
+      "enum": ["economy", "comfort", "luxury"],
+      "description": "(v2) 预算档位维度"
+    },
+
+    "DestinationLibrary": {
+      "type": "object",
+      "description": "目的地内容库 - 运营 agent 为每个国家填写真实数据",
+      "additionalProperties": false,
+      "required": ["country", "countryNameZh", "updatedAt", "attractions", "foods", "reservations", "seasonalTips"],
+      "properties": {
+        "country": { "$ref": "#/$defs/Country" },
+        "countryNameZh": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date" },
+        "attractions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "name", "region", "summary", "source"],
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "region": { "type": "string", "description": "所在城市/区域" },
+              "summary": { "type": "string" },
+              "suggestedDurationMin": { "type": "integer", "minimum": 0 },
+              "tags": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/Theme" },
+                "description": "(v2) 主题标签, v1 可选"
+              },
+              "source": { "type": "string", "description": "信息来源(必填)" }
+            }
+          }
+        },
+        "foods": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "name", "reason", "source"],
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "type": { "type": "string", "description": "美食类型, 自由文本" },
+              "region": { "type": "string" },
+              "reason": { "type": "string", "description": "推荐理由" },
+              "tags": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/Theme" }
+              },
+              "source": { "type": "string" }
+            }
+          }
+        },
+        "reservations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "name", "method", "leadTime", "source"],
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "region": { "type": "string" },
+              "method": { "type": "string", "description": "预约方式" },
+              "leadTime": { "type": "string", "description": "建议提前时长" },
+              "note": { "type": "string" },
+              "source": { "type": "string" }
+            }
+          }
+        },
+        "seasonalTips": {
+          "type": "array",
+          "description": "季节建议, 建议覆盖四季",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["season", "tip", "source"],
+            "properties": {
+              "season": { "$ref": "#/$defs/Season" },
+              "tip": { "type": "string" },
+              "source": { "type": "string" }
+            }
+          }
+        },
+        "budgetNotes": {
+          "type": ["string", "null"],
+          "description": "(v2) 预算相关备注, v1 留空"
+        }
+      }
+    },
+
+    "UserInput": {
+      "type": "object",
+      "description": "用户核心输入 / 生成请求参数",
+      "additionalProperties": false,
+      "required": ["origin", "destinationCountry", "days", "season", "pace", "companion"],
+      "properties": {
+        "origin": { "type": "string", "description": "出发地" },
+        "destinationCountry": { "$ref": "#/$defs/Country" },
+        "days": { "type": "integer", "minimum": 1, "maximum": 30 },
+        "season": { "$ref": "#/$defs/Season" },
+        "pace": { "$ref": "#/$defs/Pace" },
+        "companion": { "$ref": "#/$defs/Companion" },
+        "customNote": { "type": "string", "description": "自由文字定制层, 凌驾于结构化维度" },
+        "themes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Theme" },
+          "description": "(v2) v1 留空数组"
+        },
+        "budget": {
+          "oneOf": [{ "$ref": "#/$defs/Budget" }, { "type": "null" }],
+          "description": "(v2) v1 为 null"
+        }
+      }
+    },
+
+    "TripResult": {
+      "type": "object",
+      "description": "生成行程结果 - AI 生成 agent 输出, UI 据此渲染 6 大模块",
+      "additionalProperties": false,
+      "required": ["meta", "route", "dailyPlan", "reservations", "seasonalTips"],
+      "properties": {
+        "meta": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["origin", "destinationCountry", "destinationNameZh", "days", "season", "pace", "companion", "generatedBy"],
+          "properties": {
+            "origin": { "type": "string" },
+            "destinationCountry": { "$ref": "#/$defs/Country" },
+            "destinationNameZh": { "type": "string" },
+            "days": { "type": "integer", "minimum": 1 },
+            "season": { "$ref": "#/$defs/Season" },
+            "pace": { "$ref": "#/$defs/Pace" },
+            "companion": { "$ref": "#/$defs/Companion" },
+            "customNote": { "type": "string" },
+            "themes": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/Theme" },
+              "description": "(v2) v1 空数组"
+            },
+            "budget": {
+              "oneOf": [{ "$ref": "#/$defs/Budget" }, { "type": "null" }],
+              "description": "(v2) v1 null"
+            },
+            "generatedBy": { "type": "string", "const": "claude-opus-4-8" },
+            "generatedAt": { "type": "string", "format": "date-time" }
+          }
+        },
+        "route": {
+          "type": "object",
+          "description": "模块1 最佳出行路线",
+          "additionalProperties": false,
+          "required": ["summary", "segments", "source"],
+          "properties": {
+            "summary": { "type": "string" },
+            "segments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["mode", "from", "to", "detail", "source"],
+                "properties": {
+                  "mode": { "type": "string", "description": "交通方式: flight/train/bus..." },
+                  "from": { "type": "string" },
+                  "to": { "type": "string" },
+                  "detail": { "type": "string" },
+                  "source": { "type": "string" }
+                }
+              }
+            },
+            "tips": { "type": "string" },
+            "source": { "type": "string" }
+          }
+        },
+        "dailyPlan": {
+          "type": "array",
+          "description": "模块2 按天安排, 长度应等于 meta.days; 体现节奏强度",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["day", "title", "intensity", "activities", "meals"],
+            "properties": {
+              "day": { "type": "integer", "minimum": 1 },
+              "title": { "type": "string" },
+              "intensity": { "$ref": "#/$defs/Pace", "description": "当天密度, 对齐顶层 pace" },
+              "activities": {
+                "type": "array",
+                "description": "模块3 景点/活动",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["name", "summary", "source"],
+                  "properties": {
+                    "id": { "type": "string", "description": "若来自内容库则复用其 id" },
+                    "name": { "type": "string" },
+                    "timeSlot": { "type": "string", "description": "时间段: 上午/下午/傍晚/晚上" },
+                    "durationMin": { "type": "integer", "minimum": 0 },
+                    "summary": { "type": "string" },
+                    "source": { "type": "string" }
+                  }
+                }
+              },
+              "meals": {
+                "type": "array",
+                "description": "模块4 美食",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["name", "source"],
+                  "properties": {
+                    "id": { "type": "string" },
+                    "name": { "type": "string" },
+                    "slot": { "type": "string", "enum": ["breakfast", "lunch", "dinner", "snack"] },
+                    "reason": { "type": "string" },
+                    "source": { "type": "string" }
+                  }
+                }
+              },
+              "reservationRefs": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "当天涉及的预约项 id, 详情见顶层 reservations"
+              },
+              "notes": { "type": "string" }
+            }
+          }
+        },
+        "reservations": {
+          "type": "array",
+          "description": "模块5 需提前预约项目(整程汇总)",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "name", "method", "leadTime", "source"],
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "day": { "type": "integer", "minimum": 1, "description": "关联第几天(可选)" },
+              "method": { "type": "string" },
+              "leadTime": { "type": "string" },
+              "source": { "type": "string" }
+            }
+          }
+        },
+        "seasonalTips": {
+          "type": "array",
+          "description": "模块6 季节相关建议",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["season", "tip", "source"],
+            "properties": {
+              "season": { "$ref": "#/$defs/Season" },
+              "tip": { "type": "string" },
+              "source": { "type": "string" }
+            }
+          }
+        },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "生成提示/注意事项(可选)"
+        }
+      }
+    }
+  }
+}
