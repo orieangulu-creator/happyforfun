@@ -498,7 +498,7 @@
       try { console.warn("[generate] live failed:", e && e.message); } catch (e2) {}
       const why = e.code === 429 ? "请求有点频繁，先用本地方案给你顶上，稍等片刻再试更佳。"
         : e.code === 401 ? "访问码未通过，已用本地方案兜底；可刷新后重新输入访问码。"
-        : "AI 生成暂时不太顺，已为你用本地方案兜底，可重试一次。";
+        : "AI 生成暂时不太顺（" + (e && e.message ? String(e.message).slice(0, 100) : "未知原因") + "），已用本地方案兜底，可重试一次。";
       return { branch, type, data: mock(), mode: "demo-fallback", warnings: [why] };
     }
   }
