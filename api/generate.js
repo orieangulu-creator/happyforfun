@@ -129,7 +129,7 @@ async function handler(req, res) {
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
       const r = await fetch(prov.url, { method: "POST", headers: prov.headers(API_KEY), body: JSON.stringify(prov.body(MODEL, prompt)) });
-      if (!r.ok) throw new Error("llm_http_" + r.status);
+      if (!r.ok) { const t = await r.text().catch(() => ""); throw new Error("llm_http_" + r.status + (t ? (": " + t.slice(0, 300)) : "")); }
       const data = await r.json();
       const text = (prov.extract(data) || "").trim();
       const out = JSON.parse(text.replace(/^```json?\s*/i, "").replace(/```$/, "").trim());
@@ -139,7 +139,13 @@ async function handler(req, res) {
       return;
     } catch (e) { lastErr = e; }
   }
-  res.status(502).json({ error: "generation_failed", message: String(lastErr && lastErr.message) });
+  const emsg = String(lastErr && lastErr.message || "");
+  let hint = "";
+  if (/_40[13]|invalid|authentication|unauthor/i.test(emsg)) hint = "（疑似 API key 无效，请检查是否粘贴正确、无空格）";
+  else if (/_402|insufficient|balance|余额/i.test(emsg)) hint = "（疑似账户余额不足，请到供应商充值）";
+  else if (/_429|rate/i.test(emsg)) hint = "（供应商侧限流，请稍后再试）";
+  try { console.error("[generate] upstream failed:", emsg); } catch (e) {}
+  res.status(502).json({ error: "generation_failed", message: emsg + hint });
 }
 
 module.exports = handler;

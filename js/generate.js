@@ -197,7 +197,7 @@
         note: optionalDays > 0 ? `核心 ${coreDays} 天必玩；假期短可去掉第 ${coreDays + 1}-${days} 天的延展安排。` : "全部为核心天，已是精简行程。"
       },
       timingWarning,
-      warnings: ["本结果由本地规则引擎(DEMO 模式)生成，未调用 Claude API；配置 config.js 中的 key 后将由 claude-opus-4-8 实时生成更丰富的方案。"]
+      warnings: ["本结果由本地规则引擎(DEMO 模式)生成；接入后端 AI 后将实时生成更丰富的方案。"]
     };
   }
 
@@ -266,7 +266,12 @@
         continue;
       }
       if (r.status === 429) { const e = new Error("请求过于频繁"); e.code = 429; throw e; }
-      if (!r.ok) { const e = new Error("服务端错误 " + r.status); e.code = r.status; throw e; }
+      if (!r.ok) {
+        let detail = "";
+        try { const j = await r.json(); detail = j.message || j.error || ""; } catch (e2) {}
+        const e = new Error(detail ? (r.status + " " + detail) : ("服务端错误 " + r.status));
+        e.code = r.status; throw e;
+      }
       return await r.json();
     }
     const e = new Error("访问码错误"); e.code = 401; throw e;
