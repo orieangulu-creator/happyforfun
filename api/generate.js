@@ -76,7 +76,7 @@ const OUTPUT_SPECS = {
   compare: `{"items": [{"id": string, "nameZh": string, "cells": {"timeFit": string, "daysVsHoliday": string, "costTier": string, "fatigue": string, "highlights": string, "transport": string}}],
  "dimensions": [{"key": "timeFit|daysVsHoliday|costTier|fatigue|highlights|transport", "labelZh": string, "highlightDiff": boolean}],
  "decisionSummary": string}
-要求：items 为待对比国家(2-3 个)，highlightDiff=该维度各 item 取值有明显差异时为 true。`,
+要求：items 必须是 branchInstruction.compareIds 指定的这几个国家(2-3 个)，不得替换；highlightDiff=该维度各 item 取值有明显差异时为 true。`,
   combo: `{"region": string, "tripKind": "multi", "note": string, "totalDaysSuggest": number,
  "countryOrder": ["<country slug>", ...],
  "countries": [{"country": string, "nameZh": string, "role": "anchor|companion", "score": number, "reason": string}]}
@@ -90,7 +90,7 @@ const OUTPUT_SPECS = {
   "regionNotes": [{"note": string, "source": string}],
   "flexibility": {"coreDays": number, "optionalDays": number, "note": string}, "timingWarning": string|null
 }
-要求：覆盖 countryOrder 各国(每国至少 1 主城)；【城市总数规则】总城市数随总天数封顶：≤5天≤2城 / 6-9天≤3城 / 10-15天≤4城；叠加单城 2-3 天、上限 3 天 2 晚(用户明确要求可超)；国家顺序按 geoData.adjacency 减少折返；跨国 segment 标 crossBorder:true；regionNotes 给申根/签证等区域提示；优先复用 libraryData 真实条目并透传 source。
+要求：【最重要·必须遵守】严格使用 branchInstruction.countryOrder 指定的国家与顺序——这是用户已确认的组合，**不得替换、删减或新增任何国家**；输出的 meta.countryOrder 与 meta.destinationCountries 必须与之完全一致。覆盖这些国家各国(每国至少 1 主城)；【城市总数规则】总城市数随总天数封顶：≤5天≤2城 / 6-9天≤3城 / 10-15天≤4城；叠加单城 2-3 天、上限 3 天 2 晚(用户明确要求可超)；国家顺序按 geoData.adjacency 减少折返；跨国 segment 标 crossBorder:true；regionNotes 给申根/签证等区域提示；优先复用 libraryData 真实条目并透传 source。
 【转场日规则】每次换城/换国的当天=转场日：考虑出发时间与在途耗时，当天上午在途、活动从简(1-2 项、从下午起)，该天加 transfer 字段，给【公共交通】和【自驾租车】两套方案(各含大致耗时、出发建议；跨国自驾提示通行证/异地还车)；非转场日不输出 transfer。`
 };
 

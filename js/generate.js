@@ -504,6 +504,9 @@
   async function generate(input, opts) {
     opts = opts || {};
     const branch = opts.forceBranch || decideBranch(input);
+    // 把下钻参数并入 branch，确保 live 后端也拿到（否则 AI 会自行重选国家/对比项）
+    if (opts.countryOrder) branch.countryOrder = opts.countryOrder;
+    if (opts.compareIds) branch.compareIds = opts.compareIds;
     const type = branch.type;
     const mock = () => {
       if (type === "recommend") return buildRecommendation(input);
