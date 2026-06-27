@@ -686,6 +686,8 @@
       html += `<div class="day"><div class="day-head"><span class="day-num">${d.day}</span>
         <span class="day-title">${esc(d.title)}</span>
         <span class="day-type ${d.dayType}">${d.dayType === "core" ? "核心天" : "可选延展"}</span></div>`;
+      if (d.transfer) html += `<div class="transfer-note">🧳 转场 ${esc(d.transfer.from)} → ${esc(d.transfer.to)}${d.transfer.crossBorder ? "（跨国）" : ""}：${esc(d.transfer.note)}` +
+        (d.transfer.options || []).map(o => `<div class="transfer-opt"><b>${o.mode === "drive" ? "🚗" : "🚆"} ${esc(o.label)}</b>：${esc(o.detail)}</div>`).join("") + `</div>`;
       d.activities.forEach(a => html += `<div class="slot"><span class="when">${esc(a.timeSlot || "")}</span>${esc(a.name)} — ${esc(a.summary)} <span class="source">（${esc(a.source)}）</span></div>`);
       if (d.meals && d.meals.length) html += `<div class="meals-line">🍽️ ${d.meals.map(me => esc(me.name) + (me.reason ? "（" + esc(me.reason) + "）" : "")).join("　·　")}</div>`;
       html += `</div>`;
@@ -714,6 +716,7 @@
     rows.push([]); rows.push(["路线", (t.route && t.route.summary) || ""]); rows.push([]);
     rows.push(["天数", "核心/延展", "城市·标题", "时段", "类别", "名称", "说明/理由", "来源"]);
     (t.dailyPlan || []).forEach(d => {
+      if (d.transfer) (d.transfer.options || []).forEach(o => rows.push([d.day, "转场", d.title, "", o.label, d.transfer.from + "→" + d.transfer.to + (d.transfer.crossBorder ? "(跨国)" : ""), o.detail, o.source || ""]));
       (d.activities || []).forEach(a => rows.push([d.day, d.dayType === "core" ? "核心" : "延展", d.title, a.timeSlot || "", "景点", a.name, a.summary || "", a.source || ""]));
       (d.meals || []).forEach(me => rows.push([d.day, d.dayType === "core" ? "核心" : "延展", d.title, me.slot || "", "美食", me.name, me.reason || "", me.source || ""]));
     });

@@ -635,6 +635,31 @@
                 "items": { "type": "string" },
                 "description": "当天涉及的预约项 id, 详情见顶层 reservations"
               },
+              "country": { "type": "string", "description": "(多国行程) 当天所在国家 slug" },
+              "transfer": {
+                "type": "object",
+                "description": "(可选) 仅换城/换国的【转场日】出现: 考虑出发时间与在途耗时, 当天从简, 给公共交通与自驾租车两套方案。",
+                "additionalProperties": false,
+                "properties": {
+                  "from": { "type": "string" },
+                  "to": { "type": "string" },
+                  "crossBorder": { "type": "boolean" },
+                  "note": { "type": "string" },
+                  "options": {
+                    "type": "array",
+                    "items": {
+                      "type": "object", "additionalProperties": false,
+                      "required": ["mode", "label", "detail"],
+                      "properties": {
+                        "mode": { "type": "string", "enum": ["public", "drive"] },
+                        "label": { "type": "string" },
+                        "detail": { "type": "string", "description": "含大致耗时与出发建议" },
+                        "source": { "type": "string" }
+                      }
+                    }
+                  }
+                }
+              },
               "notes": { "type": "string" }
             }
           }

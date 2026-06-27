@@ -11,6 +11,18 @@
   const flightOf = c => FLIGHT[c] || { h: 11, direct: false };
   const regionOf = c => { const m = (DATA.manifest || []).find(x => x.id === c); return m ? m.region : ""; };
   const MAX_DAYS_PER_CITY = 3; // 一城上限 3 天 2 晚
+  // 转场日：城市/国家切换当天，给公共交通 + 自驾租车两套方案（含大致耗时与出发建议）
+  function transferOptions(from, to, crossBorder) {
+    const pub = crossBorder ? "3-5" : "2-4", drv = crossBorder ? "5-8" : "2-4";
+    return {
+      from, to, crossBorder,
+      note: "转场日：建议上午出发、在途约半天，午后抵达办入住后轻松游览",
+      options: [
+        { mode: "public", label: "公共交通", detail: `${crossBorder ? "高铁 / 廉价航空" : "城际火车 / 大巴"} 约 ${pub} 小时（含值机·安检·换乘）；点对点车票或廉航联程更省心`, source: "交通估算" },
+        { mode: "drive", label: "自驾租车", detail: `租车自驾约 ${drv} 小时，沿途可随停${crossBorder ? "；跨国需确认租车公司允许跨境、通行证(Vignette/ETC)与异地还车费" : "，机动灵活但需自驾精力"}`, source: "交通估算" }
+      ]
+    };
+  }
 
   function seasonFromDate(s) {
     if (!s) return null;
@@ -171,19 +183,26 @@
 
     const allResv = order.flatMap(c => DATA.libraries[c].reservations.map(r => r.id)).slice(0, 4);
     const dailyPlan = []; let dayNo = 0;
+    let prevCity = null, prevCountry = null;
     alloc.forEach((al, ci) => {
       const acts0 = al.attractions.length ? al.attractions : DATA.libraries[al.country].attractions;
       const foods = al.foods.length ? al.foods : DATA.libraries[al.country].foods;
       let ai = 0, fi = 0;
       for (let d = 1; d <= al.days; d++) {
         dayNo++;
+        const isTransfer = ci > 0 && d === 1;             // 进入新城市的首日 = 转场日
+        const cnt = isTransfer ? Math.min(2, perDay) : perDay;
+        const slots = isTransfer ? ["下午", "晚上"] : SLOTS;  // 转场日上午在途，下午起安排
         const acts = [];
-        for (let k = 0; k < perDay; k++) { const a = acts0[ai % acts0.length]; ai++; acts.push({ id: a.id, name: a.name, timeSlot: SLOTS[Math.min(k, SLOTS.length - 1)], durationMin: a.suggestedDurationMin || 90, summary: a.summary, source: a.source }); }
+        for (let k = 0; k < cnt; k++) { const a = acts0[ai % acts0.length]; ai++; acts.push({ id: a.id, name: a.name, timeSlot: slots[Math.min(k, slots.length - 1)], durationMin: a.suggestedDurationMin || 90, summary: a.summary, source: a.source }); }
         const lunch = foods[fi % foods.length]; fi++; const dinner = foods[fi % foods.length]; fi++;
-        dailyPlan.push({ day: dayNo, title: `${DATA.libraries[al.country].countryNameZh} · ${al.city} 第 ${d} 天`, country: al.country, intensity: pace, dayType: ci === 0 ? "core" : "optional",
+        const day = { day: dayNo, title: `${DATA.libraries[al.country].countryNameZh} · ${al.city} 第 ${d} 天` + (isTransfer ? "（转场日）" : ""), country: al.country, intensity: pace, dayType: ci === 0 ? "core" : "optional",
           activities: acts, meals: [{ id: lunch.id, name: lunch.name, slot: "lunch", reason: lunch.reason, source: lunch.source }, { id: dinner.id, name: dinner.name, slot: "dinner", reason: dinner.reason, source: dinner.source }],
-          reservationRefs: dayNo === 1 ? allResv : [] });
+          reservationRefs: dayNo === 1 ? allResv : [] };
+        if (isTransfer) day.transfer = transferOptions(prevCity, al.city, al.country !== prevCountry);
+        dailyPlan.push(day);
       }
+      prevCity = al.city; prevCountry = al.country;
     });
     const realDays = dailyPlan.length;
     const coreDays = (alloc[0] ? alloc[0].days : realDays);
@@ -320,7 +339,7 @@
     const usedCities = alloc.map(a => a.city);
 
     // 逐日生成（第一座城市为核心，其余为可选延展城市）
-    const dailyPlan = []; let dayNo = 0;
+    const dailyPlan = []; let dayNo = 0, prevCity = null;
     alloc.forEach((al, ci) => {
       const acts0 = attrByCity[al.city].length ? attrByCity[al.city] : lib.attractions;
       const cityFoods = lib.foods.filter(f => String(f.region || "").split(/[\/／]/)[0].trim() === al.city);
@@ -328,16 +347,19 @@
       let ai = 0, fi = 0;
       for (let dd = 1; dd <= al.days; dd++) {
         dayNo++;
+        const isTransfer = ci > 0 && dd === 1;             // 换城首日 = 转场日
+        const cnt = isTransfer ? Math.min(2, perDay) : perDay;
+        const slots = isTransfer ? ["下午", "晚上"] : SLOTS;
         const acts = [];
-        for (let k = 0; k < perDay; k++) {
+        for (let k = 0; k < cnt; k++) {
           const a = acts0[ai % acts0.length]; ai++;
-          acts.push({ id: a.id, name: a.name, timeSlot: SLOTS[Math.min(k, SLOTS.length - 1)],
+          acts.push({ id: a.id, name: a.name, timeSlot: slots[Math.min(k, slots.length - 1)],
             durationMin: a.suggestedDurationMin || 90, summary: a.summary, source: a.source });
         }
         const lunch = foods[fi % foods.length]; fi++;
         const dinner = foods[fi % foods.length]; fi++;
-        dailyPlan.push({
-          day: dayNo, title: `${al.city} · 第 ${dd} 天`,
+        const day = {
+          day: dayNo, title: `${al.city} · 第 ${dd} 天` + (isTransfer ? "（转场日）" : ""),
           intensity: pace, dayType: ci === 0 ? "core" : "optional",
           activities: acts,
           meals: [
@@ -345,8 +367,11 @@
             { id: dinner.id, name: dinner.name, slot: "dinner", reason: dinner.reason, source: dinner.source }
           ],
           reservationRefs: dayNo === 1 ? lib.reservations.map(r => r.id) : []
-        });
+        };
+        if (isTransfer) day.transfer = transferOptions(prevCity, al.city, false); // 同国转场
+        dailyPlan.push(day);
       }
+      prevCity = al.city;
     });
     const realDays = dailyPlan.length;
     const coreDays = alloc.length ? alloc[0].days : realDays;

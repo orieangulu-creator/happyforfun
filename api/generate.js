@@ -57,14 +57,15 @@ const OUTPUT_SPECS = {
   trip: `{
   "meta": {"origin": string|null, "destinationCountry": "<country slug，取自 libraryData 的 key>", "destinationNameZh": string, "days": number, "season": "spring|summer|autumn|winter"|null, "pace": "intense|balanced|relaxed", "companion": string|null, "moodTags": string[], "freeText": string},
   "route": {"summary": string, "segments": [{"mode": string, "from": string, "to": string, "detail": string, "source": string}], "tips": string, "source": string},
-  "dailyPlan": [{"day": number, "title": string, "intensity": "intense|balanced|relaxed", "dayType": "core|optional", "activities": [{"name": string, "timeSlot": string, "durationMin": number, "summary": string, "source": string}], "meals": [{"name": string, "slot": "breakfast|lunch|dinner|snack", "reason": string, "source": string}]}],
+  "dailyPlan": [{"day": number, "title": string, "intensity": "intense|balanced|relaxed", "dayType": "core|optional", "activities": [{"name": string, "timeSlot": string, "durationMin": number, "summary": string, "source": string}], "meals": [{"name": string, "slot": "breakfast|lunch|dinner|snack", "reason": string, "source": string}], "transfer": {"from": string, "to": string, "crossBorder": boolean, "note": string, "options": [{"mode": "public|drive", "label": string, "detail": string, "source": string}]}}],
   "reservations": [{"id": string, "name": string, "method": string, "leadTime": string, "source": string}],
   "seasonalTips": [{"season": "spring|summer|autumn|winter", "tip": string, "source": string}],
   "flexibility": {"coreDays": number, "optionalDays": number, "note": string},
   "timingWarning": string|null
 }
 要求：天数=days；按 pace 控制每日活动数(intense 4-6 / balanced 2-4 / relaxed 1-2)；优先复用 libraryData 中该国的真实 attractions/foods/reservations/seasonalTips 并透传其 source；前 coreDays 天标 core、其余 optional。
-【城市停留规则】每座城市安排 2-3 天，单城上限 3 天 2 晚——除非用户在 freeText 明确要求某城久留，否则一城超过 3 天就应换到下一座城市；dailyPlan 每天的 title 标明所在城市；多城市时 route.summary 串联城市、segments 标注城市间交通(火车/大巴)。`,
+【城市停留规则】每座城市安排 2-3 天，单城上限 3 天 2 晚——除非用户在 freeText 明确要求某城久留，否则一城超过 3 天就应换到下一座城市；dailyPlan 每天的 title 标明所在城市；多城市时 route.summary 串联城市、segments 标注城市间交通。
+【转场日规则】换城的当天=转场日：考虑出发时间与在途耗时，当天上午在途、活动从简(1-2 项、从下午起)，该天加 transfer 字段，给【公共交通】和【自驾租车】两套方案(各含大致耗时与出发建议)；非转场日 transfer 省略或不输出。`,
   recommend: `{"isFallback": boolean, "basis": string, "coverageNote": string|null,
  "candidates": [{"id": string, "nameZh": string, "country": "<country slug，取自 libraryData 的 key>"|null, "matchLevel": "strong|related", "matchReason": string, "bestVisitTime": string, "suggestedDays": number, "costTier": "low|medium|high", "moodTags": string[], "source": string}]}
 要求：给 3-5 个候选，优先从 libraryData 的国家中选；强匹配标 strong，其余 related。`,
@@ -83,13 +84,14 @@ const OUTPUT_SPECS = {
   multitrip: `{
   "meta": {"origin": string|null, "destinationCountry": "<首国 slug>", "destinationCountries": ["<slug>",...], "tripKind": "multi", "countryOrder": ["<slug>",...], "destinationNameZh": string, "days": number, "season": "spring|summer|autumn|winter"|null, "pace": "intense|balanced|relaxed", "companion": string|null, "moodTags": string[], "freeText": string},
   "route": {"summary": string, "segments": [{"mode": string, "from": string, "to": string, "detail": string, "crossBorder": boolean, "source": string}], "tips": string, "source": string},
-  "dailyPlan": [{"day": number, "title": string, "country": "<slug>", "intensity": "intense|balanced|relaxed", "dayType": "core|optional", "activities": [{"name": string, "timeSlot": string, "summary": string, "source": string}], "meals": [{"name": string, "slot": "lunch|dinner", "reason": string, "source": string}]}],
+  "dailyPlan": [{"day": number, "title": string, "country": "<slug>", "intensity": "intense|balanced|relaxed", "dayType": "core|optional", "activities": [{"name": string, "timeSlot": string, "summary": string, "source": string}], "meals": [{"name": string, "slot": "lunch|dinner", "reason": string, "source": string}], "transfer": {"from": string, "to": string, "crossBorder": boolean, "note": string, "options": [{"mode": "public|drive", "label": string, "detail": string, "source": string}]}}],
   "reservations": [{"id": string, "name": string, "method": string, "leadTime": string, "source": string}],
   "seasonalTips": [{"season": "spring|summer|autumn|winter", "tip": string, "source": string}],
   "regionNotes": [{"note": string, "source": string}],
   "flexibility": {"coreDays": number, "optionalDays": number, "note": string}, "timingWarning": string|null
 }
-要求：覆盖 countryOrder 各国(每国至少 1 主城)；【城市总数规则】总城市数随总天数封顶：≤5天≤2城 / 6-9天≤3城 / 10-15天≤4城；叠加单城 2-3 天、上限 3 天 2 晚(用户明确要求可超)；国家顺序按 geoData.adjacency 减少折返；跨国 segment 标 crossBorder:true；regionNotes 给申根/签证等区域提示；优先复用 libraryData 真实条目并透传 source。`
+要求：覆盖 countryOrder 各国(每国至少 1 主城)；【城市总数规则】总城市数随总天数封顶：≤5天≤2城 / 6-9天≤3城 / 10-15天≤4城；叠加单城 2-3 天、上限 3 天 2 晚(用户明确要求可超)；国家顺序按 geoData.adjacency 减少折返；跨国 segment 标 crossBorder:true；regionNotes 给申根/签证等区域提示；优先复用 libraryData 真实条目并透传 source。
+【转场日规则】每次换城/换国的当天=转场日：考虑出发时间与在途耗时，当天上午在途、活动从简(1-2 项、从下午起)，该天加 transfer 字段，给【公共交通】和【自驾租车】两套方案(各含大致耗时、出发建议；跨国自驾提示通行证/异地还车)；非转场日不输出 transfer。`
 };
 
 function buildPrompt(userInput, branch, libraryData, holidayData, geoData) {
