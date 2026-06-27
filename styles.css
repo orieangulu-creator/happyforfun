@@ -104,6 +104,17 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--b
 .stage-head .step { font-size: 12px; color: #fff; background: var(--accent); border-radius: 12px; padding: 2px 9px; }
 .stage-sub { color: var(--muted); font-size: 13px; margin: 0 0 14px; }
 
+/* result blocks —— 逆时间结果流：每块独立卡片、可折叠 */
+.result-block { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 16px; background: var(--panel); box-shadow: var(--shadow); transition: box-shadow .15s ease, opacity .2s ease; }
+.result-block[data-type="error"] { border-color: #f0c4be; background: #fff6f5; }
+.block-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.block-step { font-size: 13px; font-weight: 700; color: var(--brand-d); }
+.block-collapse { margin-left: auto; border: 1px solid var(--line); background: #fff; color: var(--muted); border-radius: 16px; padding: 3px 12px; cursor: pointer; font-size: 12px; transition: border-color .15s, color .15s; }
+.block-collapse:hover { border-color: var(--brand); color: var(--brand-d); }
+.result-block.collapsed .block-body { display: none; }
+.result-block .stage-head { margin-bottom: 4px; }
+.block-body > .stage:last-child, .block-body > .module:last-child { margin-bottom: 0; }
+
 /* recommendation cards */
 .cand-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 14px; }
 .cand-card { border: 1px solid var(--line); border-radius: 12px; padding: 14px; position: relative; transition: border-color .15s, box-shadow .15s; }
@@ -239,8 +250,7 @@ body.focus-edit .output-scroll { opacity: .5; filter: grayscale(.55); pointer-ev
 body.is-loading.focus-edit .output-scroll { opacity: 1; filter: none; }
 
 /* —— COMPARE：只突出差异，相同行淡化可折叠 —— */
-body.focus-compare #stageRecommend, body.focus-compare #stageCompare,
-body.focus-compare #stageBestTime, body.focus-compare #stageTrip { display: none !important; }
+body.focus-compare #resultStream { display: none !important; }
 .same-row td, .same-row th { color: #9aa6b2; background: #fafbfc; }
 body.focus-compare.hide-same .same-row { display: none; }
 .same-toggle { display: inline-flex; align-items: center; gap: 6px; margin: 10px 0 0; font-size: 12px; color: var(--muted); cursor: pointer; user-select: none; }

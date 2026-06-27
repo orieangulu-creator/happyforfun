@@ -269,11 +269,84 @@
     setGranularity(d.granularity || "country");
   }
 
-  function showLoading(t) { document.body.classList.add("is-loading"); $("placeholder").classList.add("hidden"); const live = Generator.isLive && Generator.isLive(); $("loadingText").textContent = (t || "生成中…") + (live ? "（AI 生成中，通常几秒…）" : ""); $("loading").classList.remove("hidden"); }
-  function hideLoading() { document.body.classList.remove("is-loading"); $("loading").classList.add("hidden"); }
+  // 滚回输出区顶部（窄屏时把输出面板滚到视口顶）
+  function scrollOutputTop() {
+    const sc = document.querySelector(".output-scroll");
+    if (sc) sc.scrollTop = 0;
+    if (window.matchMedia && window.matchMedia("(max-width: 880px)").matches) {
+      const p = document.querySelector(".output-panel");
+      if (p) { try { p.scrollIntoView({ block: "start" }); } catch (e) { p.scrollIntoView(); } }
+    }
+  }
+
+  // 统一等待态：滚顶 + 在 #resultStream 顶部显示 #loading
+  function showWaiting(t) {
+    scrollOutputTop();
+    document.body.classList.add("is-loading");
+    $("placeholder").classList.add("hidden");
+    const live = Generator.isLive && Generator.isLive();
+    $("loadingText").textContent = (t || "生成中…") + (live ? "（AI 生成中，通常几秒…）" : "");
+    const ld = $("loading"), stream = $("resultStream");
+    stream.parentNode.insertBefore(ld, stream); // loading 在 stream 之前（顶部）
+    ld.classList.remove("hidden");
+  }
+  function hideWaiting() { document.body.classList.remove("is-loading"); $("loading").classList.add("hidden"); }
+
+  // clearStages 语义改为「清空当前版本的流」
   function clearStages() {
-    ["stageRecommend", "stageCompare", "stageBestTime", "stageTrip", "stageVersionCompare"]
-      .forEach(id => { $(id).innerHTML = ""; $(id).classList.add("hidden"); });
+    $("resultStream").innerHTML = "";
+    $("stageVersionCompare").innerHTML = "";
+    $("stageVersionCompare").classList.add("hidden");
+  }
+
+  // ---------- 结果块（blocks）：最新在数组最前，渲染进 #resultStream ----------
+  const BLOCK_LABEL = { recommend: "目的地推荐", compare: "目的地对比", besttime: "最佳时间", trip: "详细行程", error: "出错了" };
+  function newBlock(type, res) { return { id: "b" + (++state.seq), type, res, collapsed: false }; }
+
+  // 把一个 block 渲染成 .result-block 元素（body 内容由对应 render* 函数生成）
+  function renderBlockEl(v, block) {
+    const wrap = document.createElement("div");
+    wrap.className = "result-block" + (block.collapsed ? " collapsed" : "");
+    wrap.dataset.type = block.type;
+    wrap.dataset.bid = block.id;
+    wrap.innerHTML = `<div class="block-head"><span class="block-step">${esc(BLOCK_LABEL[block.type] || "")}</span>` +
+      `<button class="block-collapse" type="button">${block.collapsed ? "展开" : "收起"}</button></div>` +
+      `<div class="block-body"></div>`;
+    const body = wrap.querySelector(".block-body");
+    if (block.type === "recommend") body.innerHTML = recommendHTML(block.res);
+    else if (block.type === "compare") body.innerHTML = compareHTML(block.res.data);
+    else if (block.type === "besttime") body.innerHTML = bestTimeHTML(block.res, block.res.data.country);
+    else if (block.type === "trip") body.innerHTML = tripHTML(block.res);
+    else if (block.type === "error") body.innerHTML = errorHTML(block.res);
+    // 折叠按钮（作用域限定本块）
+    wrap.querySelector(".block-collapse").addEventListener("click", () => {
+      block.collapsed = !block.collapsed;
+      wrap.classList.toggle("collapsed", block.collapsed);
+      wrap.querySelector(".block-collapse").textContent = block.collapsed ? "展开" : "收起";
+    });
+    bindBlock(v, block, wrap);
+    return wrap;
+  }
+
+  // 渲染当前版本的整条流（清空 → 按 blocks 顺序渲染，最新在最前）
+  function renderStream(v) {
+    const stream = $("resultStream");
+    stream.innerHTML = "";
+    $("stageVersionCompare").classList.add("hidden");
+    if (!v || !v.blocks || !v.blocks.length) { return; }
+    v.blocks.forEach(block => stream.appendChild(renderBlockEl(v, block)));
+  }
+
+  // 失败时插入错误块（含重试）
+  function pushError(v, message, retry) {
+    const block = newBlock("error", { message, retry });
+    v.blocks.unshift(block);
+    renderStream(v);
+    scrollOutputTop();
+  }
+  function errorHTML(res) {
+    return `<div class="coverage-note">⚠️ 生成出错：${esc(res.message || "")}</div>` +
+      `<button class="btn-primary do-retry" type="button" style="width:auto;padding:9px 18px">重试 ↻</button>`;
   }
 
   // ---------- 主流程：更新当前方案 / 生成新方案 ----------
@@ -285,24 +358,31 @@
 
     let v = active();
     if (asNew || !v) {
-      v = { id: "v" + (++state.seq), num: state.seq, input, result: null, picked: null, destCompare: new Set(), undo: null };
+      v = { id: "v" + (++state.seq), num: state.seq, input, blocks: [], picked: null, destCompare: new Set(), undo: null };
       state.plans.push(v); state.activeId = v.id;
     } else {
-      v.undo = { input: clone(v.input), result: v.result ? clone(v.result) : null, picked: v.picked }; // 一步撤销
+      v.undo = { input: clone(v.input), blocks: clone(v.blocks), picked: v.picked }; // 一步撤销
       v.input = input; v.destCompare = new Set();
     }
 
-    showLoading(asNew ? "生成新方案…" : "更新当前方案…");
+    setFocus("output");
+    renderVersionBar();
+    renderSummaryBar();
+    renderStream(v); // 切到当前版本的流（新版本为空）
+    showWaiting(asNew ? "生成新方案…" : "更新当前方案…");
     $("generateBtn").disabled = true; $("newPlanBtn").disabled = true;
     try {
       const res = await Generator.generate(input);
-      v.result = res;
       v.picked = (res.type === "besttime" || res.type === "trip") ? input.destination.country : null;
-      hideLoading();
-      renderResult(v);
+      hideWaiting();
+      v.blocks.unshift(newBlock(res.type, res));
+      renderStream(v);
+      scrollOutputTop();
       afterPlanChange();
     } catch (e) {
-      hideLoading(); $("inputError").textContent = "生成出错：" + e.message;
+      hideWaiting();
+      pushError(v, e.message, () => onGenerate(false));
+      afterPlanChange();
     } finally { $("generateBtn").disabled = false; $("newPlanBtn").disabled = false; }
   }
 
@@ -314,19 +394,19 @@
     setFocus("output"); // 出方案/更新成功 → 回到 OUTPUT 态并收起输入区
   }
 
-  // 按当前 result 渲染（用于生成后 & 版本切换）
-  function renderResult(v) {
-    clearStages();
-    if (!v.result) return;
-    const res = v.result;
-    if (res.type === "recommend") renderRecommend(res, v);
-    else if (res.type === "besttime") renderBestTime(res, res.data.country);
-    else if (res.type === "trip") renderTrip(res);
+  // 渲染当前版本的整条流（用于生成后 & 版本切换 & 撤销）
+  function renderResult(v) { renderStream(v); }
+
+  // 从 blocks 里取最有代表性的块：优先 trip，其次 besttime，其次 recommend / compare
+  function repBlock(v) {
+    const order = ["trip", "besttime", "recommend", "compare"];
+    for (const t of order) { const b = (v.blocks || []).find(x => x.type === t); if (b) return b; }
+    return (v.blocks || [])[0] || null;
   }
 
   // ---------- 版本标签栏 ----------
   function versionLabel(v) {
-    const r = v.result;
+    const b = repBlock(v), r = b && b.res;
     let name = "待定";
     if (r && (r.type === "besttime" || r.type === "trip")) name = r.data.destinationNameZh || r.data.meta && r.data.meta.destinationNameZh;
     else if (r && r.type === "recommend") name = "选地中";
@@ -363,16 +443,18 @@
     renderVersionBar();
     renderSummaryBar();
     setFocus("output");
+    scrollOutputTop();
   }
   function undo() {
     const v = active();
     if (!v || !v.undo) return;
-    v.input = v.undo.input; v.result = v.undo.result; v.picked = v.undo.picked; v.undo = null;
+    v.input = v.undo.input; v.blocks = v.undo.blocks; v.picked = v.undo.picked; v.undo = null;
     setFormFromInput(v.input);
     renderResult(v);
     renderVersionBar();
     renderSummaryBar();
     setFocus("output");
+    scrollOutputTop();
   }
   function toggleVcompare(id, on) {
     if (on) { if (state.vcompare.size >= 3) { alert("最多对比 3 个版本"); renderVersionBar(); return; } state.vcompare.add(id); }
@@ -380,10 +462,35 @@
     renderVersionBar();
   }
 
+  // ---------- 块内监听绑定（作用域限定在 wrap 内，用 class 避免 id 冲突） ----------
+  function bindBlock(v, block, wrap) {
+    if (block.type === "error") {
+      const rb = wrap.querySelector(".do-retry");
+      if (rb && block.res.retry) rb.addEventListener("click", () => block.res.retry());
+      return;
+    }
+    if (block.type === "recommend") {
+      wrap.querySelectorAll(".pick").forEach(b => b.addEventListener("click", () => pickDestination(b.dataset.id)));
+      wrap.querySelectorAll(".cmp").forEach(b => {
+        if (v.destCompare.has(b.dataset.id)) { b.textContent = "已加入 ✓"; b.classList.add("active"); }
+        b.addEventListener("click", () => toggleDestCompare(b, wrap));
+      });
+      bindCmpBar(v, wrap);
+    } else if (block.type === "compare") {
+      wrap.querySelectorAll(".pick2").forEach(b => b.addEventListener("click", () => pickDestination(b.dataset.id)));
+    } else if (block.type === "besttime") {
+      const gt = wrap.querySelector(".gen-trip");
+      if (gt) gt.addEventListener("click", () => genTrip(block.res.data.country));
+    } else if (block.type === "trip") {
+      const eb = wrap.querySelector(".export-btn");
+      if (eb) eb.addEventListener("click", () => exportTripCSV(block.res.data));
+    }
+  }
+
   // ---------- 渲染：目的地推荐 ----------
-  function renderRecommend(res, v) {
-    const d = res.data, box = $("stageRecommend");
-    let html = `<div class="stage-head"><span class="step">阶段 ①</span><h3>目的地推荐</h3></div>`;
+  function recommendHTML(res) {
+    const d = res.data;
+    let html = `<div class="stage-head"><span class="step">推荐</span><h3>目的地推荐</h3></div>`;
     html += `<p class="stage-sub">${esc(d.basis || "")}</p>`;
     if (d.isFallback) html += `<div class="fallback-note">🧭 你还没给具体信息，这是兜底推荐。填点偏好/时间会更准。</div>`;
     if (d.coverageNote) html += `<div class="coverage-note">⚠️ ${esc(d.coverageNote)}</div>`;
@@ -401,41 +508,38 @@
           <button class="btn-ghost cmp" data-id="${esc(c.id)}" ${c.country ? "" : "disabled"}>加入对比</button>
         </div></div>`;
     });
-    html += `</div><div id="cmpBar" style="margin-top:14px"></div>`;
-    box.innerHTML = html; box.classList.remove("hidden");
-    box.querySelectorAll(".pick").forEach(b => b.addEventListener("click", () => pickDestination(b.dataset.id)));
-    box.querySelectorAll(".cmp").forEach(b => {
-      if (v.destCompare.has(b.dataset.id)) { b.textContent = "已加入 ✓"; b.classList.add("active"); }
-      b.addEventListener("click", () => toggleDestCompare(b));
-    });
-    renderCmpBar();
+    html += `</div><div class="cmp-bar" style="margin-top:14px"></div>`;
+    return html;
   }
 
-  // 选地对比（同一版本内、不同目的地）—— G9
-  function toggleDestCompare(btn) {
+  // 选地对比（同一版本内、不同目的地）—— G9，作用域限定在所属块内
+  function toggleDestCompare(btn, wrap) {
     const v = active(), id = btn.dataset.id;
     if (v.destCompare.has(id)) { v.destCompare.delete(id); btn.textContent = "加入对比"; btn.classList.remove("active"); }
     else { if (v.destCompare.size >= 3) { alert("最多对比 3 个目的地"); return; } v.destCompare.add(id); btn.textContent = "已加入 ✓"; btn.classList.add("active"); }
-    renderCmpBar();
+    bindCmpBar(v, wrap);
   }
-  function renderCmpBar() {
-    const bar = $("cmpBar"); if (!bar) return;
-    const n = active().destCompare.size;
+  function bindCmpBar(v, wrap) {
+    const bar = wrap.querySelector(".cmp-bar"); if (!bar) return;
+    const n = v.destCompare.size;
     if (n === 0) { bar.innerHTML = ""; return; }
     if (n === 1) { bar.innerHTML = `<span class="hint">已选 1 个；再选 1-2 个可对比，或直接「看它的行程」。</span>`; return; }
-    bar.innerHTML = `<button class="btn-primary" id="doCompare" style="width:auto;padding:10px 20px">对比所选 ${n} 个目的地 →</button>`;
-    $("doCompare").addEventListener("click", doDestCompare);
+    bar.innerHTML = `<button class="btn-primary do-compare" type="button" style="width:auto;padding:10px 20px">对比所选 ${n} 个目的地 →</button>`;
+    bar.querySelector(".do-compare").addEventListener("click", doDestCompare);
   }
   async function doDestCompare() {
     const v = active();
-    showLoading("生成对比…");
-    const res = await Generator.generate(v.input, { forceBranch: { type: "compare" }, compareIds: [...v.destCompare] });
-    hideLoading();
-    renderDestCompare(res.data);
+    showWaiting("生成对比…");
+    try {
+      const res = await Generator.generate(v.input, { forceBranch: { type: "compare" }, compareIds: [...v.destCompare] });
+      hideWaiting();
+      v.blocks.unshift(newBlock("compare", res));
+      renderStream(v); scrollOutputTop();
+      renderVersionBar(); renderSummaryBar();
+    } catch (e) { hideWaiting(); pushError(v, e.message, doDestCompare); }
   }
-  function renderDestCompare(c) {
-    const box = $("stageCompare");
-    let html = `<div class="stage-head"><span class="step">阶段 ②</span><h3>目的地对比</h3></div>
+  function compareHTML(c) {
+    let html = `<div class="stage-head"><span class="step">对比</span><h3>目的地对比</h3></div>
       <p class="stage-sub">⚡ 标记的行是差异显著项</p><div class="table-scroll"><table class="cmp-table"><thead><tr><th>维度</th>`;
     c.items.forEach(it => html += `<th>${esc(it.nameZh)}</th>`);
     html += `</tr></thead><tbody>`;
@@ -446,54 +550,53 @@
     });
     html += `</tbody></table></div>`;
     if (c.decisionSummary) html += `<div class="decision">💡 ${esc(c.decisionSummary)}</div>`;
-    html += `<div style="margin-top:12px;display:flex;gap:8px">`;
+    html += `<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">`;
     c.items.forEach(it => html += `<button class="btn-ghost pick2" data-id="${esc(it.id)}">选「${esc(it.nameZh)}」→</button>`);
     html += `</div>`;
-    box.innerHTML = html; box.classList.remove("hidden");
-    box.querySelectorAll(".pick2").forEach(b => b.addEventListener("click", () => pickDestination(b.dataset.id)));
-    box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    return html;
   }
 
-  // ---------- 选定目的地 → 最佳时间 → 行程（均更新当前版本 result） ----------
+  // ---------- 选定目的地 → 最佳时间 → 行程（均向当前版本流新增块） ----------
   async function pickDestination(country) {
     if (!DATA.libraries[country]) return;
     const v = active();
     v.input = Object.assign({}, v.input, { destination: { granularity: "country", country } });
-    document.querySelectorAll(".cand-card").forEach(c => c.classList.toggle("picked", c.dataset.id === country));
-    $("stageBestTime").innerHTML = ""; $("stageTrip").innerHTML = "";
-    showLoading("查最佳时间…");
-    const res = await Generator.generate(v.input, { forceBranch: { type: "besttime" } });
-    hideLoading();
-    v.result = res; v.picked = country;
-    renderBestTime(res, country);
-    renderVersionBar();
-    renderSummaryBar();
-    setFocus("output");
+    showWaiting("查最佳时间…");
+    try {
+      const res = await Generator.generate(v.input, { forceBranch: { type: "besttime" } });
+      hideWaiting();
+      v.picked = country;
+      v.blocks.unshift(newBlock("besttime", res));
+      renderStream(v); scrollOutputTop();
+      renderVersionBar(); renderSummaryBar(); setFocus("output");
+    } catch (e) { hideWaiting(); pushError(v, e.message, () => pickDestination(country)); }
   }
-  function renderBestTime(res, country) {
-    const b = res.data, box = $("stageBestTime");
-    let html = `<div class="stage-head"><span class="step">阶段 ③</span><h3>${esc(b.destinationNameZh)} · 最佳时间</h3></div><div class="season-row">`;
+  async function genTrip(country) {
+    const v = active();
+    showWaiting("排详细行程…");
+    try {
+      const r = await Generator.generate(v.input, { forceBranch: { type: "trip" } });
+      hideWaiting();
+      v.picked = country;
+      v.blocks.unshift(newBlock("trip", r));
+      renderStream(v); scrollOutputTop();
+      renderVersionBar(); renderSummaryBar(); setFocus("output");
+    } catch (e) { hideWaiting(); pushError(v, e.message, () => genTrip(country)); }
+  }
+  function bestTimeHTML(res, country) {
+    const b = res.data;
+    let html = `<div class="stage-head"><span class="step">最佳时间</span><h3>${esc(b.destinationNameZh)} · 最佳时间</h3></div><div class="season-row">`;
     b.bestSeasons.forEach(s => html += `<span class="season-pill"><b>${SEASON_ZH[s.season]}</b> ${esc(s.reason)}</span>`);
     html += `</div><div class="period-grid">`;
     b.periods.forEach(p => html += `<div class="period-card"><h4>${esc(p.period)}</h4><div class="exp">${p.experiences.map(esc).join(" · ")}</div></div>`);
-    html += `</div><div style="margin-top:14px"><button class="btn-primary" id="genTrip" style="width:auto;padding:10px 22px">生成详细行程 →</button></div>`;
-    box.innerHTML = html; box.classList.remove("hidden");
-    $("genTrip").addEventListener("click", async () => {
-      const v = active();
-      $("stageTrip").innerHTML = "";
-      showLoading("排详细行程…");
-      const r = await Generator.generate(v.input, { forceBranch: { type: "trip" } });
-      hideLoading();
-      v.result = r; v.picked = country;
-      renderTrip(r); renderVersionBar(); renderSummaryBar(); setFocus("output");
-    });
-    box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    html += `</div><div style="margin-top:14px"><button class="btn-primary gen-trip" type="button" style="width:auto;padding:10px 22px">生成详细行程 →</button></div>`;
+    return html;
   }
 
   // ---------- 渲染：详细行程（6 大模块） ----------
-  function renderTrip(res) {
-    const t = res.data, m = t.meta, box = $("stageTrip");
-    let html = `<div class="stage-head"><span class="step">阶段 ④</span><h3>${esc(m.destinationNameZh)} · ${m.days} 天行程</h3><button id="exportBtn" class="btn-ghost" style="margin-left:auto;padding:5px 12px;font-size:12px">⬇ 导出 Excel</button></div>`;
+  function tripHTML(res) {
+    const t = res.data, m = t.meta;
+    let html = `<div class="stage-head"><span class="step">详细行程</span><h3>${esc(m.destinationNameZh)} · ${m.days} 天行程</h3><button class="btn-ghost export-btn" type="button" style="margin-left:auto;padding:5px 12px;font-size:12px">⬇ 导出 Excel</button></div>`;
     html += `<div class="trip-meta">
       <span class="tag pace-${m.pace}">节奏：${PACE_ZH[m.pace] || m.pace}</span>
       ${m.companion ? `<span class="tag">同行：${esc(COMP_ZH[m.companion] || m.companion)}</span>` : ""}
@@ -522,9 +625,7 @@
     html += `</div><div class="module"><h4>🌤️ 6. 季节建议</h4>`;
     t.seasonalTips.forEach(s => html += `<div class="tip-item">· ${esc(s.tip)} <span class="source">（${esc(s.source)}）</span></div>`);
     html += `</div>`;
-    box.innerHTML = html; box.classList.remove("hidden");
-    const eb = $("exportBtn"); if (eb) eb.addEventListener("click", () => exportTripCSV(t));
-    box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    return html;
   }
 
   // ---------- 导出 Excel（CSV + BOM，Excel 可直接打开，零依赖） ----------
@@ -559,7 +660,7 @@
 
   // ---------- 版本并排对比（不同目的地 / 同地不同时间，通用） ----------
   function versionSummary(v) {
-    const inp = v.input || {}, dr = inp.dateRange, r = v.result;
+    const inp = v.input || {}, dr = inp.dateRange, rb = repBlock(v), r = rb && rb.res;
     const country = (inp.destination && inp.destination.country) || v.picked || (r && r.data && r.data.meta && r.data.meta.destinationCountry) || null;
     const destName = country ? DATA.libraries[country].countryNameZh
       : (inp.destination && inp.destination.regionText) || ((inp.destination && inp.destination.granularity === "playstyle") ? (inp.destination.playstyleTags || []).join("/") : "未定");
@@ -609,8 +710,9 @@
     $("exitCmpBtn").addEventListener("click", () => {
       box.classList.add("hidden");
       setFocus("output");
+      scrollOutputTop();
     });
-    box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    scrollOutputTop();
   }
 
   document.addEventListener("DOMContentLoaded", init);
