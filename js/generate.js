@@ -48,9 +48,90 @@
   // —— 分支判断（PRD 9.3） ——
   function decideBranch(input) {
     const d = input.destination || {};
+    if (d.granularity === "multi") return { type: "combo" };
     const isCountry = d.granularity === "country" && d.country;
     if (isCountry) return hasDate(input) ? { type: "trip" } : { type: "besttime" };
     return { type: "recommend", isFallback: !hasSignal(input) };
+  }
+
+  // ===== 多国：城市总数随天数封顶（用户明确要求可覆盖）=====
+  function cityCapForDays(days) {
+    if (days <= 5) return 2;
+    if (days <= 9) return 3;
+    if (days <= 15) return 4;
+    return 4 + Math.ceil((days - 15) / 4);
+  }
+  function suggestDaysForCountries(n) { return n <= 1 ? 5 : n === 2 ? 7 : n === 3 ? 10 : 13; }
+
+  // 邻接贪心：把国家排成减少折返的一条链（优先从锚点/连接最多者起步）
+  function orderByAdjacency(ids, adj) {
+    if (ids.length <= 2) return ids.slice();
+    const set = new Set(ids);
+    const deg = id => (adj[id] || []).filter(x => set.has(x)).length;
+    let start = ids.slice().sort((a, b) => deg(b) - deg(a))[0];
+    const order = [start]; const left = new Set(ids); left.delete(start);
+    while (left.size) {
+      const last = order[order.length - 1];
+      const nb = (adj[last] || []).filter(x => left.has(x));
+      let next = nb[0];
+      if (!next) next = [...left].sort((a, b) => deg(b) - deg(a))[0]; // 断链则取剩余里连接最多者
+      order.push(next); left.delete(next);
+    }
+    return order;
+  }
+
+  // 多国组合推荐（DEMO 打分）
+  function buildCombo(input) {
+    const m = (input.destination && input.destination.multi) || {};
+    const region = m.region || "欧洲";
+    const want = m.countryCount || { min: 2, max: 3 };
+    const must = (m.mustInclude || []).filter(c => DATA.libraries[c]);
+    const exclude = new Set(m.exclude || []);
+    const prefer = new Set([].concat(m.preferTags || [], input.moodTags || []));
+    const geo = DATA.geo || {}, adj = geo.adjacency || {}, combos = geo.combos || [], cost = geo.costTier || {};
+    const season = input.dateRange ? seasonFromDate(input.dateRange.start) : null;
+    const anchor = must[0] || null;
+
+    const inRegion = (DATA.manifest || [])
+      .filter(x => x.region === region || region.includes(x.region) || x.region.includes(region))
+      .map(x => x.id).filter(id => DATA.libraries[id]);
+
+    function score(id) {
+      const lib = DATA.libraries[id]; let s = 0;
+      if (anchor && anchor !== id) { const nb = adj[anchor] || []; const i = nb.indexOf(id); s += i >= 0 ? 0.25 * (1 - i / Math.max(1, nb.length)) : 0; }
+      else s += 0.12;
+      s += 0.20 * Math.min(1, lib.attractions.length / 6);
+      if (season) s += 0.15 * (lib.bestSeasons.some(b => b.season === season) ? 1 : 0.3); else s += 0.10;
+      const ct = cost[id] || "high"; s += 0.10 * (ct === "low" ? 1 : ct === "medium" ? 0.6 : 0.3);
+      if (anchor) s += 0.30 * (combos.some(c => c.countries.includes(anchor) && c.countries.includes(id)) ? 1 : 0);
+      else s += 0.15 * (combos.some(c => c.countries.includes(id)) ? 1 : 0);
+      if (prefer.size && lib.moodTags.some(t => prefer.has(t))) s += 0.05;
+      return Math.round(s * 100) / 100;
+    }
+    const companions = inRegion.filter(id => id !== anchor && !exclude.has(id) && !must.includes(id)).sort((a, b) => score(b) - score(a));
+    const target = Math.max(want.min || 2, Math.min(want.max || 3, (want.max || 3)));
+    const chosen = must.slice();
+    for (const id of companions) { if (chosen.length >= target) break; chosen.push(id); }
+    const ordered = orderByAdjacency(chosen, adj);
+
+    function reason(id) {
+      const lib = DATA.libraries[id]; const bits = [];
+      if (must.includes(id)) bits.push("你指定必含");
+      else if (anchor && (adj[anchor] || []).includes(id)) bits.push("与" + DATA.libraries[anchor].countryNameZh + "顺路");
+      if (combos.some(c => c.countries.includes(id) && (!anchor || c.countries.includes(anchor)))) bits.push("主流攻略常见组合");
+      if (season && lib.bestSeasons.some(b => b.season === season)) bits.push(SEASON_ZH[season] + "正当季");
+      const ct = cost[id] || "high"; bits.push({ low: "花费经济", medium: "花费适中", high: "花费偏高" }[ct]);
+      return bits.join(" · ");
+    }
+    const matched = combos.find(c => c.countries.length === ordered.length && c.countries.every(x => ordered.includes(x)));
+    return {
+      region, tripKind: "multi",
+      countries: ordered.map(id => ({ country: id, nameZh: DATA.libraries[id].countryNameZh, role: must.includes(id) ? "anchor" : "companion", score: score(id), reason: reason(id) })),
+      countryOrder: ordered,
+      totalDaysSuggest: suggestDaysForCountries(ordered.length),
+      note: matched ? ("贴近主流线路：" + matched.note) : "按顺路紧密度 + 游玩度 + 季节自动组合",
+      altCombos: combos.filter(c => !anchor || c.countries.includes(anchor)).slice(0, 4)
+    };
   }
 
   function transportFor(country, origin) {
@@ -59,6 +140,78 @@
     return { origin, destinationNameZh: (DATA.libraries[country] ? DATA.libraries[country].countryNameZh : country),
       directFlight: f.direct, flightHours: f.h,
       note: `${origin}出发约 ${f.h} 小时${f.direct ? "，有直飞" : "，多需中转"}`, source: "交通时长估算" };
+  }
+
+  // 多国行程（DEMO）：跨国城市铺排 + 总城市数随天数封顶 + 跨国交通 + 签证提示
+  function buildMultiTrip(countryOrder, input) {
+    const order = (countryOrder || []).filter(c => DATA.libraries[c]);
+    if (order.length <= 1) return buildTrip(order[0] || (input.destination && input.destination.country), input);
+    const pace = defaultPace(input);
+    const perDay = pace === "intense" ? 5 : pace === "relaxed" ? 2 : 3;
+    const season = input.dateRange ? seasonFromDate(input.dateRange.start) : null;
+    const reqDays = (input.dateRange && input.dateRange.days) || suggestDaysForCountries(order.length);
+    const ck = (a, lib) => String(a.region || lib.countryNameZh).split(/[\/／]/)[0].trim();
+
+    const perCountry = order.map(country => {
+      const lib = DATA.libraries[country]; const names = [];
+      lib.attractions.forEach(a => { const c = ck(a, lib); if (!names.includes(c)) names.push(c); });
+      return names.map(c => ({ city: c, country, attractions: lib.attractions.filter(a => ck(a, lib) === c), foods: lib.foods.filter(f => ck(f, lib) === c) }));
+    });
+    // 各国主城优先的轮转交错
+    const cityList = []; let idx = 0, more = true;
+    while (more) { more = false; perCountry.forEach(list => { if (list[idx]) { cityList.push(list[idx]); more = true; } }); idx++; }
+    const maxCities = Math.min(cityList.length, Math.max(order.length, cityCapForDays(reqDays)));
+    const use = cityList.slice(0, maxCities);
+    const cappedCities = cityList.length > use.length;
+    const dayCap = use.length * MAX_DAYS_PER_CITY;
+    const days = Math.max(use.length, Math.min(reqDays, dayCap));
+
+    const alloc = []; let leftCities = use.length, leftDays = days;
+    for (const c of use) { if (leftDays <= 0) break; const dd = Math.max(1, Math.min(MAX_DAYS_PER_CITY, leftDays, Math.ceil(leftDays / leftCities))); alloc.push(Object.assign({}, c, { days: dd })); leftDays -= dd; leftCities--; }
+
+    const allResv = order.flatMap(c => DATA.libraries[c].reservations.map(r => r.id)).slice(0, 4);
+    const dailyPlan = []; let dayNo = 0;
+    alloc.forEach((al, ci) => {
+      const acts0 = al.attractions.length ? al.attractions : DATA.libraries[al.country].attractions;
+      const foods = al.foods.length ? al.foods : DATA.libraries[al.country].foods;
+      let ai = 0, fi = 0;
+      for (let d = 1; d <= al.days; d++) {
+        dayNo++;
+        const acts = [];
+        for (let k = 0; k < perDay; k++) { const a = acts0[ai % acts0.length]; ai++; acts.push({ id: a.id, name: a.name, timeSlot: SLOTS[Math.min(k, SLOTS.length - 1)], durationMin: a.suggestedDurationMin || 90, summary: a.summary, source: a.source }); }
+        const lunch = foods[fi % foods.length]; fi++; const dinner = foods[fi % foods.length]; fi++;
+        dailyPlan.push({ day: dayNo, title: `${DATA.libraries[al.country].countryNameZh} · ${al.city} 第 ${d} 天`, country: al.country, intensity: pace, dayType: ci === 0 ? "core" : "optional",
+          activities: acts, meals: [{ id: lunch.id, name: lunch.name, slot: "lunch", reason: lunch.reason, source: lunch.source }, { id: dinner.id, name: dinner.name, slot: "dinner", reason: dinner.reason, source: dinner.source }],
+          reservationRefs: dayNo === 1 ? allResv : [] });
+      }
+    });
+    const realDays = dailyPlan.length;
+    const coreDays = (alloc[0] ? alloc[0].days : realDays);
+    const seq = alloc.map(a => ({ city: a.city, country: a.country }));
+    const segs = [{ mode: "flight", from: input.origin || "出发地", to: seq[0].city, detail: input.origin ? transportFor(seq[0].country, input.origin).note : "建议直飞首站", source: "交通估算" }];
+    for (let i = 1; i < seq.length; i++) { const cross = seq[i].country !== seq[i - 1].country; segs.push({ mode: cross ? "flight/train" : "train", from: seq[i - 1].city, to: seq[i].city, detail: cross ? "跨国：高铁或廉价航空" : "同国火车 / 大巴", crossBorder: cross, source: "交通估算" }); }
+
+    const lib0 = DATA.libraries[order[0]];
+    const tips = (season ? lib0.seasonalTips.filter(t => t.season === season) : lib0.seasonalTips);
+    const tipsOut = (tips.length ? tips : lib0.seasonalTips).slice(0, 3).map(t => ({ season: t.season, tip: t.tip, source: t.source }));
+    const NON_SCHENGEN = new Set(["unitedkingdom"]);
+    const regionNotes = [];
+    if (order.some(c => regionOf(c) === "欧洲")) {
+      const hasNon = order.some(c => NON_SCHENGEN.has(c));
+      regionNotes.push({ note: "欧洲多属申根区，区内可凭一国签证自由通行" + (hasNon ? "；本行程含英国(非申根)，需单独签证与边检。" : "；本行程国家若均属申根，办一次申根签即可。"), source: "签证常识" });
+    }
+    const resvOut = order.flatMap(c => DATA.libraries[c].reservations.map(r => ({ id: r.id, name: DATA.libraries[c].countryNameZh + " · " + r.name, day: 1, method: r.method, leadTime: r.leadTime, source: r.source }))).slice(0, 6);
+
+    return {
+      meta: { origin: input.origin || null, destinationCountry: order[0], destinationCountries: order, tripKind: "multi", countryOrder: order,
+        destinationNameZh: order.map(c => DATA.libraries[c].countryNameZh).join(" · "),
+        days: realDays, dateRange: input.dateRange || null, season, pace, companion: input.companion || null, moodTags: input.moodTags || [], freeText: input.freeText || "", themes: [], budget: null, generatedBy: "claude-opus-4-8", generatedAt: new Date().toISOString() },
+      route: { summary: [input.origin || "出发地"].concat(seq.map(s => s.city)).join(" → "), segments: segs, tips: "跨国段预留半天交通；多国建议买点对点车票或廉航联程。", source: "交通估算" },
+      dailyPlan, reservations: resvOut, seasonalTips: tipsOut,
+      flexibility: { coreDays, optionalDays: realDays - coreDays, note: (cappedCities ? `已按"总天数→城市上限(${use.length}城)"铺排；` : "") + "想更深可加天数，或在描述里指定某城/某国停留更久。" },
+      regionNotes, timingWarning: null,
+      warnings: ["本结果由本地规则引擎(DEMO 模式)生成；接入后端 AI 后将实时生成更丰富的多国方案。"]
+    };
   }
 
   // ================= 本地规则引擎(DEMO) =================
@@ -254,12 +407,15 @@
     } else if (type === "compare") {
       need(Array.isArray(o.items) && o.items.length >= 2 && o.items.length <= 3, "items 需 2-3 个");
       need(Array.isArray(o.dimensions) && o.dimensions.length, "缺 dimensions");
-    } else if (type === "trip") {
+    } else if (type === "trip" || type === "multitrip") {
       need(o.meta && o.meta.destinationCountry && o.meta.days && o.meta.pace, "meta 字段不全");
       need(o.route && Array.isArray(o.route.segments), "缺 route");
       need(Array.isArray(o.dailyPlan) && o.dailyPlan.length, "缺 dailyPlan");
       (o.dailyPlan || []).forEach((d, i) => need(d.day && d.title && d.intensity && d.dayType && Array.isArray(d.activities), `第${i + 1}天字段不全`));
       need(Array.isArray(o.reservations) && Array.isArray(o.seasonalTips), "缺 reservations/seasonalTips");
+    } else if (type === "combo") {
+      need(Array.isArray(o.countries) && o.countries.length >= 2, "combo 国家需 ≥2");
+      need(Array.isArray(o.countryOrder) && o.countryOrder.length >= 2, "缺 countryOrder");
     }
     return { ok: errs.length === 0, errors: errs };
   }
@@ -298,7 +454,7 @@
       const r = await fetch(API_BASE(), {
         method: "POST",
         headers: { "content-type": "application/json", "x-access-code": code },
-        body: JSON.stringify({ userInput: input, branch, libraryData: DATA.libraries, holidayData: DATA.holidays })
+        body: JSON.stringify({ userInput: input, branch, libraryData: DATA.libraries, holidayData: DATA.holidays, geoData: DATA.geo })
       });
       if (r.status === 401) {
         try { localStorage.removeItem(CODE_KEY); } catch (e) {}
@@ -329,6 +485,8 @@
       if (type === "besttime") return buildBestTime(input.destination.country);
       if (type === "trip") return buildTrip(input.destination.country, input);
       if (type === "compare") return buildComparison(opts.compareIds, input);
+      if (type === "combo") return buildCombo(input);
+      if (type === "multitrip") return buildMultiTrip(opts.countryOrder, input);
     };
 
     if (!LIVE) return { branch, type, data: mock(), mode: "demo", warnings: [] };

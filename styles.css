@@ -189,6 +189,18 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--b
 .vcmp-table tr.diff td, .vcmp-table tr.diff th { background: #fff7ed; }
 .vcmp-table tr.diff th::after { content: " ⚡"; }
 
+/* 多国输入 */
+.multi-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.multi-row.top { align-items: flex-start; }
+.multi-row > label { font-size: 13px; color: var(--muted); min-width: 56px; flex: none; padding-top: 4px; }
+.multi-row select { flex: 1; }
+.mini-chips .chip { font-size: 12px; padding: 5px 10px; }
+/* 国家组合推荐 */
+.combo-order { font-size: 16px; margin: 4px 0 14px; }
+.combo-order .combo-arrow { color: var(--accent); margin: 0 2px; }
+.alt-combos { display: flex; flex-wrap: wrap; gap: 8px; }
+.alt-combo { font-size: 12px; background: #eef2f6; border-radius: 8px; padding: 4px 10px; color: #44505d; }
+
 /* 首屏示例 chip */
 .ph-hint { font-size: 13px; color: var(--muted); margin-top: 22px; }
 .ph-examples { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px; }

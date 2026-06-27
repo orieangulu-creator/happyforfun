@@ -54,6 +54,7 @@
         <label>目的地 <small>四种粒度，都可不填</small></label>
         <div class="seg" id="granSeg">
           <button type="button" data-gran="country" class="seg-btn active">具体国家</button>
+          <button type="button" data-gran="multi" class="seg-btn">多国</button>
           <button type="button" data-gran="region" class="seg-btn">模糊区域</button>
           <button type="button" data-gran="playstyle" class="seg-btn">玩法</button>
           <button type="button" data-gran="none" class="seg-btn">还没想好</button>
@@ -62,6 +63,12 @@
           <select id="destCountry" class="gran-input">
             <option value="">— 选择国家 —</option>
           </select>
+          <div id="destMulti" class="gran-input hidden">
+            <div class="multi-row"><label>区域</label><select id="multiRegion"><option value="欧洲">欧洲</option><option value="亚洲">亚洲</option></select></div>
+            <div class="multi-row"><label>国家数</label><select id="multiCount"><option value="2-2">2 国</option><option value="2-3" selected>2-3 国</option><option value="3-4">3-4 国</option></select></div>
+            <div class="multi-row top"><label>必含国家</label><div id="multiMust" class="chips mini-chips"></div></div>
+            <p class="hint">勾选必含国（如法国），系统会按「顺路 + 游玩度 + 季节」自动配齐另外 1-2 国并出第一版组合；想换国可在一句话描述里说明。</p>
+          </div>
           <input id="destRegion" class="gran-input hidden" type="text" placeholder="如：东南亚 / 欧洲" />
           <div id="destPlaystyle" class="chips gran-input hidden"></div>
           <p id="destNone" class="gran-input hidden hint">不填目的地，我来帮你推荐 👍</p>

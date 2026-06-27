@@ -113,7 +113,7 @@
     ]
   };
 
-  const DATA = { libraries: {}, holidays: [], manifest: [], loaded: false, usingFallback: false };
+  const DATA = { libraries: {}, holidays: [], manifest: [], geo: { adjacency: {}, combos: [], costTier: {}, flightHoursFromChina: {} }, loaded: false, usingFallback: false };
 
   async function tryFetch(path) {
     try {
@@ -126,6 +126,7 @@
   DATA.load = async function () {
     const manifest = await tryFetch("data/manifest.json");
     const hol = await tryFetch("data/holidays.json");
+    DATA.geo = (await tryFetch("data/geo.json")) || { adjacency: {}, combos: [], costTier: {}, flightHoursFromChina: {} };
     if (manifest && Array.isArray(manifest) && manifest.length) {
       const loaded = await Promise.all(manifest.map(async m => {
         const lib = await tryFetch("data/" + m.id + ".json");

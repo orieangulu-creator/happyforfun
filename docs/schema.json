@@ -28,8 +28,8 @@
     },
     "DestinationGranularity": {
       "type": "string",
-      "enum": ["country", "region", "playstyle", "none"],
-      "description": "目的地粒度: 具体国家 / 模糊地理区域(如东南亚、欧洲) / 模糊玩法(如海岛、雪山、温泉) / 完全留空"
+      "enum": ["country", "multi", "region", "playstyle", "none"],
+      "description": "目的地粒度: 具体国家 / 多国(multi: 区域+国家数+必含国，自动配齐组合) / 模糊地理区域 / 模糊玩法 / 完全留空"
     },
     "Theme": {
       "type": "string",

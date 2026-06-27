@@ -55,7 +55,7 @@ function originAllowed(req, allowed) {
 // 每种分支的【输出 JSON 骨架】——字段名必须一字不差，模型照此填充
 const OUTPUT_SPECS = {
   trip: `{
-  "meta": {"origin": string|null, "destinationCountry": "japan|thailand|france", "destinationNameZh": string, "days": number, "season": "spring|summer|autumn|winter"|null, "pace": "intense|balanced|relaxed", "companion": string|null, "moodTags": string[], "freeText": string},
+  "meta": {"origin": string|null, "destinationCountry": "<country slug，取自 libraryData 的 key>", "destinationNameZh": string, "days": number, "season": "spring|summer|autumn|winter"|null, "pace": "intense|balanced|relaxed", "companion": string|null, "moodTags": string[], "freeText": string},
   "route": {"summary": string, "segments": [{"mode": string, "from": string, "to": string, "detail": string, "source": string}], "tips": string, "source": string},
   "dailyPlan": [{"day": number, "title": string, "intensity": "intense|balanced|relaxed", "dayType": "core|optional", "activities": [{"name": string, "timeSlot": string, "durationMin": number, "summary": string, "source": string}], "meals": [{"name": string, "slot": "breakfast|lunch|dinner|snack", "reason": string, "source": string}]}],
   "reservations": [{"id": string, "name": string, "method": string, "leadTime": string, "source": string}],
@@ -66,20 +66,34 @@ const OUTPUT_SPECS = {
 要求：天数=days；按 pace 控制每日活动数(intense 4-6 / balanced 2-4 / relaxed 1-2)；优先复用 libraryData 中该国的真实 attractions/foods/reservations/seasonalTips 并透传其 source；前 coreDays 天标 core、其余 optional。
 【城市停留规则】每座城市安排 2-3 天，单城上限 3 天 2 晚——除非用户在 freeText 明确要求某城久留，否则一城超过 3 天就应换到下一座城市；dailyPlan 每天的 title 标明所在城市；多城市时 route.summary 串联城市、segments 标注城市间交通(火车/大巴)。`,
   recommend: `{"isFallback": boolean, "basis": string, "coverageNote": string|null,
- "candidates": [{"id": string, "nameZh": string, "country": "japan|thailand|france"|null, "matchLevel": "strong|related", "matchReason": string, "bestVisitTime": string, "suggestedDays": number, "costTier": "low|medium|high", "moodTags": string[], "source": string}]}
+ "candidates": [{"id": string, "nameZh": string, "country": "<country slug，取自 libraryData 的 key>"|null, "matchLevel": "strong|related", "matchReason": string, "bestVisitTime": string, "suggestedDays": number, "costTier": "low|medium|high", "moodTags": string[], "source": string}]}
 要求：给 3-5 个候选，优先从 libraryData 的国家中选；强匹配标 strong，其余 related。`,
-  besttime: `{"destinationNameZh": string, "country": "japan|thailand|france"|null,
+  besttime: `{"destinationNameZh": string, "country": "<country slug，取自 libraryData 的 key>"|null,
  "bestSeasons": [{"season": "spring|summer|autumn|winter", "reason": string, "source": string}],
  "periods": [{"period": string, "experiences": [string], "source": string}]}
 要求：取自该国 libraryData 的 bestSeasons 与 signatureExperiencesByPeriod。`,
   compare: `{"items": [{"id": string, "nameZh": string, "cells": {"timeFit": string, "daysVsHoliday": string, "costTier": string, "fatigue": string, "highlights": string, "transport": string}}],
  "dimensions": [{"key": "timeFit|daysVsHoliday|costTier|fatigue|highlights|transport", "labelZh": string, "highlightDiff": boolean}],
  "decisionSummary": string}
-要求：items 为待对比国家(2-3 个)，highlightDiff=该维度各 item 取值有明显差异时为 true。`
+要求：items 为待对比国家(2-3 个)，highlightDiff=该维度各 item 取值有明显差异时为 true。`,
+  combo: `{"region": string, "tripKind": "multi", "note": string, "totalDaysSuggest": number,
+ "countryOrder": ["<country slug>", ...],
+ "countries": [{"country": string, "nameZh": string, "role": "anchor|companion", "score": number, "reason": string}]}
+要求：基于 userInput.destination.multi(区域/国家数 countryCount/必含国 mustInclude/排除 exclude/偏好 preferTags) 与 geoData(adjacency 邻接表、combos 主流常见组合、costTier)，对同区域候选国按「常见组合 + 与锚点顺路邻近 + 游玩度 + 季节契合 + 花费」排序；必含国置 role=anchor；取评分最高且满足国家数的一组；countryOrder 按顺路减少折返排序；只在 libraryData 已覆盖的国家中选。`,
+  multitrip: `{
+  "meta": {"origin": string|null, "destinationCountry": "<首国 slug>", "destinationCountries": ["<slug>",...], "tripKind": "multi", "countryOrder": ["<slug>",...], "destinationNameZh": string, "days": number, "season": "spring|summer|autumn|winter"|null, "pace": "intense|balanced|relaxed", "companion": string|null, "moodTags": string[], "freeText": string},
+  "route": {"summary": string, "segments": [{"mode": string, "from": string, "to": string, "detail": string, "crossBorder": boolean, "source": string}], "tips": string, "source": string},
+  "dailyPlan": [{"day": number, "title": string, "country": "<slug>", "intensity": "intense|balanced|relaxed", "dayType": "core|optional", "activities": [{"name": string, "timeSlot": string, "summary": string, "source": string}], "meals": [{"name": string, "slot": "lunch|dinner", "reason": string, "source": string}]}],
+  "reservations": [{"id": string, "name": string, "method": string, "leadTime": string, "source": string}],
+  "seasonalTips": [{"season": "spring|summer|autumn|winter", "tip": string, "source": string}],
+  "regionNotes": [{"note": string, "source": string}],
+  "flexibility": {"coreDays": number, "optionalDays": number, "note": string}, "timingWarning": string|null
+}
+要求：覆盖 countryOrder 各国(每国至少 1 主城)；【城市总数规则】总城市数随总天数封顶：≤5天≤2城 / 6-9天≤3城 / 10-15天≤4城；叠加单城 2-3 天、上限 3 天 2 晚(用户明确要求可超)；国家顺序按 geoData.adjacency 减少折返；跨国 segment 标 crossBorder:true；regionNotes 给申根/签证等区域提示；优先复用 libraryData 真实条目并透传 source。`
 };
 
-function buildPrompt(userInput, branch, libraryData, holidayData) {
-  const ctx = { userInput, branchInstruction: branch, libraryData, holidayData };
+function buildPrompt(userInput, branch, libraryData, holidayData, geoData) {
+  const ctx = { userInput, branchInstruction: branch, libraryData, holidayData, geoData };
   const spec = OUTPUT_SPECS[branch.type] || "{}";
   return [
     "你是旅游行程规划引擎。严格依据 libraryData(真实数据，含 source) 生成结果，内容用中文。",
@@ -150,7 +164,7 @@ async function handler(req, res) {
   if (!branch || !branch.type) { res.status(400).json({ error: "missing_branch" }); return; }
   if (userInput.freeText && String(userInput.freeText).length > 500) { res.status(400).json({ error: "freetext_too_long" }); return; }
 
-  const prompt = buildPrompt(userInput, branch, body.libraryData || {}, body.holidayData || []);
+  const prompt = buildPrompt(userInput, branch, body.libraryData || {}, body.holidayData || [], body.geoData || {});
 
   // 调 Claude（服务端持 key）→ 校验 → 失败重试 1 次
   let lastErr;

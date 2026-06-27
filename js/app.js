@@ -26,7 +26,7 @@
 
   // 方案版本状态
   const state = {
-    gran: "country", mood: new Set(), playstyle: new Set(),
+    gran: "country", mood: new Set(), playstyle: new Set(), multiMust: new Set(),
     plans: [], activeId: null, seq: 0, vcompare: new Set()
   };
   const active = () => state.plans.find(p => p.id === state.activeId);
@@ -81,6 +81,7 @@
     await Generator.probe();
     setModeBadge();
     renderCountryOptions();
+    renderMultiMustChips();
     renderChips($("moodChips"), MOODS, state.mood);
     renderChips($("destPlaystyle"), PLAYSTYLES, state.playstyle);
     renderHolidayChips();
@@ -152,6 +153,20 @@
     });
   }
 
+  // 多国「必含国家」chip（按当前所选区域过滤）
+  function renderMultiMustChips() {
+    const box = $("multiMust"); if (!box) return;
+    const region = ($("multiRegion") && $("multiRegion").value) || "欧洲";
+    box.innerHTML = "";
+    (DATA.manifest || []).filter(m => m.region === region).forEach(m => {
+      const el = document.createElement("span");
+      el.className = "chip" + (state.multiMust.has(m.id) ? " on" : "");
+      el.textContent = m.nameZh; el.dataset.val = m.id;
+      el.addEventListener("click", () => { el.classList.toggle("on"); el.classList.contains("on") ? state.multiMust.add(m.id) : state.multiMust.delete(m.id); });
+      box.appendChild(el);
+    });
+  }
+
   function renderChips(container, list, set) {
     container.innerHTML = "";
     list.forEach(([val, label]) => {
@@ -178,7 +193,7 @@
     });
   }
 
-  const GRAN_INPUT = { country: "destCountry", region: "destRegion", playstyle: "destPlaystyle", none: "destNone" };
+  const GRAN_INPUT = { country: "destCountry", region: "destRegion", playstyle: "destPlaystyle", multi: "destMulti", none: "destNone" };
   function wireGranularity() {
     $("granSeg").querySelectorAll(".seg-btn").forEach(btn => {
       btn.addEventListener("click", () => setGranularity(btn.dataset.gran));
@@ -196,6 +211,7 @@
     $("freeText").addEventListener("input", e => $("ftCount").textContent = e.target.value.length);
     $("destCountry").addEventListener("change", updateDestHolidayHint);
     ["dateStart", "dateEnd"].forEach(id => $(id).addEventListener("change", updateDestHolidayHint));
+    if ($("multiRegion")) $("multiRegion").addEventListener("change", renderMultiMustChips);
   }
 
   // 节假日重叠提示（复用：输入区提示 + 版本对比）
@@ -234,6 +250,10 @@
     if (state.gran === "country") destination = { granularity: "country", country: $("destCountry").value || null };
     else if (state.gran === "region") destination = { granularity: "region", regionText: $("destRegion").value.trim() };
     else if (state.gran === "playstyle") destination = { granularity: "playstyle", playstyleTags: [...state.playstyle] };
+    else if (state.gran === "multi") {
+      const cnt = ($("multiCount").value || "2-3").split("-").map(Number);
+      destination = { granularity: "multi", multi: { region: $("multiRegion").value || "欧洲", countryCount: { min: cnt[0], max: cnt[1] || cnt[0] }, mustInclude: [...state.multiMust], exclude: [], preferTags: [] } };
+    }
     else destination = { granularity: "none" };
 
     const input = { destination };
@@ -264,8 +284,14 @@
     state.playstyle = new Set(d.playstyleTags || []);
     $("destCountry").value = d.country || "";
     $("destRegion").value = d.regionText || "";
+    // 多国字段回填
+    const mm = d.multi || {};
+    if ($("multiRegion")) $("multiRegion").value = mm.region || "欧洲";
+    if ($("multiCount") && mm.countryCount) $("multiCount").value = mm.countryCount.min + "-" + mm.countryCount.max;
+    state.multiMust = new Set(mm.mustInclude || []);
     renderChips($("moodChips"), MOODS, state.mood);
     renderChips($("destPlaystyle"), PLAYSTYLES, state.playstyle);
+    renderMultiMustChips();
     setGranularity(d.granularity || "country");
   }
 
@@ -300,7 +326,7 @@
   }
 
   // ---------- 结果块（blocks）：最新在数组最前，渲染进 #resultStream ----------
-  const BLOCK_LABEL = { recommend: "目的地推荐", compare: "目的地对比", besttime: "最佳时间", trip: "详细行程", error: "出错了" };
+  const BLOCK_LABEL = { recommend: "目的地推荐", compare: "目的地对比", besttime: "最佳时间", trip: "详细行程", multitrip: "多国行程", combo: "国家组合推荐", error: "出错了" };
   function newBlock(type, res) { return { id: "b" + (++state.seq), type, res, collapsed: false }; }
 
   // 把一个 block 渲染成 .result-block 元素（body 内容由对应 render* 函数生成）
@@ -316,7 +342,8 @@
     if (block.type === "recommend") body.innerHTML = recommendHTML(block.res);
     else if (block.type === "compare") body.innerHTML = compareHTML(block.res.data);
     else if (block.type === "besttime") body.innerHTML = bestTimeHTML(block.res, block.res.data.country);
-    else if (block.type === "trip") body.innerHTML = tripHTML(block.res);
+    else if (block.type === "trip" || block.type === "multitrip") body.innerHTML = tripHTML(block.res);
+    else if (block.type === "combo") body.innerHTML = comboHTML(block.res);
     else if (block.type === "error") body.innerHTML = errorHTML(block.res);
     // 折叠按钮（作用域限定本块）
     wrap.querySelector(".block-collapse").addEventListener("click", () => {
@@ -399,7 +426,7 @@
 
   // 从 blocks 里取最有代表性的块：优先 trip，其次 besttime，其次 recommend / compare
   function repBlock(v) {
-    const order = ["trip", "besttime", "recommend", "compare"];
+    const order = ["trip", "multitrip", "besttime", "recommend", "combo", "compare"];
     for (const t of order) { const b = (v.blocks || []).find(x => x.type === t); if (b) return b; }
     return (v.blocks || [])[0] || null;
   }
@@ -408,7 +435,8 @@
   function versionLabel(v) {
     const b = repBlock(v), r = b && b.res;
     let name = "待定";
-    if (r && (r.type === "besttime" || r.type === "trip")) name = r.data.destinationNameZh || r.data.meta && r.data.meta.destinationNameZh;
+    if (r && (r.type === "trip" || r.type === "multitrip" || r.type === "besttime")) name = (r.data.meta && r.data.meta.destinationNameZh) || r.data.destinationNameZh;
+    else if (r && r.type === "combo") name = (r.data.countryOrder || []).map(c => (DATA.libraries[c] && DATA.libraries[c].countryNameZh) || c).join("·") || "多国";
     else if (r && r.type === "recommend") name = "选地中";
     else if (v.input.destination && v.input.destination.country) name = DATA.libraries[v.input.destination.country].countryNameZh;
     return `V${v.num}·${name}`;
@@ -481,10 +509,52 @@
     } else if (block.type === "besttime") {
       const gt = wrap.querySelector(".gen-trip");
       if (gt) gt.addEventListener("click", () => genTrip(block.res.data.country));
-    } else if (block.type === "trip") {
+    } else if (block.type === "trip" || block.type === "multitrip") {
       const eb = wrap.querySelector(".export-btn");
       if (eb) eb.addEventListener("click", () => exportTripCSV(block.res.data));
+    } else if (block.type === "combo") {
+      const gm = wrap.querySelector(".gen-multitrip");
+      if (gm) gm.addEventListener("click", () => genMultiTrip(block.res.data.countryOrder));
     }
+  }
+
+  // ---------- 渲染：国家组合推荐（多国） ----------
+  function comboHTML(res) {
+    const d = res.data;
+    let html = `<div class="stage-head"><span class="step">多国</span><h3>国家组合推荐</h3></div>`;
+    html += `<p class="stage-sub">${esc(d.note || "")}｜建议总天数约 ${d.totalDaysSuggest} 天</p>`;
+    if (res.warnings && res.warnings.length) html += `<div class="coverage-note">${esc(res.warnings.join(" / "))}</div>`;
+    html += `<div class="combo-order">${d.countries.map((c, i) => `${i ? ' <span class="combo-arrow">→</span> ' : ''}<b>${esc(c.nameZh)}</b>`).join("")}</div>`;
+    html += `<div class="cand-grid">`;
+    d.countries.forEach(c => {
+      html += `<div class="cand-card">
+        <div class="cand-title">${esc(c.nameZh)} <span class="badge ${c.role === "anchor" ? "strong" : "related"}">${c.role === "anchor" ? "锚点·必含" : "推荐同游"}</span></div>
+        <div class="cand-reason">${esc(c.reason)}</div>
+        <div class="cand-meta"><span>匹配分 ${c.score}</span></div></div>`;
+    });
+    html += `</div>`;
+    html += `<div style="margin-top:14px"><button class="btn-primary gen-multitrip" type="button" style="width:auto;padding:10px 22px">按此组合生成多国行程 →</button></div>`;
+    html += `<p class="hint" style="margin-top:10px">想换国/调顺序？回左侧「修改需求」改必含国，或在一句话描述里说明（如"把瑞士换成西班牙""先去意大利"）。</p>`;
+    if (d.altCombos && d.altCombos.length) {
+      html += `<p class="stage-sub" style="margin-top:12px">其它主流组合参考：</p><div class="alt-combos">`;
+      d.altCombos.forEach(a => html += `<span class="alt-combo">${a.countries.map(id => esc((DATA.libraries[id] && DATA.libraries[id].countryNameZh) || id)).join("·")}</span>`);
+      html += `</div>`;
+    }
+    return html;
+  }
+
+  // 按组合生成多国行程（向当前版本流新增 multitrip 块）
+  async function genMultiTrip(countryOrder) {
+    const v = active();
+    showWaiting("排多国行程…");
+    try {
+      const r = await Generator.generate(v.input, { forceBranch: { type: "multitrip" }, countryOrder });
+      hideWaiting();
+      v.picked = null;
+      v.blocks.unshift(newBlock("multitrip", r));
+      renderStream(v); scrollOutputTop();
+      renderVersionBar(); renderSummaryBar(); setFocus("output");
+    } catch (e) { hideWaiting(); pushError(v, e.message, () => genMultiTrip(countryOrder)); }
   }
 
   // ---------- 渲染：目的地推荐 ----------
@@ -605,6 +675,8 @@
     if (res.mode && res.mode.indexOf("demo") === 0) html += `<div class="demo-trip-note">⚙️ ${esc((t.warnings || []).join(" "))}</div>`;
     if (res.warnings && res.warnings.length) html += `<div class="timing-warn">${esc(res.warnings.join(" "))}</div>`;
     if (t.timingWarning) html += `<div class="timing-warn">⚠️ ${esc(t.timingWarning)}</div>`;
+    if (m.countryOrder && m.countryOrder.length > 1) html += `<div class="trip-meta">🗺️ ${m.countryOrder.map((c, i) => `<span class="tag">${i + 1}. ${esc((DATA.libraries[c] && DATA.libraries[c].countryNameZh) || c)}</span>`).join("")}</div>`;
+    if (t.regionNotes && t.regionNotes.length) t.regionNotes.forEach(n => html += `<div class="timing-warn">🛂 ${esc(n.note)} <span class="source">（${esc(n.source)}）</span></div>`);
 
     html += `<div class="module"><h4>🚄 1. 最佳出行路线</h4><div>${esc(t.route.summary)}</div>`;
     t.route.segments.forEach(s => html += `<div class="route-seg">· [${esc(s.mode)}] ${esc(s.from)} → ${esc(s.to)}：${esc(s.detail)} <span class="source">（${esc(s.source)}）</span></div>`);
