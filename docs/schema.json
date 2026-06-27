@@ -6,8 +6,7 @@
   "$defs": {
     "Country": {
       "type": "string",
-      "enum": ["japan", "thailand", "france"],
-      "description": "v1 支持的目的地国家(精确粒度时使用)"
+      "description": "目的地国家标识(小写英文 slug，如 japan/italy/spain)。可扩展，运营新增国家时无需改 schema。"
     },
     "Season": {
       "type": "string",

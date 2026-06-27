@@ -1,0 +1,201 @@
+{
+  "country": "netherlands",
+  "countryNameZh": "荷兰",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "spring",
+      "reason": "春季（3月底至5月）是荷兰郁金香盛放的季节，库肯霍夫花园2026年于3月19日至5月10日开放，4月中旬为最佳观赏期，是一年中最具代表性的旅游旺季。",
+      "source": "https://keukenhof.nl/en/plan-your-visit/"
+    },
+    {
+      "season": "summer",
+      "reason": "夏季白昼极长、气候温和，适合运河游船、骑行与户外节庆，是城市观光与乡村风光体验的黄金时段。",
+      "source": "https://www.iamsterdam.com/en/see-and-do/nature-and-active/ice-skating-in-amsterdam"
+    },
+    {
+      "season": "winter",
+      "reason": "冬季有阿姆斯特丹灯光节（11月底至次年1月）与博物馆广场临时溜冰场，运河与桥梁亮灯，氛围浓厚。",
+      "source": "https://www.iamsterdam.com/en/explore/winter-in-amsterdam/reasons-to-visit-amsterdam-in-winter"
+    }
+  ],
+  "moodTags": ["scenery", "culture", "explore", "slow", "food"],
+  "idealDuration": {
+    "minDays": 5,
+    "maxDays": 7,
+    "note": "5天可串联阿姆斯特丹、鹿特丹等主要城市与近郊亮点；7天节奏更从容，可深入小镇与博物馆，体验荷兰生活。",
+    "source": "https://hollandtourcompany.com/how-many-days-in-the-netherlands/"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": [
+        "前往库肯霍夫花园（Keukenhof）欣赏700万株郁金香与800个品种的春季花海",
+        "在利瑟（Lisse）周边骑行穿越成片的郁金香田",
+        "搭乘运河游船感受春日里的阿姆斯特丹"
+      ],
+      "source": "https://keukenhof.nl/en/plan-your-visit/"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": [
+        "利用夏季漫长白昼乘船游览阿姆斯特丹运河",
+        "在鹿特丹沿马斯河骑行并参观现代建筑",
+        "前往海滨与乡村小镇感受荷兰夏日户外生活"
+      ],
+      "source": "https://www.getyourguide.com/explorer/amsterdam-ttd36/best-time-to-visit-amsterdam/"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": [
+        "在11月人少季从容参观荷兰国家博物馆、梵高博物馆等热门馆",
+        "漫步阿姆斯特丹运河区欣赏秋色与金黄落叶",
+        "走访鹿特丹市集广场（Markthal）品尝当地美食"
+      ],
+      "source": "https://www.getyourguide.com/explorer/amsterdam-ttd36/best-time-to-visit-amsterdam/"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": [
+        "在国家博物馆前的博物馆广场临时溜冰场滑冰（11月至次年2月初）",
+        "夜游阿姆斯特丹灯光节，欣赏运河与桥梁上的灯光艺术装置",
+        "遇上极寒年份还有机会在结冰的运河上滑冰"
+      ],
+      "source": "https://www.iamsterdam.com/en/see-and-do/nature-and-active/ice-skating-in-amsterdam"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "rijksmuseum",
+      "name": "荷兰国家博物馆 (Rijksmuseum)",
+      "region": "阿姆斯特丹",
+      "summary": "荷兰最大的艺术与历史博物馆，收藏伦勃朗《夜巡》等黄金时代名作，是阿姆斯特丹的文化地标。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.iamsterdam.com/en/explore/winter-in-amsterdam/reasons-to-visit-amsterdam-in-winter"
+    },
+    {
+      "id": "van-gogh-museum",
+      "name": "梵高博物馆 (Van Gogh Museum)",
+      "region": "阿姆斯特丹",
+      "summary": "全球最大的梵高作品收藏地，需预约带入场时段的门票，建议提前数周购票。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices"
+    },
+    {
+      "id": "amsterdam-canals",
+      "name": "阿姆斯特丹运河带 (Amsterdam Canal Ring)",
+      "region": "阿姆斯特丹",
+      "summary": "联合国教科文组织世界遗产，17世纪的同心运河与山墙房屋构成水城风光，适合乘船或步行游览。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["scenery", "slow"],
+      "source": "https://canalsofamsterdam.com/amsterdam-in-winter/"
+    },
+    {
+      "id": "cube-houses",
+      "name": "立方体屋 (Cube Houses / Kubuswoningen)",
+      "region": "鹿特丹",
+      "summary": "建筑师Piet Blom设计的倾斜45度黄色立方住宅，共38座，其中一座作为样板屋博物馆开放参观。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["explore", "scenery"],
+      "source": "https://www.rotterdam.info/en/visit/guide/top-10-attractions"
+    },
+    {
+      "id": "markthal",
+      "name": "市集广场 (Markthal)",
+      "region": "鹿特丹",
+      "summary": "荷兰首座室内市场，拱形建筑内有逾4000块彩绘瓷砖组成的巨幅艺术天顶，被称为鹿特丹的西斯廷教堂，汇聚各色美食摊位。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["food", "explore"],
+      "source": "https://www.rotterdam.info/en/visit/guide/top-10-attractions"
+    },
+    {
+      "id": "erasmus-bridge",
+      "name": "伊拉斯谟桥 (Erasmus Bridge)",
+      "region": "鹿特丹",
+      "summary": "横跨新马斯河、长约800米的非对称斜拉桥，被当地人称为天鹅桥，是现代鹿特丹的标志性建筑。",
+      "suggestedDurationMin": 45,
+      "moodTags": ["scenery", "explore"],
+      "source": "https://www.rotterdam.info/en/visit/guide/top-10-attractions"
+    }
+  ],
+  "foods": [
+    {
+      "id": "stroopwafel",
+      "name": "焦糖华夫饼 (Stroopwafel)",
+      "type": "甜点小吃",
+      "region": "豪达（Gouda）及全国",
+      "reason": "两片薄华夫饼夹入黏稠焦糖糖浆制成，起源于19世纪初的豪达，是荷兰最具代表性的街头甜点。",
+      "source": "https://www.discoverholland.com/best-of-holland/31/stroopwafels"
+    },
+    {
+      "id": "haring",
+      "name": "生鲱鱼 (Hollandse Nieuwe Haring)",
+      "type": "海鲜小吃",
+      "region": "沿海城市及全国",
+      "reason": "提着鱼尾、配洋葱与酸黄瓜整条入口的生腌鲱鱼，是最著名的荷兰传统美食之一。",
+      "source": "https://www.getyourguide.com/explorer/netherlands-ttd169014/dutch-foods-you-should-try/"
+    },
+    {
+      "id": "bitterballen",
+      "name": "炸肉丸 (Bitterballen)",
+      "type": "下酒小吃",
+      "region": "全国（酒吧）",
+      "reason": "以牛肉糜与浓汤面糊裹粉油炸而成的圆球，是荷兰酒吧最受欢迎的经典小食，常配荷兰利口酒。",
+      "source": "https://www.getyourguide.com/explorer/netherlands-ttd169014/dutch-foods-you-should-try/"
+    },
+    {
+      "id": "gouda-cheese",
+      "name": "豪达奶酪 (Gouda Kaas)",
+      "type": "奶酪",
+      "region": "豪达（Gouda）",
+      "reason": "荷兰是全球最大的奶酪出口国，豪达黄奶酪自12世纪起生产，是世界上最古老的奶酪品种之一。",
+      "source": "https://www.getyourguide.com/explorer/netherlands-ttd169014/dutch-foods-you-should-try/"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "anne-frank-house",
+      "name": "安妮之家 (Anne Frank House)",
+      "region": "阿姆斯特丹",
+      "method": "仅可通过官网 https://www.annefrank.org 购买指定时段电子票，每周二上午10点（CEST）放出六周后的全部门票；谨防仿冒网站。",
+      "leadTime": "提前约6周开售，旺季常迅速售罄，建议门票一放出即抢购。",
+      "source": "https://www.annefrank.org/en/museum/tickets/"
+    },
+    {
+      "id": "van-gogh-museum-reservation",
+      "name": "梵高博物馆 (Van Gogh Museum)",
+      "region": "阿姆斯特丹",
+      "method": "需在官网 https://tickets.vangoghmuseum.com 预约带入场时段的门票，无入场时段无法进入。",
+      "leadTime": "建议提前约5至6周预订，3月至10月旺季热门时段常提前数周售罄。",
+      "source": "https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "库肯霍夫2026年仅3月19日至5月10日开放，门票按指定日期与时段销售，须提前在官网购票；4月中旬郁金香最盛但人潮也最多。",
+      "source": "https://keukenhof.nl/en/plan-your-visit/"
+    },
+    {
+      "season": "summer",
+      "tip": "夏季为旅游旺季，主要博物馆与运河游船需提前订票；白昼长可充分安排户外骑行与游船行程。",
+      "source": "https://www.getyourguide.com/explorer/amsterdam-ttd36/best-time-to-visit-amsterdam/"
+    },
+    {
+      "season": "autumn",
+      "tip": "11月是阿姆斯特丹最安静、性价比最高的月份之一，夏季人潮散去，参观国家博物馆、梵高博物馆与安妮之家更从容。",
+      "source": "https://www.getyourguide.com/explorer/amsterdam-ttd36/best-time-to-visit-amsterdam/"
+    },
+    {
+      "season": "winter",
+      "tip": "博物馆广场溜冰场约11月至次年2月初开放；运河自然结冰需连续1至2周降至-5°C以下，并非每年都有，切勿擅自上冰。",
+      "source": "https://www.iamsterdam.com/en/see-and-do/nature-and-active/ice-skating-in-amsterdam"
+    }
+  ]
+}

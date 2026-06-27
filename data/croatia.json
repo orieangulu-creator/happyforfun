@@ -1,0 +1,185 @@
+{
+  "country": "croatia",
+  "countryNameZh": "克罗地亚",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "summer",
+      "reason": "夏季(6-9月)阳光充沛、气温温暖，是亚得里亚海岸戏水的最佳季：海水8月最暖(约24°C，午后可达27-28°C)，海岛与海滨度假体验最佳。",
+      "source": "https://unforgettablecroatia.com/blog/when-to-visit-croatia"
+    },
+    {
+      "season": "autumn",
+      "reason": "初秋(9月)海水仍温暖宜游泳，而人潮开始消退，可同时兼顾海滨戏水与城市、自然景点游览，是公认的甜蜜月份。",
+      "source": "https://unforgettablecroatia.com/blog/when-to-visit-croatia"
+    },
+    {
+      "season": "spring",
+      "reason": "晚春(5-6月)海岸气候宜人(约23-27°C)，泳季于5月暖日开启、6月海温升至20°C以上，沙滩尚未拥挤，适合阳光漫游。",
+      "source": "https://www.bluesunhotels.com/en/content/time-for-swimming-dalmatia-croatia"
+    }
+  ],
+  "moodTags": ["island", "scenery", "relax", "explore", "food"],
+  "idealDuration": {
+    "minDays": 7,
+    "maxDays": 10,
+    "note": "7天足以畅游斯普利特与杜布罗夫尼克一带的历史名城、海岸与海岛(可串入赫瓦尔岛跳岛)；10天则可在行程头尾加入萨格勒布或从海岸前往莫斯塔尔的一日游。切忌贪多，海岸路弯、渡轮按班次发船，转场耗时常超预期。",
+    "source": "https://www.danflyingsolo.com/7-day-croatia-itinerary-one-week-dubrovnik-to-split/"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": ["晚春(5-6月)海岸阳光漫游，沙滩尚未拥挤", "泳季5月暖日开启、6月海温升至20°C以上可下水", "趁人潮未至游览老城与海岛"],
+      "source": "https://www.bluesunhotels.com/en/content/time-for-swimming-dalmatia-croatia"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": ["海岸戏水最佳季(6-9月)：亚得里亚海游泳、跳岛与海滨度假", "8月海水最暖(约24°C，午后可达27-28°C)", "达尔马提亚海岸帆船与游船出海"],
+      "source": "https://unforgettablecroatia.com/blog/when-to-visit-croatia"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": ["初秋(9月)海水仍暖、人潮消退，兼顾戏水与城市游览", "酒庄与自然景点游览(避开盛夏高温)", "杜布罗夫尼克老城与城墙慢步"],
+      "source": "https://unforgettablecroatia.com/blog/when-to-visit-croatia"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": ["淡季城市文化游：老城安静、门票更便宜(如杜布罗夫尼克城墙12-2月票价减半)", "普利特维采湖区冬季雪景与冰瀑(淡季门票约€10)", "海岸戏水非当季，以历史人文与室内体验为主"],
+      "source": "https://wallsofdubrovnik.com/info-ticket-prices-working-hours/"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "dubrovnik-city-walls",
+      "name": "杜布罗夫尼克城墙 (Dubrovnik City Walls)",
+      "region": "杜布罗夫尼克",
+      "summary": "环绕老城的连续石砌城墙，全长约1940米，局部高达25米；漫步城垛可饱览红瓦屋顶、亚得里亚海与洛克鲁姆岛。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["scenery", "explore", "culture"],
+      "source": "https://wallsofdubrovnik.com/info-ticket-prices-working-hours/"
+    },
+    {
+      "id": "dubrovnik-srd-cable-car",
+      "name": "斯尔季山缆车 (Mount Srđ Cable Car)",
+      "region": "杜布罗夫尼克",
+      "summary": "约4分钟缆车直登412米的斯尔季山顶(上站约405米)，俯瞰老城、洛克鲁姆岛与亚得里亚海全景。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["scenery", "relax"],
+      "source": "https://thetouristattractions.com/croatia/tourist-attractions-in-dubrovnik"
+    },
+    {
+      "id": "dubrovnik-franciscan-monastery",
+      "name": "方济各会修道院 (Franciscan Monastery)",
+      "region": "杜布罗夫尼克",
+      "summary": "建于1317年，设有世界最古老的运营药房之一，至今仍售卖古方草本制品；罗马式建筑与静谧回廊隐于喧闹老城之中。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["culture", "slow"],
+      "source": "https://thetouristattractions.com/croatia/tourist-attractions-in-dubrovnik"
+    },
+    {
+      "id": "split-diocletian-palace",
+      "name": "戴克里先宫 (Diocletian's Palace)",
+      "region": "斯普利特",
+      "summary": "联合国教科文世界遗产，建于公元3世纪末至4世纪初的罗马皇帝退隐宫殿，后成为斯普利特老城核心，街巷广场可自由穿行。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.absolute-croatia.com/split/attractions/diocletian-palace"
+    },
+    {
+      "id": "split-riva-promenade",
+      "name": "里瓦海滨长廊 (Riva Promenade)",
+      "region": "斯普利特",
+      "summary": "戴克里先宫南缘的海滨步道，棕榈成荫、咖啡座林立，被誉为斯普利特的「城市客厅」，紧贴宫殿外墙而行。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["relax", "scenery"],
+      "source": "https://www.absolute-croatia.com/split/attractions/diocletian-palace"
+    },
+    {
+      "id": "split-marjan-hill",
+      "name": "马里安山 (Marjan Hill)",
+      "region": "斯普利特",
+      "summary": "高出城市约178米的绿色绿洲，设有步道、观景点与林荫小径，可俯瞰斯普利特城区、亚得里亚海与群岛。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["scenery", "explore", "relax"],
+      "source": "https://www.travelinmypocket.com/must-see-attractions-split-croatia/"
+    }
+  ],
+  "foods": [
+    {
+      "id": "hr-peka",
+      "name": "钟形烤菜 (Peka / Ispod peke)",
+      "type": "炭火慢烤",
+      "region": "达尔马提亚",
+      "reason": "传统「钟下慢烤」做法：金属穹盖上覆炭火，慢烤章鱼、羊肉或小牛肉配土豆等蔬菜，木火香气浓郁，是达尔马提亚名菜。",
+      "source": "https://www.jadranka-yachting.com/en/blog/traditional-croatian-food-dalmatian-style"
+    },
+    {
+      "id": "hr-crni-rizot",
+      "name": "墨鱼黑烩饭 (Crni rižot)",
+      "type": "海鲜饭",
+      "region": "达尔马提亚",
+      "reason": "以墨鱼汁烩煮米饭呈现醒目墨黑色，佐帕玛森芝士、常加少许红酒，风味浓郁咸鲜，是亚得里亚海岸海鲜的代表。",
+      "source": "https://www.jadranka-yachting.com/en/blog/traditional-croatian-food-dalmatian-style"
+    },
+    {
+      "id": "hr-pasticada",
+      "name": "红酒炖牛肉 (Pašticada)",
+      "type": "炖菜",
+      "region": "达尔马提亚",
+      "reason": "被誉为达尔马提亚的国宝级菜肴：牛肉以红酒、西梅与多种香料腌渍后慢炖，常配自制面疙瘩或意面享用。",
+      "source": "https://www.jadranka-yachting.com/en/blog/traditional-croatian-food-dalmatian-style"
+    },
+    {
+      "id": "hr-fritule",
+      "name": "克式甜甜球 (Fritule)",
+      "type": "甜点",
+      "region": "克罗地亚",
+      "reason": "小巧的油炸面球，外脆内软、微甜，常加柠檬皮或葡萄干提味，并撒糖粉，是克罗地亚人气甜点。",
+      "source": "https://www.jadranka-yachting.com/en/blog/traditional-croatian-food-dalmatian-style"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "hr-dubrovnik-walls",
+      "name": "杜布罗夫尼克城墙门票 (Dubrovnik City Walls ticket)",
+      "region": "杜布罗夫尼克",
+      "method": "官方网店在线购票 shop.citywallsdubrovnik.hr，凭确认邮件条码入场(可打印或手机出示)；亦可在Pile门、Ploče门、海事博物馆三处入口现场购买。",
+      "leadTime": "旺季Pile门排队拥挤，建议提前在线购票避开排队；城墙除12月25日外全年开放，开放时间随季节变化。",
+      "source": "https://shop.citywallsdubrovnik.hr/en/buy-tickets-for-the-following-locations"
+    },
+    {
+      "id": "hr-plitvice-lakes",
+      "name": "普利特维采湖区国家公园门票 (Plitvice Lakes National Park ticket)",
+      "region": "中部克罗地亚",
+      "method": "官方网店在线购买定时入场票 np-plitvicka-jezera.hr，选择1号或2号入口、日期与1小时到达时段，按原价无服务费，门票含园内观光小火车与电动船。",
+      "leadTime": "夏季(6-9月)旺季票价约€40且名额紧张，强烈建议提前在线预订指定时段；票需在所选入口、所购时段内验票入场。",
+      "source": "https://np-plitvicka-jezera.hr/en/plan-your-visit/istrazite-jezera/price-list/"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "晚春(5-6月)海岸气候宜人、沙滩未拥挤；泳季5月暖日开启、6月海温升过20°C，早晚仍偏凉，建议带件薄外套。",
+      "source": "https://www.bluesunhotels.com/en/content/time-for-swimming-dalmatia-croatia"
+    },
+    {
+      "season": "summer",
+      "tip": "盛夏(7-8月)是高峰季、人潮与气温俱高，热门景点(城墙、普利特维采)与渡轮务必提前订票，并避开正午高温戏水。",
+      "source": "https://unforgettablecroatia.com/blog/when-to-visit-croatia"
+    },
+    {
+      "season": "autumn",
+      "tip": "初秋(9月)海水仍温暖、人潮渐退，是兼顾游泳与城市/酒庄游览的理想月份，行程可比盛夏更从容。",
+      "source": "https://unforgettablecroatia.com/blog/when-to-visit-croatia"
+    },
+    {
+      "season": "winter",
+      "tip": "冬季为淡季，海岸戏水非当季，但老城安静、门票更便宜(杜布罗夫尼克城墙12-2月票价约减半至€20)，适合人文与室内体验。",
+      "source": "https://wallsofdubrovnik.com/info-ticket-prices-working-hours/"
+    }
+  ]
+}

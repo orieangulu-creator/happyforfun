@@ -1,0 +1,180 @@
+{
+  "country": "austria",
+  "countryNameZh": "奥地利",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "spring",
+      "reason": "春季(4-5月)气候温和(约7-15°C)，公园与宫殿花园繁花盛放，游客尚不拥挤，是漫步美泉宫、美景宫花园与户外观光的理想季节。",
+      "source": "https://travel.usnews.com/Vienna_Austria/When_To_Visit/"
+    },
+    {
+      "season": "autumn",
+      "reason": "秋季(9-10月)天气晴朗凉爽、人潮较夏季少，公园与维也纳近郊葡萄园渐染金黄，适合游览美泉宫等历史地标。",
+      "source": "https://travel.usnews.com/Vienna_Austria/When_To_Visit/"
+    }
+  ],
+  "moodTags": ["culture", "scenery", "food", "explore", "slow"],
+  "idealDuration": {
+    "minDays": 5,
+    "maxDays": 7,
+    "note": "5天可较从容游览维也纳(约1.5-2整天看主要景点)与萨尔茨堡两座代表城市；7天可加入哈尔施塔特或湖区短途，节奏更悠闲。",
+    "source": "https://www.kimkim.com/c/how-many-days-to-spend-in-austria"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": ["美泉宫与美景宫花园赏花漫步", "温和晴朗天气下游览历史宫殿与博物馆", "5月维也纳文化节庆与户外活动"],
+      "source": "https://travel.usnews.com/Vienna_Austria/When_To_Visit/"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": ["白日漫长，从容登霍恩萨尔茨堡要塞俯瞰萨尔茨堡全城", "美泉宫宫殿与花园半日深度游(7-8月开放至18:00)", "维也纳露天音乐会与户外咖啡馆"],
+      "source": "https://www.schoenbrunn.at/en/tickets-and-prices/all-tickets-tours"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": ["维也纳近郊葡萄园金秋与新酒(Heuriger)体验", "凉爽晴朗天气下游客较少的宫殿与博物馆观光", "美景宫花园秋色散步"],
+      "source": "https://travel.usnews.com/Vienna_Austria/When_To_Visit/"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": ["维也纳市政厅广场圣诞市集(Christkindlmarkt，约11月中至12月26日)", "市政厅公园冰上梦境(Vienna Ice Dream)溜冰", "节日灯饰与传统圣诞热红酒、糕点"],
+      "source": "https://www.visitingvienna.com/sights/christmasmarkets/when-open/"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "vie-schonbrunn",
+      "name": "美泉宫 (Schönbrunn Palace)",
+      "region": "维也纳",
+      "summary": "哈布斯堡王朝的夏宫，巴洛克宫殿与广阔花园，列入世界文化遗产，宫殿与花园合游约需半日。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["culture", "scenery", "explore"],
+      "source": "https://www.schoenbrunn.at/en/tickets-and-prices/all-tickets-tours"
+    },
+    {
+      "id": "vie-stephansdom",
+      "name": "圣斯蒂芬大教堂 (St. Stephen's Cathedral)",
+      "region": "维也纳",
+      "summary": "维也纳的象征与哥特式建筑代表，屋顶以23万片琉璃瓦拼出哈布斯堡双头鹰，可登南塔343级台阶俯瞰全城。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://www.viator.com/Vienna-attractions/St-Stephens-Cathedral-Stephansdom/d454-a530"
+    },
+    {
+      "id": "vie-belvedere",
+      "name": "美景宫 (Belvedere Palace)",
+      "region": "维也纳",
+      "summary": "由上下两座巴洛克宫殿组成，花园景观优美，收藏世界顶级的克林姆特作品，包括名作《吻》。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "scenery", "slow"],
+      "source": "https://www.viennapass.de/en/more-vienna/suggestions/attractions-in-vienna"
+    },
+    {
+      "id": "sbg-hohensalzburg",
+      "name": "霍恩萨尔茨堡要塞 (Hohensalzburg Fortress)",
+      "region": "萨尔茨堡",
+      "summary": "屹立于要塞山(Festungsberg)之巅、欧洲最大的中世纪城堡之一，可乘缆车上山，俯瞰萨尔茨堡全城与阿尔卑斯山景。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "scenery", "explore"],
+      "source": "https://nomadicsamuel.com/city-guides/salzburg-travel-guide"
+    },
+    {
+      "id": "sbg-mirabell",
+      "name": "米拉贝尔宫与花园 (Mirabell Palace & Gardens)",
+      "region": "萨尔茨堡",
+      "summary": "始建于1606年的巴洛克宫殿与对称花园，飞马喷泉、矮人花园等景致优美，电影《音乐之声》Do-Re-Mi一幕在此取景。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["scenery", "slow", "culture"],
+      "source": "https://marielaaroundtheworld.com/what-to-do-in-salzburg-austria/"
+    },
+    {
+      "id": "sbg-mozart-birthplace",
+      "name": "莫扎特出生地 (Mozart's Birthplace)",
+      "region": "萨尔茨堡",
+      "summary": "老城粮食胡同(Getreidegasse)9号的黄色楼房，莫扎特1756年在此出生并居住17年，如今为博物馆。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["culture", "explore"],
+      "source": "https://travelinculture.com/things-to-do-in-salzburg-austria-mozart-birthplace/"
+    }
+  ],
+  "foods": [
+    {
+      "id": "at-wiener-schnitzel",
+      "name": "维也纳炸肉排 (Wiener Schnitzel)",
+      "type": "主菜",
+      "region": "维也纳",
+      "reason": "奥地利最具代表性的国民菜，经典用小牛肉捶薄，裹面粉、蛋液与细面包屑炸至金黄蓬松，外酥内嫩。",
+      "source": "https://www.tasteatlas.com/best-dishes-in-vienna"
+    },
+    {
+      "id": "at-sachertorte",
+      "name": "萨赫蛋糕 (Sachertorte)",
+      "type": "甜点",
+      "region": "维也纳",
+      "reason": "奥地利最有名的蛋糕，巧克力海绵层间薄涂杏子果酱、外覆巧克力糖衣，1832年由Franz Sacher首创。",
+      "source": "https://www.sacher.com/en/blog/vienna-food/"
+    },
+    {
+      "id": "at-apfelstrudel",
+      "name": "苹果卷 (Apfelstrudel)",
+      "type": "甜点",
+      "region": "奥地利",
+      "reason": "奥地利最受欢迎的甜点之一，酸苹果、葡萄干、糖与香料裹入薄如纸的酥皮烤制，常趁热佐打发奶油或香草酱食用。",
+      "source": "https://www.tasteatlas.com/best-dishes-in-vienna"
+    },
+    {
+      "id": "at-tafelspitz",
+      "name": "水煮牛肉 (Tafelspitz)",
+      "type": "主菜",
+      "region": "维也纳",
+      "reason": "皇帝弗朗茨·约瑟夫一世钟爱的经典菜，牛臀尖肉与根菜慢炖至软嫩，连同清汤上桌，是维也纳宫廷风味代表。",
+      "source": "https://www.tasteatlas.com/best-dishes-in-vienna"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "at-schonbrunn-ticket",
+      "name": "美泉宫定时门票 (Schönbrunn Palace timed ticket)",
+      "region": "维也纳",
+      "method": "官方网站 schoenbrunn.at 在线购买定时入场票，选择参观时段；花园免费开放。",
+      "leadTime": "6至8月旺季定时票常提前数周售罄，建议提前2-3周预订。",
+      "source": "https://www.schoenbrunn.at/en/tickets-and-prices/all-tickets-tours"
+    },
+    {
+      "id": "at-hohensalzburg-ticket",
+      "name": "霍恩萨尔茨堡要塞门票与缆车 (Hohensalzburg Fortress ticket & funicular)",
+      "region": "萨尔茨堡",
+      "method": "可在线预订门票(含上山缆车)或现场购票，旺季建议网上提前购票避免排队。",
+      "leadTime": "旺季(夏季)建议提前数日在线预订，以选定时段并避开排队。",
+      "source": "https://www.viator.com/Salzburg-attractions/Hohensalzburg-Fortress/d451-a516"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "春季气温约7-15°C，早晚仍偏凉，建议分层穿搭并带薄外套，方便整日户外漫步与宫殿花园游览。",
+      "source": "https://travel.usnews.com/Vienna_Austria/When_To_Visit/"
+    },
+    {
+      "season": "summer",
+      "tip": "夏季为旺季，美泉宫7-8月延长开放至18:00，但定时票常提前售罄；建议尽早在线预订，并避开正午高温安排户外行程。",
+      "source": "https://www.schoenbrunn.at/en/tickets-and-prices/all-tickets-tours"
+    },
+    {
+      "season": "autumn",
+      "tip": "秋季(9-10月)天气晴朗凉爽、游客较少，是游览宫殿与近郊葡萄园的黄金时段；建议把握晴朗日子安排户外景点。",
+      "source": "https://travel.usnews.com/Vienna_Austria/When_To_Visit/"
+    },
+    {
+      "season": "winter",
+      "tip": "维也纳市政厅广场圣诞市集约11月中开市至12月26日，每日10:00-22:00，傍晚天黑后灯饰氛围最佳，注意防寒保暖。",
+      "source": "https://www.visitingvienna.com/sights/christmasmarkets/when-open/"
+    }
+  ]
+}

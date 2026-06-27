@@ -1,0 +1,185 @@
+{
+  "country": "poland",
+  "countryNameZh": "波兰",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "autumn",
+      "reason": "秋季(9-10月)天气稳定凉爽、金黄落叶(当地称波兰金秋)、物价较低且游客较少，是观光的最佳季节。",
+      "source": "https://jaywaytravel.com/poland/travel-guide/best-time-to-visit-poland"
+    },
+    {
+      "season": "spring",
+      "reason": "春季(5-6月)气候宜人、人潮较少，适合悠闲游览克拉科夫与华沙的老城与公园。",
+      "source": "https://www.getyourguide.com/explorer/poland-ttd169018/best-time-to-visit-poland/"
+    },
+    {
+      "season": "winter",
+      "reason": "冬季12月前后各大城市圣诞市集开市，克拉科夫与华沙的市集名列欧洲最佳之一，雪景氛围浓厚。",
+      "source": "https://jaywaytravel.com/poland/travel-guide/best-time-to-visit-poland"
+    }
+  ],
+  "moodTags": ["culture", "explore", "food", "scenery"],
+  "idealDuration": {
+    "minDays": 4,
+    "maxDays": 7,
+    "note": "克拉科夫3天可游城内并安排维利奇卡或奥斯维辛一日游，华沙2天较从容；克拉科夫+华沙双城建议4天起，一周可双城兼顾不赶。",
+    "source": "https://www.thewanderfulme.com/one-week-poland-itinerary/"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": ["克拉科夫中央集市广场与瓦维尔城堡漫步", "华沙瓦津基公园看孔雀与新古典宫殿", "人潮较少时从容参观维利奇卡盐矿"],
+      "source": "https://www.getyourguide.com/explorer/poland-ttd169018/best-time-to-visit-poland/"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": ["维利奇卡盐矿地下盐雕教堂导览(旺季4-10月)", "克拉科夫老城露天广场与圣母圣殿", "华沙老城集市广场咖啡馆氛围"],
+      "source": "https://www.wieliczka-saltmine.com/individual-tourist/useful-information/ticket-prices-and-visiting-hours"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": ["金秋落叶中漫步瓦维尔城堡与瓦津基公园", "游客较少时参观奥斯维辛-比克瑙纪念馆", "克拉科夫老城金秋散步与品当地美食"],
+      "source": "https://jaywaytravel.com/poland/travel-guide/best-time-to-visit-poland"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": ["克拉科夫中央集市广场圣诞市集", "华沙老城节日灯饰与圣诞市集", "暖身的波兰酸黑麦汤与烤奥斯切佩克奶酪"],
+      "source": "https://jaywaytravel.com/poland/travel-guide/best-time-to-visit-poland"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "krk-wawel-castle",
+      "name": "瓦维尔城堡 (Wawel Castle)",
+      "region": "克拉科夫",
+      "summary": "曾作为波兰王室居所与统治中心达五个世纪，融合哥特、文艺复兴与巴洛克风格，是联合国教科文世界遗产。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "scenery", "explore"],
+      "source": "https://visitkrakow.com/things-to-do-in-krakow/"
+    },
+    {
+      "id": "krk-main-square",
+      "name": "中央集市广场 (Main Market Square / Rynek Główny)",
+      "region": "克拉科夫",
+      "summary": "约10英亩，是欧洲中世纪城市中最大的广场，矗立文艺复兴式纺织会馆与14世纪哥特式圣母圣殿。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore", "food"],
+      "source": "https://visitkrakow.com/things-to-do-in-krakow/"
+    },
+    {
+      "id": "krk-wieliczka",
+      "name": "维利奇卡盐矿 (Wieliczka Salt Mine)",
+      "region": "克拉科夫",
+      "summary": "联合国教科文世界遗产，由隧道、盐雕与地下盐制教堂组成，亮点是全由盐打造的圣金加教堂。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["explore", "culture"],
+      "source": "https://www.wieliczka-saltmine.com/individual-tourist/useful-information/ticket-prices-and-visiting-hours"
+    },
+    {
+      "id": "waw-old-town",
+      "name": "华沙老城 (Warsaw Old Town)",
+      "region": "华沙",
+      "summary": "二战后精心重建的老城，老城集市广场两旁是色彩缤纷的联排房屋、咖啡馆与餐厅，是华沙必游之地。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore", "scenery"],
+      "source": "https://roamandthrive.com/best-things-to-do-in-warsaw/"
+    },
+    {
+      "id": "waw-royal-castle",
+      "name": "华沙王宫 (Royal Castle / Zamek Królewski)",
+      "region": "华沙",
+      "summary": "矗立于老城入口，二战中被炸毁后历经数十年重建，内有王座厅与卡纳莱托厅等华美殿堂。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "explore"],
+      "source": "https://roamandthrive.com/best-things-to-do-in-warsaw/"
+    },
+    {
+      "id": "waw-lazienki-park",
+      "name": "瓦津基公园 (Łazienki Park)",
+      "region": "华沙",
+      "summary": "宁静的皇家园林，孔雀漫步于新古典宫殿之间，核心建筑为水上宫殿(Palace on the Isle)。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["relax", "scenery", "slow"],
+      "source": "https://roamandthrive.com/best-things-to-do-in-warsaw/"
+    }
+  ],
+  "foods": [
+    {
+      "id": "pl-pierogi",
+      "name": "波兰饺子 (Pierogi)",
+      "type": "面食",
+      "region": "克拉科夫",
+      "reason": "柔软微嚼的波兰国民饺子，经典口味有俄式(土豆奶酪)与卷心菜蘑菇馅，亦有水果甜馅。",
+      "source": "https://www.supercracow.com/a-locals-guide-to-the-best-polish-food-in-krakow-pierogi-zurek-more/"
+    },
+    {
+      "id": "pl-zurek",
+      "name": "酸黑麦汤 (Żurek)",
+      "type": "汤品",
+      "region": "克拉科夫",
+      "reason": "波兰最著名的酸味黑麦汤，常配水煮蛋与香肠，酸香暖身。",
+      "source": "https://www.supercracow.com/a-locals-guide-to-the-best-polish-food-in-krakow-pierogi-zurek-more/"
+    },
+    {
+      "id": "pl-bigos",
+      "name": "猎人炖菜 (Bigos)",
+      "type": "炖菜",
+      "region": "波兰",
+      "reason": "常被称为波兰国菜，以酸菜、鲜卷心菜、多种肉类与干蘑菇慢炖数日，风味浓厚。",
+      "source": "https://www.supercracow.com/a-locals-guide-to-the-best-polish-food-in-krakow-pierogi-zurek-more/"
+    },
+    {
+      "id": "pl-obwarzanek",
+      "name": "克拉科夫脆饼圈 (Obwarzanek)",
+      "type": "街头面包",
+      "region": "克拉科夫",
+      "reason": "编织成环状的有嚼劲面包，先煮后烤、撒盐或芝麻罂粟籽，是克拉科夫独有的受保护地方产品。",
+      "source": "https://www.supercracow.com/a-locals-guide-to-the-best-polish-food-in-krakow-pierogi-zurek-more/"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "pl-auschwitz",
+      "name": "奥斯维辛-比克瑙纪念馆门票 (Auschwitz-Birkenau Memorial entry pass)",
+      "region": "克拉科夫(奥斯维辛)",
+      "method": "唯一官方渠道 visit.auschwitz.org 在线预订入场卡(免费入场)；自2026年3月1日起现场售票已永久取消，无预订无法入场。",
+      "leadTime": "每天12:00开放预订，个人与团队可提前90天预订；建议提前预订并比导览开始至少早30分钟到场过安检。",
+      "source": "https://visit.auschwitz.org/?lang=en"
+    },
+    {
+      "id": "pl-wieliczka",
+      "name": "维利奇卡盐矿门票 (Wieliczka Salt Mine ticket)",
+      "region": "克拉科夫",
+      "method": "官方售票网站 bilety.kopalnia.pl 在线购票(亦可现场售票处/自助机)；导览为强制制，按语言分组，不与第三方合作。",
+      "leadTime": "建议至少提前两周预订；10:00-14:00黄金时段常提前3-5天售罄，含接送更紧张。",
+      "source": "https://bilety.kopalnia.pl/index.html?lang=en"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "春季气候宜人、人潮较少，早晚偏凉建议带件外套，适合从容漫步老城与公园。",
+      "source": "https://www.getyourguide.com/explorer/poland-ttd169018/best-time-to-visit-poland/"
+    },
+    {
+      "season": "summer",
+      "tip": "夏季为旅游旺季，维利奇卡盐矿与奥斯维辛热门时段易售罄，务必提前在线预订门票。",
+      "source": "https://www.wieliczka-saltmine.com/individual-tourist/useful-information/ticket-prices-and-visiting-hours"
+    },
+    {
+      "season": "autumn",
+      "tip": "九十月金秋天气稳定、物价较低、游客较少，是观光与赏秋的最佳时机；十一月转冷昼短，备好保暖衣物。",
+      "source": "https://jaywaytravel.com/poland/travel-guide/best-time-to-visit-poland"
+    },
+    {
+      "season": "winter",
+      "tip": "冬季寒冷多雪，12月圣诞市集是亮点(克拉科夫、华沙名列欧洲最佳)；注意保暖防滑，室内景点为佳。",
+      "source": "https://jaywaytravel.com/poland/travel-guide/best-time-to-visit-poland"
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "country": "portugal",
+  "countryNameZh": "葡萄牙",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "spring",
+      "reason": "春季（3月至5月）万物复苏、繁花盛开，里斯本可达20多摄氏度，波尔图等北部稍凉但宜人，游客远少于夏季，是参观热门景点的最佳时机。",
+      "source": "https://www.ricksteves.com/europe/portugal/best-time-to-go-to-portugal"
+    },
+    {
+      "season": "autumn",
+      "reason": "9月和10月是游览葡萄牙最佳的两个月，天气依旧温暖舒适，气温更适合观光与徒步，夏季游客散去后里斯本、波尔图等城市更为从容。",
+      "source": "https://travel.usnews.com/Lisbon_Portugal/When_To_Visit/"
+    },
+    {
+      "season": "summer",
+      "reason": "夏季（6月至8月）是六月里斯本圣安东尼节（6月13日）和波尔图圣若昂节（6月23至24日）等节庆的高峰，但沿海与城市最为炎热拥挤、住宿价高。",
+      "source": "https://www.ricksteves.com/europe/portugal/best-time-to-go-to-portugal"
+    }
+  ],
+  "moodTags": ["explore", "food", "scenery", "culture"],
+  "idealDuration": {
+    "minDays": 7,
+    "maxDays": 10,
+    "note": "一周是首次同游里斯本与波尔图的理想长度，建议里斯本与波尔图各安排2整天，其余时间用于沿途辛特拉、奥比都斯、科英布拉等地；若想深入葡萄牙自然风光，可延长至10天。",
+    "source": "https://www.lisbonguru.com/one-week-portugal-itinerary-from-lisbon-to-porto/"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": [
+        "在繁花盛开的辛特拉游览佩纳宫与摩尔人城堡，趁淡季避开夏季人潮",
+        "漫步里斯本阿尔法玛老城区与圣乔治城堡，享受20多度的舒适气温",
+        "走访波尔图杜罗河谷，欣赏葡萄园在春季苏醒的绿意"
+      ],
+      "source": "https://www.ricksteves.com/europe/portugal/best-time-to-go-to-portugal"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": [
+        "6月13日里斯本圣安东尼节，在阿尔法玛街头品尝炭烤沙丁鱼、参加沙丁鱼节庆",
+        "6月23至24日体验波尔图圣若昂节的盛大狂欢",
+        "前往纳扎雷与阿尔加维海滩消暑，但需提前预订住宿"
+      ],
+      "source": "https://www.ricksteves.com/europe/portugal/best-time-to-go-to-portugal"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": [
+        "在9至10月人潮散去时从容游览里斯本贝伦区的热罗尼莫斯修道院与贝伦塔",
+        "正值采收季造访波尔图加亚区的波特酒酒窖，参观酒桶陈酿与品鉴",
+        "在温暖宜人的天气里搭乘里斯本28路复古电车穿行老城"
+      ],
+      "source": "https://travel.usnews.com/Lisbon_Portugal/When_To_Visit/"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": [
+        "冬季是淡季，游客稀少，可在里斯本悠闲参观博物馆与教堂并享受偶有的冬日暖阳",
+        "在圣诞与狂欢节期间感受节庆氛围",
+        "波尔图冬季多雨湿冷，适合在波特酒窖室内品酒避寒"
+      ],
+      "source": "https://www.ricksteves.com/europe/portugal/best-time-to-go-to-portugal"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "jeronimos-monastery",
+      "name": "热罗尼莫斯修道院 (Jerónimos Monastery)",
+      "region": "里斯本",
+      "summary": "与贝伦塔并称里斯本最重要的景点，1983年列入联合国教科文组织世界遗产，以华丽的曼努埃尔式晚期哥特建筑著称，内有航海家瓦斯科·达·伽马之墓。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.lisbon.net/jeronimos-monastery"
+    },
+    {
+      "id": "belem-tower",
+      "name": "贝伦塔 (Belém Tower)",
+      "region": "里斯本",
+      "summary": "坐落于特茹河畔的联合国教科文组织世界遗产，建于16世纪初，曾是守卫里斯本港口的防御要塞，并迎接探险归来的航海者，是大航海时代的象征。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://www.lisbon.net/belem-tower"
+    },
+    {
+      "id": "sao-jorge-castle",
+      "name": "圣乔治城堡 (São Jorge Castle)",
+      "region": "里斯本",
+      "summary": "雄踞里斯本最高山丘的千年古堡，原为摩尔人要塞，1147年被葡萄牙首位国王阿方索·恩里克斯攻克，可俯瞰阿尔法玛老城与特茹河全景。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "scenery", "explore"],
+      "source": "https://www.lisbon.net/attractions"
+    },
+    {
+      "id": "ribeira-district",
+      "name": "里贝拉区 (Ribeira District)",
+      "region": "波尔图",
+      "summary": "1996年列入联合国教科文组织世界遗产的波尔图历史核心，狭窄中世纪巷道顺坡延伸至杜罗河畔，河滨码头边排列着彩色民居、海鲜餐厅与街头乐手。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["scenery", "explore", "food"],
+      "source": "https://megapass.com/en/blog/top-10-must-see-sights-in-porto"
+    },
+    {
+      "id": "dom-luis-bridge",
+      "name": "路易一世大桥 (Dom Luís I Bridge)",
+      "region": "波尔图",
+      "summary": "1886年建成，由埃菲尔旧合伙人泰奥菲尔·赛里格设计的双层铁桥，连接波尔图里贝拉与加亚区。上层步道高悬河面60米，是观赏里贝拉天际线日落金光的最佳地点之一。",
+      "suggestedDurationMin": 45,
+      "moodTags": ["scenery", "explore"],
+      "source": "https://megapass.com/en/blog/top-10-must-see-sights-in-porto"
+    },
+    {
+      "id": "gaia-port-cellars",
+      "name": "加亚波特酒酒窖 (Vila Nova de Gaia Port Cellars)",
+      "region": "波尔图",
+      "summary": "据波特酒与杜罗河葡萄酒协会（IVDP）资料，加亚河滨有60多家持牌酒窖，陈藏约9000万升波特酒。Graham's、Sandeman、Ferreira、Calém等名窖提供参观与品鉴。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["food", "culture", "explore"],
+      "source": "https://www.winalist.com/blog/portugal-wine-region/douro-valley/what-to-do-vila-nova-gaia"
+    }
+  ],
+  "foods": [
+    {
+      "id": "pastel-de-nata",
+      "name": "葡式蛋挞 (Pastel de Nata)",
+      "type": "甜点",
+      "region": "里斯本（贝伦区）",
+      "reason": "18世纪前由里斯本贝伦区热罗尼莫斯修道院的修士所创，最初为利用酿酒、浆衣后剩余的蛋黄而制；贝伦蛋挞店至今沿用原始配方，每日售出逾两万只。",
+      "source": "https://www.portugal.com/food-drink/from-pastel-de-nata-to-bacalhau-a-food-lovers-guide-to-portuguese-cuisine/"
+    },
+    {
+      "id": "bacalhau",
+      "name": "葡式鳕鱼 (Bacalhau)",
+      "type": "主菜",
+      "region": "全国（里斯本经典做法 Bacalhau à Brás）",
+      "reason": "盐渍干鳕鱼自大航海时代起便是远洋与天主教斋期的主食，已有500多年历史。Bacalhau à Brás据信于19世纪末由里斯本上城区一位名为Braz的酒馆老板用剩余鳕鱼创制。",
+      "source": "https://www.portugal.com/food-drink/from-pastel-de-nata-to-bacalhau-a-food-lovers-guide-to-portuguese-cuisine/"
+    },
+    {
+      "id": "francesinha",
+      "name": "葡式三明治 (Francesinha)",
+      "type": "主菜",
+      "region": "波尔图",
+      "reason": "波尔图地方料理中最具代表性的一道菜，多层肉与香肠夹于面包间、覆以芝士并浇上浓郁番茄啤酒酱汁，被誉为来到波尔图必尝的招牌美食。",
+      "source": "https://www.willflyforfood.net/portuguese-food-guide/"
+    },
+    {
+      "id": "sardinha-grelhada",
+      "name": "炭烤沙丁鱼 (Sardinha Grelhada)",
+      "type": "主菜",
+      "region": "里斯本及特茹河谷",
+      "reason": "源自里斯本与特茹河谷地区的简单炭烤鲜沙丁鱼，数百年来是葡萄牙节庆的主角，尤以六月里斯本圣安东尼节（沙丁鱼节）最为盛大，街头满溢烤鱼香气。",
+      "source": "https://www.willflyforfood.net/portuguese-food-guide/"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "pena-palace",
+      "name": "佩纳宫 (Pena Palace)",
+      "region": "辛特拉",
+      "method": "通过官网 parquesdesintra.pt（Parques de Sintra 运营）购买含30分钟定时入场窗口的完整门票（园区+宫殿内部，成人约20欧元），也可经 GetYourGuide 预订；定时票严格执行入场时间，无延误宽限。",
+      "leadTime": "门票于参观日前90天开售；旺季（4月至10月）建议尽早预订，上午10:00至12:00的内部时段常在夏季提前数日售罄。",
+      "source": "https://www.parquesdesintra.pt/en/plan-your-visit/tickets-palace-of-pena/"
+    },
+    {
+      "id": "livraria-lello",
+      "name": "莱罗书店 (Livraria Lello)",
+      "region": "波尔图",
+      "method": "需持购票凭证（Ticket-Voucher）方可入内，可在官方售票平台 tickets.livrarialello.pt 在线选定时段购买（银卡约8欧元，可抵书价；金卡15.90欧元含优先入场）；亦可现场购买。",
+      "leadTime": "需预订特定入场时段以分流大量游客，请至少提前10分钟到达；为热门时段建议提前在线预约。",
+      "source": "https://tickets.livrarialello.pt/en"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "春季波尔图及北部气温约10摄氏度上下偏凉，里斯本可暖至20多度，建议分层穿衣并备薄外套；此时人少花盛，适合提前参观热门景点。",
+      "source": "https://www.ricksteves.com/europe/portugal/best-time-to-go-to-portugal"
+    },
+    {
+      "season": "summer",
+      "tip": "夏季里斯本与阿尔加维常超30摄氏度、近年甚至突破38度，务必防晒补水；7至8月沿海住宿价高难订，需尽早预订并避开正午烈日。",
+      "source": "https://www.ricksteves.com/europe/portugal/best-time-to-go-to-portugal"
+    },
+    {
+      "season": "autumn",
+      "tip": "9至10月气候温暖宜人、游客减少，是观光与徒步的黄金期；正值葡萄采收季，是造访杜罗河谷与加亚酒窖的好时机。",
+      "source": "https://travel.usnews.com/Lisbon_Portugal/When_To_Visit/"
+    },
+    {
+      "season": "winter",
+      "tip": "冬季为一年中最多雨的淡季，波尔图尤其湿冷，建议携带雨具并以室内行程（博物馆、酒窖、教堂）为主；圣诞与狂欢节期间另有节庆氛围。",
+      "source": "https://www.ricksteves.com/europe/portugal/best-time-to-go-to-portugal"
+    }
+  ]
+}

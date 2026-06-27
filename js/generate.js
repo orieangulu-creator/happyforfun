@@ -6,6 +6,11 @@
   const SEASON_ZH = { spring: "春季", summer: "夏季", autumn: "秋季", winter: "冬季" };
   const MOOD_ZH = { relax: "想放松", explore: "想玩透", food: "美食", scenery: "风景", culture: "文化", shopping: "购物", hotspring: "温泉", island: "海岛", snow: "雪山", slow: "慢城" };
   const moodZh = x => MOOD_ZH[x] || x;
+  // 未知国家(主要是欧洲)的兜底估算
+  const costOf = c => COST[c] || "high";
+  const flightOf = c => FLIGHT[c] || { h: 11, direct: false };
+  const regionOf = c => { const m = (DATA.manifest || []).find(x => x.id === c); return m ? m.region : ""; };
+  const MAX_DAYS_PER_CITY = 3; // 一城上限 3 天 2 晚
 
   function seasonFromDate(s) {
     if (!s) return null;
@@ -50,10 +55,10 @@
 
   function transportFor(country, origin) {
     if (!origin) return null; // G1: 无 origin → null，UI 显示占位
-    const f = FLIGHT[country];
-    return { origin, destinationNameZh: DATA.libraries[country].countryNameZh,
-      directFlight: f ? f.direct : null, flightHours: f ? f.h : null,
-      note: f ? `${origin}出发约 ${f.h} 小时${f.direct ? "，有直飞" : ""}` : "", source: "交通时长估算" };
+    const f = flightOf(country);
+    return { origin, destinationNameZh: (DATA.libraries[country] ? DATA.libraries[country].countryNameZh : country),
+      directFlight: f.direct, flightHours: f.h,
+      note: `${origin}出发约 ${f.h} 小时${f.direct ? "，有直飞" : "，多需中转"}`, source: "交通时长估算" };
   }
 
   // ================= 本地规则引擎(DEMO) =================
@@ -69,7 +74,7 @@
         matchReason: strong ? `契合你的「${[...signals].join("/")}」偏好` : `${lib.countryNameZh}经典之选`,
         bestVisitTime: `最佳季节：${best}`,
         suggestedDays: Math.min(days, lib.idealDuration.maxDays) || lib.idealDuration.minDays,
-        costTier: COST[lib.country] || "medium",
+        costTier: costOf(lib.country),
         transport: transportFor(lib.country, input.origin),
         moodTags: lib.moodTags, source: lib.bestSeasons[0] ? lib.bestSeasons[0].source : "内容库"
       };
@@ -83,9 +88,15 @@
       basis = "基于你提供的偏好/时间做定向推荐";
     }
     const d = input.destination || {};
+    // 模糊区域：把该区域的国家排前面
+    if (d.granularity === "region" && d.regionText) {
+      const rt = d.regionText;
+      const hit = c => { const r = regionOf(c.id); return r && (r.includes(rt) || rt.includes(r)) ? 0 : 1; };
+      cands.sort((a, b) => hit(a) - hit(b));
+    }
     const anyStrong = cands.some(c => c.matchLevel === "strong");
     if ((d.granularity === "region" || d.granularity === "playstyle") && !anyStrong) {
-      coverageNote = "v1 暂仅覆盖日本/泰国/法国，以下为当前可规划的相关目的地";
+      coverageNote = "以下为当前内容库可规划的相关目的地（数据持续扩充中）";
     }
     return { isFallback: branch.isFallback, basis, coverageNote, candidates: cands.slice(0, 5) };
   }
@@ -131,42 +142,66 @@
     const lib = DATA.libraries[country];
     const pace = defaultPace(input);
     const perDay = pace === "intense" ? 5 : pace === "relaxed" ? 2 : 3;
-    const reqDays = input.dateRange && input.dateRange.days;
-    const days = Math.max(1, Math.min(reqDays || lib.idealDuration.minDays, lib.idealDuration.maxDays + 2));
     const season = (input.dateRange && seasonFromDate(input.dateRange.start)) || null;
-    const city = (lib.attractions[0] && lib.attractions[0].region) || lib.countryNameZh;
 
-    const optionalDays = Math.max(0, days - lib.idealDuration.minDays);
-    const coreDays = days - optionalDays;
+    // 城市分组（按出现顺序）；region 形如「东京/浅草」时取斜杠前的主城，避免把同城子区当多城
+    const cityKey = a => String(a.region || lib.countryNameZh).split(/[\/／]/)[0].trim();
+    const cities = [];
+    lib.attractions.forEach(a => { const c = cityKey(a); if (!cities.includes(c)) cities.push(c); });
+    const attrByCity = {}; cities.forEach(c => (attrByCity[c] = []));
+    lib.attractions.forEach(a => { (attrByCity[cityKey(a)] || attrByCity[cities[0]]).push(a); });
 
-    const dailyPlan = [];
-    let ai = 0, fi = 0;
-    for (let d = 1; d <= days; d++) {
-      const acts = [];
-      for (let k = 0; k < perDay; k++) {
-        const a = lib.attractions[ai % lib.attractions.length]; ai++;
-        acts.push({ id: a.id, name: a.name, timeSlot: SLOTS[Math.min(k, SLOTS.length - 1)],
-          durationMin: a.suggestedDurationMin || 90, summary: a.summary, source: a.source });
-      }
-      const lunch = lib.foods[fi % lib.foods.length]; fi++;
-      const dinner = lib.foods[fi % lib.foods.length]; fi++;
-      dailyPlan.push({
-        day: d, title: `${city} · 第 ${d} 天`,
-        intensity: pace, dayType: d <= coreDays ? "core" : "optional",
-        activities: acts,
-        meals: [
-          { id: lunch.id, name: lunch.name, slot: "lunch", reason: lunch.reason, source: lunch.source },
-          { id: dinner.id, name: dinner.name, slot: "dinner", reason: dinner.reason, source: dinner.source }
-        ],
-        reservationRefs: d === 1 ? lib.reservations.map(r => r.id) : []
-      });
+    // 城市停留规则：每城 2-3 天，上限 MAX_DAYS_PER_CITY；总上限 = 城市数 × 上限
+    const reqDays = (input.dateRange && input.dateRange.days) || null;
+    const totalCap = cities.length * MAX_DAYS_PER_CITY;
+    let days = Math.max(1, Math.min(reqDays || lib.idealDuration.minDays, totalCap));
+    const cappedByCity = !!(reqDays && reqDays > totalCap);
+
+    // 均衡分配每城天数（≤上限）
+    const alloc = []; let leftCities = cities.length, leftDays = days;
+    for (const c of cities) {
+      if (leftDays <= 0) break;
+      const dd = Math.max(1, Math.min(MAX_DAYS_PER_CITY, leftDays, Math.ceil(leftDays / leftCities)));
+      alloc.push({ city: c, days: dd }); leftDays -= dd; leftCities--;
     }
+    const usedCities = alloc.map(a => a.city);
+
+    // 逐日生成（第一座城市为核心，其余为可选延展城市）
+    const dailyPlan = []; let dayNo = 0;
+    alloc.forEach((al, ci) => {
+      const acts0 = attrByCity[al.city].length ? attrByCity[al.city] : lib.attractions;
+      const cityFoods = lib.foods.filter(f => String(f.region || "").split(/[\/／]/)[0].trim() === al.city);
+      const foods = cityFoods.length ? cityFoods : lib.foods;
+      let ai = 0, fi = 0;
+      for (let dd = 1; dd <= al.days; dd++) {
+        dayNo++;
+        const acts = [];
+        for (let k = 0; k < perDay; k++) {
+          const a = acts0[ai % acts0.length]; ai++;
+          acts.push({ id: a.id, name: a.name, timeSlot: SLOTS[Math.min(k, SLOTS.length - 1)],
+            durationMin: a.suggestedDurationMin || 90, summary: a.summary, source: a.source });
+        }
+        const lunch = foods[fi % foods.length]; fi++;
+        const dinner = foods[fi % foods.length]; fi++;
+        dailyPlan.push({
+          day: dayNo, title: `${al.city} · 第 ${dd} 天`,
+          intensity: pace, dayType: ci === 0 ? "core" : "optional",
+          activities: acts,
+          meals: [
+            { id: lunch.id, name: lunch.name, slot: "lunch", reason: lunch.reason, source: lunch.source },
+            { id: dinner.id, name: dinner.name, slot: "dinner", reason: dinner.reason, source: dinner.source }
+          ],
+          reservationRefs: dayNo === 1 ? lib.reservations.map(r => r.id) : []
+        });
+      }
+    });
+    const realDays = dailyPlan.length;
+    const coreDays = alloc.length ? alloc[0].days : realDays;
+    const optionalDays = realDays - coreDays;
 
     const tips = (season ? lib.seasonalTips.filter(t => t.season === season) : lib.seasonalTips);
-    const tipsOut = (tips.length ? tips : lib.seasonalTips).slice(0, 3)
-      .map(t => ({ season: t.season, tip: t.tip, source: t.source }));
+    const tipsOut = (tips.length ? tips : lib.seasonalTips).slice(0, 3).map(t => ({ season: t.season, tip: t.tip, source: t.source }));
 
-    // G4: 时机警示
     let timingWarning = null;
     if (season && input.dateRange && input.dateRange.start) {
       const bestSet = new Set(lib.bestSeasons.map(b => b.season));
@@ -175,29 +210,30 @@
       }
     }
 
+    const firstCity = usedCities[0] || lib.countryNameZh;
+    const segments = [{ mode: "flight", from: input.origin || "出发地", to: firstCity,
+      detail: input.origin ? transportFor(country, input.origin).note : "建议直飞，填写出发地可估算时长", source: "交通估算" }];
+    for (let i = 1; i < usedCities.length; i++) segments.push({ mode: "train", from: usedCities[i - 1], to: usedCities[i], detail: "城市间建议火车 / 大巴", source: "交通估算" });
+
+    const flexNote = (cappedByCity ? `已按「每城 ≤${MAX_DAYS_PER_CITY} 天」铺排 ${usedCities.length} 座城市；想玩更久可增加城市或在文字里说明。` : "")
+      + (optionalDays > 0 ? `第一座城市 ${coreDays} 天为核心，时间紧可只玩首城。` : "已是精简安排。");
+
     return {
       meta: {
         origin: input.origin || null, destinationCountry: country, destinationNameZh: lib.countryNameZh,
-        days, dateRange: input.dateRange || null, season,
+        days: realDays, dateRange: input.dateRange || null, season,
         pace, companion: input.companion || null,
         moodTags: input.moodTags || [], freeText: input.freeText || "",
-        themes: [], budget: null, generatedBy: "claude-opus-4-8",
-        generatedAt: new Date().toISOString()
+        themes: [], budget: null, generatedBy: "claude-opus-4-8", generatedAt: new Date().toISOString()
       },
       route: {
-        summary: `${input.origin || "出发地"} → ${city}`,
-        segments: [{ mode: "flight", from: input.origin || "出发地", to: city,
-          detail: input.origin ? (transportFor(country, input.origin).note) : "建议直飞，填写出发地可估算时长",
-          source: "交通估算" }],
-        tips: "落地后建议购买当地交通卡/通票。", source: "交通估算"
+        summary: [input.origin || "出发地"].concat(usedCities).join(" → "),
+        segments, tips: "落地后建议购买当地交通卡 / 通票；多城之间预留半天交通。", source: "交通估算"
       },
       dailyPlan,
       reservations: lib.reservations.map(r => ({ id: r.id, name: r.name, day: 1, method: r.method, leadTime: r.leadTime, source: r.source })),
       seasonalTips: tipsOut,
-      flexibility: {
-        coreDays, optionalDays,
-        note: optionalDays > 0 ? `核心 ${coreDays} 天必玩；假期短可去掉第 ${coreDays + 1}-${days} 天的延展安排。` : "全部为核心天，已是精简行程。"
-      },
+      flexibility: { coreDays, optionalDays, note: flexNote },
       timingWarning,
       warnings: ["本结果由本地规则引擎(DEMO 模式)生成；接入后端 AI 后将实时生成更丰富的方案。"]
     };

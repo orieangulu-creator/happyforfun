@@ -1,0 +1,197 @@
+{
+  "country": "greece",
+  "countryNameZh": "希腊",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "spring",
+      "reason": "4月至6月气候温暖干燥，野花盛开、人潮较少，既适合在雅典等城市观光，也能在岛屿享受初夏，是兼顾文化与海岛的黄金季节。",
+      "source": "https://www.ricksteves.com/europe/greece/best-time-to-go-to-greece"
+    },
+    {
+      "season": "autumn",
+      "reason": "9月至10月海水仍温暖、光线柔和，气温约24℃，避开盛夏酷热与拥挤人群，遗址观光与海滩兼得，性价比高。",
+      "source": "https://www.audleytravel.com/us/greece/best-time-to-visit"
+    },
+    {
+      "season": "summer",
+      "reason": "7月至8月阳光充沛、海水温暖，是基克拉泽斯群岛海岛度假与日落观赏的旺季，渡轮与活动最为密集，但需提前预订并应对高温与人潮。",
+      "source": "https://santorinidave.com/best-time-to-visit-greece"
+    }
+  ],
+  "moodTags": ["island", "scenery", "culture", "relax"],
+  "idealDuration": {
+    "minDays": 7,
+    "maxDays": 10,
+    "note": "经典一周行程为雅典2-3天搭配一座海岛（多为圣托里尼）；10天可在不赶路的情况下再加一座岛屿，节奏更从容。",
+    "source": "https://santorinidave.com/greece-itinerary"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": [
+        "在人潮较少、气候宜人的清晨登上雅典卫城，悠闲参观帕特农神庙",
+        "漫步普拉卡老城与古市集，欣赏野花与橄榄园环绕的春日风光"
+      ],
+      "source": "https://www.ricksteves.com/europe/greece/best-time-to-go-to-greece"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": [
+        "搭渡轮前往圣托里尼，在伊亚（Oia）的悬崖小镇欣赏爱琴海日落",
+        "在火山口悬崖村庄间游船，畅游岛屿海滩与温暖海水"
+      ],
+      "source": "https://www.greeka.com/cyclades/santorini/sightseeing/santorini-caldera/"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": [
+        "趁海水仍温暖、光线柔和，在金色秋光中游览古代遗址与博物馆",
+        "在凉爽天气里品尝当地小酒馆美食，享受错峰的海滩与城市之旅"
+      ],
+      "source": "https://www.audleytravel.com/us/greece/best-time-to-visit"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": [
+        "在清静的淡季深度参观卫城博物馆与雅典市区文化景点",
+        "避开人潮，在安静的雅典老城品味希腊冬日的城市生活"
+      ],
+      "source": "https://www.theacropolismuseum.gr/en/plan-your-visit"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "acropolis-athens",
+      "name": "雅典卫城与帕特农神庙 (Acropolis & Parthenon)",
+      "region": "雅典",
+      "summary": "矗立于城市上方约150米的古代卫城，建于公元前5世纪，汇集帕特农神庙、伊瑞克提翁神庙、雅典娜胜利神庙等最负盛名的古迹，是希腊文明的象征。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "scenery"],
+      "source": "http://odysseus.culture.gr/h/3/eh355.jsp?obj_id=2384"
+    },
+    {
+      "id": "acropolis-museum",
+      "name": "卫城博物馆 (Acropolis Museum)",
+      "region": "雅典",
+      "summary": "2009年开放的现代化博物馆，专门收藏卫城及其山坡出土文物，包括帕特农神庙原始雕刻、柱间壁与中楣，玻璃地板下还可见古代遗址。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture"],
+      "source": "https://www.theacropolismuseum.gr/en"
+    },
+    {
+      "id": "plaka-athens",
+      "name": "普拉卡老城 (Plaka)",
+      "region": "雅典",
+      "summary": "位于卫城脚下的雅典最古老街区，狭窄街巷、新古典主义房屋、盛开的九重葛与温馨小酒馆交织，是漫步与用餐的理想去处。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["relax", "food"],
+      "source": "https://www.leonardo-hotels.com/blog/top-20-things-to-do-in-athens-sightseeing-guide"
+    },
+    {
+      "id": "oia-santorini",
+      "name": "伊亚 (Oia)",
+      "region": "圣托里尼",
+      "summary": "位于火山口最北端的迷人小镇，以白色建筑、蓝顶教堂和凿入火山岩的洞穴房屋著称，是希腊最上镜的地方，也是观赏圣托里尼日落的最佳地点。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["scenery", "island"],
+      "source": "https://www.greeka.com/cyclades/santorini/sightseeing/santorini-caldera/"
+    },
+    {
+      "id": "fira-santorini",
+      "name": "费拉 (Fira)",
+      "region": "圣托里尼",
+      "summary": "圣托里尼的首府与岛屿心脏，是火山口沿线最热闹的城镇，拥有多处人气观景台，可俯瞰爱琴海、火山与白色房屋。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["island", "scenery"],
+      "source": "https://www.greeka.com/cyclades/santorini/sightseeing/santorini-caldera/"
+    },
+    {
+      "id": "akrotiri-santorini",
+      "name": "阿克罗蒂里史前遗址 (Akrotiri)",
+      "region": "圣托里尼",
+      "summary": "约3700年前在火山大爆发中被火山灰掩埋的米诺斯古城，是圣托里尼最引人入胜的考古遗址之一，附近还有红沙滩与威尼斯城堡。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.greeka.com/cyclades/santorini/sightseeing/santorini-caldera/"
+    }
+  ],
+  "foods": [
+    {
+      "id": "souvlaki",
+      "name": "烤肉串 (Souvlaki)",
+      "type": "烤肉/街头小吃",
+      "region": "全希腊",
+      "reason": "将猪肉、鸡肉或羊肉腌制后串烤，常以皮塔饼卷上番茄、洋葱与酸奶黄瓜酱（tzatziki），起源可追溯至古希腊，是最具代表性的国民美食。",
+      "source": "https://www.visit-greece.info/en/travel-tips/typical-greek-dishes/"
+    },
+    {
+      "id": "moussaka",
+      "name": "希腊千层茄盒 (Moussaka)",
+      "type": "焗烤主菜",
+      "region": "全希腊",
+      "reason": "以茄子、肉末与白酱（béchamel）层层叠加焗烤而成，外观近似千层面，常被视为希腊在国际上的美食象征。",
+      "source": "https://www.visit-greece.info/en/travel-tips/typical-greek-dishes/"
+    },
+    {
+      "id": "greek-salad",
+      "name": "希腊沙拉 (Horiatiki)",
+      "type": "沙拉",
+      "region": "全希腊",
+      "reason": "仅用番茄、黄瓜、洋葱、青椒、黑橄榄、菲达奶酪、牛至与橄榄油八种新鲜食材，简单却汇集地中海饮食最具代表性的元素。",
+      "source": "https://www.visit-greece.info/en/travel-tips/typical-greek-dishes/"
+    },
+    {
+      "id": "gyros",
+      "name": "旋转烤肉 (Gyros)",
+      "type": "烤肉/街头小吃",
+      "region": "全希腊",
+      "reason": "用腌制的猪肉或鸡肉在垂直旋转烤架上烤制后切成薄片，多以皮塔饼盛装，是希腊街头随处可见的人气快餐。",
+      "source": "https://www.visit-greece.info/en/travel-tips/typical-greek-dishes/"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "acropolis-timed-entry",
+      "name": "雅典卫城限时入场门票 (Acropolis Timed Entry)",
+      "region": "雅典",
+      "method": "通过希腊文化部官方电子票务平台 hhticket.gr 预订，需选择1小时入场时段（成人票约30欧元）。",
+      "leadTime": "卫城实行每日2万人上限，旺季（6月至8月）及希腊公共假日附近，门票常提前5-7天售罄，建议尽早预订。",
+      "source": "https://hhticket.gr/tap_b2c_new/english/tap.exe?PM=P1P&place=000000002"
+    },
+    {
+      "id": "piraeus-santorini-ferry",
+      "name": "雅典(比雷埃夫斯)至圣托里尼渡轮 (Piraeus–Santorini Ferry)",
+      "region": "雅典至圣托里尼",
+      "method": "可在 Ferryhopper 等官方平台比较船班与价格并在线预订，获取手机电子票直接登船（票价约46.50欧元起）。",
+      "leadTime": "旺季（6月至9月，尤其7、8月）热门高速船班易售罄，建议提前2-3个月预订。",
+      "source": "https://www.ferryhopper.com/en/ferry-routes/direct/athens-piraeus-to-santorini"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "春季（4-6月）气候温暖干燥、人潮较少，是城市观光与海岛兼顾的理想季节，5月部分海域已暖至可下水，建议携带轻便外套应对早晚温差。",
+      "source": "https://www.ricksteves.com/europe/greece/best-time-to-go-to-greece"
+    },
+    {
+      "season": "summer",
+      "tip": "夏季（7-8月）为海岛旺季，气温高、人潮密集，渡轮与住宿建议提前数月预订，登卫城等户外遗址宜选清晨或傍晚并做好防晒补水。",
+      "source": "https://santorinidave.com/best-time-to-visit-greece"
+    },
+    {
+      "season": "autumn",
+      "tip": "秋季（9-10月）天气宜人、海水仍温暖，9月为兼顾海滩与观光的最佳时段，10月性价比高但岛屿设施多于月底前陆续收尾，宜趁早安排。",
+      "source": "https://www.audleytravel.com/us/greece/best-time-to-visit"
+    },
+    {
+      "season": "winter",
+      "tip": "冬季（11-3月）为淡季，部分岛屿渡轮与设施减少，但雅典等城市景点清静、卫城门票不再如往年提供50%冬季折扣，适合专注文化与城市深度游。",
+      "source": "https://thebettervacation.com/athens/acropolis-official-website/"
+    }
+  ]
+}

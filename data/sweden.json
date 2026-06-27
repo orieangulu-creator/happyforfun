@@ -1,0 +1,185 @@
+{
+  "country": "sweden",
+  "countryNameZh": "瑞典",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "summer",
+      "reason": "夏季(6-8月)白昼极长，北极圈以北的拉普兰更有午夜太阳(约5月底至7月中24小时不落)，最适合城市观光与北部徒步。",
+      "source": "https://visitsweden.com/where-to-go/northern-sweden/arctic-sweden/midnight-sun/"
+    },
+    {
+      "season": "winter",
+      "reason": "冬季(12-3月)夜长天暗，是观赏北极光与体验狗拉雪橇、冰雪活动的最佳季节，阿比斯库更是全球极光胜地。",
+      "source": "https://visitsweden.com/where-to-go/northern-sweden/swedish-lapland/abisko-and-northern-lights/"
+    },
+    {
+      "season": "autumn",
+      "reason": "初秋(9月)起夜晚转长转暗，北极光季拉开序幕，且游客较夏季回落，是兼顾极光与较舒适气温的过渡时段。",
+      "source": "https://www.nordicvisitor.com/blog/best-time-place-see-northern-lights-sweden/"
+    }
+  ],
+  "moodTags": ["snow", "scenery", "culture", "explore", "slow"],
+  "idealDuration": {
+    "minDays": 3,
+    "maxDays": 7,
+    "note": "斯德哥尔摩本身3-4天为甜蜜点，足以从容游老城、博物馆与群岛；若加入哥德堡或北上拉普兰看极光/午夜太阳，建议安排5-7天。",
+    "source": "https://www.theworldwasherefirst.com/stockholm-itinerary/"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": ["斯德哥尔摩老城(Gamla Stan)石板街区与皇宫漫步", "白昼渐长时乘船游群岛(早春班次渐多)", "瓦萨博物馆等室内文化场馆从容参观"],
+      "source": "https://www.theworldwasherefirst.com/stockholm-itinerary/"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": ["北极圈以北拉普兰体验午夜太阳(最佳约5月底至7月中，7月光照最稳定)", "斯德哥尔摩群岛跳岛乘船与户外就餐", "哥德堡里瑟本游乐园夏季档畅玩"],
+      "source": "https://visitsweden.com/where-to-go/northern-sweden/arctic-sweden/midnight-sun/"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": ["北极光季开启(9月起夜长转暗，阿比斯库可见极光)", "斯德哥尔摩与哥德堡秋色漫步、博物馆之旅", "群岛末班船季的静谧海岸风光"],
+      "source": "https://www.nordicvisitor.com/blog/best-time-place-see-northern-lights-sweden/"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": ["阿比斯库/拉普兰追北极光(最佳约12-3月，11月至3月中可见)", "尤卡斯耶尔维冰旅馆住宿与冰雕艺术(12月至4月)", "狗拉雪橇、冰钓等冰雪活动"],
+      "source": "https://visitsweden.com/where-to-go/northern-sweden/swedish-lapland/abisko-and-northern-lights/"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "sto-vasa",
+      "name": "瓦萨博物馆 (Vasa Museum)",
+      "region": "斯德哥尔摩",
+      "summary": "动物园岛上的镇馆之宝是一艘1628年沉没、333年后打捞出水并近乎完整保存的17世纪战舰瓦萨号，是斯堪的纳维亚最受欢迎的博物馆之一。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore", "slow"],
+      "source": "https://www.vasamuseet.se/en/visit/before-you-visit"
+    },
+    {
+      "id": "sto-gamlastan",
+      "name": "老城 (Gamla Stan)",
+      "region": "斯德哥尔摩",
+      "summary": "欧洲保存最完好的中世纪城区之一，狭窄石板巷弄间藏有皇宫、大教堂、诺贝尔博物馆与议会，是斯德哥尔摩历史核心。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "slow", "scenery"],
+      "source": "https://travelinculture.com/things-to-do-in-stockholm-vasa-museum-gamla-stan/"
+    },
+    {
+      "id": "sto-skansen",
+      "name": "斯堪森露天博物馆 (Skansen)",
+      "region": "斯德哥尔摩",
+      "summary": "动物园岛上的世界最古老露天博物馆之一，重现旧时瑞典各地的房屋与生活，并设有北欧动物园区，老少皆宜。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "explore", "slow"],
+      "source": "https://travelinculture.com/things-to-do-in-stockholm-vasa-museum-gamla-stan/"
+    },
+    {
+      "id": "got-liseberg",
+      "name": "里瑟本游乐园 (Liseberg)",
+      "region": "哥德堡",
+      "summary": "1923年开园，斯堪的纳维亚第二热门的主题乐园，拥有40余项设施，含曾获评世界最佳木质过山车的Balder与116米自由落体塔。",
+      "suggestedDurationMin": 240,
+      "moodTags": ["explore", "scenery", "slow"],
+      "source": "https://www.goteborg.com/en/places/liseberg-amusement-park"
+    },
+    {
+      "id": "got-universeum",
+      "name": "环球科学中心 (Universeum)",
+      "region": "哥德堡",
+      "summary": "北欧最大的科学中心，设有热带雨林、大型水族馆与众多互动展项，距里瑟本仅约三分钟步行，适合亲子同游。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["explore", "culture", "slow"],
+      "source": "https://www.goteborg.com/en"
+    },
+    {
+      "id": "got-haga",
+      "name": "哈加老城区 (Haga)",
+      "region": "哥德堡",
+      "summary": "哥德堡最古老的街区之一，鹅卵石街道与木构老屋间遍布咖啡馆与小店，以大如盘的肉桂卷(hagabulle)闻名，最宜慢逛。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["slow", "food", "shopping"],
+      "source": "https://www.goteborg.com/en"
+    }
+  ],
+  "foods": [
+    {
+      "id": "se-kottbullar",
+      "name": "瑞典肉丸 (Köttbullar)",
+      "type": "国民主菜",
+      "region": "瑞典",
+      "reason": "瑞典国民菜，配奶油肉汁、土豆泥、青豆与越橘酱及腌黄瓜同食，食谱最早见于1754年Cajsa Warg烹饪书。",
+      "source": "https://sweden.se/culture/food/swedish-meatballs"
+    },
+    {
+      "id": "se-gravlax",
+      "name": "腌渍三文鱼 (Gravlax)",
+      "type": "前菜/冷盘",
+      "region": "瑞典",
+      "reason": "以盐、糖与莳萝腌渍的生三文鱼，源自渔民古法，薄切后作为前菜，是斯堪的纳维亚经典海味。",
+      "source": "https://www.tasteatlas.com/best-rated-dishes-in-sweden"
+    },
+    {
+      "id": "se-kanelbulle",
+      "name": "肉桂卷 (Kanelbulle)",
+      "type": "甜点/咖啡点心",
+      "region": "瑞典",
+      "reason": "瑞典最具代表性的烘焙甜点，以含豆蔻香的黄油酵母面团包入肉桂糖馅，是瑞典fika(咖啡歇)文化的灵魂。",
+      "source": "https://www.tasteatlas.com/best-rated-dishes-in-sweden"
+    },
+    {
+      "id": "se-knackebrod",
+      "name": "脆面包 (Knäckebröd)",
+      "type": "主食/面包",
+      "region": "瑞典",
+      "reason": "瑞典传统硬质黑麦脆面包，可追溯数百年，常配奶酪、鱼或火腿食用，是瑞典日常餐桌的常见主食。",
+      "source": "https://www.tasteatlas.com/best-rated-dishes-in-sweden"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "se-icehotel-jukkasjarvi",
+      "name": "尤卡斯耶尔维冰旅馆 (Icehotel Jukkasjärvi)",
+      "region": "尤卡斯耶尔维(基律纳附近)",
+      "method": "官网 icehotel.com 预订；冬季冰旅馆约12月至4月开放，可选冰房、艺术套房或全年温房，套餐自12月1日起供应。",
+      "leadTime": "房源极抢手，建议最早提前约一年预订以确保理想日期。",
+      "source": "https://www.icehotel.com/icehotel-winter"
+    },
+    {
+      "id": "se-abisko-aurora-sky-station",
+      "name": "阿比斯库极光天空站夜访 (STF Aurora Sky Station Night Visit)",
+      "region": "阿比斯库",
+      "method": "瑞典旅游协会官网 swedishtouristassociation.com 在线预订；套餐含缆车上下、保暖连体服与山顶导览，缆车每晚约21:00-1:00运行。",
+      "leadTime": "营业期约11月至3月中，强烈建议提前在线预订以免售罄(现场候补视余位而定)。",
+      "source": "https://www.swedishtouristassociation.com/activities/abisko-aurora-night-visit/"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "春季白昼快速变长，群岛乘船班次渐增；但北部仍可能积雪、夜晚偏冷，外出请备保暖衣物。",
+      "source": "https://www.theworldwasherefirst.com/stockholm-itinerary/"
+    },
+    {
+      "season": "summer",
+      "tip": "夏季是旺季，城市观光与北部徒步皆宜；想体验午夜太阳请于5月底至7月中前往拉普兰，7月光照最稳定。",
+      "source": "https://visitsweden.com/where-to-go/northern-sweden/arctic-sweden/midnight-sun/"
+    },
+    {
+      "season": "autumn",
+      "tip": "9月起夜晚转长转暗，北极光季开始；气温下降需添衣，且游客较夏季少、体验更从容。",
+      "source": "https://www.nordicvisitor.com/blog/best-time-place-see-northern-lights-sweden/"
+    },
+    {
+      "season": "winter",
+      "tip": "冬季严寒、夜长，追极光最佳约12月至3月中，务必做好极地保暖；冰旅馆与极光天空站等热门项目需提前预订。",
+      "source": "https://visitsweden.com/where-to-go/northern-sweden/swedish-lapland/abisko-and-northern-lights/"
+    }
+  ]
+}

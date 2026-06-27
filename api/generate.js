@@ -63,7 +63,8 @@ const OUTPUT_SPECS = {
   "flexibility": {"coreDays": number, "optionalDays": number, "note": string},
   "timingWarning": string|null
 }
-要求：天数=days；按 pace 控制每日活动数(intense 4-6 / balanced 2-4 / relaxed 1-2)；优先复用 libraryData 中该国的真实 attractions/foods/reservations/seasonalTips 并透传其 source；前 coreDays 天标 core、其余 optional。`,
+要求：天数=days；按 pace 控制每日活动数(intense 4-6 / balanced 2-4 / relaxed 1-2)；优先复用 libraryData 中该国的真实 attractions/foods/reservations/seasonalTips 并透传其 source；前 coreDays 天标 core、其余 optional。
+【城市停留规则】每座城市安排 2-3 天，单城上限 3 天 2 晚——除非用户在 freeText 明确要求某城久留，否则一城超过 3 天就应换到下一座城市；dailyPlan 每天的 title 标明所在城市；多城市时 route.summary 串联城市、segments 标注城市间交通(火车/大巴)。`,
   recommend: `{"isFallback": boolean, "basis": string, "coverageNote": string|null,
  "candidates": [{"id": string, "nameZh": string, "country": "japan|thailand|france"|null, "matchLevel": "strong|related", "matchReason": string, "bestVisitTime": string, "suggestedDays": number, "costTier": "low|medium|high", "moodTags": string[], "source": string}]}
 要求：给 3-5 个候选，优先从 libraryData 的国家中选；强匹配标 strong，其余 related。`,

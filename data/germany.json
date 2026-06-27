@@ -1,0 +1,197 @@
+{
+  "country": "germany",
+  "countryNameZh": "德国",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "autumn",
+      "reason": "秋季气候宜人，慕尼黑的啤酒节（Oktoberfest）于9月中旬至10月初举行，莱茵河谷正值葡萄酒丰收季，景色与节庆氛围俱佳。",
+      "source": "https://www.oktoberfest.de/en"
+    },
+    {
+      "season": "winter",
+      "reason": "11月底至12月23日左右是德国圣诞市集季，慕尼黑玛利亚广场与柏林全城超过60个市集营造浓厚节日气氛。",
+      "source": "https://www.muenchen.de/en/events/oktoberfest"
+    },
+    {
+      "season": "summer",
+      "reason": "夏季白昼长、气候温暖，适合英国花园、莱茵河游船、城堡徒步与啤酒花园等户外活动，但属旅游旺季人流较多。",
+      "source": "https://www.munich.travel/en/topics/urban-districts/munich-sights-at-a-glance"
+    }
+  ],
+  "moodTags": ["culture", "food", "explore", "scenery"],
+  "idealDuration": {
+    "minDays": 7,
+    "maxDays": 10,
+    "note": "建议7至10天，可从慕尼黑入境停留约3晚，乘高速ICE列车（约4小时）前往柏林，沿途还可加入纽伦堡、班贝格或新天鹅堡等行程。",
+    "source": "https://www.ricksteves.com/europe/germany/itinerary"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": [
+        "气候温和（约15-22°C），适合莱茵河谷徒步与骑行，沿途葡萄园新绿、繁花盛开",
+        "漫步慕尼黑英国花园（Englischer Garten），享受全球最大城市公园之一的春日户外时光"
+      ],
+      "source": "https://www.roughguides.com/germany/things-to-do/"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": [
+        "乘船游览莱茵河中上游河谷（UNESCO世界遗产），观赏沿岸城堡群与葡萄酒村",
+        "体验慕尼黑啤酒花园文化，并赶上莱茵河谷的「莱茵河烟火节」（Rhein in Flammen）"
+      ],
+      "source": "https://visitworldheritage.com/en/eu/upper-middle-rhine-valley-germany/1f4451f0-a33c-4e66-83d0-089d20ad8963"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": [
+        "参加慕尼黑啤酒节（Oktoberfest），2026年第191届于9月19日至10月4日在特蕾莎草坪举行",
+        "前往莱茵河谷参与葡萄酒丰收节，品尝当年新酿的雷司令（Riesling）白葡萄酒"
+      ],
+      "source": "https://www.oktoberfest.de/en"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": [
+        "逛慕尼黑玛利亚广场圣诞市集（Christkindlmarkt），以新市政厅哥特立面与巨大圣诞树为背景",
+        "穿梭柏林超过60个圣诞市集，品尝热红酒（Glühwein）与节庆小吃（最佳时段约为11月底至12月23日）"
+      ],
+      "source": "https://www.muenchen.de/en/events/oktoberfest"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "marienplatz",
+      "name": "玛利亚广场 (Marienplatz)",
+      "region": "慕尼黑",
+      "summary": "慕尼黑自1158年建城以来的市中心广场，可观赏新市政钟楼木偶报时，并登圣彼得教堂俯瞰全城，免费开放。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.munich.travel/en/topics/urban-districts/munich-sights-at-a-glance"
+    },
+    {
+      "id": "englischer-garten",
+      "name": "英国花园 (Englischer Garten)",
+      "region": "慕尼黑",
+      "summary": "世界最大城市公园之一，面积约相当于640个足球场，园内有啤酒花园、湖泊、中国塔、日本茶室与希腊神庙，适合悠闲漫步。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["relax", "scenery"],
+      "source": "https://www.munich.travel/en/topics/urban-districts/munich-sights-at-a-glance"
+    },
+    {
+      "id": "nymphenburg-palace",
+      "name": "宁芬堡宫 (Schloss Nymphenburg)",
+      "region": "慕尼黑",
+      "summary": "维特尔斯巴赫王朝的夏宫，18世纪巴伐利亚选帝侯与国王的避暑居所，今为德国最大宫殿之一，内有洛可可舞厅与美女画廊。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://www.introducingmunich.com/nymphenburg-palace"
+    },
+    {
+      "id": "brandenburg-gate",
+      "name": "勃兰登堡门 (Brandenburg Gate)",
+      "region": "柏林",
+      "summary": "柏林最著名地标，曾是冷战时期德国分裂的象征，如今代表和平与统一，全年24小时免费开放、无需预约。",
+      "suggestedDurationMin": 45,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.visitberlin.de/en/berlins-top-10-attractions"
+    },
+    {
+      "id": "museum-island",
+      "name": "博物馆岛 (Museum Island)",
+      "region": "柏林",
+      "summary": "UNESCO世界遗产，由老博物馆、新博物馆、老国家美术馆、博德博物馆与佩加蒙博物馆五座馆组成，呈现逾6000年的艺术与文化史。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.visitberlin.de/en/berlins-top-10-attractions"
+    },
+    {
+      "id": "east-side-gallery",
+      "name": "东边画廊 (East Side Gallery)",
+      "region": "柏林",
+      "summary": "全长逾1300米，是柏林墙保存最长的一段，统一后由21国118位艺术家彩绘，成为世界最大的露天画廊。",
+      "suggestedDurationMin": 75,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.berlin.de/en/attractions-and-sights/top-10/"
+    }
+  ],
+  "foods": [
+    {
+      "id": "weisswurst",
+      "name": "白香肠 (Weißwurst)",
+      "type": "肉类/香肠",
+      "region": "慕尼黑（巴伐利亚）",
+      "reason": "慕尼黑经典名菜，传统上于正午前食用，连同煮汁盛盘，搭配巴伐利亚扭结面包、甜芥末与小麦啤酒一同享用。",
+      "source": "https://www.tastingtable.com/1538433/bavarian-foods-munich/"
+    },
+    {
+      "id": "brezel",
+      "name": "扭结面包 (Brezel)",
+      "type": "面包/小吃",
+      "region": "慕尼黑（巴伐利亚）",
+      "reason": "巴伐利亚饮食核心，慕尼黑及周边仍可买到全手工制作的扭结面包，形状略不规整正是手作魅力所在。",
+      "source": "https://www.tastingtable.com/1538433/bavarian-foods-munich/"
+    },
+    {
+      "id": "schweinshaxe",
+      "name": "烤猪肘 (Schweinshaxe)",
+      "type": "肉类/主菜",
+      "region": "慕尼黑（巴伐利亚）",
+      "reason": "外皮酥脆、肉质多汁的烤猪肘，需长时间低温慢烤使肉质软化，是巴伐利亚饱足风味的代表。",
+      "source": "https://www.tastingtable.com/1538433/bavarian-foods-munich/"
+    },
+    {
+      "id": "currywurst",
+      "name": "咖喱香肠 (Currywurst)",
+      "type": "街头小吃",
+      "region": "柏林",
+      "reason": "起源于战后柏林，由Herta Heuwer以番茄酱与咖喱粉调味烤猪肠而创，如今是柏林标志性街头美食。",
+      "source": "https://www.tastingtable.com/1538433/bavarian-foods-munich/"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "neuschwanstein-castle",
+      "name": "新天鹅堡门票 (Neuschwanstein Castle)",
+      "region": "巴伐利亚（菲森附近）",
+      "method": "通过官方在线票务（hohenschwangau.de）预订，所有门票须在山下霍恩施万高购票中心取票，建议提前至少1.5小时领票。",
+      "leadTime": "官方系统最早可提前约3个月预订；旺季（5-9月）及圣诞假期常提前数周售罄，建议提前1至4周订票。",
+      "source": "https://www.hohenschwangau.de/en/tours-tickets/official-tickets-neuschwanstein-hohenschwangau"
+    },
+    {
+      "id": "reichstag-dome",
+      "name": "国会大厦穹顶 (Reichstag Dome)",
+      "region": "柏林",
+      "method": "免费参观但须提前在德国联邦议院官网（visite.bundestag.de）在线登记，需填写每位访客的姓名与出生日期，16岁以上须携有效证件。",
+      "leadTime": "预订窗口于参观日前正好3个月开放，按日滚动放票；旺季（6-9月）上午10点至下午2点的热门时段常在开放首周内订满，建议尽早预约。",
+      "source": "https://www.bundestag.de/en/visittheBundestag/dome/registration-245686"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "春季气温约15-22°C，日间宜人但早晚仍凉，建议携带可叠穿衣物；是莱茵河谷徒步与骑行的好时机，人流较旺季少。",
+      "source": "https://www.roughguides.com/germany/things-to-do/"
+    },
+    {
+      "season": "summer",
+      "tip": "夏季为旅游旺季，景点与啤酒花园人流多、住宿价格上扬，建议尽早预订住宿，并留意莱茵河烟火节（5-9月）等户外活动档期。",
+      "source": "https://visitworldheritage.com/en/eu/upper-middle-rhine-valley-germany/1f4451f0-a33c-4e66-83d0-089d20ad8963"
+    },
+    {
+      "season": "autumn",
+      "tip": "秋季前往慕尼黑务必关注啤酒节档期（2026年9月19日-10月4日），届时市内住宿紧张、须极早预订；莱茵河谷可赶上葡萄酒丰收节。",
+      "source": "https://www.oktoberfest.de/en"
+    },
+    {
+      "season": "winter",
+      "tip": "冬季为圣诞市集季，最佳时段约为11月26日至12月22日，几乎所有大型市集都营业；周末气氛最浓但人多价高，工作日较易游览。",
+      "source": "https://www.adventurouskate.com/how-to-plan-a-german-christmas-market-trip/"
+    }
+  ]
+}

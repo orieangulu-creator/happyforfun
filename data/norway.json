@@ -1,0 +1,185 @@
+{
+  "country": "norway",
+  "countryNameZh": "挪威",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "summer",
+      "reason": "夏季(6-8月)是峡湾旅游的高峰季：气温约17-18°C、降水少，瀑布水量充沛、万物开放，且可体验午夜太阳(北极圈以北6月至7月大部分时间太阳不落)。",
+      "source": "https://www.hollandamerica.com/en/us/cruise-destinations/norway-cruises/norway-travel-tips-and-articles/norwegian-fjords-cruises-best-time"
+    },
+    {
+      "season": "winter",
+      "reason": "冬季(11-2月)是特罗姆瑟看极光概率最高的时段：黑夜漫长、夜空最暗，配合雪景与极地活动，适合专程追极光。",
+      "source": "https://www.visittromso.no/northern-lights/when-and-where"
+    },
+    {
+      "season": "autumn",
+      "reason": "秋季(9-10月)峡湾山林染上橙红秋色，午后金光柔美，且夜晚转长、能见度提升，是极光季的开端，游客也较夏季少。",
+      "source": "https://www.royalcaribbean.com/guides/best-time-visit-norway-fjords"
+    }
+  ],
+  "moodTags": ["scenery", "snow", "explore", "slow"],
+  "idealDuration": {
+    "minDays": 5,
+    "maxDays": 8,
+    "note": "首次到访建议至少5天，7天是公认的甜蜜点，可走完最经典的「奥斯陆—峡湾—卑尔根」路线，串起观光火车与峡湾游船；若想追极光去特罗姆瑟，建议预留更宽松的天数以应对天气变数。",
+    "source": "https://arcticnorwaytours.com/en-us/norway-itinerary-7-days/"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": ["晚春(5月中起)在多地可见午夜太阳，白昼极长", "峡湾瀑布因融雪水量充沛、气势磅礴", "肩季出行人潮较少、天气宜人"],
+      "source": "https://www.hollandamerica.com/en/us/cruise-destinations/norway-cruises/norway-travel-tips-and-articles/norwegian-fjords-cruises-best-time"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": ["峡湾游船最佳季(6-8月)：Nærøyfjord等世遗峡湾观光", "午夜太阳(北极圈以北6月至7月大部分时间太阳不落)", "弗洛姆铁路等观光火车旅程(夏季班次最密、人也最多)"],
+      "source": "https://www.fredolsencruises.com/blog/when-is-the-best-time-to-visit-norway"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": ["峡湾山林秋色(9-10月)橙红斑斓", "秋季为极光季开端，夜晚转长可开始追极光", "肩季峡湾游船，游客较夏季少"],
+      "source": "https://www.royalcaribbean.com/guides/best-time-visit-norway-fjords"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": ["极光最佳季(11-2月)：特罗姆瑟看极光概率最高，最佳时段约18:00-02:00", "雪景与极地冬季活动", "冬季峡湾游船多停航(12-2月)，以追极光与雪国体验为主"],
+      "source": "https://www.visittromso.no/northern-lights/when-and-where"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "oslo-vigeland-park",
+      "name": "维格兰雕塑公园 (Vigeland Park)",
+      "region": "奥斯陆",
+      "summary": "挪威最受欢迎景点之一，80公顷园内有维格兰创作的212座青铜、花岗岩与铸铁雕塑，免费开放。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "scenery", "slow"],
+      "source": "https://fjordline.com/en/norway/inspiration/oslo-s-top-10-attractions"
+    },
+    {
+      "id": "oslo-opera-house",
+      "name": "奥斯陆歌剧院 (Oslo Opera House)",
+      "region": "奥斯陆",
+      "summary": "峡湾畔的现代地标，建筑屋顶可步行登上，俯瞰城市与峡湾全景，内部上演世界级歌剧与芭蕾。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://www.tripadvisor.com/Attractions-g190479-Activities-Oslo_Eastern_Norway.html"
+    },
+    {
+      "id": "oslo-munch-museum",
+      "name": "蒙克博物馆 (MUNCH)",
+      "region": "奥斯陆",
+      "summary": "藏有爱德华·蒙克逾26000件作品，是全球最大蒙克收藏；坐落于峡湾水畔的现代新馆，紧邻歌剧院。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore"],
+      "source": "https://travelinculture.com/9-things-to-do-in-oslo-opera-house-akershus-munch-museum/"
+    },
+    {
+      "id": "bergen-bryggen",
+      "name": "布吕根码头 (Bryggen)",
+      "region": "卑尔根",
+      "summary": "卑尔根标志性的彩色木屋商栈群，自1300年代起为贸易中心，1979年列入联合国教科文世界遗产；卑尔根是通往西部峡湾的门户。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "explore", "slow"],
+      "source": "https://en.visitbergen.com/things-to-do"
+    },
+    {
+      "id": "bergen-floibanen",
+      "name": "弗洛伊缆索铁路与弗洛伊恩山 (Fløibanen / Mount Fløyen)",
+      "region": "卑尔根",
+      "summary": "百年陡坡缆索铁路，自市中心约6分钟登顶弗洛伊恩山，俯瞰城市、峡湾与群山全景，距鱼市仅约3分钟步行。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["scenery", "explore"],
+      "source": "https://en.visitbergen.com/things-to-do/floibanen-funicular-p822813"
+    },
+    {
+      "id": "bergen-fish-market",
+      "name": "卑尔根鱼市 (Fish Market in Bergen)",
+      "region": "卑尔根",
+      "summary": "挪威最热门的露天市场之一，自1200年代起便是商贩与渔民的聚集地，可品尝海鲜并采购果蔬。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["food", "explore"],
+      "source": "https://en.visitbergen.com/things-to-do/fish-market-in-bergen-p822253"
+    }
+  ],
+  "foods": [
+    {
+      "id": "no-brunost",
+      "name": "棕色奶酪 (Brunost)",
+      "type": "乳制品",
+      "region": "挪威",
+      "reason": "挪威特色：以乳清加奶熬煮收干而成，呈焦糖色，带甜润、近似太妃糖的风味，是挪威早餐桌的代表。",
+      "source": "https://www.chefspencil.com/traditional-norwegian-foods-dishes/"
+    },
+    {
+      "id": "no-farikal",
+      "name": "羊肉炖卷心菜 (Fårikål)",
+      "type": "炖菜",
+      "region": "挪威",
+      "reason": "挪威官方国菜：带骨羊肉与卷心菜、黑胡椒粒层叠慢炖数小时至软烂，传统上在秋季(尤其9月底)享用。",
+      "source": "https://www.chefspencil.com/traditional-norwegian-foods-dishes/"
+    },
+    {
+      "id": "no-gravlaks",
+      "name": "腌渍三文鱼 (Gravlaks)",
+      "type": "海鲜冷盘",
+      "region": "挪威",
+      "reason": "三文鱼是挪威最具代表性的食材；以盐、糖与莳萝腌渍的gravlaks在全国餐桌随处可见。",
+      "source": "https://eathealthy365.com/the-ultimate-guide-to-traditional-norwegian-food-dishes/"
+    },
+    {
+      "id": "no-autumn-lamb",
+      "name": "秋季羊肉 (Norwegian autumn lamb)",
+      "type": "肉类",
+      "region": "挪威",
+      "reason": "羊群夏季在山间放牧后，秋季羊肉风味尤为浓郁出众，是当季备受欢迎的食材。",
+      "source": "https://eathealthy365.com/the-ultimate-guide-to-traditional-norwegian-food-dishes/"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "no-flam-railway",
+      "name": "弗洛姆铁路 (Flåm Railway / Flåmsbana)",
+      "region": "弗洛姆 (西部峡湾)",
+      "method": "单程票可在Vy官网(vy.no)预订，可一并购买卑尔根线车段；往返票可在官方en.flamsbana.no或Norway's Best预订；亦是「挪威缩影」Norway in a Nutshell线路组成。",
+      "leadTime": "往返票于出发日前约120天开放预订；夏季旺季车厢拥挤，建议尽早预订理想班次。",
+      "source": "https://en.flamsbana.no/billettkjop"
+    },
+    {
+      "id": "no-tromso-aurora",
+      "name": "特罗姆瑟极光之旅 (Tromsø Northern Lights tour)",
+      "region": "特罗姆瑟",
+      "method": "由Visit Tromsø等官方渠道及当地持牌运营商在线预订追光团；多数极光活动约9月初起开放。",
+      "leadTime": "极光季约9月至次年4月初(11-2月概率最高)；旺季团位紧张，建议提前数周预订，并预留多个夜晚以应对天气。",
+      "source": "https://www.visittromso.no/northern-lights/when-and-where"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "晚春(5月中起)午夜太阳渐显、白昼极长，住宿建议备好遮光设施助眠；山区与峡湾仍偏凉，建议分层穿搭。",
+      "source": "https://www.hollandamerica.com/en/us/cruise-destinations/norway-cruises/norway-travel-tips-and-articles/norwegian-fjords-cruises-best-time"
+    },
+    {
+      "season": "summer",
+      "tip": "夏季(6-8月)是峡湾高峰季，弗洛姆铁路与热门徒步点(如Trolltunga)人潮拥挤，热门车段与游船建议提前预订。",
+      "source": "https://www.fredolsencruises.com/blog/when-is-the-best-time-to-visit-norway"
+    },
+    {
+      "season": "autumn",
+      "tip": "秋季(9-10月)夜晚转长、能见度提升，是极光季开端；白天可赏峡湾秋色，夜里有机会追光，注意保暖。",
+      "source": "https://www.royalcaribbean.com/guides/best-time-visit-norway-fjords"
+    },
+    {
+      "season": "winter",
+      "tip": "冬季(11-2月)追极光以特罗姆瑟为佳，最佳观测时段约18:00-02:00，需晴朗夜空；峡湾游船多停航，行程以雪国与极光体验为主。",
+      "source": "https://www.visittromso.no/northern-lights/when-and-where"
+    }
+  ]
+}

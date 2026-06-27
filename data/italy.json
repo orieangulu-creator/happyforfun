@@ -1,0 +1,193 @@
+{
+  "country": "italy",
+  "countryNameZh": "意大利",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "spring",
+      "reason": "春季（3至5月）气温温和宜人，约15至27摄氏度，鲜花盛开、绿意盎然，适合户外漫步与参观名胜，且游客远少于盛夏，是经典意大利之旅的黄金时段。",
+      "source": "https://www.ricksteves.com/europe/italy/best-time-to-go-to-italy"
+    },
+    {
+      "season": "autumn",
+      "reason": "秋季（尤其9至10月）盛夏人潮退去，气候依旧温和，光线柔和金黄，又恰逢葡萄与橄榄收获、松露及各类美食节庆，是美食与美酒爱好者的最佳季节。",
+      "source": "https://www.ricksteves.com/europe/italy/best-time-to-go-to-italy"
+    }
+  ],
+  "moodTags": ["explore", "food", "culture", "scenery", "slow"],
+  "idealDuration": {
+    "minDays": 7,
+    "maxDays": 12,
+    "note": "意大利幅员景点密集，仅罗马与佛罗伦萨两城深度游建议至少7天；若加上威尼斯、托斯卡纳乡村或南部，10至12天更从容。",
+    "source": "https://www.ricksteves.com/europe/italy/best-time-to-go-to-italy"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": [
+        "春日漫步罗马古城，在温和气候下参观斗兽场与古罗马广场，避开盛夏酷热与人潮",
+        "在佛罗伦萨老桥与大教堂广场闲逛，欣赏春花点缀的文艺复兴名城"
+      ],
+      "source": "https://www.gocollette.com/en-us/travel-blog/best-time-to-visit-italy"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": [
+        "傍晚在罗马特雷维喷泉与万神殿周边夜游，避开正午高温",
+        "清晨开馆即入梵蒂冈博物馆与西斯廷教堂，赶在烈日与人潮之前",
+        "享用佛罗伦萨手工冰淇淋（gelato）消暑"
+      ],
+      "source": "https://www.adventure-life.com/italy/articles/best-time-to-visit-italy"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": [
+        "托斯卡纳葡萄与橄榄收获季，体验乡村Vendemmia与酒庄品鉴",
+        "品尝当季白松露与各地丰收主题的乡村美食节（sagra）"
+      ],
+      "source": "https://italialiving.com/articles/food-wine/celebrating-the-harvest-season-and-truffles/"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": [
+        "冬季淡季游览乌菲齐美术馆与学院美术馆，人潮稀少观展从容",
+        "在罗马与佛罗伦萨感受圣诞与新年节庆气氛"
+      ],
+      "source": "https://www.nordicvisitor.com/blog/best-time-visit-italy-guide/"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "colosseum",
+      "name": "斗兽场 (Colosseum)",
+      "region": "罗马",
+      "summary": "古罗马最宏伟的圆形竞技场，世界著名的古迹地标。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["explore", "culture"],
+      "source": "https://colosseo.it/en/opening-times-and-tickets/"
+    },
+    {
+      "id": "vatican-museums",
+      "name": "梵蒂冈博物馆与西斯廷教堂 (Vatican Museums & Sistine Chapel)",
+      "region": "罗马",
+      "summary": "收藏无数艺术瑰宝，米开朗基罗西斯廷天顶画为镇馆之作。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.museivaticani.va/content/museivaticani/en/organizza-visita/tariffe-e-biglietti.html"
+    },
+    {
+      "id": "pantheon",
+      "name": "万神殿 (Pantheon)",
+      "region": "罗马",
+      "summary": "保存最完好的古罗马建筑，巨大穹顶与天眼令人惊叹。",
+      "suggestedDurationMin": 45,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.justroma.it/en/tickets/pantheon-access-tickets/"
+    },
+    {
+      "id": "uffizi-gallery",
+      "name": "乌菲齐美术馆 (Uffizi Galleries)",
+      "region": "佛罗伦萨",
+      "summary": "文艺复兴绘画殿堂，藏有波提切利《维纳斯的诞生》等名作。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.uffizi.it/en/tickets"
+    },
+    {
+      "id": "accademia-david",
+      "name": "学院美术馆（大卫像）(Galleria dell'Accademia)",
+      "region": "佛罗伦萨",
+      "summary": "米开朗基罗原作大卫像所在地，文艺复兴雕塑朝圣之所。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.galleriaaccademiafirenze.it/en/tickets/"
+    },
+    {
+      "id": "florence-duomo",
+      "name": "圣母百花大教堂 (Cattedrale di Santa Maria del Fiore)",
+      "region": "佛罗伦萨",
+      "summary": "佛罗伦萨地标，拥有世界最大砖石穹顶布鲁内莱斯基圆顶。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://www.visitflorence.com/florence-churches/duomo.html"
+    }
+  ],
+  "foods": [
+    {
+      "id": "cacio-e-pepe",
+      "name": "黑椒奶酪意面 (Cacio e Pepe)",
+      "type": "意面",
+      "region": "罗马",
+      "reason": "罗马四大经典意面之一，仅以佩科里诺羊奶酪、黑胡椒与面汤调成，简单却极致鲜香。",
+      "source": "https://qz.com/best-italian-cities-visit-food"
+    },
+    {
+      "id": "bistecca-fiorentina",
+      "name": "佛罗伦萨大牛排 (Bistecca alla Fiorentina)",
+      "type": "主菜（烤牛排）",
+      "region": "佛罗伦萨",
+      "reason": "选用瓦尔迪基亚纳谷地Chianina牛种的厚切T骨牛排，炭火炙烤外焦里嫩，是托斯卡纳代表名菜。",
+      "source": "https://gowithguide.com/blog/top-10-most-popular-foods-in-florence-5173"
+    },
+    {
+      "id": "lampredotto",
+      "name": "牛肚包 (Lampredotto)",
+      "type": "街头小吃",
+      "region": "佛罗伦萨",
+      "reason": "佛罗伦萨最具代表性的街头美食，慢炖牛胃夹于面包中佐青酱，地道又实惠。",
+      "source": "https://gowithguide.com/blog/top-10-most-popular-foods-in-florence-5173"
+    },
+    {
+      "id": "gelato",
+      "name": "意式手工冰淇淋 (Gelato)",
+      "type": "甜品",
+      "region": "佛罗伦萨",
+      "reason": "佛罗伦萨被誉为gelato发源地，开心果、香草等简单口味凭慢搅奶基底成就独特绵密风味。",
+      "source": "https://www.trafalgar.com/real-word/traditional-italian-food/"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "colosseum-booking",
+      "name": "斗兽场 (Colosseum)",
+      "region": "罗马",
+      "method": "通过官方平台 ticketing.colosseo.it 在线预约并选定入场时段（已不再由CoopCulture售票）。",
+      "leadTime": "门票提前30天开售，旺季及地下层、竞技场地面等特别通道极易售罄，建议一开售即预订。",
+      "source": "https://colosseo.it/en/opening-times-and-tickets/"
+    },
+    {
+      "id": "uffizi-booking",
+      "name": "乌菲齐美术馆 (Uffizi Galleries)",
+      "region": "佛罗伦萨",
+      "method": "官网 tickets.uffizi.it 在线预约，或致电预约中心（+39 055 0354135）选定日期与时段。",
+      "leadTime": "建议提前2至4周预订，清晨开馆时段最紧俏，需尽早锁定。",
+      "source": "https://www.uffizi.it/en/tickets"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "春季气候多变，白天温暖但早晚偏凉，建议分层穿衣并备薄外套与雨具。",
+      "source": "https://www.gocollette.com/en-us/travel-blog/best-time-to-visit-italy"
+    },
+    {
+      "season": "summer",
+      "tip": "盛夏（6至8月）为旅游高峰，城市与海岸最为拥挤、物价最高，正午炎热，建议清晨或傍晚出行并务必提前预约热门景点。",
+      "source": "https://www.adventure-life.com/italy/articles/best-time-to-visit-italy"
+    },
+    {
+      "season": "autumn",
+      "tip": "秋季是美食美酒最佳季节，可参加葡萄收获与白松露节庆；10月后渐凉，建议带件保暖外套。",
+      "source": "https://www.essentialitaly.co.uk/blog/truffle-season-italy"
+    },
+    {
+      "season": "winter",
+      "tip": "冬季为淡季，景点人少、价格更低，但圣诞与新年期间例外；天气湿冷，注意保暖防雨，部分景点缩短开放时间。",
+      "source": "https://www.nordicvisitor.com/blog/best-time-visit-italy-guide/"
+    }
+  ]
+}

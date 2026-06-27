@@ -1,0 +1,185 @@
+{
+  "country": "hungary",
+  "countryNameZh": "匈牙利",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "spring",
+      "reason": "春季(4-6月)气候温和、人潮较少且节庆活动多，是漫步多瑙河两岸、登布达城堡与泡温泉的理想季节。",
+      "source": "https://awaytothecity.com/best-things-to-do-in-budapest/"
+    },
+    {
+      "season": "autumn",
+      "reason": "秋季(9-10月)天气凉爽宜人、游客比夏季少，适合悠闲观光与户外漫步。",
+      "source": "https://awaytothecity.com/best-things-to-do-in-budapest/"
+    },
+    {
+      "season": "winter",
+      "reason": "冬季虽寒冷，但圣诞市集与雪中泡塞切尼温泉别具魅力，氛围梦幻。",
+      "source": "https://awaytothecity.com/best-things-to-do-in-budapest/"
+    }
+  ],
+  "moodTags": ["hotspring", "relax", "culture", "food", "scenery"],
+  "idealDuration": {
+    "minDays": 3,
+    "maxDays": 6,
+    "note": "首次到访布达佩斯3天即可从容游览布达城堡、国会大厦与一处温泉；4天更不赶；想深入并加埃格尔等周边一日游可安排5-6天。",
+    "source": "https://www.ricksteves.com/europe/hungary/budapest-itinerary"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": ["多瑙河两岸与渔人堡漫步赏景", "城市公园塞切尼温泉户外池泡汤", "凉爽天气下登布达城堡俯瞰全城"],
+      "source": "https://awaytothecity.com/best-things-to-do-in-budapest/"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": ["塞切尼温泉露天池夏日泡汤(夏季最受欢迎)", "多瑙河游船夜游看国会大厦亮灯", "埃格尔美人谷酒窖品公牛血红酒"],
+      "source": "https://www.szechenyibath.hu/prices"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": ["金秋落叶中漫步多瑙河畔与玛格丽特岛", "游客较少时从容参观国会大厦与城堡区", "埃格尔葡萄酒产区秋季品酒"],
+      "source": "https://awaytothecity.com/best-things-to-do-in-budapest/"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": ["弗罗修马蒂广场等地圣诞市集", "雪中泡塞切尼/盖勒特温泉(冬季偏爱盖勒特室内池)", "节日灯饰下的多瑙河夜景"],
+      "source": "https://awaytothecity.com/best-things-to-do-in-budapest/"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "bud-szechenyi-bath",
+      "name": "塞切尼温泉浴场 (Széchenyi Thermal Bath)",
+      "region": "布达佩斯",
+      "summary": "位于城市公园内，是欧洲最大的药用温泉浴场之一，拥有多个室内外温度各异的泡池，是布达佩斯的经典体验。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["hotspring", "relax", "slow"],
+      "source": "https://www.szechenyibath.hu/prices"
+    },
+    {
+      "id": "bud-buda-castle",
+      "name": "布达城堡 (Buda Castle)",
+      "region": "布达佩斯",
+      "summary": "多瑙河西岸山丘上的宏伟宫殿群，内含布达佩斯历史博物馆与匈牙利国家美术馆，可俯瞰佩斯一侧全景。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "scenery", "explore"],
+      "source": "https://www.budapestinfo.hu/en/top-sights"
+    },
+    {
+      "id": "bud-parliament",
+      "name": "匈牙利国会大厦 (Hungarian Parliament Building)",
+      "region": "布达佩斯",
+      "summary": "多瑙河畔的新哥特式建筑，是匈牙利最大建筑、世界最大议会建筑之一，临河外观尤为壮观。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://www.budapestinfo.hu/en/top-sights"
+    },
+    {
+      "id": "eger-castle",
+      "name": "埃格尔城堡 (Eger Castle)",
+      "region": "埃格尔",
+      "summary": "匈牙利最具历史意义的地标之一，1552年守军在此以少胜多击退数万奥斯曼大军，是埃格尔英雄史诗的象征。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore"],
+      "source": "https://jstraveldiaries.com/hungary/things-to-do-in-eger/"
+    },
+    {
+      "id": "eger-valley-women",
+      "name": "美人谷 (Valley of the Beautiful Women / Szépasszonyvölgy)",
+      "region": "埃格尔",
+      "summary": "城郊著名葡萄酒谷，在凿入凝灰岩的洞穴酒窖中可品尝著名的埃格尔公牛血(Bikavér)红酒。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["food", "relax", "slow"],
+      "source": "https://jstraveldiaries.com/hungary/things-to-do-in-eger/"
+    },
+    {
+      "id": "eger-cathedral",
+      "name": "埃格尔大教堂 (Eger Cathedral)",
+      "region": "埃格尔",
+      "summary": "由József Hild设计、1837年落成的古典主义杰作，是匈牙利第二大教堂，外观庄严宏伟。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["culture", "explore"],
+      "source": "https://jstraveldiaries.com/hungary/things-to-do-in-eger/"
+    }
+  ],
+  "foods": [
+    {
+      "id": "hu-goulash",
+      "name": "匈牙利炖牛肉汤 (Goulash / Gulyás)",
+      "type": "汤品",
+      "region": "布达佩斯",
+      "reason": "匈牙利最具代表性的国民美食，是浓郁的牛肉红椒汤，配土豆、胡萝卜与手捏面疙瘩。",
+      "source": "https://visitcity.travel/en/budapest/guides/must-try-dishes"
+    },
+    {
+      "id": "hu-langos",
+      "name": "油炸面饼 (Lángos)",
+      "type": "街头小吃",
+      "region": "布达佩斯",
+      "reason": "巴掌大的油炸薄饼，外皮金黄酥脆、内里柔软，经典吃法是抹酸奶油撒奶酪，常在市场大厅站着吃。",
+      "source": "https://visitcity.travel/en/budapest/guides/must-try-dishes"
+    },
+    {
+      "id": "hu-kurtoskalacs",
+      "name": "烟囱卷 (Chimney Cake / Kürtőskalács)",
+      "type": "甜点",
+      "region": "布达佩斯",
+      "reason": "面团绕在烤轴上炭火烤制，外层焦糖脆壳、内里柔软有嚼劲，源自特兰西瓦尼亚的节庆甜点。",
+      "source": "https://visitcity.travel/en/budapest/guides/must-try-dishes"
+    },
+    {
+      "id": "hu-bikaver",
+      "name": "公牛血红酒 (Egri Bikavér / Bull's Blood)",
+      "type": "葡萄酒",
+      "region": "埃格尔",
+      "reason": "埃格尔最著名的红葡萄混酿，在美人谷的凝灰岩洞穴酒窖中品尝最为地道。",
+      "source": "https://jstraveldiaries.com/hungary/things-to-do-in-eger/"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "hu-szechenyi-bath-ticket",
+      "name": "塞切尼温泉门票 (Széchenyi Thermal Bath ticket)",
+      "region": "布达佩斯",
+      "method": "官方售票网站 tickets.szechenyibath.hu 在线购票，含全天通票与私人更衣间，可避开现场排队。",
+      "leadTime": "售票日历约在到访前30天开放；夏季、周末等热门时段强烈建议提前在线订票。",
+      "source": "https://tickets.szechenyibath.hu/"
+    },
+    {
+      "id": "hu-parliament-tour",
+      "name": "国会大厦导览参观 (Hungarian Parliament guided tour)",
+      "region": "布达佩斯",
+      "method": "通过官方旅游门户预订定时导览门票，按语言分组入场。",
+      "leadTime": "热门时段易售罄，建议提前数日在线预订并预留安检时间。",
+      "source": "https://www.budapestinfo.hu/en/top-sights"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "春季气候温和但早晚仍偏凉，建议分层穿搭并带薄外套，便于整日户外漫步与温泉间转换。",
+      "source": "https://awaytothecity.com/best-things-to-do-in-budapest/"
+    },
+    {
+      "season": "summer",
+      "tip": "夏季塞切尼露天温泉池最受欢迎，建议提前在线订票避开排队，并避开正午高温时段。",
+      "source": "https://www.szechenyibath.hu/prices"
+    },
+    {
+      "season": "autumn",
+      "tip": "秋季游客较夏季少、天气凉爽宜人，是从容观光与户外赏秋的好时机，备一件外套即可。",
+      "source": "https://awaytothecity.com/best-things-to-do-in-budapest/"
+    },
+    {
+      "season": "winter",
+      "tip": "冬季寒冷，泡温泉首选盖勒特等室内池更舒适；圣诞市集与雪中温泉氛围梦幻，注意保暖防滑。",
+      "source": "https://awaytothecity.com/best-things-to-do-in-budapest/"
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "country": "denmark",
+  "countryNameZh": "丹麦",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "summer",
+      "reason": "夏季(6-8月)是丹麦的旅游旺季，白昼极长，日落常近晚上10点，气候温和宜人，最适合骑行、运河泳池与户外节庆，城市最具活力。",
+      "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-copenhagen"
+    },
+    {
+      "season": "spring",
+      "reason": "春末(5月)气候转暖、白昼渐长，游客较盛夏少、住宿更划算，是避开人潮又能享受好天气的理想时段。",
+      "source": "https://travel.usnews.com/Copenhagen_Denmark/When_To_Visit/"
+    },
+    {
+      "season": "autumn",
+      "reason": "初秋(9月)天气依旧温和、游客回落，价格较旺季更友好，适合悠闲漫步与博物馆之旅。",
+      "source": "https://www.royalcaribbean.com/inspire/best-time-to-visit-copenhagen"
+    }
+  ],
+  "moodTags": ["culture", "slow", "food", "scenery", "explore"],
+  "idealDuration": {
+    "minDays": 3,
+    "maxDays": 5,
+    "note": "3天是公认的甜蜜点，足以从容看遍哥本哈根主要景点；4天可加入更多博物馆、设计与本地街区；若想再加奥胡斯或周边一日游，建议安排5天。",
+    "source": "https://abackpackersworld.com/how-many-days-in-copenhagen/"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": ["蒂沃利公园春季档开园(2026年约4月20日起)畅玩老牌游乐园", "运河凉爽天气下骑行漫游与新港(Nyhavn)拍照", "趁人潮未至从容游览各大博物馆"],
+      "source": "https://www.tivoli.dk/en/opening-hours-and-seasons"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": ["仲夏长昼里跳入海港泳池、河畔露天就餐(日落近晚10点)", "蒂沃利夏季档夜间灯光、演出与户外音乐会", "新港运河乘船与海滨骑行"],
+      "source": "https://www.tivoli.dk/en/opening-hours-and-seasons/summer-in-tivoli"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": ["蒂沃利万圣节档(约10-11月)南瓜布景与节日氛围", "凉爽天气下漫步斯特勒格步行街与各大博物馆", "运河两岸金秋散步"],
+      "source": "https://www.tivoli.dk/en/opening-hours-and-seasons"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": ["蒂沃利圣诞档(约11月中至1月初)圣诞市集与灯海(冬季雪景圣诞氛围最佳)", "城内圣诞市集与温暖的hygge咖啡馆", "冬日傍晚早早降临，灯饰观赏效果绝佳"],
+      "source": "https://www.tivoli.dk/en/opening-hours-and-seasons"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "cph-tivoli",
+      "name": "蒂沃利公园 (Tivoli Gardens)",
+      "region": "哥本哈根",
+      "summary": "1843年开园、世界第三古老的游乐园，紧邻中央车站，集游乐设施、花园、音乐会与30余家餐厅于一体；分夏季/万圣节/圣诞等开园档期。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["explore", "culture", "slow"],
+      "source": "https://www.tivoli.dk/en"
+    },
+    {
+      "id": "cph-nyhavn",
+      "name": "新港 (Nyhavn)",
+      "region": "哥本哈根",
+      "summary": "17世纪运河港湾，两岸彩色山墙房屋与古帆船排列，是哥本哈根最具标志性的拍照与运河乘船起点。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["scenery", "slow", "food"],
+      "source": "https://www.visitcopenhagen.com/copenhagen/planning/nyhavn-gdk415208"
+    },
+    {
+      "id": "cph-stroget",
+      "name": "斯特勒格步行街 (Strøget)",
+      "region": "哥本哈根",
+      "summary": "欧洲最长的步行街之一，云集购物、咖啡馆与街头表演，是市中心闲逛与购物的中枢。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["shopping", "slow", "food"],
+      "source": "https://www.visitcopenhagen.com/copenhagen/planning/stroget-gdk415229"
+    },
+    {
+      "id": "aar-aros",
+      "name": "ARoS艺术博物馆 (ARoS Aarhus Art Museum)",
+      "region": "奥胡斯",
+      "summary": "北欧最大的艺术博物馆之一，馆藏逾8000件丹麦与国际作品；屋顶的《你的彩虹全景》环形玻璃走道可360度俯瞰全城。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "scenery", "explore"],
+      "source": "https://www.visitaarhus.com/areas-and-cities/aarhus/see-and-do-aarhus/top-attractions"
+    },
+    {
+      "id": "aar-dengamleby",
+      "name": "老城博物馆 (Den Gamle By)",
+      "region": "奥胡斯",
+      "summary": "露天历史博物馆，汇集逾75栋从丹麦各地搬迁重建的老建筑，重现1864、1927、1974等不同年代的市镇生活。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "slow", "explore"],
+      "source": "https://www.visitaarhus.com/areas-and-cities/aarhus/see-and-do-aarhus/top-attractions"
+    },
+    {
+      "id": "aar-moesgaard",
+      "name": "莫斯加德博物馆 (Moesgaard Museum)",
+      "region": "奥胡斯",
+      "summary": "考古与民族学博物馆，建筑如阶梯状的考古现场，展品包括世界保存最完好的沼泽木乃伊之一格劳巴勒人，获米其林景点指南二星。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "explore", "scenery"],
+      "source": "https://www.visitaarhus.com/areas-and-cities/aarhus/see-and-do-aarhus/top-attractions"
+    }
+  ],
+  "foods": [
+    {
+      "id": "dk-smorrebrod",
+      "name": "丹麦开放式三明治 (Smørrebrød)",
+      "type": "传统午餐",
+      "region": "哥本哈根",
+      "reason": "最经典的丹麦国民美食：一片黑麦面包配腌鲱鱼、烤牛肉、虾仁加蛋等多样配料，源自19世纪，近年更成时髦午餐代表。",
+      "source": "https://www.visitdenmark.com/denmark/things-to-do/eat-drink/traditional-danish-food"
+    },
+    {
+      "id": "dk-frikadeller",
+      "name": "丹麦肉丸 (Frikadeller)",
+      "type": "家常主菜",
+      "region": "丹麦",
+      "reason": "自18世纪以来的国民菜，以猪牛肉混合煎制，也是smørrebrød的热门配料，是体验丹麦家常风味的代表。",
+      "source": "https://denmark.dk/people-and-culture/recipes/danish-meat-balls"
+    },
+    {
+      "id": "dk-wienerbrod",
+      "name": "丹麦酥皮 (Wienerbrød)",
+      "type": "酥皮糕点",
+      "region": "丹麦",
+      "reason": "即风靡全球的\"Danish pastry\"，丹麦语意为\"维也纳面包\"，1840年代由奥地利面包师引入，配卡仕达、果酱或杏仁馅，酥脆香甜。",
+      "source": "https://www.visitdenmark.com/denmark/things-to-do/eat-drink/traditional-danish-food"
+    },
+    {
+      "id": "dk-stegtflaesk",
+      "name": "脆皮煎五花配欧芹酱 (Stegt flæsk med persillesovs)",
+      "type": "国民主菜",
+      "region": "丹麦",
+      "reason": "经投票评选为丹麦国菜：煎得酥脆的五花肉片配欧芹奶油酱与水煮土豆，是丹麦人最钟爱的暖心家常菜。",
+      "source": "https://www.visitdenmark.com/denmark/things-to-do/eat-drink/traditional-danish-food"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "dk-tivoli-tickets",
+      "name": "蒂沃利公园门票 (Tivoli Gardens tickets)",
+      "region": "哥本哈根",
+      "method": "官网 tivoli.dk 在线购票；需留意开园档期(夏季/万圣节/圣诞等)，可单买入园票或加购多次乘骑手环。",
+      "leadTime": "旺季与节假日建议提前在线购票并选定日期，以免现场排队或售罄。",
+      "source": "https://www.tivoli.dk/en/opening-hours-and-seasons"
+    },
+    {
+      "id": "dk-aros-tickets",
+      "name": "ARoS艺术博物馆门票 (ARoS tickets)",
+      "region": "奥胡斯",
+      "method": "官网 aros.dk 在线购票，含屋顶《你的彩虹全景》走道。",
+      "leadTime": "建议出行前在线预订当日票，旺季与特展期间尤其推荐提前订以确保入场时段。",
+      "source": "https://www.visitaarhus.com/areas-and-cities/aarhus/see-and-do-aarhus/top-attractions"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "春季气温回暖但早晚仍凉，建议分层穿搭备薄外套；蒂沃利春季档约4月下旬开园，可据此安排行程。",
+      "source": "https://www.tivoli.dk/en/opening-hours-and-seasons"
+    },
+    {
+      "season": "summer",
+      "tip": "夏季白昼极长(日落近晚10点)，傍晚河畔与海港泳池氛围最佳；旺季住宿偏贵，建议尽早预订。",
+      "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-copenhagen"
+    },
+    {
+      "season": "autumn",
+      "tip": "初秋天气温和、游客回落、价格更友好；10月起蒂沃利转入万圣节档，可体验南瓜布景。",
+      "source": "https://www.royalcaribbean.com/inspire/best-time-to-visit-copenhagen"
+    },
+    {
+      "season": "winter",
+      "tip": "冬季天黑早、气温低，注意保暖；约11月中至1月初蒂沃利圣诞档与城内圣诞市集灯海是冬季最大看点。",
+      "source": "https://www.tivoli.dk/en/opening-hours-and-seasons"
+    }
+  ]
+}

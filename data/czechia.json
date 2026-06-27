@@ -1,0 +1,180 @@
+{
+  "country": "czechia",
+  "countryNameZh": "捷克",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "spring",
+      "reason": "春季(3-5月)气候宜人、游客较少，城市从冬日苏醒，公园繁花、广场咖啡馆复苏，3月白天约10-15°C，5月升至16-22°C；复活节前后还有节庆市集。",
+      "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-czechia"
+    },
+    {
+      "season": "autumn",
+      "reason": "秋季(9-10月)天气温和、人潮少于夏季；9月仍温暖宜人，10月下半月布拉格树叶转红，金秋景色迷人。",
+      "source": "https://www.ricksteves.com/europe/czech-republic/best-time-to-go-to-prague-czech-republic"
+    }
+  ],
+  "moodTags": ["culture", "scenery", "food", "explore", "slow"],
+  "idealDuration": {
+    "minDays": 4,
+    "maxDays": 7,
+    "note": "布拉格本身约需3天看老城、布拉格城堡与攀登哥特塔楼；可在3天行程中加入克鲁姆洛夫一日游，或安排过夜以更从容游览，故4-7天较为合适。",
+    "source": "https://www.earthtrekkers.com/3-days-in-prague-itinerary/"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": ["老城广场与查理大桥畔咖啡馆文化复苏", "公园繁花漫步、广场露天市集", "复活节期间布拉格复活节市集与城市装饰"],
+      "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-czechia"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": ["白日漫长，从容游览布拉格城堡与圣维特大教堂", "克鲁姆洛夫伏尔塔瓦河漂流/划艇穿越波希米亚森林", "傍晚查理大桥日落观景(清晨与日落人最少)"],
+      "source": "https://www.ricksteves.com/watch-read-listen/read/articles/cobbled-charms-of-cesky-krumlov"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": ["10月下半月布拉格金秋红叶", "凉爽晴朗、游客较少时游览老城与城堡", "克鲁姆洛夫城堡塔登高赏秋色全景"],
+      "source": "https://www.ricksteves.com/europe/czech-republic/best-time-to-go-to-prague-czech-republic"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": ["老城广场圣诞市集与热红酒、Trdelník烟囱卷", "雪中布拉格城堡与查理大桥的童话氛围", "克鲁姆洛夫银装小镇散步"],
+      "source": "https://www.getyourguide.com/explorer/prague-ttd10/best-time-to-visit-prague/"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "prg-charles-bridge",
+      "name": "查理大桥 (Charles Bridge)",
+      "region": "布拉格",
+      "summary": "横跨伏尔塔瓦河、连接老城与小城的步行石桥，始建于1357年，桥上立有30尊圣徒雕像，全长500余米，清晨与日落人最少最美。",
+      "suggestedDurationMin": 45,
+      "moodTags": ["scenery", "explore", "slow"],
+      "source": "https://www.storyhunt.io/en/articles/charles-bridge"
+    },
+    {
+      "id": "prg-castle",
+      "name": "布拉格城堡 (Prague Castle)",
+      "region": "布拉格",
+      "summary": "据吉尼斯纪录为世界最大城堡建筑群(近7万平方米)，世界文化遗产，内含圣维特大教堂、黄金巷、旧皇宫，可俯瞰全城。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["culture", "scenery", "explore"],
+      "source": "https://www.hrad.cz/en/prague-castle-for-visitors/tickets"
+    },
+    {
+      "id": "prg-old-town-square",
+      "name": "老城广场与天文钟 (Old Town Square & Astronomical Clock)",
+      "region": "布拉格",
+      "summary": "老城心脏地带，汇集文艺复兴、巴洛克与哥特建筑，1410年安装的天文钟为世上现存最古老仍运转者，每逢整点上演使徒巡游。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "explore", "scenery"],
+      "source": "https://www.tripadvisor.com/Attractions-g274707-Activities-Prague_Bohemia.html"
+    },
+    {
+      "id": "ck-castle",
+      "name": "克鲁姆洛夫城堡 (Český Krumlov Castle)",
+      "region": "克鲁姆洛夫",
+      "summary": "捷克第二大城堡(仅次于布拉格城堡)，矗立于河弯岩丘之上，含40座建筑与5座庭院，文艺复兴与巴洛克风格，城堡塔可360度俯瞰小镇。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "scenery", "explore"],
+      "source": "https://www.zamek-ceskykrumlov.cz/en/plan-your-visit/tours"
+    },
+    {
+      "id": "ck-old-town",
+      "name": "克鲁姆洛夫老城 (Český Krumlov Old Town)",
+      "region": "克鲁姆洛夫",
+      "summary": "整片历史中心列入世界文化遗产，鹅卵石街巷环抱在伏尔塔瓦河发夹弯中，中央协和广场(Náměstí Svornosti)有16世纪市政厅与1716年瘟疫柱。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["slow", "scenery", "culture"],
+      "source": "https://www.ricksteves.com/watch-read-listen/read/articles/cobbled-charms-of-cesky-krumlov"
+    },
+    {
+      "id": "ck-vltava-float",
+      "name": "伏尔塔瓦河漂流 (Vltava River float)",
+      "region": "克鲁姆洛夫",
+      "summary": "可租独木舟沿梦幻的伏尔塔瓦河漂流约三小时，穿越波希米亚森林与村庄，途经欢迎桨手歇脚的咖啡馆与酒馆。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["scenery", "explore", "slow"],
+      "source": "https://www.ricksteves.com/watch-read-listen/read/articles/cobbled-charms-of-cesky-krumlov"
+    }
+  ],
+  "foods": [
+    {
+      "id": "cz-svickova",
+      "name": "奶油炖牛肉 (Svíčková na smetaně)",
+      "type": "主菜",
+      "region": "捷克",
+      "reason": "被许多人视为捷克国菜，腌制牛里脊慢烤至软嫩，佐根菜熬制的微甜奶油酱、蔓越莓酱与面包丸子(knedlíky)。",
+      "source": "https://www.mustseespots.com/czech-republic/articles/czech-food-guide-goulash-trdelnk-beer-culture/"
+    },
+    {
+      "id": "cz-gulas",
+      "name": "捷克炖牛肉 (Guláš)",
+      "type": "主菜",
+      "region": "捷克",
+      "reason": "浓稠的牛肉炖菜，以洋葱、红椒粉等慢炖出醇厚酱汁，蔬菜较匈牙利版少，几乎总配松软的面包丸子。",
+      "source": "https://www.mustseespots.com/czech-republic/articles/czech-food-guide-goulash-trdelnk-beer-culture/"
+    },
+    {
+      "id": "cz-trdelnik",
+      "name": "烟囱卷 (Trdelník)",
+      "type": "街头甜点",
+      "region": "布拉格",
+      "reason": "螺旋状甜面团绕在木棒(trdlo)上明火烤至金黄，再裹糖与核桃；现代版常夹冰淇淋、水果或巧克力，是老城街头人气小吃。",
+      "source": "https://www.mustseespots.com/czech-republic/articles/czech-food-guide-goulash-trdelnk-beer-culture/"
+    },
+    {
+      "id": "cz-pilsner",
+      "name": "皮尔森啤酒 (Pilsner)",
+      "type": "啤酒",
+      "region": "捷克",
+      "reason": "世界首款皮尔森式拉格1842年诞生于皮尔森(Plzeň)，奠定全球拉格标准；Pilsner Urquell、Budvar等捷克啤酒享誉世界。",
+      "source": "https://www.mustseespots.com/czech-republic/articles/czech-food-guide-goulash-trdelnk-beer-culture/"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "cz-prague-castle-ticket",
+      "name": "布拉格城堡门票 (Prague Castle ticket)",
+      "region": "布拉格",
+      "method": "官方 hrad.cz 在线购票，门票含旧皇宫、圣乔治教堂、黄金巷与圣维特大教堂；旺季售票处排队很长，强烈建议在线预订并选取时段。",
+      "leadTime": "旺季建议提前在线预订以选定时段、避开长队；标准票多支持参观前数小时前免费取消。",
+      "source": "https://www.hrad.cz/en/prague-castle-for-visitors/tickets"
+    },
+    {
+      "id": "cz-ck-baroque-theatre",
+      "name": "克鲁姆洛夫城堡巴洛克剧院导览 (Český Krumlov Baroque Theatre tour)",
+      "region": "克鲁姆洛夫",
+      "method": "经官方 zamek-ceskykrumlov.cz 在线预订约50分钟导览或现场购票；仅限定时导览参观，容量有限。",
+      "leadTime": "因容量有限、热门易售罄，建议提前在线预订；注意该剧院于2026年6月27日前闭馆，行前请查官网最新开放状态。",
+      "source": "https://www.zamek-ceskykrumlov.cz/en/visitors-information/tours/1069-baroque-castle-theatre-in-cesky-krumlov"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "春季白天约10-22°C、游客较少，早晚偏凉建议分层穿搭；可把行程安排在复活节前后体验市集与城市装饰。",
+      "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-czechia"
+    },
+    {
+      "season": "summer",
+      "tip": "夏季白日漫长但为旺季，查理大桥与老城人潮密集，建议清晨或日落时段游览拍照、避开正午人流。",
+      "source": "https://www.storyhunt.io/en/articles/charles-bridge"
+    },
+    {
+      "season": "autumn",
+      "tip": "10月多为晴雨交替、空气清冽，气温仍在零度以上，红叶约在10月下半月最佳；建议备好雨具并把握晴天游览户外景点。",
+      "source": "https://www.ricksteves.com/europe/czech-republic/best-time-to-go-to-prague-czech-republic"
+    },
+    {
+      "season": "winter",
+      "tip": "冬季寒冷，老城广场圣诞市集氛围浓厚，可品热红酒与Trdelník；雪中城堡与查理大桥别具童话感，注意防寒防滑。",
+      "source": "https://www.getyourguide.com/explorer/prague-ttd10/best-time-to-visit-prague/"
+    }
+  ]
+}

@@ -120,6 +120,7 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--b
 .fallback-note { background: #eef6ff; color: #1d4e89; padding: 10px 12px; border-radius: 9px; font-size: 13px; margin-bottom: 14px; }
 
 /* compare table */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .cmp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .cmp-table th, .cmp-table td { border: 1px solid var(--line); padding: 9px 11px; text-align: left; vertical-align: top; }
 .cmp-table th { background: #f3f6f9; }

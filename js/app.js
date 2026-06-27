@@ -80,6 +80,7 @@
     await DATA.load();
     await Generator.probe();
     setModeBadge();
+    renderCountryOptions();
     renderChips($("moodChips"), MOODS, state.mood);
     renderChips($("destPlaystyle"), PLAYSTYLES, state.playstyle);
     renderHolidayChips();
@@ -136,6 +137,19 @@
     const b = $("modeBadge");
     if (Generator.isLive()) { b.textContent = "AI 实时生成 · 需访问码"; b.className = "mode-badge live"; }
     else { b.textContent = "DEMO · 本地规则引擎" + (DATA.usingFallback ? "（内联数据）" : ""); b.className = "mode-badge demo"; }
+  }
+
+  // 动态目的地下拉：按地区分组（数据扩充后自动出现新国家）
+  function renderCountryOptions() {
+    const sel = $("destCountry"); if (!sel) return;
+    sel.innerHTML = '<option value="">— 选择国家 —</option>';
+    const byRegion = {};
+    (DATA.manifest || []).forEach(m => { (byRegion[m.region || "其他"] = byRegion[m.region || "其他"] || []).push(m); });
+    Object.keys(byRegion).forEach(region => {
+      const og = document.createElement("optgroup"); og.label = region;
+      byRegion[region].forEach(m => { const o = document.createElement("option"); o.value = m.id; o.textContent = m.nameZh; og.appendChild(o); });
+      sel.appendChild(og);
+    });
   }
 
   function renderChips(container, list, set) {
@@ -422,7 +436,7 @@
   function renderDestCompare(c) {
     const box = $("stageCompare");
     let html = `<div class="stage-head"><span class="step">阶段 ②</span><h3>目的地对比</h3></div>
-      <p class="stage-sub">⚡ 标记的行是差异显著项</p><table class="cmp-table"><thead><tr><th>维度</th>`;
+      <p class="stage-sub">⚡ 标记的行是差异显著项</p><div class="table-scroll"><table class="cmp-table"><thead><tr><th>维度</th>`;
     c.items.forEach(it => html += `<th>${esc(it.nameZh)}</th>`);
     html += `</tr></thead><tbody>`;
     c.dimensions.forEach(dim => {
@@ -430,7 +444,7 @@
       c.items.forEach(it => html += `<td>${esc(it.cells[dim.key] || "—")}</td>`);
       html += `</tr>`;
     });
-    html += `</tbody></table>`;
+    html += `</tbody></table></div>`;
     if (c.decisionSummary) html += `<div class="decision">💡 ${esc(c.decisionSummary)}</div>`;
     html += `<div style="margin-top:12px;display:flex;gap:8px">`;
     c.items.forEach(it => html += `<button class="btn-ghost pick2" data-id="${esc(it.id)}">选「${esc(it.nameZh)}」→</button>`);
@@ -479,7 +493,7 @@
   // ---------- 渲染：详细行程（6 大模块） ----------
   function renderTrip(res) {
     const t = res.data, m = t.meta, box = $("stageTrip");
-    let html = `<div class="stage-head"><span class="step">阶段 ④</span><h3>${esc(m.destinationNameZh)} · ${m.days} 天行程</h3></div>`;
+    let html = `<div class="stage-head"><span class="step">阶段 ④</span><h3>${esc(m.destinationNameZh)} · ${m.days} 天行程</h3><button id="exportBtn" class="btn-ghost" style="margin-left:auto;padding:5px 12px;font-size:12px">⬇ 导出 Excel</button></div>`;
     html += `<div class="trip-meta">
       <span class="tag pace-${m.pace}">节奏：${PACE_ZH[m.pace] || m.pace}</span>
       ${m.companion ? `<span class="tag">同行：${esc(COMP_ZH[m.companion] || m.companion)}</span>` : ""}
@@ -509,7 +523,38 @@
     t.seasonalTips.forEach(s => html += `<div class="tip-item">· ${esc(s.tip)} <span class="source">（${esc(s.source)}）</span></div>`);
     html += `</div>`;
     box.innerHTML = html; box.classList.remove("hidden");
+    const eb = $("exportBtn"); if (eb) eb.addEventListener("click", () => exportTripCSV(t));
     box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  // ---------- 导出 Excel（CSV + BOM，Excel 可直接打开，零依赖） ----------
+  function csvCell(v) { const s = String(v == null ? "" : v); return /[",\r\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }
+  function exportTripCSV(t) {
+    const m = t.meta, rows = [];
+    rows.push(["每天都要出去玩 · 行程导出"]);
+    rows.push(["目的地", m.destinationNameZh]); rows.push(["出发地", m.origin || ""]);
+    rows.push(["天数", m.days]); rows.push(["节奏", PACE_ZH[m.pace] || m.pace]);
+    rows.push(["同行人", m.companion ? (COMP_ZH[m.companion] || m.companion) : "通用"]);
+    rows.push(["季节", m.season ? SEASON_ZH[m.season] + "季" : ""]);
+    rows.push(["偏好", (m.moodTags || []).map(moodZh).join("、")]);
+    if (t.timingWarning) rows.push(["时机提醒", t.timingWarning]);
+    rows.push([]); rows.push(["路线", (t.route && t.route.summary) || ""]); rows.push([]);
+    rows.push(["天数", "核心/延展", "城市·标题", "时段", "类别", "名称", "说明/理由", "来源"]);
+    (t.dailyPlan || []).forEach(d => {
+      (d.activities || []).forEach(a => rows.push([d.day, d.dayType === "core" ? "核心" : "延展", d.title, a.timeSlot || "", "景点", a.name, a.summary || "", a.source || ""]));
+      (d.meals || []).forEach(me => rows.push([d.day, d.dayType === "core" ? "核心" : "延展", d.title, me.slot || "", "美食", me.name, me.reason || "", me.source || ""]));
+    });
+    rows.push([]); rows.push(["需提前预约"]); rows.push(["名称", "方式", "建议提前", "来源"]);
+    (t.reservations || []).forEach(r => rows.push([r.name, r.method, r.leadTime, r.source || ""]));
+    rows.push([]); rows.push(["季节建议"]);
+    (t.seasonalTips || []).forEach(s => rows.push([(SEASON_ZH[s.season] || s.season) + "季", s.tip, s.source || ""]));
+    if (t.flexibility) { rows.push([]); rows.push(["弹性", "核心" + t.flexibility.coreDays + "天 / 可选" + t.flexibility.optionalDays + "天", t.flexibility.note || ""]); }
+    const csv = "﻿" + rows.map(r => r.map(csvCell).join(",")).join("\r\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob), a = document.createElement("a");
+    a.href = url; a.download = "行程_" + m.destinationNameZh + "_" + m.days + "天.csv";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
 
   // ---------- 版本并排对比（不同目的地 / 同地不同时间，通用） ----------
@@ -550,9 +595,9 @@
     let html = `<div class="stage-head"><span class="step">版本对比</span><h3>方案并排对比</h3>
         <button type="button" class="btn-ghost" id="exitCmpBtn" style="margin-left:auto;font-size:12px;padding:5px 12px">← 返回方案</button></div>
       <p class="stage-sub">⚡ 只突出差异：差异行高亮，相同行已淡化${sameCount ? "（默认折叠）" : ""}。</p>
-      <table class="vcmp-table"><thead><tr><th>维度</th>`;
+      <div class="table-scroll"><table class="vcmp-table"><thead><tr><th>维度</th>`;
     vs.forEach(v => html += `<th>${esc(versionLabel(v))}</th>`);
-    html += `</tr></thead><tbody>${body}</tbody></table>`;
+    html += `</tr></thead><tbody>${body}</tbody></table></div>`;
     if (sameCount) html += `<label class="same-toggle"><input type="checkbox" id="sameToggle"/> 展开相同项（${sameCount}）</label>`;
     const box = $("stageVersionCompare");
     box.innerHTML = html; box.classList.remove("hidden");

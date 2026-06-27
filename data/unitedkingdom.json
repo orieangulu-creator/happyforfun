@@ -1,0 +1,185 @@
+{
+  "country": "unitedkingdom",
+  "countryNameZh": "英国",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "spring",
+      "reason": "春季(3-5月)气候温和(日间约12-18°C)，伦敦公园花开、绿意盎然，游客与价格均低于夏季旺季，是漫步与观光的理想时节(但需备雨具)。",
+      "source": "https://www.visitlondon.com/things-to-do/visiting-london-for-the-first-time/best-time-to-visit"
+    },
+    {
+      "season": "autumn",
+      "reason": "秋季(9-11月)天气温和(约11-15°C)，公园落叶金红、景色迷人，游客较夏季少、行程更从容(但秋季通常是伦敦最多雨的季节)。",
+      "source": "https://travel.usnews.com/London_England/When_To_Visit/"
+    },
+    {
+      "season": "summer",
+      "reason": "夏季(6-8月)白昼最长、天气最暖(均温约18°C，偶超30°C)，适合享用露天酒吧与绿地，并赶上8月爱丁堡艺穗节，但人潮与房价最高。",
+      "source": "https://www.visitlondon.com/things-to-do/visiting-london-for-the-first-time/best-time-to-visit"
+    }
+  ],
+  "moodTags": ["culture", "explore", "scenery", "food", "shopping"],
+  "idealDuration": {
+    "minDays": 6,
+    "maxDays": 10,
+    "note": "同游伦敦与爱丁堡，7天是常见安排:伦敦约3-4天看主要地标，爱丁堡3天可涵盖城堡、皇家英里大道与一次高地一日游;9-10天节奏更从容，可加入苏格兰周边短途。两城间火车(伦敦国王十字至爱丁堡韦弗利)约4.5小时。",
+    "source": "https://www.foratravel.com/guides/WXSJQH/the-perfect-itinerary-for-7-days-in-london-and-edinburgh-isabelle-newcomb"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": ["海德公园、圣詹姆斯公园赏春花漫步", "RHS切尔西花展(2026年5月19-23日，伦敦)", "爱丁堡王子街花园樱花与城堡春景"],
+      "source": "https://www.rhs.org.uk/shows-events/rhs-chelsea-flower-show"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": ["爱丁堡艺穗节Fringe(2026年8月7-31日，全球最大艺术节)", "伦敦泰晤士河畔露天酒吧与屋顶酒吧", "长白昼下登塔桥、游皇家公园与户外观光"],
+      "source": "https://www.edinburghfestivalcity.com/festivals/edinburgh-festival-fringe"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": ["海德公园、肯辛顿花园金秋落叶散步", "爱丁堡亚瑟王座登高赏秋色全景", "凉爽天气下从容游览大英博物馆与各大博物馆(游客较少)"],
+      "source": "https://travel.usnews.com/London_England/When_To_Visit/"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": ["伦敦海德公园冬季仙境圣诞市集(2026年11月13日至次年1月1日)", "爱丁堡跨年Hogmanay(2026年12月29日至2027年1月1日，火炬游行+街头派对+烟火)", "牛津街、摄政街节日灯饰与1月折扣季购物"],
+      "source": "https://www.edinburghfestivalcity.com/festivals/edinburghs-hogmanay"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "ldn-britishmuseum",
+      "name": "大英博物馆 (British Museum)",
+      "region": "伦敦",
+      "summary": "世界顶级博物馆之一，藏有罗塞塔石碑、埃及木乃伊与希腊大理石雕，常设展免费入场。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "explore", "slow"],
+      "source": "https://thetourguy.com/travel-blog/england/london/the-british-museum/how-to-visit-the-british-museum-tickets-hours-tours/"
+    },
+    {
+      "id": "ldn-toweroflondon",
+      "name": "伦敦塔 (Tower of London)",
+      "region": "伦敦",
+      "summary": "近千年历史的城堡要塞，可观皇家珠宝、白塔与近卫军(Yeoman Warder)导览，建议预留至少3小时。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.hrp.org.uk/tower-of-london/visit/"
+    },
+    {
+      "id": "ldn-westminster",
+      "name": "威斯敏斯特教堂 (Westminster Abbey)",
+      "region": "伦敦",
+      "summary": "历代君主加冕与名人长眠之地的哥特式大教堂，邻近国会大厦与大本钟，建议游览约2小时。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore"],
+      "source": "https://girlgonelondon.com/how-long-to-spend-top-london-attractions/"
+    },
+    {
+      "id": "edi-castle",
+      "name": "爱丁堡城堡 (Edinburgh Castle)",
+      "region": "爱丁堡",
+      "summary": "矗立于火山岩上的历史堡垒与昔日皇家居所，可观苏格兰王冠珠宝与命运之石，是皇家英里大道顶端的地标。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "explore", "scenery"],
+      "source": "https://www.edinburghcastle.scot/plan-your-visit/"
+    },
+    {
+      "id": "edi-royalmile",
+      "name": "皇家英里大道 (The Royal Mile)",
+      "region": "爱丁堡",
+      "summary": "中世纪老城的脊梁，从城堡延伸至荷里路德宫，沿途遍布历史建筑、小型博物馆、店铺与传统酒馆。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore", "slow"],
+      "source": "https://edinburgh.org/neighbourhoods/the-royal-mile/attractions/"
+    },
+    {
+      "id": "edi-arthursseat",
+      "name": "亚瑟王座 (Arthur's Seat)",
+      "region": "爱丁堡",
+      "summary": "海拔251米的死火山，徒步登顶可俯瞰城市天际线、福斯湾与彭特兰丘陵全景。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["scenery", "explore"],
+      "source": "https://www.visitscotland.com/places-to-go/edinburgh/things-to-do"
+    }
+  ],
+  "foods": [
+    {
+      "id": "uk-fishandchips",
+      "name": "炸鱼薯条 (Fish and Chips)",
+      "type": "国民小吃",
+      "region": "英格兰",
+      "reason": "裹面糊炸至金黄酥脆的鳕鱼或黑线鳕，配粗切薯条、青豆泥与塔塔酱，常被誉为英格兰国民料理。",
+      "source": "https://www.insightvacations.com/blog/traditional-british-foods/"
+    },
+    {
+      "id": "uk-sundayroast",
+      "name": "周日烤肉 (Sunday Roast)",
+      "type": "传统主菜",
+      "region": "英国",
+      "reason": "英国家庭周日传统:烤牛肉/羊肉/猪肉配烤土豆、约克郡布丁、时蔬与浓郁肉汁，是体验英式酒馆餐饮的代表。",
+      "source": "https://www.insightvacations.com/blog/traditional-british-foods/"
+    },
+    {
+      "id": "uk-afternoontea",
+      "name": "下午茶 (Afternoon Tea)",
+      "type": "茶点",
+      "region": "伦敦",
+      "reason": "起源于1840年代的英式传统:手指三明治、配凝脂奶油与果酱的司康，以及精致小蛋糕，佐一壶现泡红茶。",
+      "source": "https://www.eatingeurope.com/blog/traditional-british-foods/"
+    },
+    {
+      "id": "uk-haggis",
+      "name": "哈吉斯 (Haggis)",
+      "type": "传统主菜",
+      "region": "苏格兰",
+      "reason": "苏格兰国菜:羊杂、燕麦与香料的咸香混合料理，常配土豆泥与芜菁泥(neeps and tatties)，是爱丁堡必尝。",
+      "source": "https://xyuandbeyond.com/traditional-british-foods/"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "uk-toweroflondon",
+      "name": "伦敦塔门票 (Tower of London)",
+      "region": "伦敦",
+      "method": "官方在线预订 Historic Royal Palaces 官网 hrp.org.uk(可选定时入场时段，到场可在票面时间前后30分钟内进入)。",
+      "leadTime": "采限流定时票，旺季与假期许多日期/时段会提前售罄，强烈建议在线提前预订以保证入场。",
+      "source": "https://www.hrp.org.uk/tower-of-london/visit/tickets-and-prices/"
+    },
+    {
+      "id": "uk-edinburghcastle",
+      "name": "爱丁堡城堡门票 (Edinburgh Castle)",
+      "region": "爱丁堡",
+      "method": "官方在线预订 edinburghcastle.scot(经苏格兰历史环境局 tickets.historic-scotland.gov.uk 系统出票)，采30分钟定时入场。",
+      "leadTime": "在线提前订票价格更优并保证入场;夏季常提前1-7天售罄，8月艺术节期间需提前1-3周。",
+      "source": "https://www.edinburghcastle.scot/plan-your-visit/tickets/"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "春季日间约12-18°C但早晚偏凉且多雨，建议分层穿搭并随身携带雨伞，把握晴朗日子游览公园与户外景点。",
+      "source": "https://www.visitlondon.com/things-to-do/visiting-london-for-the-first-time/best-time-to-visit"
+    },
+    {
+      "season": "summer",
+      "tip": "夏季是旺季，人潮与房价最高;8月赴爱丁堡逢艺穗节，城内住宿与城堡门票需尽早预订，并避开正午高温安排户外活动。",
+      "source": "https://www.edinburghfestivalcity.com/festivals/edinburgh-festival-fringe"
+    },
+    {
+      "season": "autumn",
+      "tip": "秋季气候温和但通常是伦敦最多雨的季节，务必备好雨具与防水外套，并预留博物馆等室内备选行程。",
+      "source": "https://travel.usnews.com/London_England/When_To_Visit/"
+    },
+    {
+      "season": "winter",
+      "tip": "冬季寒冷多雨(均温约5-9°C)、白昼短，圣诞市集与节日灯饰傍晚天黑后氛围最佳;爱丁堡跨年(Hogmanay)热门活动需提前购票。",
+      "source": "https://www.edinburghfestivalcity.com/festivals/edinburghs-hogmanay"
+    }
+  ]
+}

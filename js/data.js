@@ -113,7 +113,7 @@
     ]
   };
 
-  const DATA = { libraries: {}, holidays: [], loaded: false, usingFallback: false };
+  const DATA = { libraries: {}, holidays: [], manifest: [], loaded: false, usingFallback: false };
 
   async function tryFetch(path) {
     try {
@@ -124,21 +124,27 @@
   }
 
   DATA.load = async function () {
-    const [jp, th, fr, hol] = await Promise.all([
-      tryFetch("data/japan.json"),
-      tryFetch("data/thailand.json"),
-      tryFetch("data/france.json"),
-      tryFetch("data/holidays.json")
-    ]);
-    if (jp && th && fr && hol) {
-      DATA.libraries = { japan: jp, thailand: th, france: fr };
-      DATA.holidays = hol;
-    } else {
-      DATA.libraries = FALLBACK.libraries;
-      DATA.holidays = FALLBACK.holidays;
-      DATA.usingFallback = true;
+    const manifest = await tryFetch("data/manifest.json");
+    const hol = await tryFetch("data/holidays.json");
+    if (manifest && Array.isArray(manifest) && manifest.length) {
+      const loaded = await Promise.all(manifest.map(async m => {
+        const lib = await tryFetch("data/" + m.id + ".json");
+        return lib ? { m, lib } : null;     // 文件缺失则跳过（如欧洲数据尚未就绪）
+      }));
+      const ok = loaded.filter(Boolean);
+      if (ok.length) {
+        DATA.libraries = {}; DATA.manifest = [];
+        ok.forEach(({ m, lib }) => { DATA.libraries[m.id] = lib; DATA.manifest.push(m); });
+        DATA.holidays = hol || FALLBACK.holidays;
+        DATA.loaded = true;
+        return DATA;
+      }
     }
-    DATA.loaded = true;
+    // 兜底：manifest/文件都不可用时用内联三国
+    DATA.libraries = FALLBACK.libraries;
+    DATA.holidays = FALLBACK.holidays;
+    DATA.manifest = [{ id: "japan", nameZh: "日本", region: "亚洲" }, { id: "thailand", nameZh: "泰国", region: "亚洲" }, { id: "france", nameZh: "法国", region: "欧洲" }];
+    DATA.usingFallback = true; DATA.loaded = true;
     return DATA;
   };
 

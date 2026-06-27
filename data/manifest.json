@@ -1,0 +1,21 @@
+[
+  { "id": "japan", "nameZh": "日本", "region": "亚洲" },
+  { "id": "thailand", "nameZh": "泰国", "region": "亚洲" },
+  { "id": "france", "nameZh": "法国", "region": "欧洲" },
+  { "id": "italy", "nameZh": "意大利", "region": "欧洲" },
+  { "id": "spain", "nameZh": "西班牙", "region": "欧洲" },
+  { "id": "germany", "nameZh": "德国", "region": "欧洲" },
+  { "id": "unitedkingdom", "nameZh": "英国", "region": "欧洲" },
+  { "id": "switzerland", "nameZh": "瑞士", "region": "欧洲" },
+  { "id": "netherlands", "nameZh": "荷兰", "region": "欧洲" },
+  { "id": "portugal", "nameZh": "葡萄牙", "region": "欧洲" },
+  { "id": "greece", "nameZh": "希腊", "region": "欧洲" },
+  { "id": "austria", "nameZh": "奥地利", "region": "欧洲" },
+  { "id": "czechia", "nameZh": "捷克", "region": "欧洲" },
+  { "id": "hungary", "nameZh": "匈牙利", "region": "欧洲" },
+  { "id": "poland", "nameZh": "波兰", "region": "欧洲" },
+  { "id": "denmark", "nameZh": "丹麦", "region": "欧洲" },
+  { "id": "sweden", "nameZh": "瑞典", "region": "欧洲" },
+  { "id": "norway", "nameZh": "挪威", "region": "欧洲" },
+  { "id": "croatia", "nameZh": "克罗地亚", "region": "欧洲" }
+]

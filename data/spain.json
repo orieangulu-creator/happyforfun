@@ -1,0 +1,201 @@
+{
+  "country": "spain",
+  "countryNameZh": "西班牙",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "spring",
+      "reason": "4月至6月气候温和（约15-28°C），游客较少，景观生机盎然，是游览西班牙的黄金季节之一。",
+      "source": "https://www.ricksteves.com/europe/spain/best-time-to-go-to-spain"
+    },
+    {
+      "season": "autumn",
+      "reason": "9月至10月全国大部分地区天气近乎完美（约18-25°C），晴朗温暖、降雨少，葡萄酒产区进入丰收季，文化活动也逐渐增多。",
+      "source": "https://www.intrepidtravel.com/us/spain/best-time-to-visit-spain"
+    },
+    {
+      "season": "winter",
+      "reason": "冬季城市游客稀少、机票住宿更实惠，圣诞市集、三王节巡游等节庆氛围浓厚，适合悠闲探访马德里、巴塞罗那等城市。",
+      "source": "https://www.ricksteves.com/europe/spain/festivals"
+    }
+  ],
+  "moodTags": ["explore", "food", "culture", "scenery"],
+  "idealDuration": {
+    "minDays": 7,
+    "maxDays": 12,
+    "note": "若同时游览巴塞罗那与马德里两座城市并预留高铁往返及周边一日游时间，建议安排7至12天较为从容。",
+    "source": "https://www.intrepidtravel.com/us/spain/best-time-to-visit-spain"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": [
+        "在塞维利亚观赏圣周（Semana Santa）庄严的宗教游行",
+        "感受4月塞维利亚四月节（Feria de Abril）的弗拉门戈与美食",
+        "趁气候温和漫步巴塞罗那高迪建筑群与哥特区"
+      ],
+      "source": "https://www.citylifemadrid.com/top-spanish-festivals/"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": [
+        "7月前往潘普洛纳体验圣费尔明奔牛节（San Fermín）",
+        "8月在布尼奥尔参加番茄大战（La Tomatina）",
+        "在地中海沿岸城市享受海滩与夜生活"
+      ],
+      "source": "https://www.citylifemadrid.com/top-spanish-festivals/"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": [
+        "9月末参加巴塞罗那盛大的梅尔塞节（La Mercè）",
+        "前往里奥哈等葡萄酒产区体验丰收与品酒",
+        "趁凉爽天气深度游览马德里的普拉多与丽池公园"
+      ],
+      "source": "https://www.citylifemadrid.com/top-spanish-festivals/"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": [
+        "逛遍各城市的圣诞市集与传统耶稣诞生场景（Belenes）",
+        "1月观看三王节巡游（Cabalgata de Reyes）",
+        "在寒冬里享用一份热巧克力配吉事果（Churros con Chocolate）"
+      ],
+      "source": "https://www.ricksteves.com/europe/spain/festivals"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "sagrada-familia",
+      "name": "圣家堂 (Sagrada Família)",
+      "region": "巴塞罗那",
+      "summary": "高迪倾注毕生心血的标志性大教堂，奇幻的塔楼与彩绘玻璃令人震撼，是巴塞罗那的城市象征。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["explore", "culture"],
+      "source": "https://sagradafamilia.org/en/tickets"
+    },
+    {
+      "id": "park-guell",
+      "name": "桂尔公园 (Park Güell)",
+      "region": "巴塞罗那",
+      "summary": "高迪设计的童话般公园，马赛克长椅、蜥蜴雕塑与俯瞰全城的视野使其成为打卡热点，需分时段预约入园。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["explore", "scenery"],
+      "source": "https://parkguell.barcelona/en/buy-tickets"
+    },
+    {
+      "id": "casa-batllo",
+      "name": "巴特罗之家 (Casa Batlló)",
+      "region": "巴塞罗那",
+      "summary": "高迪改造的现代主义住宅，色彩斑斓的瓷砖外立面与龙脊般的屋顶充满奇思，是格拉西亚大道上的明珠。",
+      "suggestedDurationMin": 75,
+      "moodTags": ["explore", "culture"],
+      "source": "https://www.bcn.travel/top-ten-barcelona-attractions/"
+    },
+    {
+      "id": "museo-del-prado",
+      "name": "普拉多博物馆 (Museo Nacional del Prado)",
+      "region": "马德里",
+      "summary": "世界顶级艺术殿堂，收藏委拉斯开兹《宫娥》、戈雅《黑色绘画》等西班牙黄金时代杰作，需预约定时门票。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.museodelprado.es/en/visit/opening-times-and-prices"
+    },
+    {
+      "id": "palacio-real-madrid",
+      "name": "马德里皇宫 (Palacio Real de Madrid)",
+      "region": "马德里",
+      "summary": "18世纪建成的西欧最大在用王宫，近2000间房间，宝座厅、镜厅与皇家军械库华丽非凡，珍藏戈雅、委拉斯开兹画作。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.esmadrid.com/en/madrid-top-10"
+    },
+    {
+      "id": "parque-del-retiro",
+      "name": "丽池公园 (Parque del Retiro)",
+      "region": "马德里",
+      "summary": "占地125公顷的城市绿洲，曾为皇家园林，拥有大水池、阿方索十二世纪念碑与玻璃水晶宫，已列入联合国教科文组织世界遗产。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["relax", "scenery"],
+      "source": "https://www.visitmadrid.es/en/donde-ir-comunidad-madrid/ver-madrid-imprescindibles/parque-retiro"
+    }
+  ],
+  "foods": [
+    {
+      "id": "paella",
+      "name": "海鲜饭 (Paella)",
+      "type": "米饭主食",
+      "region": "瓦伦西亚",
+      "reason": "源自瓦伦西亚地区的经典米饭料理，藏红花赋予米饭金黄色泽，锅底焦香的米脆层（socarrat）尤为美味。",
+      "source": "https://edition.cnn.com/2025/06/07/travel/traditional-spanish-foods-dishes-cuisine"
+    },
+    {
+      "id": "tapas",
+      "name": "塔帕斯小食 (Tapas)",
+      "type": "小食拼盘",
+      "region": "全国",
+      "reason": "西班牙国民下酒小食，各地风味各异，如加泰罗尼亚的番茄面包（pan con tomate）、土豆配辣酱（patatas bravas）等，最适合配酒社交。",
+      "source": "https://ibericotaste.us/blogs/iberico-taste-blog/what-are-spanish-tapas"
+    },
+    {
+      "id": "jamon-iberico",
+      "name": "伊比利亚火腿 (Jamón Ibérico)",
+      "type": "腌制肉类",
+      "region": "西班牙西部山区",
+      "reason": "出自黑蹄伊比利亚猪，最顶级的橡果饲养（de Bellota）火腿来自西葡边境橡树林散养猪，风味浓郁，是西班牙美食骄傲。",
+      "source": "https://epicureandculture.com/spanish_cuisine_jamon_de_iberico/"
+    },
+    {
+      "id": "churros-con-chocolate",
+      "name": "吉事果配热巧克力 (Churros con Chocolate)",
+      "type": "甜点早餐",
+      "region": "全国",
+      "reason": "传说起源于西班牙牧羊人，金黄酥脆的油炸面点蘸浓稠热巧克力，是冬日与清晨的经典享受。",
+      "source": "https://en.wikipedia.org/wiki/Churro"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "sagrada-familia-ticket",
+      "name": "圣家堂门票 (Sagrada Família)",
+      "region": "巴塞罗那",
+      "method": "请通过官网 tickets.sagradafamilia.org 购买定时门票，可选普通票或含登塔票，避免第三方加价。",
+      "leadTime": "建议提前数周至1个月预订，旺季登塔票更需尽早订",
+      "source": "https://sagradafamilia.org/en/tickets"
+    },
+    {
+      "id": "park-guell-ticket",
+      "name": "桂尔公园门票 (Park Güell)",
+      "region": "巴塞罗那",
+      "method": "必须通过官网 parkguell.barcelona 提前在线购买分时段门票，最早可提前3个月预订时段。",
+      "leadTime": "建议提前数日至数周预订，旺季时段易售罄",
+      "source": "https://parkguell.barcelona/en/buy-tickets"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "春季（4-5月）天气多变，常出现上午晴、下午雨、单日温差超10°C的情况，建议随身携带轻便外套与雨具。",
+      "source": "https://www.travelcookeat.com/imported-20100608191054/2025/11/19/the-best-time-to-travel-to-spain-a-season-by-season-guide"
+    },
+    {
+      "season": "summer",
+      "tip": "夏季游客最多、气温高、价格上涨，热门景点务必提前预约，并注意防晒补水、避开正午高温时段。",
+      "source": "https://www.intrepidtravel.com/us/spain/best-time-to-visit-spain"
+    },
+    {
+      "season": "autumn",
+      "tip": "秋季天气宜人、降雨少，是最舒适的旅游季之一，但11月底起大西洋沿岸地区会逐渐转湿，北部出行需备雨具。",
+      "source": "https://www.intrepidtravel.com/us/spain/best-time-to-visit-spain"
+    },
+    {
+      "season": "winter",
+      "tip": "冬季城市游淡季价格实惠、人少，但需留意1月1日、12月25日等节假日普拉多博物馆等景点闭馆，出行前确认开放时间。",
+      "source": "https://www.museodelprado.es/en/visit/opening-times-and-prices"
+    }
+  ]
+}

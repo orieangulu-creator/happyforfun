@@ -1,0 +1,197 @@
+{
+  "country": "switzerland",
+  "countryNameZh": "瑞士",
+  "updatedAt": "2026-06-27",
+  "bestSeasons": [
+    {
+      "season": "summer",
+      "reason": "7至8月天气最佳、阿尔卑斯步道无积雪、白昼极长（晚上九点后仍有天光），是徒步、登山缆车与湖区活动的黄金季节，所有山地交通全面运营。",
+      "source": "https://www.ricksteves.com/europe/switzerland/best-time-to-go-to-switzerland"
+    },
+    {
+      "season": "winter",
+      "reason": "12月初至复活节为滑雪季，雪景将村庄与山野化为童话世界；采尔马特冰川天堂可全年滑雪。但圣诞与新年期间度假小镇酒店价格甚至高于夏季高峰。",
+      "source": "https://help.myswitzerland.com/hc/en-us/articles/213129889-Which-is-the-best-season-for-a-visit-to-Switzerland"
+    },
+    {
+      "season": "autumn",
+      "reason": "9至10月人潮减少、天气宜人，适合徒步与城市观光；少女峰地区高海拔的落叶松在10月中旬转为金黄，山色绚烂。",
+      "source": "https://swissfamilyfun.com/jungfrau-region-in-autumn-15-best-things-to-do/"
+    }
+  ],
+  "moodTags": ["scenery", "snow", "explore", "relax", "slow"],
+  "idealDuration": {
+    "minDays": 7,
+    "maxDays": 10,
+    "note": "建议预留一周以上覆盖两大基地（因特拉肯/少女峰地区与采尔马特），每个山区基地停留3天以上较从容，可应对山间多变天气并预留观景灵活日。",
+    "source": "https://aplinsinthealps.com/1-week-itinerary-in-the-jungfrau-region-interlaken-grindelwald-lauterbrunnen/"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": [
+        "劳特布伦嫩谷（Lauterbrunnen）春季融雪，72条瀑布水量充沛，施陶河瀑布（Staubbach）与特吕默尔河冰川瀑布（Trümmelbach）最为壮观",
+        "山谷与草甸鲜花初绽，人少价低，适合悠闲徒步与摄影"
+      ],
+      "source": "https://jungfrauregion.swiss/en/destination/magazine/detail/hiking-in-spring.html"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": [
+        "采尔马特五湖徒步路线（5-Seenweg）：约9公里连接五座高山湖泊，其中三座倒映马特洪峰",
+        "少女峰地区高山步道全面开放，可徒步往返格林德瓦First与巴赫阿尔卑湖（Bachalpsee）"
+      ],
+      "source": "https://www.matterhornparadise.ch/en/experience/hiking/5-lakes-walk"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": [
+        "少女峰地区落叶松10月中旬转金，温根（Wengen）与米伦（Mürren）上方山坡层林尽染",
+        "天气清爽人潮散去，适合高山观景徒步与城市漫步"
+      ],
+      "source": "https://swissfamilyfun.com/jungfrau-region-in-autumn-15-best-things-to-do/"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": [
+        "采尔马特滑雪：高海拔雪况极佳，马特洪峰冰川天堂（Matterhorn Glacier Paradise）可全年滑雪",
+        "少女峰地区雪景如童话，雪鞋徒步与雪上观光列车体验"
+      ],
+      "source": "https://www.matterhornparadise.ch/en/"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "jungfraujoch",
+      "name": "少女峰·欧洲之巅 (Jungfraujoch - Top of Europe)",
+      "region": "因特拉肯/少女峰地区",
+      "summary": "欧洲海拔最高的火车站，可乘艾格快线（Eiger Express）或齿轨列车直达，观冰宫、阿莱奇冰川与雪原全景。",
+      "suggestedDurationMin": 300,
+      "moodTags": ["snow", "scenery", "explore"],
+      "source": "https://www.jungfrau.ch/en-gb/jungfraujoch-top-of-europe/"
+    },
+    {
+      "id": "lauterbrunnen-valley",
+      "name": "劳特布伦嫩瀑布谷 (Lauterbrunnen Valley)",
+      "region": "因特拉肯/少女峰地区",
+      "summary": "被称作72条瀑布之谷，冰川切削出的高崖深谷，施陶河瀑布与特吕默尔河冰川瀑布是经典打卡点，也是前往温根、米伦的门户。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["scenery", "relax", "slow"],
+      "source": "https://www.jungfrau.ch/en-gb/lauterbrunnen/"
+    },
+    {
+      "id": "grindelwald-first",
+      "name": "格林德瓦First (Grindelwald First)",
+      "region": "因特拉肯/少女峰地区",
+      "summary": "集观景与冒险于一体，悬崖步道（Cliff Walk）、First Flyer滑索与山地卡丁车，并通往巴赫阿尔卑湖徒步起点。",
+      "suggestedDurationMin": 240,
+      "moodTags": ["explore", "scenery"],
+      "source": "https://www.jungfrau.ch/en-gb/great-destinations-in-the-interlaken-region-switzerland/"
+    },
+    {
+      "id": "gornergrat",
+      "name": "戈尔内格拉特观景台 (Gornergrat)",
+      "region": "采尔马特",
+      "summary": "欧洲最高的露天齿轨铁路终点，海拔约3100米，可饱览马特洪峰、戈尔内冰川与29座4000米以上雪峰全景。",
+      "suggestedDurationMin": 240,
+      "moodTags": ["scenery", "snow", "explore"],
+      "source": "https://www.gornergrat.ch/en/"
+    },
+    {
+      "id": "matterhorn-glacier-paradise",
+      "name": "马特洪峰冰川天堂 (Matterhorn Glacier Paradise)",
+      "region": "采尔马特",
+      "summary": "欧洲最高缆车站（约3883米），设冰川宫殿与观景平台，可全年滑雪，近距离仰望马特洪峰。",
+      "suggestedDurationMin": 240,
+      "moodTags": ["snow", "scenery", "explore"],
+      "source": "https://www.matterhornparadise.ch/en/"
+    },
+    {
+      "id": "five-lakes-trail",
+      "name": "五湖徒步路线 (5-Seenweg / Five Lakes Trail)",
+      "region": "采尔马特",
+      "summary": "约9公里高山步道，连接Stellisee、Grindjisee、Grünsee、Moosjisee与Leisee五座湖泊，三座可见马特洪峰倒影。",
+      "suggestedDurationMin": 240,
+      "moodTags": ["scenery", "relax", "explore"],
+      "source": "https://www.myswitzerland.com/en-us/experiences/route/5-seenweg-zermatt/"
+    }
+  ],
+  "foods": [
+    {
+      "id": "cheese-fondue",
+      "name": "瑞士奶酪火锅 (Fondue)",
+      "type": "奶酪料理",
+      "region": "全瑞士（尤以法语区/山区）",
+      "reason": "瑞士国菜，以格鲁耶尔与埃曼塔尔等奶酪融化而成，用面包、土豆蘸食，冬季尤为应景且氛围社交十足。",
+      "source": "https://www.balmers.com/what-to-eat-when-visiting-switzerland/"
+    },
+    {
+      "id": "raclette",
+      "name": "瑞士烤奶酪 (Raclette)",
+      "type": "奶酪料理",
+      "region": "瓦莱州（采尔马特所在）",
+      "reason": "将半轮瑞克雷特奶酪明火烤化后刮在土豆、酸黄瓜与腌肉上，是瓦莱地区冬季暖心经典。",
+      "source": "https://www.balmers.com/what-to-eat-when-visiting-switzerland/"
+    },
+    {
+      "id": "rosti",
+      "name": "瑞士薯饼 (Rösti)",
+      "type": "土豆主食",
+      "region": "德语区",
+      "reason": "刨丝土豆煎成的金黄薯饼，是德语区传统主食，常配奶酪、培根、洋葱或煎蛋，亦是苏黎世小牛肉的经典搭配。",
+      "source": "https://www.lingoda.com/blog/en/swiss-food/"
+    },
+    {
+      "id": "swiss-chocolate",
+      "name": "瑞士巧克力 (Swiss Chocolate)",
+      "type": "甜点/特产",
+      "region": "全瑞士",
+      "reason": "牛奶巧克力1875年诞生于瑞士（Daniel Peter与Henri Nestlé），从Cailler、Lindt到本地手工豆到巧克力皆值得一尝。",
+      "source": "https://www.balmers.com/what-to-eat-when-visiting-switzerland/"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "jungfraujoch-railway",
+      "name": "少女峰铁路 (Jungfraujoch Railway)",
+      "region": "因特拉肯/少女峰地区",
+      "method": "通过官网 jungfrau.ch 在线购票；5月至10月前往少女峰的座位预订为强制要求（每人约CHF 10），可于 jungfrau.ch/seatreservation 预订。",
+      "leadTime": "车票通常提前约3个月开售，夏季旺季（6至8月）与节假日建议尽早预订。",
+      "source": "https://www.jungfrau.ch/en-gb/jungfraujoch-top-of-europe/buy-jungfraujoch-ticket/"
+    },
+    {
+      "id": "glacier-express",
+      "name": "冰川快车 (Glacier Express)",
+      "region": "采尔马特—圣莫里茨",
+      "method": "全程约300公里、8小时的全景观光列车，连接采尔马特与圣莫里茨；座位预订为强制要求，可在官网 glacierexpress.ch 在线商店预订。",
+      "leadTime": "一、二等座可于乘车前93天起预订，旺季务必提前订位；尊享舱（Excellence Class）整个时刻表期均可预订。",
+      "source": "https://glacierexpress.ch/en/price"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "春季（3至5月）山区可能仍有积雪、部分高海拔缆车尚未运营，但融雪使瀑布水量最盛；特吕默尔河冰川瀑布通常4月开放，建议确认山地交通运营时间。",
+      "source": "https://jungfrauregion.swiss/en/destination/magazine/detail/hiking-in-spring.html"
+    },
+    {
+      "season": "summer",
+      "tip": "夏季（7至8月）天气与步道最佳但价格可比淡季高出五成，热门列车与酒店务必提前预订，并备好防晒与午后阵雨装备。",
+      "source": "https://www.ricksteves.com/europe/switzerland/best-time-to-go-to-switzerland"
+    },
+    {
+      "season": "autumn",
+      "tip": "秋季（9至10月）人潮减少、天色清朗，是徒步与城市观光的好时机；10月中旬落叶松转金最为上镜，但高海拔早晚渐冷需加衣。",
+      "source": "https://swissfamilyfun.com/jungfrau-region-in-autumn-15-best-things-to-do/"
+    },
+    {
+      "season": "winter",
+      "tip": "冬季（12月至次年3月）为滑雪季，圣诞与新年期间度假小镇酒店价格甚至超过夏季高峰，需尽早预订；采尔马特冰川天堂可全年滑雪。",
+      "source": "https://help.myswitzerland.com/hc/en-us/articles/213129889-Which-is-the-best-season-for-a-visit-to-Switzerland"
+    }
+  ]
+}
