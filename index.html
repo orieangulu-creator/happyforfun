@@ -119,6 +119,8 @@
         <div id="placeholder" class="placeholder">
           <div class="ph-emoji">🧭</div>
           <p>左侧随便填点（或什么都不填），点「开始规划」试试。</p>
+          <p class="ph-hint">没头绪？点个例子直接看效果 👇</p>
+          <div id="phExamples" class="ph-examples"></div>
         </div>
         <div id="loading" class="loading hidden"><div class="spinner"></div><span id="loadingText">生成中…</span></div>
         <div id="stageRecommend" class="stage hidden"></div>
@@ -133,6 +135,20 @@
   <footer class="app-footer wrap">
     <span>悠行 Demo · 纯前端本地运行 · 数据带来源</span>
   </footer>
+
+  <!-- 访问码弹层（取代浏览器原生 prompt） -->
+  <div id="acModal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <h3 class="modal-title">需要访问码</h3>
+      <p id="acMsg" class="modal-msg">输入访问码即可使用 AI 实时生成。</p>
+      <input id="acInput" type="password" placeholder="访问码" autocomplete="off" />
+      <p id="acErr" class="modal-err"></p>
+      <div class="modal-actions">
+        <button id="acCancel" class="btn-ghost" type="button">取消</button>
+        <button id="acOk" class="btn-primary" type="button" style="width:auto;margin:0;padding:9px 20px">确定</button>
+      </div>
+    </div>
+  </div>
 
   <!-- config.js 可选：存在且填了 key 则走 Claude，否则本地规则引擎 DEMO -->
   <script>window.APP_CONFIG = window.APP_CONFIG || null;</script>

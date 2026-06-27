@@ -4,6 +4,8 @@
   const COST = { thailand: "low", japan: "medium", france: "high" };
   const FLIGHT = { japan: { h: 4, direct: true }, thailand: { h: 4.5, direct: true }, france: { h: 12, direct: true } };
   const SEASON_ZH = { spring: "春季", summer: "夏季", autumn: "秋季", winter: "冬季" };
+  const MOOD_ZH = { relax: "想放松", explore: "想玩透", food: "美食", scenery: "风景", culture: "文化", shopping: "购物", hotspring: "温泉", island: "海岛", snow: "雪山", slow: "慢城" };
+  const moodZh = x => MOOD_ZH[x] || x;
 
   function seasonFromDate(s) {
     if (!s) return null;
@@ -100,7 +102,7 @@
         daysVsHoliday: `建议 ${lib.idealDuration.minDays}-${lib.idealDuration.maxDays} 天（${fit}）`,
         costTier: { low: "经济", medium: "适中", high: "偏高" }[COST[lib.country]] || "适中",
         fatigue: lib.moodTags.includes("relax") || lib.moodTags.includes("island") ? "轻松" : "适中",
-        highlights: lib.moodTags.join("、"),
+        highlights: lib.moodTags.map(moodZh).join("、"),
         transport: input.origin ? (transportFor(lib.country, input.origin).note) : "填出发地后估算"
       }};
     });
@@ -240,11 +242,14 @@
   }
   function isLive() { return LIVE; }
 
-  function getAccessCode(force) {
+  async function getAccessCode(force) {
     let c = "";
     try { c = localStorage.getItem(CODE_KEY) || ""; } catch (e) {}
     if (force || !c) {
-      c = (window.prompt("请输入访问码以使用 AI 实时生成：", "") || "").trim();
+      const ask = window.AccessCodePrompt
+        ? window.AccessCodePrompt("输入访问码即可使用 AI 实时生成。", !!force)
+        : Promise.resolve(window.prompt("请输入访问码以使用 AI 实时生成：", "") || "");
+      c = ((await ask) || "").trim();
       try { if (c) localStorage.setItem(CODE_KEY, c); } catch (e) {}
     }
     return c;
@@ -252,7 +257,7 @@
 
   // 调后端：附访问码；401 自动重新输码重试一次。前端不接触 key。
   async function callBackend(input, branch) {
-    let code = getAccessCode(false);
+    let code = await getAccessCode(false);
     for (let attempt = 0; attempt < 2; attempt++) {
       const r = await fetch(API_BASE(), {
         method: "POST",
@@ -261,7 +266,7 @@
       });
       if (r.status === 401) {
         try { localStorage.removeItem(CODE_KEY); } catch (e) {}
-        code = getAccessCode(true);
+        code = await getAccessCode(true);
         if (!code) { const e = new Error("需要访问码"); e.code = 401; throw e; }
         continue;
       }
@@ -296,9 +301,10 @@
       const out = await callBackend(input, branch); // 后端已做 schema 校验与重试
       return { branch, type, data: out.data, mode: "live", warnings: [] };
     } catch (e) {
-      const why = e.code === 429 ? "请求过于频繁，已回落本地演示，请稍后重试。"
-        : e.code === 401 ? "未通过访问码，已回落本地演示。"
-        : "后端调用失败（" + (e && e.message) + "），已回落本地演示。";
+      try { console.warn("[generate] live failed:", e && e.message); } catch (e2) {}
+      const why = e.code === 429 ? "请求有点频繁，先用本地方案给你顶上，稍等片刻再试更佳。"
+        : e.code === 401 ? "访问码未通过，已用本地方案兜底；可刷新后重新输入访问码。"
+        : "AI 生成暂时不太顺，已为你用本地方案兜底，可重试一次。";
       return { branch, type, data: mock(), mode: "demo-fallback", warnings: [why] };
     }
   }

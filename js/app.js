@@ -8,6 +8,8 @@
   const PACE_ZH = { intense: "特种兵", balanced: "均衡", relaxed: "悠闲" };
   const COMP_ZH = { solo: "独自", couple: "情侣/蜜月", family_kids: "亲子带娃", elderly: "长辈同行", friends: "朋友结伴" };
   const SEASON_ZH = { spring: "春", summer: "夏", autumn: "秋", winter: "冬" };
+  const MOOD_ZH = { relax: "想放松", explore: "想玩透", food: "美食", scenery: "风景", culture: "文化", shopping: "购物", hotspring: "温泉", island: "海岛", snow: "雪山", slow: "慢城" };
+  const moodZh = x => MOOD_ZH[x] || x;
 
   const MOODS = [
     ["relax", "🏝️想放松"], ["explore", "🔥想玩透"], ["food", "🍜美食"], ["scenery", "📷风景"],
@@ -15,6 +17,12 @@
     ["snow", "❄️雪山"], ["slow", "🐌慢城"]
   ];
   const PLAYSTYLES = [["island", "海岛"], ["snow", "雪山"], ["hotspring", "温泉"], ["slow", "慢城"], ["scenery", "风景"]];
+  // 首屏一键示例
+  const EXAMPLES = [
+    { label: "🏝️ 想找个地方放松一下", input: { destination: { granularity: "none" }, moodTags: ["relax"] } },
+    { label: "🇯🇵 国庆带爸妈去日本", input: { destination: { granularity: "country", country: "japan" }, dateRange: { start: "2026-10-01", end: "2026-10-07" }, companion: "elderly" } },
+    { label: "🤔 日本还是泰国，纠结", input: { destination: { granularity: "none" }, freeText: "在日本和泰国之间纠结，帮我对比一下" } }
+  ];
 
   // 方案版本状态
   const state = {
@@ -89,6 +97,39 @@
       b.classList.add("pulse"); b.scrollIntoView({ block: "nearest" });
       setTimeout(() => b.classList.remove("pulse"), 1300);
     });
+    renderExamples();
+    setupAccessModal();
+  }
+
+  // 首屏示例：一键填充并生成
+  function renderExamples() {
+    const box = $("phExamples"); if (!box) return;
+    box.innerHTML = "";
+    EXAMPLES.forEach(ex => {
+      const el = document.createElement("button");
+      el.type = "button"; el.className = "ex-chip"; el.textContent = ex.label;
+      el.addEventListener("click", () => { setFormFromInput(ex.input); onGenerate(false); });
+      box.appendChild(el);
+    });
+  }
+
+  // 访问码弹层：取代浏览器原生 prompt，返回 Promise<string>
+  function setupAccessModal() {
+    let resolver = null;
+    const close = (val) => { $("acModal").classList.add("hidden"); $("acErr").textContent = ""; const r = resolver; resolver = null; if (r) r(val); };
+    $("acOk").addEventListener("click", () => close(($("acInput").value || "").trim()));
+    $("acCancel").addEventListener("click", () => close(""));
+    $("acInput").addEventListener("keydown", e => { if (e.key === "Enter") $("acOk").click(); if (e.key === "Escape") $("acCancel").click(); });
+    window.AccessCodePrompt = function (message, isRetry) {
+      return new Promise(resolve => {
+        resolver = resolve;
+        $("acMsg").textContent = message || "输入访问码即可使用 AI 实时生成。";
+        $("acErr").textContent = isRetry ? "访问码不对，请重试。" : "";
+        $("acInput").value = "";
+        $("acModal").classList.remove("hidden");
+        setTimeout(() => { try { $("acInput").focus(); } catch (e) {} }, 30);
+      });
+    };
   }
 
   function setModeBadge() {
@@ -214,7 +255,7 @@
     setGranularity(d.granularity || "country");
   }
 
-  function showLoading(t) { document.body.classList.add("is-loading"); $("placeholder").classList.add("hidden"); $("loadingText").textContent = t || "生成中…"; $("loading").classList.remove("hidden"); }
+  function showLoading(t) { document.body.classList.add("is-loading"); $("placeholder").classList.add("hidden"); const live = Generator.isLive && Generator.isLive(); $("loadingText").textContent = (t || "生成中…") + (live ? "（AI 生成中，通常几秒…）" : ""); $("loading").classList.remove("hidden"); }
   function hideLoading() { document.body.classList.remove("is-loading"); $("loading").classList.add("hidden"); }
   function clearStages() {
     ["stageRecommend", "stageCompare", "stageBestTime", "stageTrip", "stageVersionCompare"]
@@ -442,7 +483,7 @@
     html += `<div class="trip-meta">
       <span class="tag pace-${m.pace}">节奏：${PACE_ZH[m.pace] || m.pace}</span>
       ${m.companion ? `<span class="tag">同行：${esc(COMP_ZH[m.companion] || m.companion)}</span>` : ""}
-      ${(m.moodTags || []).map(x => `<span class="tag">#${esc(x)}</span>`).join("")}
+      ${(m.moodTags || []).map(x => `<span class="tag">#${esc(moodZh(x))}</span>`).join("")}
       ${m.season ? `<span class="tag">${SEASON_ZH[m.season]}季出行</span>` : ""}</div>`;
     if (res.mode && res.mode.indexOf("demo") === 0) html += `<div class="demo-trip-note">⚙️ ${esc((t.warnings || []).join(" "))}</div>`;
     if (res.warnings && res.warnings.length) html += `<div class="timing-warn">${esc(res.warnings.join(" "))}</div>`;
