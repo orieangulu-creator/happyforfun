@@ -235,7 +235,16 @@
     const coreDays = (alloc[0] ? alloc[0].days : realDays);
     const seq = alloc.map(a => ({ city: a.city, country: a.country }));
     const segs = [{ mode: "flight", from: input.origin || "出发地", to: seq[0].city, detail: input.origin ? transportFor(seq[0].country, input.origin).note : "建议直飞首站", source: "交通估算" }];
-    for (let i = 1; i < seq.length; i++) { const cross = seq[i].country !== seq[i - 1].country; segs.push({ mode: cross ? "flight/train" : "train", from: seq[i - 1].city, to: seq[i].city, detail: cross ? "跨国：高铁或廉价航空" : "同国火车 / 大巴", crossBorder: cross, source: "交通估算" }); }
+    for (let i = 1; i < seq.length; i++) {
+      const cross = seq[i].country !== seq[i - 1].country;
+      let detail = cross ? "跨国：高铁或廉价航空" : "同国火车 / 大巴", source = "交通估算", mode = cross ? "flight/train" : "train";
+      if (!cross) { // 同国段优先用该国真实城市间交通
+        const itc = (DATA.libraries[seq[i].country] || {}).intercityTransport || [];
+        const tt = itc.find(t => (t.from === seq[i - 1].city && t.to === seq[i].city) || (t.from === seq[i].city && t.to === seq[i - 1].city));
+        if (tt) { detail = tt.detail + (tt.durationText ? `（约${tt.durationText}）` : ""); source = tt.source || source; mode = tt.mode || mode; }
+      }
+      segs.push({ mode, from: seq[i - 1].city, to: seq[i].city, detail, crossBorder: cross, source });
+    }
 
     const lib0 = DATA.libraries[order[0]];
     const tips = (season ? lib0.seasonalTips.filter(t => t.season === season) : lib0.seasonalTips);
@@ -345,7 +354,8 @@
     const season = (input.dateRange && seasonFromDate(input.dateRange.start)) || null;
 
     // 城市分组（按出现顺序）；region 形如「东京/浅草」时取斜杠前的主城，避免把同城子区当多城
-    const cityKey = a => String(a.region || lib.countryNameZh).split(/[\/／]/)[0].trim();
+    // D3：标了 dayTrip 的景点(如凡尔赛)归入其 parentCity，不单独成城——修正"日游点被当独立城市"
+    const cityKey = a => String((a.dayTrip && a.parentCity) || a.region || lib.countryNameZh).split(/[\/／]/)[0].trim();
     const cities = [];
     lib.attractions.forEach(a => { const c = cityKey(a); if (!cities.includes(c)) cities.push(c); });
     const attrByCity = {}; cities.forEach(c => (attrByCity[c] = []));
@@ -438,7 +448,15 @@
     const firstCity = usedCities[0] || lib.countryNameZh;
     const segments = [{ mode: "flight", from: input.origin || "出发地", to: firstCity,
       detail: input.origin ? transportFor(country, input.origin).note : "建议直飞，填写出发地可估算时长", source: "交通估算" }];
-    for (let i = 1; i < usedCities.length; i++) segments.push({ mode: "train", from: usedCities[i - 1], to: usedCities[i], detail: "城市间建议火车 / 大巴", source: "交通估算" });
+    // 真实城市间交通：优先用数据库 intercityTransport，缺失则回落通用建议
+    const itc = lib.intercityTransport || [];
+    const findItc = (a, b) => itc.find(t => (t.from === a && t.to === b) || (t.from === b && t.to === a));
+    for (let i = 1; i < usedCities.length; i++) {
+      const tt = findItc(usedCities[i - 1], usedCities[i]);
+      segments.push(tt
+        ? { mode: tt.mode || "train", from: usedCities[i - 1], to: usedCities[i], detail: tt.detail + (tt.durationText ? `（约${tt.durationText}）` : ""), source: tt.source || "交通估算" }
+        : { mode: "train", from: usedCities[i - 1], to: usedCities[i], detail: "城市间建议火车 / 大巴", source: "交通估算" });
+    }
 
     const flexNote = (cappedByCity
       ? `本国现有 ${cities.length} 座城市按「每城 ≤${MAX_DAYS_PER_CITY} 天」排满 ${days} 天，多出的 ${flexDays} 天已作机动/深度日（自由活动或周边一日游），不再硬塞景点。`
