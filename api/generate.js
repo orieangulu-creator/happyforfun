@@ -65,7 +65,8 @@ const OUTPUT_SPECS = {
 }
 要求：天数=days；按 pace 控制每日活动数(intense 4-6 / balanced 2-4 / relaxed 1-2)；优先复用 libraryData 中该国的真实 attractions/foods/reservations/seasonalTips 并透传其 source；前 coreDays 天标 core、其余 optional。
 【城市停留规则】每座城市安排 2-3 天，单城上限 3 天 2 晚——除非用户在 freeText 明确要求某城久留，否则一城超过 3 天就应换到下一座城市；dailyPlan 每天的 title 标明所在城市；多城市时 route.summary 串联城市、segments 标注城市间交通。
-【转场日规则】换城的当天=转场日：考虑出发时间与在途耗时，当天上午在途、活动从简(1-2 项、从下午起)，该天加 transfer 字段，给【公共交通】和【自驾租车】两套方案(各含大致耗时与出发建议)；非转场日 transfer 省略或不输出。`,
+【转场日规则】换城的当天=转场日：考虑出发时间与在途耗时，当天上午在途、活动从简(1-2 项、从下午起)，该天加 transfer 字段，给【公共交通】和【自驾租车】两套方案(各含大致耗时与出发建议)；非转场日 transfer 省略或不输出。
+【单国天数过长】当 days 超过"城市数 × 3"能排满的上限时，**不要截断天数、也不要虚构城市或硬塞景点**：把现有城市按每城 ≤3 天排满，多出的天数标为机动/深度日(dayType=optional、title 注明"机动/深度日"、活动 0-1 项，以自由活动·周边一日游·纯放松为主)；并在 flexibility.note 提示"可考虑加邻国串成多国行程"。`,
   recommend: `{"isFallback": boolean, "basis": string, "coverageNote": string|null,
  "candidates": [{"id": string, "nameZh": string, "country": "<country slug，取自 libraryData 的 key>"|null, "matchLevel": "strong|related", "matchReason": string, "bestVisitTime": string, "suggestedDays": number, "costTier": "low|medium|high", "moodTags": string[], "source": string}]}
 要求：给 3-5 个候选，优先从 libraryData 的国家中选；强匹配标 strong，其余 related。`,
@@ -80,7 +81,8 @@ const OUTPUT_SPECS = {
   combo: `{"region": string, "tripKind": "multi", "note": string, "totalDaysSuggest": number,
  "countryOrder": ["<country slug>", ...],
  "countries": [{"country": string, "nameZh": string, "role": "anchor|companion", "score": number, "reason": string}]}
-要求：基于 userInput.destination.multi(区域/国家数 countryCount/必含国 mustInclude/排除 exclude/偏好 preferTags) 与 geoData(adjacency 邻接表、combos 主流常见组合、costTier)，对同区域候选国按「常见组合 + 与锚点顺路邻近 + 游玩度 + 季节契合 + 花费」排序；必含国置 role=anchor；取评分最高且满足国家数的一组；countryOrder 按顺路减少折返排序；只在 libraryData 已覆盖的国家中选。`,
+要求：基于 userInput.destination.multi(区域/国家数 countryCount/必含国 mustInclude/排除 exclude/偏好 preferTags) 与 geoData(adjacency 邻接表、combos 主流常见组合、costTier)，对同区域候选国按「常见组合 + 与锚点顺路邻近 + 游玩度 + 季节契合 + 花费」排序；必含国置 role=anchor；取评分最高且满足国家数的一组；countryOrder 按顺路减少折返排序；只在 libraryData 已覆盖的国家中选。
+【天数适配·重要】每国约需 3 天(2国≥6 / 3国≥9 / 4国≥12 天)。若 userInput.dateRange.days 已给定且偏少，应按"每国约 3 天"**减少国家数**(保留 mustInclude 锚点与最顺路者)而不是硬凑，并在 note 里说明"按 N 天先玩 X 国更从容、想多覆盖几国建议加到 Y 天"。`,
   multitrip: `{
   "meta": {"origin": string|null, "destinationCountry": "<首国 slug>", "destinationCountries": ["<slug>",...], "tripKind": "multi", "countryOrder": ["<slug>",...], "destinationNameZh": string, "days": number, "season": "spring|summer|autumn|winter"|null, "pace": "intense|balanced|relaxed", "companion": string|null, "moodTags": string[], "freeText": string},
   "route": {"summary": string, "segments": [{"mode": string, "from": string, "to": string, "detail": string, "crossBorder": boolean, "source": string}], "tips": string, "source": string},

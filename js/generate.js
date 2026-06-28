@@ -74,6 +74,8 @@
     return 4 + Math.ceil((days - 15) / 4);
   }
   function suggestDaysForCountries(n) { return n <= 1 ? 5 : n === 2 ? 7 : n === 3 ? 10 : 13; }
+  // D1: 多国「最少天数」硬门槛 —— 每国约 3 天(2国≥6 / 3国≥9 / 4国≥12)。不达标则减国，不把每国压到不足 1 天。
+  function minDaysForCountries(n) { return n * 3; }
 
   // 邻接贪心：把国家排成减少折返的一条链（优先从锚点/连接最多者起步）
   function orderByAdjacency(ids, adj) {
@@ -121,7 +123,18 @@
       return Math.round(s * 100) / 100;
     }
     const companions = inRegion.filter(id => id !== anchor && !exclude.has(id) && !must.includes(id)).sort((a, b) => score(b) - score(a));
-    const target = Math.max(want.min || 2, Math.min(want.max || 3, (want.max || 3)));
+    // D1：组合阶段就按天数收敛国家数（每国约 3 天），让确认后的行程天数够分配
+    let target = Math.max(want.min || 2, want.max || 3);
+    let daysNote = "";
+    const daysGiven = input.dateRange && input.dateRange.days;
+    if (daysGiven) {
+      const fit = Math.floor(daysGiven / 3);
+      if (fit < target) {
+        target = Math.max(2, must.length, fit);
+        daysNote = `按 ${daysGiven} 天，先玩 ${target} 国更从容（每国约 3 天）；想多覆盖几国，建议加到 ${(want.max || 3) * 3}+ 天。`;
+      }
+    }
+    target = Math.max(target, must.length, 2);
     const chosen = must.slice();
     for (const id of companions) { if (chosen.length >= target) break; chosen.push(id); }
     const ordered = orderByAdjacency(chosen, adj);
@@ -140,8 +153,9 @@
       region, tripKind: "multi",
       countries: ordered.map(id => ({ country: id, nameZh: DATA.libraries[id].countryNameZh, role: must.includes(id) ? "anchor" : "companion", score: score(id), reason: reason(id) })),
       countryOrder: ordered,
-      totalDaysSuggest: suggestDaysForCountries(ordered.length),
-      note: matched ? ("贴近主流线路：" + matched.note) : "按顺路紧密度 + 游玩度 + 季节自动组合",
+      totalDaysSuggest: Math.max(suggestDaysForCountries(ordered.length), minDaysForCountries(ordered.length)),
+      note: (matched ? ("贴近主流线路：" + matched.note) : "按顺路紧密度 + 游玩度 + 季节自动组合") + (daysNote ? ("  " + daysNote) : ""),
+      daysNote: daysNote || null,
       altCombos: combos.filter(c => !anchor || c.countries.includes(anchor)).slice(0, 4)
     };
   }
@@ -156,12 +170,25 @@
 
   // 多国行程（DEMO）：跨国城市铺排 + 总城市数随天数封顶 + 跨国交通 + 签证提示
   function buildMultiTrip(countryOrder, input) {
-    const order = (countryOrder || []).filter(c => DATA.libraries[c]);
-    if (order.length <= 1) return buildTrip(order[0] || (input.destination && input.destination.country), input);
+    const order0 = (countryOrder || []).filter(c => DATA.libraries[c]);
+    if (order0.length <= 1) return buildTrip(order0[0] || (input.destination && input.destination.country), input);
     const pace = defaultPace(input);
     const perDay = pace === "intense" ? 5 : pace === "relaxed" ? 2 : 3;
     const season = input.dateRange ? seasonFromDate(input.dateRange.start) : null;
-    const reqDays = (input.dateRange && input.dateRange.days) || suggestDaysForCountries(order.length);
+    const reqDays = (input.dateRange && input.dateRange.days) || suggestDaysForCountries(order0.length);
+    // D1：每国约 3 天，天数不够就从链尾减国（保留锚点/首站），收敛为 1 国则交给单国引擎
+    let order = order0.slice();
+    const dropped = [];
+    while (order.length > 1 && reqDays < minDaysForCountries(order.length)) dropped.push(order.pop());
+    if (order.length <= 1) {
+      const r = buildTrip(order[0], input);
+      r.warnings = (r.warnings || []).concat(
+        `你给的 ${reqDays} 天对多国偏紧，已聚焦单国（${DATA.libraries[order[0]].countryNameZh}）更从容；想覆盖 ${order0.length} 国建议加到 ${minDaysForCountries(order0.length)}+ 天。`);
+      return r;
+    }
+    const daysDropNote = dropped.length
+      ? `按 ${reqDays} 天精简为 ${order.length} 国（每国约 3 天更从容）；已暂去除 ${dropped.map(c => DATA.libraries[c].countryNameZh).join("、")}，想全包建议加到 ${minDaysForCountries(order0.length)}+ 天。`
+      : "";
     const ck = (a, lib) => String(a.region || lib.countryNameZh).split(/[\/／]/)[0].trim();
 
     const perCountry = order.map(country => {
@@ -215,6 +242,7 @@
     const tipsOut = (tips.length ? tips : lib0.seasonalTips).slice(0, 3).map(t => ({ season: t.season, tip: t.tip, source: t.source }));
     const NON_SCHENGEN = new Set(["unitedkingdom"]);
     const regionNotes = [];
+    if (daysDropNote) regionNotes.push({ note: daysDropNote, source: "天数适配" });
     if (order.some(c => regionOf(c) === "欧洲")) {
       const hasNon = order.some(c => NON_SCHENGEN.has(c));
       regionNotes.push({ note: "欧洲多属申根区，区内可凭一国签证自由通行" + (hasNon ? "；本行程含英国(非申根)，需单独签证与边检。" : "；本行程国家若均属申根，办一次申根签即可。"), source: "签证常识" });
@@ -326,8 +354,11 @@
     // 城市停留规则：每城 2-3 天，上限 MAX_DAYS_PER_CITY；总上限 = 城市数 × 上限
     const reqDays = (input.dateRange && input.dateRange.days) || null;
     const totalCap = cities.length * MAX_DAYS_PER_CITY;
-    let days = Math.max(1, Math.min(reqDays || lib.idealDuration.minDays, totalCap));
-    const cappedByCity = !!(reqDays && reqDays > totalCap);
+    // D2：要的天数全部保留——城市按「每城 ≤3 天」排满(structuredDays)，多出的天作机动/深度日，绝不静默截断
+    const wantDays = Math.max(1, reqDays || lib.idealDuration.minDays);
+    const days = Math.min(wantDays, totalCap);   // 用于逐城分配的「结构化」天数
+    const flexDays = Math.max(0, wantDays - totalCap);
+    const cappedByCity = flexDays > 0;
 
     // 均衡分配每城天数（≤上限）
     const alloc = []; let leftCities = cities.length, leftDays = days;
@@ -373,6 +404,22 @@
       }
       prevCity = al.city;
     });
+    // D2：城市排满后仍有剩余天数 → 机动/深度日（自由活动 / 周边一日游），不硬塞景点、不虚构城市
+    if (flexDays > 0) {
+      const lastCity = (alloc[alloc.length - 1] && alloc[alloc.length - 1].city) || lib.countryNameZh;
+      const flexActs = (attrByCity[lastCity] && attrByCity[lastCity].length) ? attrByCity[lastCity] : lib.attractions;
+      for (let f = 1; f <= flexDays; f++) {
+        dayNo++;
+        const a = flexActs[(f - 1) % flexActs.length];
+        dailyPlan.push({
+          day: dayNo, title: `${lastCity} · 机动/深度日 ${f}`,
+          intensity: pace, dayType: "optional", isFlex: true,
+          activities: [{ id: (a && a.id) || "flex-" + f, name: (a && a.name) ? (a.name + " / 自由深度游") : "自由活动 · 周边一日游",
+            timeSlot: "全天", durationMin: 240, summary: "机动日：补未尽景点、周边一日游或纯放松，避免赶路", source: (a && a.source) || "行程建议" }],
+          meals: [], reservationRefs: []
+        });
+      }
+    }
     const realDays = dailyPlan.length;
     const coreDays = alloc.length ? alloc[0].days : realDays;
     const optionalDays = realDays - coreDays;
@@ -393,8 +440,17 @@
       detail: input.origin ? transportFor(country, input.origin).note : "建议直飞，填写出发地可估算时长", source: "交通估算" }];
     for (let i = 1; i < usedCities.length; i++) segments.push({ mode: "train", from: usedCities[i - 1], to: usedCities[i], detail: "城市间建议火车 / 大巴", source: "交通估算" });
 
-    const flexNote = (cappedByCity ? `已按「每城 ≤${MAX_DAYS_PER_CITY} 天」铺排 ${usedCities.length} 座城市；想玩更久可增加城市或在文字里说明。` : "")
-      + (optionalDays > 0 ? `第一座城市 ${coreDays} 天为核心，时间紧可只玩首城。` : "已是精简安排。");
+    const flexNote = (cappedByCity
+      ? `本国现有 ${cities.length} 座城市按「每城 ≤${MAX_DAYS_PER_CITY} 天」排满 ${days} 天，多出的 ${flexDays} 天已作机动/深度日（自由活动或周边一日游），不再硬塞景点。`
+      : (optionalDays > 0 ? `第一座城市 ${coreDays} 天为核心，时间紧可只玩首城。` : "已是精简安排。"));
+
+    // D2：单国天数偏宽裕时，提示加邻国串成多国行程（取 geo 邻接表里已覆盖的邻国）
+    const adj = (DATA.geo && DATA.geo.adjacency) || {};
+    const neighbors = (adj[country] || []).filter(n => DATA.libraries[n]).slice(0, 3);
+    const addNeighbor = (flexDays >= 2 && neighbors.length)
+      ? { note: `${wantDays} 天对单国偏宽裕，可考虑加邻国串成多国行程：${neighbors.map(n => DATA.libraries[n].countryNameZh).join("、")}。`,
+          neighbors, source: "邻接建议" }
+      : null;
 
     return {
       meta: {
@@ -411,7 +467,8 @@
       dailyPlan,
       reservations: lib.reservations.map(r => ({ id: r.id, name: r.name, day: 1, method: r.method, leadTime: r.leadTime, source: r.source })),
       seasonalTips: tipsOut,
-      flexibility: { coreDays, optionalDays, note: flexNote },
+      flexibility: { coreDays, optionalDays, flexDays, note: flexNote },
+      addNeighbor,
       timingWarning,
       warnings: ["本结果由本地规则引擎(DEMO 模式)生成；接入后端 AI 后将实时生成更丰富的方案。"]
     };

@@ -692,7 +692,8 @@
       if (d.meals && d.meals.length) html += `<div class="meals-line">🍽️ ${d.meals.map(me => esc(me.name) + (me.reason ? "（" + esc(me.reason) + "）" : "")).join("　·　")}</div>`;
       html += `</div>`;
     });
-    if (t.flexibility) html += `<div class="flex-note">🔧 弹性：核心 ${t.flexibility.coreDays} 天 / 可选 ${t.flexibility.optionalDays} 天。${esc(t.flexibility.note || "")}</div>`;
+    if (t.flexibility) html += `<div class="flex-note">🔧 弹性：核心 ${t.flexibility.coreDays} 天 / 可选 ${t.flexibility.optionalDays} 天${t.flexibility.flexDays ? "（含机动/深度日 " + t.flexibility.flexDays + " 天）" : ""}。${esc(t.flexibility.note || "")}</div>`;
+    if (t.addNeighbor) html += `<div class="flex-note">🧭 ${esc(t.addNeighbor.note)}</div>`;
     html += `</div><div class="module"><h4>📌 5. 需提前预约</h4>`;
     if (t.reservations.length) t.reservations.forEach(r => html += `<div class="resv-item"><b>${esc(r.name)}</b>：${esc(r.method)}，${esc(r.leadTime)} <span class="source">（${esc(r.source)}）</span></div>`);
     else html += `<div class="resv-item">本行程无需特别预约。</div>`;
