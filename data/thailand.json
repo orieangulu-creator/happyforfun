@@ -1,7 +1,7 @@
 {
   "country": "thailand",
   "countryNameZh": "泰国",
-  "updatedAt": "2026-06-26",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "winter",
@@ -97,6 +97,62 @@
       "suggestedDurationMin": 120,
       "moodTags": ["scenery", "relax", "slow"],
       "source": "https://www.bangkok-river-cruise.com/"
+    },
+    {
+      "id": "ayutthaya-historical-park",
+      "name": "大城历史公园 (Ayutthaya Historical Park)",
+      "region": "曼谷",
+      "summary": "曼谷以北约80公里的世界遗产古都遗址，可一日游览古寺与佛塔。",
+      "suggestedDurationMin": 300,
+      "moodTags": ["culture", "explore", "scenery"],
+      "dayTrip": true,
+      "parentCity": "曼谷",
+      "source": "https://whc.unesco.org/en/list/576/"
+    },
+    {
+      "id": "cnx-doi-suthep",
+      "name": "素贴山双龙寺 (Wat Phra That Doi Suthep)",
+      "region": "清迈",
+      "summary": "清迈最重要的山顶金塔寺庙，距市区约11公里，登七头蛇阶梯可俯瞰全城。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "scenery", "explore"],
+      "source": "https://www.lonelyplanet.com/thailand/chiang-mai-province/chiang-mai/attractions/wat-phra-that-doi-suthep/a/poi-sig/1243262/357655"
+    },
+    {
+      "id": "cnx-wat-chedi-luang",
+      "name": "契迪龙寺 (Wat Chedi Luang)",
+      "region": "清迈",
+      "summary": "古城中心的兰纳古刹，建于15世纪的巨型砖塔曾高达80米，气势恢宏。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["culture", "explore"],
+      "source": "https://en.wikipedia.org/wiki/Wat_Chedi_Luang"
+    },
+    {
+      "id": "hkt-big-buddha",
+      "name": "普吉大佛 (Phuket Big Buddha)",
+      "region": "普吉",
+      "summary": "Nakkerd山顶45米高缅甸白玉坐佛，免费开放，可远眺海岸与普吉镇。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://en.wikipedia.org/wiki/Phuket_Big_Buddha"
+    },
+    {
+      "id": "hkt-phi-phi-islands",
+      "name": "皮皮岛 (Phi Phi Islands)",
+      "region": "普吉",
+      "summary": "安达曼海石灰岩绝壁海岛群，玛雅湾、猴子湾浮潜胜地，多由普吉乘船一日游。",
+      "suggestedDurationMin": 480,
+      "moodTags": ["island", "relax", "scenery"],
+      "source": "https://www.tripadvisor.com/Attraction_Review-g297922-d317879-Reviews-Phi_Phi_Islands-Krabi_Town_Krabi_Province.html"
+    },
+    {
+      "id": "hkt-old-town",
+      "name": "普吉老城 (Phuket Old Town)",
+      "region": "普吉",
+      "summary": "中葡风格街区，Thalang路与Soi Rommanee五彩骑楼，周日有步行街市集。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "shopping", "food"],
+      "source": "https://www.bucketlistly.blog/posts/best-things-to-do-in-phuket-old-town"
     }
   ],
   "foods": [
@@ -131,6 +187,30 @@
       "region": "曼谷",
       "reason": "泰国最受欢迎的甜点，熟芒果配椰浆糯米，热季芒果最甜。",
       "source": "https://www.thailandhighlights.com/thailand/top-dishes"
+    },
+    {
+      "id": "th-khao-soi",
+      "name": "金面咖喱面 (Khao Soi)",
+      "type": "面食",
+      "region": "清迈",
+      "reason": "清迈招牌北部料理，椰香咖喱汤底配软蛋面，上覆酥脆炸面，佐酸菜青柠。",
+      "source": "https://www.cafedethaanaoan.com/2025/12/21/all-about-khao-soi-in-chiang-mai-history-taste-and-the-best-places-to-try-it/"
+    },
+    {
+      "id": "th-moo-hong",
+      "name": "普吉焖五花肉 (Moo Hong)",
+      "type": "主菜",
+      "region": "普吉",
+      "reason": "源自福建华人的普吉招牌菜，五花肉以棕榈糖、黑胡椒、酱油慢炖至软糯。",
+      "source": "https://achefstour.com/blog/southern-thai-dishes-you-shouldnt-skip-in-phuket"
+    },
+    {
+      "id": "th-hokkien-mee",
+      "name": "福建炒面 (Hokkien Mee)",
+      "type": "面食",
+      "region": "普吉",
+      "reason": "普吉老城福建风味黄面，炭火快炒配虾、鱿鱼与蛋，浓香入味。",
+      "source": "https://sawasdee.thaiairways.com/to-understand-the-culture-of-phuket-slurp-a-bowl-of-mee-hokkien/"
     }
   ],
   "reservations": [
@@ -149,6 +229,32 @@
       "method": "每月25日中午12:00(曼谷时间)于TableCheck开放次月订位，亦可邮件 reservation@sornfinesouthern.com。",
       "leadTime": "建议提前约3个月规划，订位常于开放后短时内售罄。",
       "source": "https://guide.michelin.com/us/en/bangkok-region/bangkok/restaurant/sorn"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "曼谷",
+      "to": "清迈",
+      "mode": "flight",
+      "durationText": "约1小时20分",
+      "detail": "曼谷至清迈飞行约1小时20分，多家航司每日班次密集；亦可乘9次夜班卧铺火车，约13小时(18:40发次晨07:15到)。",
+      "source": "https://www.seat61.com/Thailand.htm"
+    },
+    {
+      "from": "曼谷",
+      "to": "普吉",
+      "mode": "flight",
+      "durationText": "约1小时30分",
+      "detail": "曼谷至普吉飞行约1.5小时，是最快方式；公共巴士约12至14小时(行程约832公里)，性价比高但耗时长。",
+      "source": "https://www.rome2rio.com/s/Bangkok/Phuket"
+    },
+    {
+      "from": "普吉",
+      "to": "皮皮岛",
+      "mode": "ferry",
+      "durationText": "约1.5至2小时",
+      "detail": "普吉Rassada码头乘渡轮约1.5至2小时抵皮皮岛，快艇约45至50分钟；亦可参加一日游团。",
+      "source": "https://www.phuketferry.com/route-phuket-koh-phi-phi.html"
     }
   ],
   "seasonalTips": [

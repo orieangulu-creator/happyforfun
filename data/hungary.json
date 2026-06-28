@@ -1,7 +1,7 @@
 {
   "country": "hungary",
   "countryNameZh": "匈牙利",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "spring",
@@ -106,6 +106,53 @@
       "suggestedDurationMin": 60,
       "moodTags": ["culture", "explore"],
       "source": "https://jstraveldiaries.com/hungary/things-to-do-in-eger/"
+    },
+    {
+      "id": "pecs-necropolis",
+      "name": "早期基督教墓地 (Early Christian Necropolis / Sopianae)",
+      "region": "佩奇",
+      "summary": "公元4世纪罗马墓室群，是意大利以外最大的早期基督教墓葬遗址，2000年列入世界遗产。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "explore"],
+      "source": "https://whc.unesco.org/en/list/853/"
+    },
+    {
+      "id": "pecs-mosque-qasim",
+      "name": "卡西姆帕夏清真寺 (Mosque of Pasha Qasim)",
+      "region": "佩奇",
+      "summary": "塞切尼广场上的16世纪奥斯曼建筑，是匈牙利现存最大的土耳其清真寺，后改为天主教堂。",
+      "suggestedDurationMin": 45,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.tripadvisor.com/Attraction_Review-g274905-d282750-Reviews-Mosque_of_Pasha_Gazi_Kassim_Church_of_Gyertyaszentelo_Boldogasszony-Pecs_Baranya_C.html"
+    },
+    {
+      "id": "pecs-cathedral",
+      "name": "圣彼得与圣保罗大教堂 (Pécs Cathedral)",
+      "region": "佩奇",
+      "summary": "罗马式四塔大教堂，根基可溯至4世纪罗马时期，融合罗曼、哥特与巴洛克风格，1991年获封宗座圣殿。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://en.wikipedia.org/wiki/P%C3%A9cs_Cathedral"
+    },
+    {
+      "id": "pecs-zsolnay-quarter",
+      "name": "佐尔瑙文化区 (Zsolnay Cultural Quarter)",
+      "region": "佩奇",
+      "summary": "由1853年创立的佐尔瑙陶瓷工厂旧址改建，5公顷园区遍布历史建筑与陶艺雕塑，是佩奇文化名片。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "explore", "slow"],
+      "source": "https://www.zsolnaynegyed.hu/en/attractions/about-zsolnay-quarter"
+    },
+    {
+      "id": "bud-szentendre",
+      "name": "圣安德烈 (Szentendre)",
+      "region": "布达佩斯",
+      "summary": "多瑙河畔的巴洛克艺术小镇，鹅卵石街巷、彩色房屋与画廊云集，从布达佩斯乘HÉV郊铁约40分钟可达，适合一日游。",
+      "suggestedDurationMin": 300,
+      "moodTags": ["culture", "scenery", "slow"],
+      "dayTrip": true,
+      "parentCity": "布达佩斯",
+      "source": "https://www.budapestbylocals.com/szentendre-day-trip/"
     }
   ],
   "foods": [
@@ -140,6 +187,14 @@
       "region": "埃格尔",
       "reason": "埃格尔最著名的红葡萄混酿，在美人谷的凝灰岩洞穴酒窖中品尝最为地道。",
       "source": "https://jstraveldiaries.com/hungary/things-to-do-in-eger/"
+    },
+    {
+      "id": "pecs-mediterranean-fare",
+      "name": "佩奇地中海风味餐与露天咖啡 (Pécs Mediterranean café fare)",
+      "type": "餐饮体验",
+      "region": "佩奇",
+      "reason": "佩奇以地中海般气候著称，逛完老城可在塞切尼广场周边的露天餐厅与咖啡馆悠闲小坐，品当地餐酒。",
+      "source": "https://visithungary.com/destination/pecs"
     }
   ],
   "reservations": [
@@ -158,6 +213,24 @@
       "method": "通过官方旅游门户预订定时导览门票，按语言分组入场。",
       "leadTime": "热门时段易售罄，建议提前数日在线预订并预留安检时间。",
       "source": "https://www.budapestinfo.hu/en/top-sights"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "布达佩斯",
+      "to": "埃格尔",
+      "mode": "train",
+      "durationText": "约2小时",
+      "detail": "匈牙利铁路(MÁV)从布达佩斯东站(Keleti)发车，多为直达车，最快约1小时53分。",
+      "source": "https://www.rome2rio.com/Train/Budapest/Eger"
+    },
+    {
+      "from": "布达佩斯",
+      "to": "佩奇",
+      "mode": "train",
+      "durationText": "约2小时30分",
+      "detail": "匈牙利铁路(MÁV)从布达佩斯南站(Déli)/凯伦福德站(Kelenföld)发车，IC直达车每日数班，约2小时30分。",
+      "source": "https://www.rome2rio.com/s/Budapest/P%C3%A9cs"
     }
   ],
   "seasonalTips": [

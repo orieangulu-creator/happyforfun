@@ -1,7 +1,7 @@
 {
   "country": "czechia",
   "countryNameZh": "捷克",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "spring",
@@ -101,6 +101,35 @@
       "suggestedDurationMin": 180,
       "moodTags": ["scenery", "explore", "slow"],
       "source": "https://www.ricksteves.com/watch-read-listen/read/articles/cobbled-charms-of-cesky-krumlov"
+    },
+    {
+      "id": "kv-mill-colonnade",
+      "name": "磨坊温泉回廊 (Mlýnská Kolonáda / Mill Colonnade)",
+      "region": "卡罗维发利",
+      "summary": "1871-1881年由建筑师Josef Zítek设计的新文艺复兴风石柱回廊，长132米、124根柯林斯柱，廊内汇集磨坊泉等五眼矿泉可免费取饮品尝。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["culture", "scenery", "slow"],
+      "source": "https://www.karlovyvary.cz/en/mill-colonnade"
+    },
+    {
+      "id": "kv-hot-spring-colonnade",
+      "name": "热泉回廊 (Vřídelní Kolonáda / Hot Spring Colonnade)",
+      "region": "卡罗维发利",
+      "summary": "1975年功能主义玻璃混凝土建筑，罩护全城最著名的间歇热泉，泉柱可喷高达12米，是温泉小镇的核心地标。",
+      "suggestedDurationMin": 45,
+      "moodTags": ["scenery", "explore", "slow"],
+      "source": "https://www.karlovyvary.cz/en/hot-spring-colonnade"
+    },
+    {
+      "id": "kh-sedlec-ossuary",
+      "name": "塞德莱茨人骨教堂 (Sedlec Ossuary)",
+      "region": "库特纳霍拉",
+      "dayTrip": true,
+      "parentCity": "布拉格",
+      "summary": "库特纳霍拉郊外的哥特小礼拜堂，世界遗产，内部用约4万人遗骨艺术性排列成枝形吊灯、纹章等装饰，可从布拉格一日往返。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.sedlec.info/en/ossuary/"
     }
   ],
   "foods": [
@@ -135,6 +164,22 @@
       "region": "捷克",
       "reason": "世界首款皮尔森式拉格1842年诞生于皮尔森(Plzeň)，奠定全球拉格标准；Pilsner Urquell、Budvar等捷克啤酒享誉世界。",
       "source": "https://www.mustseespots.com/czech-republic/articles/czech-food-guide-goulash-trdelnk-beer-culture/"
+    },
+    {
+      "id": "kv-oplatky",
+      "name": "卡罗维发利温泉饼 (Karlovarské oplatky)",
+      "type": "甜点",
+      "region": "卡罗维发利",
+      "reason": "大而薄的圆形威化饼，以当地温泉水与盐和面，烤制后夹香草、榛果、巧克力等夹心；1867年首家专门作坊问世，是温泉回廊散步必尝小吃与名特产。",
+      "source": "https://www.visitczechia.com/en-us/things-to-do/places/gastronomic-tourism/czech-cuisine-and-regional-products/g-karlovarske-oplatky"
+    },
+    {
+      "id": "kv-becherovka",
+      "name": "贝赫洛夫卡草本酒 (Becherovka)",
+      "type": "草本利口酒",
+      "region": "卡罗维发利",
+      "reason": "1807年起在卡罗维发利酿造的草本利口酒，配方含约20种香草香料、属当地最受守护的秘方之一，是温泉镇标志性饮品。",
+      "source": "https://www.greatspatownsofeurope.eu/discover-experience/karlovy-vary/"
     }
   ],
   "reservations": [
@@ -153,6 +198,24 @@
       "method": "经官方 zamek-ceskykrumlov.cz 在线预订约50分钟导览或现场购票；仅限定时导览参观，容量有限。",
       "leadTime": "因容量有限、热门易售罄，建议提前在线预订；注意该剧院于2026年6月27日前闭馆，行前请查官网最新开放状态。",
       "source": "https://www.zamek-ceskykrumlov.cz/en/visitors-information/tours/1069-baroque-castle-theatre-in-cesky-krumlov"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "布拉格",
+      "to": "克鲁姆洛夫",
+      "mode": "bus",
+      "durationText": "约2小时40分",
+      "detail": "RegioJet/FlixBus巴士直达且最便捷，每日多班；火车多需在České Budějovice换乘、耗时约4小时，故首选巴士。",
+      "source": "https://www.rome2rio.com/s/Prague/%C4%8Cesk%C3%BD-Krumlov-Station"
+    },
+    {
+      "from": "布拉格",
+      "to": "卡罗维发利",
+      "mode": "bus",
+      "durationText": "约2小时15分",
+      "detail": "RegioJet/FlixBus巴士最快约1小时30分至2小时15分、班次密集；直达火车需约3.5小时，巴士明显更快更省，故首选巴士。",
+      "source": "https://www.rome2rio.com/s/Prague/Karlovy-Vary"
     }
   ],
   "seasonalTips": [

@@ -1,7 +1,7 @@
 {
   "country": "netherlands",
   "countryNameZh": "荷兰",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "spring",
@@ -122,6 +122,35 @@
       "suggestedDurationMin": 45,
       "moodTags": ["scenery", "explore"],
       "source": "https://www.rotterdam.info/en/visit/guide/top-10-attractions"
+    },
+    {
+      "id": "mauritshuis",
+      "name": "莫瑞泰斯美术馆 (Mauritshuis)",
+      "region": "海牙",
+      "summary": "黄金时代绘画殿堂，藏维米尔《戴珍珠耳环的少女》与伦勃朗名作，建议在线预约时段票。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.mauritshuis.nl/en/visit/"
+    },
+    {
+      "id": "peace-palace",
+      "name": "和平宫 (Peace Palace / Vredespaleis)",
+      "region": "海牙",
+      "summary": "国际法院与常设仲裁法院所在地，访客中心免费参观，入内需提前预约导览团。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.vredespaleis.nl/visit/?lang=en"
+    },
+    {
+      "id": "keukenhof",
+      "name": "库肯霍夫花园 (Keukenhof)",
+      "region": "利瑟（Lisse）",
+      "summary": "世界最大春季花园，700万株郁金香花海，仅春季限定开放，常作阿姆斯特丹日游目的地。",
+      "suggestedDurationMin": 240,
+      "moodTags": ["scenery", "slow"],
+      "dayTrip": true,
+      "parentCity": "阿姆斯特丹",
+      "source": "https://keukenhof.nl/en/plan-your-visit/"
     }
   ],
   "foods": [
@@ -156,6 +185,14 @@
       "region": "豪达（Gouda）",
       "reason": "荷兰是全球最大的奶酪出口国，豪达黄奶酪自12世纪起生产，是世界上最古老的奶酪品种之一。",
       "source": "https://www.getyourguide.com/explorer/netherlands-ttd169014/dutch-foods-you-should-try/"
+    },
+    {
+      "id": "scheveningen-haring",
+      "name": "席凡宁根新鲱鱼 (Scheveningen Hollandse Nieuwe)",
+      "type": "海鲜小吃",
+      "region": "海牙",
+      "reason": "海牙席凡宁根渔港是荷兰新鲱鱼传统的发源地，每年6月在此举办鲱鱼旗帜节（Vlaggetjesdag）庆祝当季首批鲱鱼上岸，配洋葱与酸黄瓜整条入口最地道。",
+      "source": "https://denhaag.com/en/calendar/flag-day-scheveningen"
     }
   ],
   "reservations": [
@@ -174,6 +211,48 @@
       "method": "需在官网 https://tickets.vangoghmuseum.com 预约带入场时段的门票，无入场时段无法进入。",
       "leadTime": "建议提前约5至6周预订，3月至10月旺季热门时段常提前数周售罄。",
       "source": "https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices"
+    },
+    {
+      "id": "mauritshuis-reservation",
+      "name": "莫瑞泰斯美术馆 (Mauritshuis)",
+      "region": "海牙",
+      "method": "建议在官网 mauritshuis.nl 在线购买带入场时段的门票，即使持优惠卡也建议预约时段以确保入场。",
+      "leadTime": "夏季旺季及特展期间人潮集中，建议提前数日预约时段；周四开放至20点。",
+      "source": "https://www.mauritshuis.nl/en/visit/"
+    },
+    {
+      "id": "peace-palace-tour",
+      "name": "和平宫导览 (Peace Palace Inside Tour)",
+      "region": "海牙",
+      "method": "访客中心免费参观；入宫需在官网 vredespaleis.nl 预约导览团，并须携带护照或欧盟身份证件原件方可入内。",
+      "leadTime": "导览门票约提前两周开售，名额有限建议尽早预订。",
+      "source": "https://www.vredespaleis.nl/visit/tour-inside-the-palace/?lang=en"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "阿姆斯特丹",
+      "to": "鹿特丹",
+      "mode": "train",
+      "durationText": "约40分钟",
+      "detail": "NS Intercity Direct直达，阿姆斯特丹中央站经史基浦机场至鹿特丹中央站，约41分钟，每日约52班。",
+      "source": "https://www.ns.nl/en/travel-information/special-routes/intercity-direct.html"
+    },
+    {
+      "from": "阿姆斯特丹",
+      "to": "海牙",
+      "mode": "train",
+      "durationText": "约50分钟",
+      "detail": "NS Intercity直达海牙中央站（Den Haag Centraal），最快约49分钟，每日约76班，无需换乘。",
+      "source": "https://www.ns.nl/en/routes/amsterdam-to-den-haag"
+    },
+    {
+      "from": "鹿特丹",
+      "to": "海牙",
+      "mode": "train",
+      "durationText": "约25分钟",
+      "detail": "NS Intercity或Sprinter，鹿特丹中央站至海牙中央站约22至26分钟，班次密集无需换乘。",
+      "source": "https://www.ns.nl/en/routes/rotterdam-to-den-haag"
     }
   ],
   "seasonalTips": [

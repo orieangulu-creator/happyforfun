@@ -1,7 +1,7 @@
 {
   "country": "germany",
   "countryNameZh": "德国",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "autumn",
@@ -118,6 +118,33 @@
       "suggestedDurationMin": 75,
       "moodTags": ["culture", "explore"],
       "source": "https://www.berlin.de/en/attractions-and-sights/top-10/"
+    },
+    {
+      "id": "cologne-cathedral",
+      "name": "科隆大教堂 (Kölner Dom)",
+      "region": "科隆",
+      "summary": "UNESCO世界遗产，德国最受欢迎景点，哥特式双塔高157米，可登533级阶梯眺望莱茵河与全城。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.cologne-tourism.com/arts-culture/sights/detail/cologne-cathedral"
+    },
+    {
+      "id": "hohenzollern-bridge",
+      "name": "霍亨索伦桥（爱情锁桥）(Hohenzollernbrücke)",
+      "region": "科隆",
+      "summary": "横跨莱茵河逾400米的铁路桥，桥栏挂满数十万把情侣爱情锁，是俯瞰科隆大教堂与莱茵河全景的最佳拍摄点。",
+      "suggestedDurationMin": 45,
+      "moodTags": ["scenery", "slow"],
+      "source": "https://www.cologne-tourism.com/arts-culture/sights/detail/hohenzollern-bridge"
+    },
+    {
+      "id": "cologne-old-town",
+      "name": "科隆老城与鱼市 (Altstadt & Fischmarkt)",
+      "region": "科隆",
+      "summary": "莱茵河畔老城区，鱼市广场战后重建的彩色山墙小楼与大圣马丁教堂相映，是科隆最上镜的角落。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["scenery", "explore"],
+      "source": "https://www.cologne-tourism.com/arts-culture/sights/detail/cologne-old-town"
     }
   ],
   "foods": [
@@ -152,6 +179,22 @@
       "region": "柏林",
       "reason": "起源于战后柏林，由Herta Heuwer以番茄酱与咖喱粉调味烤猪肠而创，如今是柏林标志性街头美食。",
       "source": "https://www.tastingtable.com/1538433/bavarian-foods-munich/"
+    },
+    {
+      "id": "koelsch",
+      "name": "科隆啤酒 (Kölsch)",
+      "type": "啤酒/饮品",
+      "region": "科隆",
+      "reason": "受欧盟地理标志保护、唯科隆可酿的清澈上层发酵啤酒，以0.2升细长杯盛装，由侍者Köbes不断续杯，是科隆酒馆文化的灵魂。",
+      "source": "https://www.cologne-tourism.com/delight-diversity/gastronomy/breweries"
+    },
+    {
+      "id": "halve-hahn",
+      "name": "半只鸡 (Halve Hahn)",
+      "type": "小吃",
+      "region": "科隆",
+      "reason": "名为「半只鸡」实则不含鸡肉，是夹陈年高达奶酪、洋葱与芥末的黑麦圆面包，科隆酒馆配Kölsch的经典下酒菜。",
+      "source": "https://www.cologne-tourism.com/delight-diversity/gastronomy/breweries"
     }
   ],
   "reservations": [
@@ -170,6 +213,32 @@
       "method": "免费参观但须提前在德国联邦议院官网（visite.bundestag.de）在线登记，需填写每位访客的姓名与出生日期，16岁以上须携有效证件。",
       "leadTime": "预订窗口于参观日前正好3个月开放，按日滚动放票；旺季（6-9月）上午10点至下午2点的热门时段常在开放首周内订满，建议尽早预约。",
       "source": "https://www.bundestag.de/en/visittheBundestag/dome/registration-245686"
+    },
+    {
+      "id": "cologne-cathedral-tower",
+      "name": "科隆大教堂南塔登顶 (Kölner Dom Südturm)",
+      "region": "科隆",
+      "method": "教堂主殿免费入内（弥撒时段限制游客参观）；登南塔（533级阶梯）与珍宝馆需另购票，可于官网 koelner-dom.de 在线购票避免排队。",
+      "leadTime": "塔楼开放时间随季节变动（3-10月约9:00-18:00，11-2月约9:00-16:00）；旺季排队较长，建议清晨或网上提前购票。",
+      "source": "https://www.colognecathedral.de/opening-hours.html"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "柏林",
+      "to": "慕尼黑",
+      "mode": "train",
+      "durationText": "约4小时",
+      "detail": "德铁ICE高铁直达，柏林Hauptbahnhof站至慕尼黑Hauptbahnhof站，最快约3小时53分，每日约22班；ICE Sprinter经哈雷（Halle）可压至4小时内。",
+      "source": "https://www.thetrainline.com/en-us/train-times/berlin-to-munich"
+    },
+    {
+      "from": "慕尼黑",
+      "to": "科隆",
+      "mode": "train",
+      "durationText": "约4小时30分",
+      "detail": "德铁ICE高铁直达，慕尼黑Hauptbahnhof站至科隆Hauptbahnhof站，最快约4小时11分、平均约4小时49分，每日多班直达。",
+      "source": "https://www.thetrainline.com/en-us/train-times/koln-hbf-to-munich-hbf"
     }
   ],
   "seasonalTips": [

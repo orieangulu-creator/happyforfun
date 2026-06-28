@@ -1,7 +1,7 @@
 {
   "country": "croatia",
   "countryNameZh": "克罗地亚",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "summer",
@@ -106,6 +106,44 @@
       "suggestedDurationMin": 120,
       "moodTags": ["scenery", "explore", "relax"],
       "source": "https://www.travelinmypocket.com/must-see-attractions-split-croatia/"
+    },
+    {
+      "id": "zagreb-st-marks-church",
+      "name": "圣马可教堂 (St. Mark's Church)",
+      "region": "萨格勒布",
+      "summary": "上城地标，1880年铺设的彩瓦屋顶拼出克罗地亚三一王国与萨格勒布市徽，是全城最上镜的建筑。",
+      "suggestedDurationMin": 30,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://en.wikipedia.org/wiki/St._Mark%27s_Church,_Zagreb"
+    },
+    {
+      "id": "zagreb-funicular",
+      "name": "萨格勒布缆索车 (Zagreb Funicular / Uspinjača)",
+      "region": "萨格勒布",
+      "summary": "1890年启用的蓝色缆索车，仅66米长，是世界最短公共缆索车之一，连接下城Ilica街与上城Strossmayer散步道。",
+      "suggestedDurationMin": 20,
+      "moodTags": ["explore", "slow"],
+      "source": "https://en.wikipedia.org/wiki/Zagreb_Funicular"
+    },
+    {
+      "id": "zagreb-jelacic-dolac",
+      "name": "耶拉契奇广场与多拉茨市场 (Ban Jelačić Square & Dolac Market)",
+      "region": "萨格勒布",
+      "summary": "城市中心主广场，旁邻自1930年起经营的多拉茨露天市场，红伞下售卖鲜果蔬菜花卉，被称作「萨格勒布之腹」。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["explore", "food", "culture"],
+      "source": "https://www.absolute-croatia.com/zagreb/attractions"
+    },
+    {
+      "id": "plitvice-lakes",
+      "name": "普利特维采湖国家公园 (Plitvice Lakes National Park)",
+      "region": "萨格勒布",
+      "summary": "克罗地亚最著名国家公园，16座梯级湖泊由瀑布相连，木栈道穿行碧蓝湖水间，联合国教科文世界遗产。",
+      "suggestedDurationMin": 360,
+      "moodTags": ["scenery", "explore", "relax"],
+      "dayTrip": true,
+      "parentCity": "萨格勒布",
+      "source": "https://np-plitvicka-jezera.hr/en/plan-your-visit/istrazite-jezera/price-list/"
     }
   ],
   "foods": [
@@ -140,6 +178,14 @@
       "region": "克罗地亚",
       "reason": "小巧的油炸面球，外脆内软、微甜，常加柠檬皮或葡萄干提味，并撒糖粉，是克罗地亚人气甜点。",
       "source": "https://www.jadranka-yachting.com/en/blog/traditional-croatian-food-dalmatian-style"
+    },
+    {
+      "id": "hr-strukli",
+      "name": "芝士奶酪卷 (Štrukli)",
+      "type": "面点（咸/甜）",
+      "region": "萨格勒布",
+      "reason": "萨格勒布与扎戈列地区的招牌菜：薄面皮裹农家奶酪与酸奶油，可煮可烤，2007年列入克罗地亚非物质文化遗产。",
+      "source": "https://artsandculture.google.com/story/wining-and-dining-in-zagreb-croatian-national-tourist-board/JgWhn_uokqPoKQ?hl=en"
     }
   ],
   "reservations": [
@@ -158,6 +204,32 @@
       "method": "官方网店在线购买定时入场票 np-plitvicka-jezera.hr，选择1号或2号入口、日期与1小时到达时段，按原价无服务费，门票含园内观光小火车与电动船。",
       "leadTime": "夏季(6-9月)旺季票价约€40且名额紧张，强烈建议提前在线预订指定时段；票需在所选入口、所购时段内验票入场。",
       "source": "https://np-plitvicka-jezera.hr/en/plan-your-visit/istrazite-jezera/price-list/"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "萨格勒布",
+      "to": "斯普利特",
+      "mode": "bus",
+      "durationText": "约5至5.5小时",
+      "detail": "长途巴士最便捷，FlixBus等运营商班次密集、约5小时直达；亦有HŽPP国铁每日列车，但耗时约6至7小时较慢。",
+      "source": "https://global.flixbus.com/bus-routes/bus-zagreb-split"
+    },
+    {
+      "from": "斯普利特",
+      "to": "杜布罗夫尼克",
+      "mode": "bus",
+      "durationText": "约4至4.5小时",
+      "detail": "杜布罗夫尼克无铁路，沿海巴士(FlixBus等)是全年最可靠方式，途经海岸公路约4至4.5小时；旺季可改乘Jadrolinija/Krilo快艇渡轮(经赫瓦尔、科尔丘拉等岛约5至6小时)。",
+      "source": "https://www.rome2rio.com/s/Split/Dubrovnik"
+    },
+    {
+      "from": "斯普利特",
+      "to": "杜布罗夫尼克",
+      "mode": "ferry",
+      "durationText": "约5至6小时",
+      "detail": "夏季Jadrolinija快艇沿斯普利特—布拉奇/赫瓦尔—科尔丘拉—杜布罗夫尼克航线行驶约6小时；Krilo快艇约5小时。淡季停航，须改乘巴士。",
+      "source": "https://www.jadrolinija.hr/en/search-buy-ticket"
     }
   ],
   "seasonalTips": [

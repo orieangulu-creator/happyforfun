@@ -1,7 +1,7 @@
 {
   "country": "poland",
   "countryNameZh": "波兰",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "autumn",
@@ -78,7 +78,20 @@
       "summary": "联合国教科文世界遗产，由隧道、盐雕与地下盐制教堂组成，亮点是全由盐打造的圣金加教堂。",
       "suggestedDurationMin": 180,
       "moodTags": ["explore", "culture"],
+      "dayTrip": true,
+      "parentCity": "克拉科夫",
       "source": "https://www.wieliczka-saltmine.com/individual-tourist/useful-information/ticket-prices-and-visiting-hours"
+    },
+    {
+      "id": "krk-auschwitz",
+      "name": "奥斯维辛-比克瑙纪念馆 (Auschwitz-Birkenau Memorial)",
+      "region": "克拉科夫",
+      "summary": "前纳粹集中营旧址，联合国教科文世界遗产与二战历史纪念地，自克拉科夫约1.5小时车程的肃穆一日游。",
+      "suggestedDurationMin": 210,
+      "moodTags": ["culture", "explore"],
+      "dayTrip": true,
+      "parentCity": "克拉科夫",
+      "source": "https://visit.auschwitz.org/?lang=en"
     },
     {
       "id": "waw-old-town",
@@ -106,6 +119,42 @@
       "suggestedDurationMin": 120,
       "moodTags": ["relax", "scenery", "slow"],
       "source": "https://roamandthrive.com/best-things-to-do-in-warsaw/"
+    },
+    {
+      "id": "wro-market-square",
+      "name": "弗罗茨瓦夫集市广场与老市政厅 (Rynek & Old Town Hall)",
+      "region": "弗罗茨瓦夫",
+      "summary": "欧洲最大集市广场之一，被彩色联排房屋环绕，中央矗立保存完好的哥特式老市政厅。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore", "scenery"],
+      "source": "https://www.poland.travel/en/cities/wroclaw"
+    },
+    {
+      "id": "wro-dwarves",
+      "name": "弗罗茨瓦夫小矮人 (Wrocław Dwarfs / Krasnale)",
+      "region": "弗罗茨瓦夫",
+      "summary": "遍布全城的上千尊青铜小矮人雕像，源自反共「橙色另类」运动，寻找它们是亲子游趣事。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["explore", "scenery"],
+      "source": "https://en.wikipedia.org/wiki/Wroc%C5%82aw_Dwarfs"
+    },
+    {
+      "id": "wro-centennial-hall",
+      "name": "百年厅 (Centennial Hall / Hala Stulecia)",
+      "region": "弗罗茨瓦夫",
+      "summary": "马克斯·贝格1913年建成的钢筋混凝土先驱杰作，建成时为世界最大混凝土穹顶，联合国教科文世界遗产。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "explore"],
+      "source": "https://whc.unesco.org/en/list/1165"
+    },
+    {
+      "id": "wro-raclawice-panorama",
+      "name": "拉茨瓦维采全景画 (Racławice Panorama)",
+      "region": "弗罗茨瓦夫",
+      "summary": "15×114米360度环形巨幅油画，以光影与立体地形再现1794年拉茨瓦维采战役，身临其境。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["culture", "explore"],
+      "source": "https://mnwr.pl/en/branches/panorama-of-the-battle-of-raclawice/"
     }
   ],
   "foods": [
@@ -140,6 +189,14 @@
       "region": "克拉科夫",
       "reason": "编织成环状的有嚼劲面包，先煮后烤、撒盐或芝麻罂粟籽，是克拉科夫独有的受保护地方产品。",
       "source": "https://www.supercracow.com/a-locals-guide-to-the-best-polish-food-in-krakow-pierogi-zurek-more/"
+    },
+    {
+      "id": "pl-kluski-slaskie",
+      "name": "西里西亚土豆团子 (Kluski Śląskie)",
+      "type": "主食配菜",
+      "region": "弗罗茨瓦夫",
+      "reason": "弗罗茨瓦夫所在西里西亚地区的代表主食，圆扁带凹槽的土豆团子，常配牛肉卷与炖红卷心菜。",
+      "source": "https://www.polonist.com/kluski-slaskie-silesian-dumplings/"
     }
   ],
   "reservations": [
@@ -158,6 +215,24 @@
       "method": "官方售票网站 bilety.kopalnia.pl 在线购票(亦可现场售票处/自助机)；导览为强制制，按语言分组，不与第三方合作。",
       "leadTime": "建议至少提前两周预订；10:00-14:00黄金时段常提前3-5天售罄，含接送更紧张。",
       "source": "https://bilety.kopalnia.pl/index.html?lang=en"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "华沙",
+      "to": "克拉科夫",
+      "mode": "train",
+      "durationText": "约2小时28分",
+      "detail": "PKP Intercity EIP(Pendolino)高速直达，华沙中央站至克拉科夫中央站，每日班次密集，最快约2小时28分。",
+      "source": "https://www.polishtrains.eu/train-schedule/warszawa-centralna/krakow-glowny"
+    },
+    {
+      "from": "克拉科夫",
+      "to": "弗罗茨瓦夫",
+      "mode": "train",
+      "durationText": "约2小时50分",
+      "detail": "PKP Intercity直达列车(EC/IC/EIC)，克拉科夫中央站至弗罗茨瓦夫中央站，最快约2小时50分，每日数班。",
+      "source": "https://www.polishtrains.eu/train-schedule/krakow-glowny/wroclaw-glowny"
     }
   ],
   "seasonalTips": [

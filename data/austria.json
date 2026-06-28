@@ -1,7 +1,7 @@
 {
   "country": "austria",
   "countryNameZh": "奥地利",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "spring",
@@ -16,9 +16,9 @@
   ],
   "moodTags": ["culture", "scenery", "food", "explore", "slow"],
   "idealDuration": {
-    "minDays": 5,
-    "maxDays": 7,
-    "note": "5天可较从容游览维也纳(约1.5-2整天看主要景点)与萨尔茨堡两座代表城市；7天可加入哈尔施塔特或湖区短途，节奏更悠闲。",
+    "minDays": 6,
+    "maxDays": 9,
+    "note": "6天可较从容游览维也纳(约1.5-2整天)与萨尔茨堡；串联因斯布鲁克或加哈尔施塔特日游则建议8-9天，节奏更悠闲。",
     "source": "https://www.kimkim.com/c/how-many-days-to-spend-in-austria"
   },
   "signatureExperiencesByPeriod": [
@@ -101,6 +101,35 @@
       "suggestedDurationMin": 60,
       "moodTags": ["culture", "explore"],
       "source": "https://travelinculture.com/things-to-do-in-salzburg-austria-mozart-birthplace/"
+    },
+    {
+      "id": "sbg-hallstatt",
+      "name": "哈尔施塔特 (Hallstatt)",
+      "region": "萨尔茨堡",
+      "summary": "萨尔茨卡默古特湖区的童话湖畔小镇，列入世界遗产，可从萨尔茨堡乘巴士+火车+渡轮当日往返。",
+      "suggestedDurationMin": 300,
+      "moodTags": ["scenery", "slow", "explore"],
+      "dayTrip": true,
+      "parentCity": "萨尔茨堡",
+      "source": "https://www.hallstatt.net/service-eng/anreise-en-US/austria-by-bus/"
+    },
+    {
+      "id": "ibk-goldenes-dachl",
+      "name": "黄金屋顶 (Goldenes Dachl)",
+      "region": "因斯布鲁克",
+      "summary": "因斯布鲁克地标，1497-1500年马克西米利安一世所建，飘窗覆2657片镀金铜瓦，楼内为马克西米利安博物馆。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.innsbruck.info/en/sightseeing/i/the-golden-roof-museum.html"
+    },
+    {
+      "id": "ibk-nordkette",
+      "name": "北链山缆车 (Nordkettenbahnen)",
+      "region": "因斯布鲁克",
+      "summary": "从老城旁出发，经哈迪德设计的Hungerburgbahn缆索铁路换乘缆车，20分钟内直登海拔2256米哈费勒卡尔观景台俯瞰全城与阿尔卑斯。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["scenery", "explore", "slow"],
+      "source": "https://www.austria.info/en-us/cities-and-places/innsbruck/"
     }
   ],
   "foods": [
@@ -135,6 +164,22 @@
       "region": "维也纳",
       "reason": "皇帝弗朗茨·约瑟夫一世钟爱的经典菜，牛臀尖肉与根菜慢炖至软嫩，连同清汤上桌，是维也纳宫廷风味代表。",
       "source": "https://www.tasteatlas.com/best-dishes-in-vienna"
+    },
+    {
+      "id": "at-tiroler-groestl",
+      "name": "蒂罗尔煎肉土豆 (Tiroler Gröstl)",
+      "type": "主菜",
+      "region": "因斯布鲁克",
+      "reason": "蒂罗尔代表家常菜，土豆、牛肉与洋葱铁锅煎至焦香，上盖一枚煎蛋，源自山区物尽其用的传统。",
+      "source": "https://www.innsbruck.info/blog/en/food-drink/must-eat-the-5-classics-of-tyrolean-cuisine/"
+    },
+    {
+      "id": "at-speckknoedel",
+      "name": "培根面包团子 (Speckknödel)",
+      "type": "主食/汤品",
+      "region": "因斯布鲁克",
+      "reason": "蒂罗尔经典面包团子，揉入烟熏培根丁，多泡于清牛肉汤中作暖身前菜或主食。",
+      "source": "https://www.tyrol.com/activities/food/must-eats"
     }
   ],
   "reservations": [
@@ -153,6 +198,32 @@
       "method": "可在线预订门票(含上山缆车)或现场购票，旺季建议网上提前购票避免排队。",
       "leadTime": "旺季(夏季)建议提前数日在线预订，以选定时段并避开排队。",
       "source": "https://www.viator.com/Salzburg-attractions/Hohensalzburg-Fortress/d451-a516"
+    },
+    {
+      "id": "at-nordkette-ticket",
+      "name": "北链山缆车往返票 (Nordkettenbahnen round trip)",
+      "region": "因斯布鲁克",
+      "method": "可在 nordkette.com 官网或山下Congress站购买往返联票(含Hungerburgbahn、Seegrube、Hafelekar三段)；天气晴朗时登顶视野最佳。",
+      "leadTime": "无需提前预约，但建议出发前查官网运营状态与天气，恶劣天气可能停运。",
+      "source": "https://www.nordkette.com/en/top-of-innsbruck/"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "维也纳",
+      "to": "萨尔茨堡",
+      "mode": "train",
+      "durationText": "约2小时25分",
+      "detail": "ÖBB Railjet/Railjet Xpress(RJX)经圣珀尔滕、林茨直达，维也纳Hbf至萨尔茨堡Hbf，每小时约2班。",
+      "source": "https://www.oebb.at/en/reiseplanung-services/oebb-zugverbindungen/zugverbindungen-oesterreich/weststrecke/wien-salzburg"
+    },
+    {
+      "from": "萨尔茨堡",
+      "to": "因斯布鲁克",
+      "mode": "train",
+      "durationText": "约1小时50分",
+      "detail": "ÖBB Railjet/RJX直达，萨尔茨堡Hbf至因斯布鲁克Hbf，约每小时1班。",
+      "source": "https://www.oebb.at/en/reiseplanung-services/oebb-zugverbindungen/zugverbindungen-oesterreich/weststrecke/salzburg-innsbruck"
     }
   ],
   "seasonalTips": [

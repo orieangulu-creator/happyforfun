@@ -1,7 +1,7 @@
 {
   "country": "unitedkingdom",
   "countryNameZh": "英国",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "spring",
@@ -106,6 +106,44 @@
       "suggestedDurationMin": 150,
       "moodTags": ["scenery", "explore"],
       "source": "https://www.visitscotland.com/places-to-go/edinburgh/things-to-do"
+    },
+    {
+      "id": "bath-romanbaths",
+      "name": "罗马浴场 (Roman Baths)",
+      "region": "巴斯",
+      "summary": "保存极佳的古罗马温泉浴场遗址，环绕天然热泉，含语音导览，建议游览约90分钟至2小时。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.romanbaths.co.uk/visit"
+    },
+    {
+      "id": "bath-abbey",
+      "name": "巴斯修道院 (Bath Abbey)",
+      "region": "巴斯",
+      "summary": "晚期哥特式大教堂，扇形拱顶与彩窗壮观；可登塔(212级台阶)俯瞰全城，紧邻罗马浴场。",
+      "suggestedDurationMin": 75,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://www.bathabbey.org/visiting/tours/"
+    },
+    {
+      "id": "bath-royalcrescent",
+      "name": "皇家新月楼 (Royal Crescent)",
+      "region": "巴斯",
+      "summary": "30栋联排组成的乔治王朝弧形建筑杰作，1号楼为还原18世纪家居的历史宅邸博物馆。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "scenery", "slow"],
+      "source": "https://no1royalcrescent.org.uk/"
+    },
+    {
+      "id": "bath-stonehenge",
+      "name": "巨石阵 (Stonehenge)",
+      "region": "巴斯",
+      "summary": "约四千年历史的史前巨石环，世界遗产；常作巴斯一日游，车程约一小时。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore", "scenery"],
+      "dayTrip": true,
+      "parentCity": "巴斯",
+      "source": "https://www.english-heritage.org.uk/visit/places/stonehenge/"
     }
   ],
   "foods": [
@@ -140,6 +178,14 @@
       "region": "苏格兰",
       "reason": "苏格兰国菜:羊杂、燕麦与香料的咸香混合料理，常配土豆泥与芜菁泥(neeps and tatties)，是爱丁堡必尝。",
       "source": "https://xyuandbeyond.com/traditional-british-foods/"
+    },
+    {
+      "id": "bath-sallylunn",
+      "name": "莎莉露面包 (Sally Lunn Bun)",
+      "type": "传统茶点",
+      "region": "巴斯",
+      "reason": "巴斯标志性大圆面包，质地近似法式布里欧修，可甜可咸，在号称巴斯最古老房屋的莎莉露之家品尝最地道。",
+      "source": "https://www.sallylunns.co.uk/about/"
     }
   ],
   "reservations": [
@@ -158,6 +204,32 @@
       "method": "官方在线预订 edinburghcastle.scot(经苏格兰历史环境局 tickets.historic-scotland.gov.uk 系统出票)，采30分钟定时入场。",
       "leadTime": "在线提前订票价格更优并保证入场;夏季常提前1-7天售罄，8月艺术节期间需提前1-3周。",
       "source": "https://www.edinburghcastle.scot/plan-your-visit/tickets/"
+    },
+    {
+      "id": "bath-romanbaths-booking",
+      "name": "罗马浴场门票 (Roman Baths)",
+      "region": "巴斯",
+      "method": "官网 romanbaths.co.uk 在线预订定时入场票，门票含十二种语言语音导览。",
+      "leadTime": "门票常会提前售罄(尤其夏季)，建议至少提前24小时在线预订以锁定理想时段。",
+      "source": "https://www.romanbaths.co.uk/visit"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "伦敦",
+      "to": "爱丁堡",
+      "mode": "train",
+      "durationText": "约4小时20分",
+      "detail": "LNER东海岸干线Azuma列车直达，伦敦King's Cross站至爱丁堡Waverley站，约每30分钟一班。",
+      "source": "https://www.lner.co.uk/routes/london-kings-cross-to-edinburgh-trains/"
+    },
+    {
+      "from": "伦敦",
+      "to": "巴斯",
+      "mode": "train",
+      "durationText": "约1小时20分",
+      "detail": "GWR大西部铁路高速列车直达，伦敦Paddington站至Bath Spa站，约每30分钟一班，无需换乘。",
+      "source": "https://www.gwr.com/stations-and-destinations/popular-routes/london-to-bath"
     }
   ],
   "seasonalTips": [

@@ -1,7 +1,7 @@
 {
   "country": "portugal",
   "countryNameZh": "葡萄牙",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "spring",
@@ -122,6 +122,55 @@
       "suggestedDurationMin": 90,
       "moodTags": ["food", "culture", "explore"],
       "source": "https://www.winalist.com/blog/portugal-wine-region/douro-valley/what-to-do-vila-nova-gaia"
+    },
+    {
+      "id": "pena-palace",
+      "name": "佩纳宫 (Pena Palace)",
+      "region": "辛特拉",
+      "summary": "辛特拉山巅的19世纪浪漫主义宫殿，色彩斑斓，是里斯本最热门的日游目的地，常与摩尔人城堡同游。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "scenery", "explore"],
+      "dayTrip": true,
+      "parentCity": "里斯本",
+      "source": "https://www.parquesdesintra.pt/en/parks-monuments/park-and-national-palace-of-pena/"
+    },
+    {
+      "id": "moorish-castle",
+      "name": "摩尔人城堡 (Castle of the Moors)",
+      "region": "辛特拉",
+      "summary": "辛特拉山脊上的中世纪摩尔人石砌城堡，蜿蜒城墙可俯瞰辛特拉古镇与大西洋，常与佩纳宫同日游。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "scenery", "explore"],
+      "dayTrip": true,
+      "parentCity": "里斯本",
+      "source": "https://www.parquesdesintra.pt/en/parks-monuments/castle-of-the-moors/"
+    },
+    {
+      "id": "faro-old-town",
+      "name": "法鲁老城 (Cidade Velha de Faro)",
+      "region": "法鲁",
+      "summary": "阿尔加维首府法鲁的历史核心，由摩尔人古城墙环绕，鹅卵石巷道间散落主教座堂、橘树广场与白墙老屋。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "explore", "scenery"],
+      "source": "https://www.visitalgarve.pt/en/3201/explore/faro.aspx"
+    },
+    {
+      "id": "faro-cathedral",
+      "name": "法鲁主教座堂 (Sé de Faro)",
+      "region": "法鲁",
+      "summary": "始建于1251年的法鲁大教堂，1755年大地震后以巴洛克风格重修，登中世纪钟楼可俯瞰老城与里亚福尔莫萨。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://www.historyhit.com/locations/faro-cathedral/"
+    },
+    {
+      "id": "ria-formosa",
+      "name": "里亚福尔莫萨自然公园 (Ria Formosa Natural Park)",
+      "region": "法鲁",
+      "summary": "1987年设立的潟湖湿地，绵延约60公里沙洲岛链，可乘船赏火烈鸟、海马等生态，是欧洲重要候鸟栖息地。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["scenery", "explore", "slow"],
+      "source": "https://www.visitportugal.com/en/content/parque-natural-da-ria-formosa"
     }
   ],
   "foods": [
@@ -156,6 +205,14 @@
       "region": "里斯本及特茹河谷",
       "reason": "源自里斯本与特茹河谷地区的简单炭烤鲜沙丁鱼，数百年来是葡萄牙节庆的主角，尤以六月里斯本圣安东尼节（沙丁鱼节）最为盛大，街头满溢烤鱼香气。",
       "source": "https://www.willflyforfood.net/portuguese-food-guide/"
+    },
+    {
+      "id": "cataplana",
+      "name": "海鲜铜锅 (Cataplana)",
+      "type": "主菜（海鲜炖锅）",
+      "region": "法鲁及阿尔加维",
+      "reason": "阿尔加维最具代表性的乡土名菜，以蛤蜊形铜锅密封蒸炖蛤、虾、鱼配番茄洋葱与彩椒，连锅上桌，是法鲁海岸必尝海鲜。",
+      "source": "https://www.barcelo.com/guia-turismo/en/portugal/algarve/things-to-do/typical-dishes-of-the-algarve/"
     }
   ],
   "reservations": [
@@ -174,6 +231,24 @@
       "method": "需持购票凭证（Ticket-Voucher）方可入内，可在官方售票平台 tickets.livrarialello.pt 在线选定时段购买（银卡约8欧元，可抵书价；金卡15.90欧元含优先入场）；亦可现场购买。",
       "leadTime": "需预订特定入场时段以分流大量游客，请至少提前10分钟到达；为热门时段建议提前在线预约。",
       "source": "https://tickets.livrarialello.pt/en"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "里斯本",
+      "to": "波尔图",
+      "mode": "train",
+      "durationText": "约2小时50分",
+      "detail": "CP（葡萄牙国铁）Alfa Pendular高速列车直达，里斯本Santa Apolónia/Oriente站至波尔图Campanhã/São Bento站，时速可达220公里。",
+      "source": "https://www.seat61.com/trains-and-routes/lisbon-to-porto-by-train.htm"
+    },
+    {
+      "from": "里斯本",
+      "to": "法鲁",
+      "mode": "train",
+      "durationText": "约3小时",
+      "detail": "CP的Alfa Pendular（约3小时）或Intercidades城际列车（约3.5小时）直达，每日约4班，里斯本Oriente站至法鲁站。",
+      "source": "https://www.cp.pt/info/en/alfa-pendular-train"
     }
   ],
   "seasonalTips": [

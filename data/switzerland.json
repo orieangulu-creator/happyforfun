@@ -1,7 +1,7 @@
 {
   "country": "switzerland",
   "countryNameZh": "瑞士",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "summer",
@@ -118,6 +118,42 @@
       "suggestedDurationMin": 240,
       "moodTags": ["scenery", "relax", "explore"],
       "source": "https://www.myswitzerland.com/en-us/experiences/route/5-seenweg-zermatt/"
+    },
+    {
+      "id": "chapel-bridge",
+      "name": "卡佩尔廊桥与水塔 (Kapellbrücke & Wasserturm)",
+      "region": "卢塞恩",
+      "summary": "欧洲最古老的木制廊桥（约建于1365年），横跨罗伊斯河，桥顶绘有古画，连同八角水塔为卢塞恩地标。",
+      "suggestedDurationMin": 45,
+      "moodTags": ["scenery", "culture", "slow"],
+      "source": "https://www.luzern.com/en/the-city/sights/top-sights/lucernes-landmarks-the-chapel-bridge-and-its-water-tower"
+    },
+    {
+      "id": "lion-monument",
+      "name": "垂死狮子像 (Löwendenkmal / Lion Monument)",
+      "region": "卢塞恩",
+      "summary": "1820至21年凿于崖壁的纪念碑，悼念1792年阵亡的瑞士近卫军；马克·吐温誉为世上最哀伤动人的石雕。",
+      "suggestedDurationMin": 30,
+      "moodTags": ["culture", "slow"],
+      "source": "https://www.myswitzerland.com/en-us/experiences/lion-monument/"
+    },
+    {
+      "id": "mount-pilatus",
+      "name": "皮拉图斯山·黄金环游 (Mount Pilatus Golden Round Trip)",
+      "region": "卢塞恩",
+      "summary": "乘游船、世界最陡的齿轨铁路（坡度48%）、空中缆车登上皮拉图斯峰顶，俯瞰卢塞恩湖与阿尔卑斯群峰。",
+      "suggestedDurationMin": 360,
+      "moodTags": ["scenery", "explore"],
+      "source": "https://www.pilatus.ch/en/discover/golden-round-trip"
+    },
+    {
+      "id": "mount-rigi",
+      "name": "瑞吉山·群山之后 (Mount Rigi / Rigi Kulm)",
+      "region": "卢塞恩",
+      "summary": "被誉为群山之后，先乘湖船至菲茨瑙再换欧洲最古老的登山齿轨铁路（1871年）登顶瑞吉库尔姆，享360度湖山全景。",
+      "suggestedDurationMin": 300,
+      "moodTags": ["scenery", "relax", "explore"],
+      "source": "https://www.myswitzerland.com/en-us/experiences/mountain-railway-trips-up-mt-rigi/"
     }
   ],
   "foods": [
@@ -152,6 +188,14 @@
       "region": "全瑞士",
       "reason": "牛奶巧克力1875年诞生于瑞士（Daniel Peter与Henri Nestlé），从Cailler、Lindt到本地手工豆到巧克力皆值得一尝。",
       "source": "https://www.balmers.com/what-to-eat-when-visiting-switzerland/"
+    },
+    {
+      "id": "chuegelipastete",
+      "name": "卢塞恩肉丸酥盒 (Lozärner Chügelipastete)",
+      "type": "传统主菜（酥皮派）",
+      "region": "卢塞恩",
+      "reason": "卢塞恩少见的历史名菜，源自18世纪，酥皮盒内盛小牛肉与肉丸（Chügeli）、蘑菇奶油烩汁，常于狂欢节与圣职行会宴上享用。",
+      "source": "https://www.luzern.com/en/things-to-do/eating-drinking/regional-recipes/lozaerner-chuegelipastete-recipe/"
     }
   ],
   "reservations": [
@@ -170,6 +214,32 @@
       "method": "全程约300公里、8小时的全景观光列车，连接采尔马特与圣莫里茨；座位预订为强制要求，可在官网 glacierexpress.ch 在线商店预订。",
       "leadTime": "一、二等座可于乘车前93天起预订，旺季务必提前订位；尊享舱（Excellence Class）整个时刻表期均可预订。",
       "source": "https://glacierexpress.ch/en/price"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "因特拉肯",
+      "to": "卢塞恩",
+      "mode": "train",
+      "durationText": "约2小时",
+      "detail": "黄金山口快线段·琉森—因特拉肯快车（Luzern–Interlaken Express），由Zentralbahn运营，越布吕尼希山口（Brünig Pass），沿途经五座湖泊与瀑布，陡坡段切换齿轨驱动，每小时一班全景列车。",
+      "source": "https://www.zentralbahn.ch/en/experience/leisure/luzern-interlaken-express"
+    },
+    {
+      "from": "采尔马特",
+      "to": "因特拉肯",
+      "mode": "train",
+      "durationText": "约2小时10分至2小时30分",
+      "detail": "SBB线路，需在菲斯普（Visp）与施皮茨（Spiez）各换乘一次，途经勒奇山基线隧道（Lötschberg Base Tunnel）；采尔马特至菲斯普段与冰川快车共线。",
+      "source": "https://www.sbb.ch/en"
+    },
+    {
+      "from": "采尔马特",
+      "to": "卢塞恩",
+      "mode": "train",
+      "durationText": "约4小时",
+      "detail": "SBB线路，无直达，通常在菲斯普与伯尔尼换乘两次；若想观景慢游，可改乘冰川快车（采尔马特—圣莫里茨）后再衔接。",
+      "source": "https://www.sbb.ch/en"
     }
   ],
   "seasonalTips": [
