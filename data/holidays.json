@@ -10,7 +10,9 @@
         "start": "2026-01-01",
         "end": "2026-01-03",
         "type": "statutory_holiday",
-        "makeupWorkdays": ["2026-01-04"],
+        "makeupWorkdays": [
+          "2026-01-04"
+        ],
         "bridgeHint": "自然三天小长假，1月4日(周日)需补班。",
         "source": "https://www.beijing.gov.cn/ywdt/yaowen/202511/t20251104_4258911.html"
       },
@@ -20,7 +22,10 @@
         "start": "2026-02-15",
         "end": "2026-02-23",
         "type": "both",
-        "makeupWorkdays": ["2026-02-14", "2026-02-28"],
+        "makeupWorkdays": [
+          "2026-02-14",
+          "2026-02-28"
+        ],
         "bridgeHint": "法定放假9天(腊月廿八至正月初七)；请2天年假(2月24-25日)可拼出约11天超长假。",
         "source": "http://politics.people.com.cn/n1/2025/1104/c1001-40596715.html"
       },
@@ -39,7 +44,9 @@
         "start": "2026-05-01",
         "end": "2026-05-05",
         "type": "statutory_holiday",
-        "makeupWorkdays": ["2026-05-09"],
+        "makeupWorkdays": [
+          "2026-05-09"
+        ],
         "bridgeHint": "法定放假5天；5月9日(周六)需补班，请3天年假(5月6-8日)可拼出更长假期。",
         "source": "http://politics.people.com.cn/n1/2025/1104/c1001-40596715.html"
       },
@@ -67,7 +74,10 @@
         "start": "2026-10-01",
         "end": "2026-10-07",
         "type": "both",
-        "makeupWorkdays": ["2026-09-20", "2026-10-10"],
+        "makeupWorkdays": [
+          "2026-09-20",
+          "2026-10-10"
+        ],
         "bridgeHint": "法定放假7天；请3天年假(9月28-30日)可衔接中秋，连休约13天(9月25日-10月7日)。9月20日、10月10日需补班。",
         "source": "https://www.news.cn/politics/20251104/88bcffd88ae249e58c699b8772548e3d/c.html"
       }
@@ -351,6 +361,1180 @@
           "note": "圣诞市集是重要看点(斯特拉斯堡与阿尔萨斯最负盛名，约11月底至12月下旬)；但12月25日当天多数商铺、餐厅、景点与公共交通缩减或关闭，市集通常在12月24日前结束，阿尔萨斯住宿需尽早预订。"
         },
         "source": "https://www.service-public.gouv.fr/particuliers/actualites/A18558"
+      }
+    ]
+  },
+  {
+    "region": "italy",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "it-2026-easter",
+        "nameZh": "复活节及复活节星期一",
+        "nameLocal": "Pasqua e Pasquetta",
+        "start": "2026-04-05",
+        "end": "2026-04-06",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "复活节(4/5周日)与复活节星期一(4/6,公休)。梵蒂冈/圣彼得广场教宗弥撒是看点,罗马及各地有宗教游行;当天许多商铺餐厅关门,本地人外出郊游野餐,景点与交通拥挤。"
+        },
+        "source": "https://www.ricksteves.com/europe/italy/festivals"
+      },
+      {
+        "id": "it-2026-liberation-day",
+        "nameZh": "解放日",
+        "nameLocal": "Festa della Liberazione",
+        "start": "2026-04-25",
+        "end": "2026-04-25",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "全国公休,与5/1劳动节临近常被本地人拼成长周末出游;部分商铺/办公关闭,热门城市与海滨人潮增多。"
+        },
+        "source": "https://www.timeanddate.com/holidays/italy/2026"
+      },
+      {
+        "id": "it-2026-republic-day",
+        "nameZh": "共和国日",
+        "nameLocal": "Festa della Repubblica",
+        "start": "2026-06-02",
+        "end": "2026-06-02",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "建国纪念公休。罗马帝国广场大道有阅兵、空军三色箭飞行表演,市中心部分道路封闭、人潮拥挤;同时多数办公与部分商铺关闭。"
+        },
+        "source": "https://www.timeanddate.com/holidays/italy/2026"
+      },
+      {
+        "id": "it-2026-ferragosto",
+        "nameZh": "圣母升天节(八月节)",
+        "nameLocal": "Ferragosto",
+        "start": "2026-08-15",
+        "end": "2026-08-15",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "盛夏假期高峰,本地人大批涌向海滨与山区;许多城市商铺/餐厅在8月中旬连休数日,公共交通班次减少,海滨与景点拥挤涨价,需尽早预订。"
+        },
+        "source": "https://www.timeanddate.com/holidays/italy/2026"
+      },
+      {
+        "id": "it-2026-christmas",
+        "nameZh": "圣诞节与圣斯德望日",
+        "nameLocal": "Natale e Santo Stefano",
+        "start": "2026-12-25",
+        "end": "2026-12-26",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "圣诞市集与教堂耶稣诞生像(presepe)是看点,梵蒂冈有午夜弥撒;但12/25-26两天公休,多数商铺餐厅关闭、公共交通缩减,景点开放时间调整。"
+        },
+        "source": "https://www.timeanddate.com/holidays/italy/2026"
+      }
+    ]
+  },
+  {
+    "region": "spain",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "es-2026-las-fallas",
+        "nameZh": "瓦伦西亚法雅节",
+        "nameLocal": "Les Falles / Las Fallas",
+        "start": "2026-03-15",
+        "end": "2026-03-19",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "瓦伦西亚顶级节庆看点(UNESCO非遗):巨型纸塑ninots、每日正午烟火秀(mascletà)、3/18火之夜与3/19焚烧仪式(Cremà)。3/19圣约瑟夫日在瓦伦西亚为地方公休,全城人潮爆满、酒店紧张涨价,需提前数月预订。"
+        },
+        "source": "https://www.visitvalencia.com/en/events-valencia/fallas-festival-events-calendar-2026"
+      },
+      {
+        "id": "es-2026-semana-santa",
+        "nameZh": "圣周(复活节周)",
+        "nameLocal": "Semana Santa",
+        "start": "2026-04-03",
+        "end": "2026-04-06",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "西班牙最重要的宗教节庆,塞维利亚、马拉加等地圣周游行(procesiones)极为壮观。耶稣受难日(4/3)为全国公休;部分地区(加泰罗尼亚、瓦伦西亚、巴斯克等)复活节星期一(4/6)也放假。游行沿线道路封闭、市中心拥挤,安达卢西亚酒店需尽早预订。"
+        },
+        "source": "https://www.ricksteves.com/europe/spain/festivals"
+      },
+      {
+        "id": "es-2026-la-tomatina",
+        "nameZh": "番茄大战",
+        "nameLocal": "La Tomatina",
+        "start": "2026-08-26",
+        "end": "2026-08-26",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "festival",
+          "note": "瓦伦西亚近郊布尼奥尔(Buñol)的扔番茄狂欢,世界知名看点。需购票限额参加,当日小镇极度拥挤、需早班车前往;非公休日,商铺照常营业。"
+        },
+        "source": "https://www.ricksteves.com/europe/spain/festivals"
+      },
+      {
+        "id": "es-2026-national-day",
+        "nameZh": "西班牙国庆日(国家日)",
+        "nameLocal": "Fiesta Nacional de España",
+        "start": "2026-10-12",
+        "end": "2026-10-12",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "全国公休。马德里有军队阅兵与空中表演,市中心部分道路封闭、人潮拥挤;多数办公与部分商铺关闭。"
+        },
+        "source": "https://www.officeholidays.com/countries/spain/2026"
+      },
+      {
+        "id": "es-2026-christmas",
+        "nameZh": "圣诞节",
+        "nameLocal": "Navidad",
+        "start": "2026-12-25",
+        "end": "2026-12-25",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "马德里、巴塞罗那等地圣诞灯饰与市集(如巴塞罗那圣埃乌拉利亚市集、马德里马约尔广场市集)是看点;但12/25当天多数商铺餐厅关闭、公共交通缩减。注意西班牙12/6宪法日与12/8圣母无染原罪日两个公休临近,组成长桥假期(puente)。"
+        },
+        "source": "https://www.officeholidays.com/countries/spain/2026"
+      }
+    ]
+  },
+  {
+    "region": "germany",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "de-2026-rosenmontag",
+        "nameZh": "玫瑰星期一(狂欢节高潮)",
+        "nameLocal": "Rosenmontag / Karneval",
+        "start": "2026-02-16",
+        "end": "2026-02-16",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "festival",
+          "note": "莱茵狂欢节高潮,科隆、杜塞尔多夫、美因茨有超百万人观看的大型化装游行。非全国法定假日,但游行城市市中心当天近乎停摆、道路封闭、酒店爆满,需提前预订。"
+        },
+        "source": "https://www.nrw-tourism.com/typical-nrw/carnival"
+      },
+      {
+        "id": "de-2026-oktoberfest",
+        "nameZh": "慕尼黑啤酒节",
+        "nameLocal": "Oktoberfest",
+        "start": "2026-09-19",
+        "end": "2026-10-04",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "世界最大民俗啤酒节(第191届)看点。非法定假日,但期间慕尼黑酒店价格翻倍且早早售罄,Theresienwiese及市中心人潮拥挤,啤酒棚(Festzelt)桌位需提前预订。10/3德国统一日公休叠加,人流更密。"
+        },
+        "source": "https://www.oktoberfest.de/en"
+      },
+      {
+        "id": "de-2026-unity-day",
+        "nameZh": "德国统一日",
+        "nameLocal": "Tag der Deutschen Einheit",
+        "start": "2026-10-03",
+        "end": "2026-10-03",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "全国唯一全境法定国庆公休。多数商铺关闭、超市休息,主办城市有市民庆典(Bürgerfest);适逢周六并衔接啤酒节末尾,出行人流增多。"
+        },
+        "source": "https://www.timeanddate.com/holidays/germany/2026"
+      },
+      {
+        "id": "de-2026-christmas-markets",
+        "nameZh": "圣诞市集季",
+        "nameLocal": "Weihnachtsmärkte",
+        "start": "2026-11-27",
+        "end": "2026-12-24",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "festival",
+          "note": "德国冬季头号看点:纽伦堡Christkindlesmarkt(约11/27-12/24)、德累斯顿Striezelmarkt(约11/25-12/24,德国最古老)及科隆、罗滕堡等。傍晚集市人潮拥挤、热门城市住宿紧张需早订;非公休,市集多在12/24前结束。"
+        },
+        "source": "https://www.christkindlesmarkt.de/en/"
+      },
+      {
+        "id": "de-2026-christmas",
+        "nameZh": "圣诞节(两天)",
+        "nameLocal": "Weihnachten (1. und 2. Weihnachtstag)",
+        "start": "2026-12-25",
+        "end": "2026-12-26",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "12/25-26为全国法定公休。几乎所有商铺、超市、餐厅与多数景点关闭,公共交通按假日班次大幅缩减,圣诞市集通常已于12/24结束,出行采购需提前安排。"
+        },
+        "source": "https://www.timeanddate.com/holidays/germany/2026"
+      }
+    ]
+  },
+  {
+    "region": "unitedkingdom",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "uk-2026-easter",
+        "nameZh": "耶稣受难日与复活节星期一",
+        "nameLocal": "Good Friday & Easter Monday",
+        "start": "2026-04-03",
+        "end": "2026-04-06",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "耶稣受难日(4/3)与复活节星期一(4/6)为英格兰/威尔士银行假日(苏格兰过受难日但不过复活节星期一)。四天复活节长周末本地人出游,景点与公路拥挤,银行及部分商铺当天关门或缩短营业。"
+        },
+        "source": "https://www.visitlondon.com/traveller-information/essential-information/public-holidays"
+      },
+      {
+        "id": "uk-2026-summer-bank-holiday",
+        "nameZh": "夏季银行假日与诺丁山狂欢节",
+        "nameLocal": "Summer Bank Holiday & Notting Hill Carnival",
+        "start": "2026-08-30",
+        "end": "2026-08-31",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "8/31为英格兰/威尔士夏季银行假日(苏格兰为8/3)。同期伦敦诺丁山狂欢节于8/30-31举行,是欧洲最大街头嘉年华看点;西伦敦Notting Hill一带道路封闭、地铁站临时关闭、人潮极度拥挤。"
+        },
+        "source": "https://www.visitlondon.com/traveller-information/essential-information/public-holidays"
+      },
+      {
+        "id": "uk-2026-edinburgh-festivals",
+        "nameZh": "爱丁堡艺术节(边缘艺术节)",
+        "nameLocal": "Edinburgh Festival Fringe",
+        "start": "2026-08-07",
+        "end": "2026-08-31",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "全球最大艺术节看点,8月整月数千场演出(Fringe 8/7-8/31),叠加国际艺术节、军乐节(Royal Edinburgh Military Tattoo)。爱丁堡老城人潮鼎沸,住宿价格全年最高且需提前数月预订。"
+        },
+        "source": "https://www.edinburghfestivalcity.com/festivals/edinburgh-festival-fringe"
+      },
+      {
+        "id": "uk-2026-christmas-boxing-day",
+        "nameZh": "圣诞节与节礼日",
+        "nameLocal": "Christmas Day & Boxing Day",
+        "start": "2026-12-25",
+        "end": "2026-12-28",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "圣诞节(12/25)及节礼日(12/26周六,公休顺延至12/28周一)。圣诞节当天全国近乎停摆——商铺餐厅关闭、伦敦地铁与全国火车停运;节礼日是购物折扣日,主要商场人潮拥挤。"
+        },
+        "source": "https://www.visitlondon.com/traveller-information/essential-information/public-holidays"
+      },
+      {
+        "id": "uk-2026-hogmanay",
+        "nameZh": "爱丁堡跨年(霍格曼内)",
+        "nameLocal": "Edinburgh's Hogmanay",
+        "start": "2026-12-29",
+        "end": "2027-01-01",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "festival",
+          "note": "苏格兰传统跨年盛事,爱丁堡有火炬游行、王子街大型街头派对与跨年烟火(12/29-1/1)。市中心售票管制、道路封闭、人潮密集,住宿紧张需早订;1/1元旦与1/2(苏格兰)为公休。"
+        },
+        "source": "https://www.edinburghfestivalcity.com/festivals/edinburghs-hogmanay"
+      }
+    ]
+  },
+  {
+    "region": "switzerland",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "ch-2026-basel-fasnacht",
+        "nameZh": "巴塞尔狂欢节",
+        "nameLocal": "Basler Fasnacht",
+        "start": "2026-02-23",
+        "end": "2026-02-25",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "瑞士最盛大的狂欢节，被联合国教科文组织列为非遗。2月23日凌晨4点全城熄灯由Morgestraich列队开场，72小时不间断游行、彩灯、短笛与鼓乐。巴塞尔市中心人潮拥挤、酒店爆满涨价，老城多条街道封闭，需尽早预订。"
+        },
+        "source": "https://www.basel.com/en/events/carnival"
+      },
+      {
+        "id": "ch-2026-ascension",
+        "nameZh": "耶稣升天节",
+        "nameLocal": "Auffahrt",
+        "start": "2026-05-14",
+        "end": "2026-05-14",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "全国26个州共同的公休日，多与周末连成长周末。银行、政府机构与许多商铺关闭，本地短途出行增多。"
+        },
+        "source": "https://www.timeanddate.com/holidays/switzerland/2026"
+      },
+      {
+        "id": "ch-2026-national-day",
+        "nameZh": "瑞士国庆日",
+        "nameLocal": "Bundesfeier",
+        "start": "2026-08-01",
+        "end": "2026-08-01",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "瑞士唯一全国法定国庆日(纪念1291年建国)。看点为入夜后的烟火、篝火、灯笼游行与琉森湖区庆典；2026年8月1日为周六。多数商铺与机构关闭、热门景区与湖区交通拥挤、住宿涨价。"
+        },
+        "source": "https://www.timeanddate.com/holidays/switzerland/2026"
+      },
+      {
+        "id": "ch-2026-christmas",
+        "nameZh": "圣诞节",
+        "nameLocal": "Weihnachten",
+        "start": "2026-12-25",
+        "end": "2026-12-25",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "12月圣诞市集(苏黎世、巴塞尔、蒙特勒湖畔等)是冬季重要看点；但12月25日当天多数商铺、餐厅与景点关闭，公共交通减班，市集通常在圣诞前几日结束。"
+        },
+        "source": "https://www.timeanddate.com/holidays/switzerland/2026"
+      }
+    ]
+  },
+  {
+    "region": "netherlands",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "nl-2026-tulip-season",
+        "nameZh": "郁金香花季(库肯霍夫)",
+        "nameLocal": "Keukenhof / Tulpenseizoen",
+        "start": "2026-03-19",
+        "end": "2026-05-10",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "荷兰春季顶级看点。库肯霍夫花园2026年3月19日至5月10日开放，700万球茎；周边利瑟花田同期盛放。并非公休，但花季尤其4月下旬至五一为客流高峰，门票需预约、阿姆斯特丹至利瑟交通与住宿紧张涨价。"
+        },
+        "source": "https://tulipfestivalamsterdam.com/flower-forecast-2026/"
+      },
+      {
+        "id": "nl-2026-kingsday",
+        "nameZh": "国王节",
+        "nameLocal": "Koningsdag",
+        "start": "2026-04-27",
+        "end": "2026-04-27",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "全国法定公休与最大节庆(国王威廉-亚历山大生日)。橙色装扮、跳蚤市集(vrijmarkt)、运河派对席卷全国;阿姆斯特丹人潮爆满、住宿售罄涨价、部分路段封闭。前夜4月26日有King's Night热闹通宵;当天银行、邮局与许多商铺关闭。"
+        },
+        "source": "https://www.iamsterdam.com/en/whats-on/kings-day"
+      },
+      {
+        "id": "nl-2026-liberation-day",
+        "nameZh": "解放日",
+        "nameLocal": "Bevrijdingsdag",
+        "start": "2026-05-05",
+        "end": "2026-05-05",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "festival",
+          "note": "纪念1945年结束纳粹占领。2026年并非全国法定公休(每五年才放假,下次为2030年),但全国14座城市举办免费解放音乐节(Bevrijdingsfestival),瓦赫宁恩点燃自由之火,气氛热烈。前一晚5月4日为全国默哀的阵亡将士纪念日(Dodenherdenking),晚8点全国默哀两分钟。"
+        },
+        "source": "https://www.timeanddate.com/holidays/netherlands/liberation-day"
+      },
+      {
+        "id": "nl-2026-christmas",
+        "nameZh": "圣诞节",
+        "nameLocal": "Kerstmis",
+        "start": "2026-12-25",
+        "end": "2026-12-26",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "圣诞节(12月25日)与第二圣诞节(12月26日)均为公休日。冬季运河灯光节(Amsterdam Light Festival,约11月底至次年1月)为看点;但圣诞两日多数商铺、博物馆关闭,公共交通按节日时刻减班。"
+        },
+        "source": "https://www.thehagueinternationalcentre.nl/living-in-the-hague-region/social-life/important-dates-and-holidays-in-2026"
+      }
+    ]
+  },
+  {
+    "region": "portugal",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "pt-2026-carnaval",
+        "nameZh": "狂欢节",
+        "nameLocal": "Carnaval",
+        "start": "2026-02-17",
+        "end": "2026-02-17",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "狂欢节星期二(Terça-feira de Carnaval)2026年为2月17日。主要庆典约2月13-17日,托雷斯韦德拉斯(Torres Vedras)、奥瓦尔(Ovar)、洛雷(Loulé)的游行最盛大。并非全国强制公休但许多机构按惯例放假;庆典城市人潮拥挤、住宿涨价。"
+        },
+        "source": "https://www.theportugalnews.com/news/2026-01-31/carnival-2026-in-portugal-all-you-need-to-know/950401"
+      },
+      {
+        "id": "pt-2026-liberdade",
+        "nameZh": "自由日",
+        "nameLocal": "Dia da Liberdade",
+        "start": "2026-04-25",
+        "end": "2026-04-25",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "纪念1974年康乃馨革命的全国法定公休。议会有官方仪式、里斯本自由大道(Avenida da Liberdade)有游行与音乐会;银行与政府机构关闭,公交按周末时刻运行,部分商铺缩短营业。"
+        },
+        "source": "https://www.visitportugal.com/en/content/carnation-revolution"
+      },
+      {
+        "id": "pt-2026-portugal-day",
+        "nameZh": "葡萄牙日",
+        "nameLocal": "Dia de Portugal",
+        "start": "2026-06-10",
+        "end": "2026-06-10",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "葡萄牙国庆日(纪念诗人卡蒙斯),全国法定公休。各地有官方仪式与活动;银行、政府与部分商铺关闭。恰逢里斯本圣徒节(Santos Populares)庆典期,市内热闹拥挤。"
+        },
+        "source": "https://www.visitportugal.com/en/content/popular-saints-festivals"
+      },
+      {
+        "id": "pt-2026-santo-antonio",
+        "nameZh": "圣安东尼节(里斯本)",
+        "nameLocal": "Festas de Santo António",
+        "start": "2026-06-12",
+        "end": "2026-06-13",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "里斯本最盛大的民间节庆,圣徒节(Santos Populares)高潮。6月3-15日全城狂欢,12日夜自由大道有民间游行(Marchas Populares)与圣安东尼集体婚礼,街头烤沙丁鱼、罗勒花盆与通宵派对。6月13日(圣安东尼日)为里斯本市级公休(非全国),老城阿尔法玛(Alfama)人潮极拥挤、住宿涨价售罄。"
+        },
+        "source": "https://www.idealista.pt/en/news/lifestyle-in-portugal/2026/06/03/69830-santo-antonio-festival-lisbon-2026-dates-marches-and-weddings"
+      },
+      {
+        "id": "pt-2026-sao-joao-porto",
+        "nameZh": "圣若昂节(波尔图)",
+        "nameLocal": "Festa de São João do Porto",
+        "start": "2026-06-23",
+        "end": "2026-06-24",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "波尔图一年中最盛大的夜晚。6月23日入夜全城狂欢通宵,塑料锤敲头、烤沙丁鱼、放孔明灯、午夜杜罗河烟火;同盟大道(Aliados)免费音乐会。6月24日(圣若昂日)为波尔图市级公休,有Rabelo帆船赛。市中心与河滨人潮爆满、住宿紧张涨价。"
+        },
+        "source": "https://www.idealista.pt/en/news/lifestyle-portugal/2026/06/10/372-festival-st-john-porto-festa-de-sao-joao-do-porto"
+      }
+    ]
+  },
+  {
+    "region": "greece",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "gr-2026-clean-monday",
+        "nameZh": "净周一(四旬斋首日)",
+        "nameLocal": "Καθαρά Δευτέρα",
+        "start": "2026-02-23",
+        "end": "2026-02-23",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "东正教大斋期首日,全国法定公休,标志狂欢季结束。传统为户外放风筝、吃斋食(lagana面包、海鲜);雅典菲洛帕波斯山等地人潮聚集。许多商铺、政府机构关闭,本地三天连假出行增多。"
+        },
+        "source": "https://www.timeanddate.com/holidays/greece/2026"
+      },
+      {
+        "id": "gr-2026-independence-day",
+        "nameZh": "独立日(天使报喜节)",
+        "nameLocal": "Εικοστή Πέμπτη Μαρτίου",
+        "start": "2026-03-25",
+        "end": "2026-03-25",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "希腊两大国庆之一(纪念1821年独立战争),兼东正教天使报喜节。雅典宪法广场有大型军事阅兵、各地有学生游行。全国法定公休,银行政府与部分商铺关闭,阅兵区域道路封闭。"
+        },
+        "source": "https://www.timeanddate.com/holidays/greece/2026"
+      },
+      {
+        "id": "gr-2026-orthodox-easter",
+        "nameZh": "东正教复活节",
+        "nameLocal": "Πάσχα",
+        "start": "2026-04-10",
+        "end": "2026-04-13",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "希腊全年最重要的节日(2026年东正教复活节日期与西方不同)。耶稣受难日4月10日、复活节周六4月11日午夜烛光与圣火、复活节周日4月12日烤全羊与红鸡蛋、复活节周一4月13日。受难日、周一为法定公休。岛屿(科孚扔陶罐、希俄斯火箭战)与各地庆典是顶级看点;同期渡轮与机票常售罄涨价、住宿紧张,需提前预订,许多商铺在复活节周末关闭。"
+        },
+        "source": "https://www.timeanddate.com/holidays/greece/easter-sunday"
+      },
+      {
+        "id": "gr-2026-holy-spirit-monday",
+        "nameZh": "圣灵周一(五旬节周一)",
+        "nameLocal": "Αγίου Πνεύματος",
+        "start": "2026-06-01",
+        "end": "2026-06-01",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "东正教五旬节次日,复活节后第50天(2026年为6月1日),全国法定公休。是希腊夏季首个三天连假,本地出游与海岛短途客流上升,渡轮与海岛住宿趋紧。"
+        },
+        "source": "https://www.timeanddate.com/holidays/greece/holy-spirit-monday"
+      },
+      {
+        "id": "gr-2026-assumption",
+        "nameZh": "圣母安息节",
+        "nameLocal": "Κοίμηση της Θεοτόκου",
+        "start": "2026-08-15",
+        "end": "2026-08-15",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "希腊夏季最重要的宗教节日,全国法定公休,堪称希腊的'夏季复活节'。蒂诺斯岛(Tinos)朝圣、各地教堂庆典与panigyria民间集市是看点;同时正值盛夏旅游高峰,海岛渡轮、机票与住宿极度紧张售罄涨价,许多商铺当日关闭。"
+        },
+        "source": "https://www.timeanddate.com/holidays/greece/2026"
+      },
+      {
+        "id": "gr-2026-ohi-day",
+        "nameZh": "拒绝日(Ohi Day)",
+        "nameLocal": "Επέτειος του Όχι",
+        "start": "2026-10-28",
+        "end": "2026-10-28",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "纪念1940年希腊拒绝轴心国最后通牒(2026年10月28日,周三)。全国军事与学生游行,塞萨洛尼基有大型阅兵。全国法定公休,银行政府关闭,游行区域交通管制。"
+        },
+        "source": "https://www.timeanddate.com/holidays/greece/2026"
+      }
+    ]
+  },
+  {
+    "region": "austria",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "at-2026-epiphany",
+        "nameZh": "主显节",
+        "nameLocal": "Heilige Drei Könige",
+        "start": "2026-01-06",
+        "end": "2026-01-06",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "全国公休日，多数商铺关闭；处于维也纳新年音乐会与舞会季(1月起)氛围中，元旦至主显节期间为传统圣诞市集收尾及节庆旺季。"
+        },
+        "source": "https://www.timeanddate.com/holidays/austria/2026"
+      },
+      {
+        "id": "at-2026-easter-monday",
+        "nameZh": "复活节星期一",
+        "nameLocal": "Ostermontag",
+        "start": "2026-04-06",
+        "end": "2026-04-06",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "全国公休日，商铺与多数景点关闭；复活节周末为出游高峰，维也纳与萨尔茨堡有复活节市集(约3月底至4月初)。"
+        },
+        "source": "https://www.timeanddate.com/holidays/austria/2026"
+      },
+      {
+        "id": "at-2026-corpus-christi",
+        "nameZh": "圣体节",
+        "nameLocal": "Fronleichnam",
+        "start": "2026-06-04",
+        "end": "2026-06-04",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "天主教公休日(逢周四,常拼成长周末)，商铺与银行关闭，部分地区有宗教游行；提供桥接假期出行人潮。"
+        },
+        "source": "https://www.feiertage-oesterreich.at/en/"
+      },
+      {
+        "id": "at-2026-salzburg-festival",
+        "nameZh": "萨尔茨堡音乐节",
+        "nameLocal": "Salzburger Festspiele",
+        "start": "2026-07-17",
+        "end": "2026-08-30",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "奥地利顶级文化看点，全球古典歌剧/戏剧/音乐盛会；萨尔茨堡老城在此期间人满为患、酒店与门票紧俏涨价，需提前数月预订。"
+        },
+        "source": "https://www.salzburgerfestspiele.at/en/"
+      },
+      {
+        "id": "at-2026-all-saints",
+        "nameZh": "诸圣节",
+        "nameLocal": "Allerheiligen",
+        "start": "2026-11-01",
+        "end": "2026-11-01",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "全国公休日，商铺关闭；民众扫墓祭奠，墓园人流集中，城市略显安静。"
+        },
+        "source": "https://www.timeanddate.com/holidays/austria/2026"
+      },
+      {
+        "id": "at-2026-christmas-markets",
+        "nameZh": "维也纳圣诞市集与圣诞节",
+        "nameLocal": "Wiener Christkindlmarkt / Weihnachten",
+        "start": "2026-11-13",
+        "end": "2026-12-26",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "维也纳市政厅广场(Rathausplatz)圣诞市集约11月13日至12月26日开放,为冬季顶级看点;但12月25-26日为公休日,多数商铺/餐厅/景点关闭或缩减营业,出行与住宿需提前预订。"
+        },
+        "source": "https://www.christkindlmarkt.at/en/"
+      }
+    ]
+  },
+  {
+    "region": "czechia",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "cz-2026-easter",
+        "nameZh": "复活节(星期一)",
+        "nameLocal": "Velikonoční pondělí",
+        "start": "2026-04-06",
+        "end": "2026-04-06",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "复活节星期一为公休日;布拉格老城广场与瓦茨拉夫广场复活节市集约3月21日至4月12日开放(节日当天市集照常营业,氛围浓厚),为重要看点;大型商场依法关门,市中心人潮较多。"
+        },
+        "source": "https://www.timeanddate.com/holidays/czech/2026"
+      },
+      {
+        "id": "cz-2026-labour-day",
+        "nameZh": "劳动节",
+        "nameLocal": "Svátek práce",
+        "start": "2026-05-01",
+        "end": "2026-05-01",
+        "type": "statutory_holiday",
+        "source": "https://www.timeanddate.com/holidays/czech/2026"
+      },
+      {
+        "id": "cz-2026-liberation-day",
+        "nameZh": "解放日",
+        "nameLocal": "Den vítězství",
+        "start": "2026-05-08",
+        "end": "2026-05-08",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "公休日(纪念二战胜利),与5月1日相近常形成连假;银行与多数商铺关闭,景点照常但人流较多。"
+        },
+        "source": "https://www.timeanddate.com/holidays/czech/2026"
+      },
+      {
+        "id": "cz-2026-independence-day",
+        "nameZh": "捷克斯洛伐克建国日(国庆)",
+        "nameLocal": "Den vzniku samostatného československého státu",
+        "start": "2026-10-28",
+        "end": "2026-10-28",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "捷克国庆(纪念1918年建国),布拉格城堡等地有纪念活动并对公众开放,为看点;同时为公休日,政府机关与多数商铺关闭。"
+        },
+        "source": "https://www.timeanddate.com/holidays/czech/2026"
+      },
+      {
+        "id": "cz-2026-all-saints",
+        "nameZh": "诸圣节(扫墓日)",
+        "nameLocal": "Památka zesnulých",
+        "start": "2026-11-01",
+        "end": "2026-11-02",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "诸圣节(11/1)与追思亡者日(11/2)并非法定公休,但民众纷纷扫墓点烛,墓园傍晚烛光景象动人;城市商铺照常营业。"
+        },
+        "source": "https://www.timeanddate.com/holidays/czech/2026"
+      },
+      {
+        "id": "cz-2026-christmas",
+        "nameZh": "圣诞市集与圣诞节",
+        "nameLocal": "Vánoční trhy / Vánoce",
+        "start": "2026-11-28",
+        "end": "2026-12-26",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "布拉格老城广场与瓦茨拉夫广场圣诞市集约11月28日至次年1月6日开放,巨型圣诞树为冬季顶级看点;但12月24-26日为公休日,多数商铺/餐厅与部分景点关闭或缩减,市集人潮极为拥挤、住宿紧俏需提前预订。"
+        },
+        "source": "https://www.pragueexperience.com/events/christmas-markets.asp"
+      }
+    ]
+  },
+  {
+    "region": "hungary",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "hu-2026-national-day-march",
+        "nameZh": "三月十五国庆日(1848革命纪念)",
+        "nameLocal": "Nemzeti ünnep (március 15.)",
+        "start": "2026-03-15",
+        "end": "2026-03-15",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "纪念1848年革命的国庆日,布达佩斯有纪念游行与佩戴红白绿帽徽等活动,为看点;同时为公休日,政府机关与多数商铺关闭。"
+        },
+        "source": "https://www.timeanddate.com/holidays/hungary/2026"
+      },
+      {
+        "id": "hu-2026-easter-monday",
+        "nameZh": "复活节星期一",
+        "nameLocal": "Húsvéthétfő",
+        "start": "2026-04-06",
+        "end": "2026-04-06",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "公休日,多数商铺关闭;复活节周末为出游高峰,有泼水(locsolkodás)等民俗。"
+        },
+        "source": "https://www.timeanddate.com/holidays/hungary/2026"
+      },
+      {
+        "id": "hu-2026-st-stephen",
+        "nameZh": "圣伊什特万节(8·20国庆)",
+        "nameLocal": "Szent István ünnepe (augusztus 20.)",
+        "start": "2026-08-20",
+        "end": "2026-08-20",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "匈牙利最重大节庆与顶级看点:纪念建国与首位国王圣伊什特万;布达佩斯约8月15-21日举办数百场免费活动,8月20日晚9点多瑙河两岸(裴多菲桥至玛格丽特桥)上演盛大烟火;市中心极度拥挤、桥梁与沿河道路封闭,住宿紧俏需提前预订。"
+        },
+        "source": "https://www.budapestbylocals.com/august-20th/"
+      },
+      {
+        "id": "hu-2026-1956-revolution",
+        "nameZh": "1956革命纪念日(国庆)",
+        "nameLocal": "Az 1956-os forradalom ünnepe (október 23.)",
+        "start": "2026-10-23",
+        "end": "2026-10-23",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "纪念1956年反苏起义的国庆日(逢周五形成长周末),布达佩斯有纪念仪式;公休日,政府机关与多数商铺关闭。"
+        },
+        "source": "https://www.timeanddate.com/holidays/hungary/2026"
+      },
+      {
+        "id": "hu-2026-all-saints",
+        "nameZh": "诸圣节",
+        "nameLocal": "Mindenszentek",
+        "start": "2026-11-01",
+        "end": "2026-11-01",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "全国公休日,商铺关闭;民众扫墓点烛祭奠,墓园人流集中,城市较安静。"
+        },
+        "source": "https://www.timeanddate.com/holidays/hungary/2026"
+      },
+      {
+        "id": "hu-2026-christmas",
+        "nameZh": "圣诞市集与圣诞节",
+        "nameLocal": "Karácsonyi vásár / Karácsony",
+        "start": "2026-11-14",
+        "end": "2026-12-26",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "布达佩斯弗洛斯马蒂广场与圣伊什特万大教堂前圣诞市集(约11月中至次年元旦)为冬季顶级看点;但12月25-26日为公休日,多数商铺/餐厅与部分景点关闭或缩减营业,需提前预订。"
+        },
+        "source": "https://www.timeanddate.com/holidays/hungary/2026"
+      }
+    ]
+  },
+  {
+    "region": "poland",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "pl-2026-easter",
+        "nameZh": "复活节(星期一)",
+        "nameLocal": "Poniedziałek Wielkanocny",
+        "start": "2026-04-06",
+        "end": "2026-04-06",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "复活节星期一为公休日(波兰天主教重要节日);周一有泼水节(Śmigus-dyngus/泼水互戏)民俗看点;复活节周日与周一商铺普遍关闭,克拉科夫等地有复活节市集。"
+        },
+        "source": "https://www.timeanddate.com/holidays/poland/2026"
+      },
+      {
+        "id": "pl-2026-constitution-day",
+        "nameZh": "五月长周末(劳动节·宪法日)",
+        "nameLocal": "Majówka (1-3 maja)",
+        "start": "2026-05-01",
+        "end": "2026-05-03",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "5月1日劳动节与5月3日宪法日构成波兰人气出游长周末(Majówka),华沙有阅兵与升旗等爱国庆典看点;公休日商铺多关闭,景区与交通人潮拥挤、住宿涨价。"
+        },
+        "source": "https://www.timeanddate.com/holidays/poland/2026"
+      },
+      {
+        "id": "pl-2026-corpus-christi",
+        "nameZh": "圣体节",
+        "nameLocal": "Boże Ciało",
+        "start": "2026-06-04",
+        "end": "2026-06-04",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "天主教圣体节为公休日(逢周四常拼长周末),全国城镇举行盛大圣体游行(克拉科夫、华沙等地花毯/队列尤为壮观)为看点;商铺与银行关闭,游行沿线道路封闭。"
+        },
+        "source": "https://publicholidays.pl/corpus-christi/"
+      },
+      {
+        "id": "pl-2026-assumption",
+        "nameZh": "圣母升天节(军队日)",
+        "nameLocal": "Wniebowzięcie NMP / Święto Wojska Polskiego",
+        "start": "2026-08-15",
+        "end": "2026-08-15",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "公休日,兼为波兰军队日(华沙有阅兵)及琴斯托霍瓦(Częstochowa)大型天主教朝圣看点;商铺关闭,朝圣地与首都人潮集中。"
+        },
+        "source": "https://www.timeanddate.com/holidays/poland/2026"
+      },
+      {
+        "id": "pl-2026-all-saints",
+        "nameZh": "诸圣节",
+        "nameLocal": "Wszystkich Świętych",
+        "start": "2026-11-01",
+        "end": "2026-11-01",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "波兰极受重视的公休日,民众返乡扫墓,墓园入夜烛海震撼;长途交通与公路严重拥堵、城市商铺多关闭,出行需避峰。"
+        },
+        "source": "https://www.timeanddate.com/holidays/poland/2026"
+      },
+      {
+        "id": "pl-2026-independence-day",
+        "nameZh": "独立日(国庆)",
+        "nameLocal": "Narodowe Święto Niepodległości",
+        "start": "2026-11-11",
+        "end": "2026-11-11",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "波兰独立日国庆,华沙有大型独立游行与官方庆典看点;公休日商铺关闭,市中心人潮密集、部分道路封闭。"
+        },
+        "source": "https://www.timeanddate.com/holidays/poland/2026"
+      }
+    ]
+  },
+  {
+    "region": "denmark",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "dk-2026-easter",
+        "nameZh": "复活节假期",
+        "nameLocal": "Påske",
+        "start": "2026-04-02",
+        "end": "2026-04-06",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "丹麦复活节连续多个公休日(濯足节4/2、耶稣受难日4/3、复活节周日4/5、复活节周一4/6)，多数商铺、银行与部分景点关门或缩短营业，公共交通按节假日时刻运行，是丹麦人出游高峰。"
+        },
+        "source": "https://www.timeanddate.com/holidays/denmark/2026"
+      },
+      {
+        "id": "dk-2026-constitution-day",
+        "nameZh": "宪法日",
+        "nameLocal": "Grundlovsdag",
+        "start": "2026-06-05",
+        "end": "2026-06-05",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "宪法日纪念1849年宪法签署，虽非正式法定公休，但多数商铺、银行与办公场所半天或全天关门，营业时间缩短，旅行安排需注意。"
+        },
+        "source": "https://www.officeholidays.com/countries/denmark/2026"
+      },
+      {
+        "id": "dk-2026-sankt-hans",
+        "nameZh": "圣汉斯之夜(仲夏节前夕)",
+        "nameLocal": "Sankt Hans Aften",
+        "start": "2026-06-23",
+        "end": "2026-06-23",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "festival",
+          "note": "丹麦仲夏节庆典看点：6月23日傍晚在海岸、湖畔与沙滩点燃篝火并焚烧女巫稻草人、合唱仲夏歌、社区聚会，是体验丹麦夏日氛围的好时机。当日非法定公休，商铺照常营业。"
+        },
+        "source": "https://www.eskimo.travel/en/blog/denmark-public-holidays-2026"
+      },
+      {
+        "id": "dk-2026-christmas",
+        "nameZh": "圣诞节",
+        "nameLocal": "Jul",
+        "start": "2026-12-24",
+        "end": "2026-12-26",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "看点为圣诞市集与蒂沃利公园(哥本哈根)的圣诞灯饰(约11月中旬至圣诞前后)；但12月24日平安夜下午起及12月25-26日多数商铺、餐厅、景点与公共交通大幅缩减或关闭，需提前规划。平安夜(12/24)非正式公休但普遍放假。"
+        },
+        "source": "https://www.timeanddate.com/holidays/denmark/2026"
+      }
+    ]
+  },
+  {
+    "region": "sweden",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "se-2026-easter",
+        "nameZh": "复活节假期",
+        "nameLocal": "Påsk",
+        "start": "2026-04-03",
+        "end": "2026-04-06",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "复活节连假(耶稣受难日4/3、复活节周日4/5、复活节周一4/6)多数商铺与景点关门或缩短营业，国营酒类专卖店Systembolaget公休日关闭，公共交通按节假日时刻运行。"
+        },
+        "source": "https://visitsweden.com/about-sweden/public-holidays/"
+      },
+      {
+        "id": "se-2026-walpurgis",
+        "nameZh": "瓦尔普吉斯之夜(沃尔堡)",
+        "nameLocal": "Valborgsmässoafton",
+        "start": "2026-04-30",
+        "end": "2026-04-30",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "festival",
+          "note": "迎春篝火节看点:4月30日傍晚全国点燃篝火、合唱迎春歌,乌普萨拉与隆德的大学生戴白色学生帽庆典最为热闹。当日非正式公休但普遍半天放假;次日5/1劳动节为法定公休,多数商铺关门。"
+        },
+        "source": "https://sweden.se/culture/celebrations/walpurgis-night"
+      },
+      {
+        "id": "se-2026-national-day",
+        "nameZh": "瑞典国庆日",
+        "nameLocal": "Sveriges nationaldag",
+        "start": "2026-06-06",
+        "end": "2026-06-06",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "festival",
+          "note": "国庆日(2026年为周六)有皇家庆典、斯德哥尔摩斯堪森露天博物馆庆祝活动与各地入籍仪式;国营酒类专卖店与部分小店关闭,公共交通按周日时刻运行。"
+        },
+        "source": "https://sweden.se/culture/celebrations/the-national-day-of-sweden"
+      },
+      {
+        "id": "se-2026-midsummer",
+        "nameZh": "仲夏节",
+        "nameLocal": "Midsommar",
+        "start": "2026-06-19",
+        "end": "2026-06-20",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "瑞典最重要的节日(仅次于圣诞),为顶级看点:仲夏节前夕(Midsommarafton,2026年为6月19日周五)立花柱跳舞、戴花环、吃鲱鱼与新土豆,达拉纳等乡村庆典最地道。同时城市几乎变空、绝大多数商铺餐厅与超市从周五起关门或极早打烊,Systembolaget关闭,乡村住宿一房难求需提前数月预订。6月20日周六为法定公休(Midsommardagen)。"
+        },
+        "source": "https://visitsweden.com/what-to-do/culture-history-and-art/swedish-traditions/midsummer-tradition/midsummer/"
+      },
+      {
+        "id": "se-2026-christmas",
+        "nameZh": "圣诞节",
+        "nameLocal": "Jul",
+        "start": "2026-12-24",
+        "end": "2026-12-26",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "看点为各城圣诞市集与降临节灯饰(约11月底至圣诞);但平安夜(12/24,瑞典圣诞主庆日)下午起及12月25-26日几乎所有商铺、餐厅、景点关闭,公共交通大幅缩减。平安夜非正式公休但全国放假。"
+        },
+        "source": "https://visitsweden.com/about-sweden/public-holidays/"
+      }
+    ]
+  },
+  {
+    "region": "norway",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "no-2026-easter",
+        "nameZh": "复活节假期",
+        "nameLocal": "Påske",
+        "start": "2026-04-02",
+        "end": "2026-04-06",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "挪威复活节(濯足节4/2、耶稣受难日4/3、复活节周日4/5、复活节周一4/6)是全国出游高峰,大批挪威人前往山区小屋滑雪度假,城市变空、众多商铺与餐厅关门或缩短营业,Vinmonopolet酒类专卖店关闭,山区住宿与机票紧张涨价。"
+        },
+        "source": "https://en.visitbergen.com/ideas-and-inspiration/explore-norway/public-holidays-in-norway"
+      },
+      {
+        "id": "no-2026-constitution-day",
+        "nameZh": "挪威宪法日(国庆日)",
+        "nameLocal": "Grunnlovsdag / Syttende mai",
+        "start": "2026-05-17",
+        "end": "2026-05-17",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "挪威顶级看点:5月17日全国身着传统民族服装(bunad),奥斯陆儿童大游行经卡尔约翰大街至王宫、王室在阳台挥手致意,卑尔根等地亦有盛大游行。极度热闹拥挤,游行路线沿途封路、地铁与街道人潮密集,多数商铺关门、餐厅需预订。2026年5月17日为周日。"
+        },
+        "source": "https://www.timeanddate.com/holidays/norway/constitution-day"
+      },
+      {
+        "id": "no-2026-sankthans",
+        "nameZh": "圣汉斯之夜(仲夏节前夕)",
+        "nameLocal": "Sankthansaften / Jonsok",
+        "start": "2026-06-23",
+        "end": "2026-06-23",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "festival",
+          "note": "挪威仲夏庆典看点:6月23日傍晚沿海岸与峡湾点燃篝火、野餐聚会、享受极昼长日照,西海岸(卑尔根、奥勒松等)氛围最佳。当日非法定公休,商铺照常营业。"
+        },
+        "source": "https://www.eskimo.travel/en/blog/norway-public-holidays-2026"
+      },
+      {
+        "id": "no-2026-christmas",
+        "nameZh": "圣诞节",
+        "nameLocal": "Jul",
+        "start": "2026-12-25",
+        "end": "2026-12-26",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "看点为奥斯陆、卑尔根等地圣诞市集与灯饰、北部追极光(约11月底至圣诞);但平安夜(12/24)下午起及12月25-26日多数商铺、餐厅、景点与公共交通大幅缩减或关闭。第一与第二圣诞日(12/25、12/26)为法定公休。"
+        },
+        "source": "https://www.timeanddate.com/holidays/norway/2026"
+      }
+    ]
+  },
+  {
+    "region": "croatia",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "hr-2026-st-blaise",
+        "nameZh": "圣布雷斯节(杜布罗夫尼克主保瞻礼)",
+        "nameLocal": "Festa svetog Vlaha",
+        "start": "2026-02-03",
+        "end": "2026-02-03",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "杜布罗夫尼克年度顶级看点(列入UNESCO非遗):2月3日身着民族服装的旗手与教区队伍入城,主教、政要与市民参加盛大游行,吸引数千游客。当日为杜布罗夫尼克市的地方性公休,商铺多提早歇业;非全国法定假日。"
+        },
+        "source": "https://croatia.hr/en-gb/unesco/festivity-st-blaise-patron-saint-dubrovnik"
+      },
+      {
+        "id": "hr-2026-easter",
+        "nameZh": "复活节",
+        "nameLocal": "Uskrs",
+        "start": "2026-04-05",
+        "end": "2026-04-06",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "复活节周日(4/5)与周一(4/6)为法定公休,多数商铺、银行与部分景点关门或缩短营业,公共交通按节假日时刻运行;沿海与教堂城镇有宗教游行。"
+        },
+        "source": "https://www.timeanddate.com/holidays/croatia/2026"
+      },
+      {
+        "id": "hr-2026-statehood-day",
+        "nameZh": "国庆日(建国日)",
+        "nameLocal": "Dan državnosti",
+        "start": "2026-05-30",
+        "end": "2026-05-30",
+        "type": "statutory_holiday",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "克罗地亚国庆法定公休(2026年为周六),纪念1990年首届多党议会成立,政府机构、银行与部分商铺关闭。"
+        },
+        "source": "https://www.timeanddate.com/holidays/croatia/2026"
+      },
+      {
+        "id": "hr-2026-dubrovnik-summer-festival",
+        "nameZh": "杜布罗夫尼克夏季艺术节",
+        "nameLocal": "Dubrovačke ljetne igre",
+        "start": "2026-07-10",
+        "end": "2026-08-25",
+        "type": "festival",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "克罗地亚最负盛名的夏季文化盛事(第77届),7月10日至8月25日在杜布罗夫尼克老城多座历史场地上演逾70场戏剧、音乐、舞蹈演出。看点十足,但与旅游旺季叠加,老城人潮拥挤、住宿紧张涨价,热门演出门票需提前购买。"
+        },
+        "source": "https://www.dubrovnik-festival.hr/en"
+      },
+      {
+        "id": "hr-2026-assumption",
+        "nameZh": "圣母升天节",
+        "nameLocal": "Velika Gospa",
+        "start": "2026-08-15",
+        "end": "2026-08-15",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "天主教重要节日兼法定公休,马里亚比斯特里察等地有大型朝圣活动;正值夏季旅游最高峰,沿海与岛屿人潮与价格达到顶点,多数商铺关闭或缩短营业,住宿与渡轮需提前预订。"
+        },
+        "source": "https://www.timeanddate.com/holidays/croatia/2026"
+      },
+      {
+        "id": "hr-2026-christmas",
+        "nameZh": "圣诞节",
+        "nameLocal": "Božić",
+        "start": "2026-12-25",
+        "end": "2026-12-26",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "看点为萨格勒布圣诞市集(Advent u Zagrebu,曾多次获评欧洲最佳,约12月初至1月初);12月25日(圣诞)与26日(圣斯德望日)为法定公休,多数商铺、景点关门,公共交通缩减。"
+        },
+        "source": "https://www.timeanddate.com/holidays/croatia/2026"
       }
     ]
   }
