@@ -270,6 +270,13 @@
       return "结束日期不能早于开始日期";
     return null;
   }
+  // G6：所选开始日期早于今天 → 非阻断提示（行程照常生成）
+  function pastDateWarn(input) {
+    if (!(input.dateRange && input.dateRange.start)) return "";
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    return new Date(input.dateRange.start + "T00:00:00") < today
+      ? "⚠️ 所选出行日期已过去，行程仍照常生成，建议按需调整日期。" : "";
+  }
   // 切换版本时把表单恢复成该版本的输入
   function setFormFromInput(input) {
     input = input || {};
@@ -380,7 +387,10 @@
   async function onGenerate(asNew) {
     const input = gatherInput();
     const err = validateInput(input);
-    $("inputError").textContent = err || "";
+    const warn = err ? "" : pastDateWarn(input);     // G6 非阻断提示
+    const ie = $("inputError");
+    ie.textContent = err || warn || "";
+    ie.classList.toggle("warn", !err && !!warn);
     if (err) return;
 
     let v = active();
@@ -753,7 +763,7 @@
       pace: PACE_ZH[pace] || pace,
       companion: inp.companion ? (COMP_ZH[inp.companion] || inp.companion) : "通用",
       tags: (inp.moodTags || []).join("/") || "—",
-      holiday, cost: country ? COST_ZH[COST[country]] : "—"
+      holiday, cost: country ? (COST_ZH[(DATA.geo && DATA.geo.costTier && DATA.geo.costTier[country]) || COST[country]] || "—") : "—"
     };
   }
   function renderVersionCompare() {
