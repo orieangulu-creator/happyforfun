@@ -1,7 +1,7 @@
 {
   "country": "norway",
   "countryNameZh": "挪威",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "summer",
@@ -106,6 +106,33 @@
       "suggestedDurationMin": 60,
       "moodTags": ["food", "explore"],
       "source": "https://en.visitbergen.com/things-to-do/fish-market-in-bergen-p822253"
+    },
+    {
+      "id": "flam-railway",
+      "name": "弗洛姆高山铁路 (Flåm Railway / Flåmsbana)",
+      "region": "弗洛姆",
+      "summary": "全长20公里、单程约55-60分钟的观光铁路，从海平面的弗洛姆爬升至867米的米达尔，途经瀑布与峡谷，被誉为欧洲最美火车线之一。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["scenery", "explore", "slow"],
+      "source": "https://www.vy.no/en/traffic-and-routes/stations-and-network-maps/the-flam-railway"
+    },
+    {
+      "id": "flam-naeroyfjord-cruise",
+      "name": "纳柔依峡湾游船 (Nærøyfjord Cruise)",
+      "region": "弗洛姆",
+      "summary": "联合国教科文世遗、世界最窄峡湾(最窄处约250米)，由弗洛姆乘电动游船穿行，约两小时饱览千米峭壁与瀑布。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["scenery", "slow", "explore"],
+      "source": "https://www.norwaysbest.com/en/things-to-do/the-flam-railway"
+    },
+    {
+      "id": "flam-stegastein",
+      "name": "斯特加斯坦观景台 (Stegastein Viewpoint)",
+      "region": "弗洛姆",
+      "summary": "奥兰国家观光路线上的悬挑观景平台，凌空伸出约30米、高踞峡湾650米之上，俯瞰奥兰峡湾全景。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["scenery", "explore"],
+      "source": "https://en.visitbergen.com/things-to-do/norway-fjords/stegastein-viewpoint-near-flam-with-spectacular-fjord-views"
     }
   ],
   "foods": [
@@ -140,6 +167,14 @@
       "region": "挪威",
       "reason": "羊群夏季在山间放牧后，秋季羊肉风味尤为浓郁出众，是当季备受欢迎的食材。",
       "source": "https://eathealthy365.com/the-ultimate-guide-to-traditional-norwegian-food-dishes/"
+    },
+    {
+      "id": "no-skillingsbolle",
+      "name": "肉桂卷 (Skillingsbolle)",
+      "type": "烘焙甜点",
+      "region": "卑尔根",
+      "reason": "卑尔根的招牌甜点，源自汉萨同盟带入的德式糕点，以软面团裹满黄油、肉桂与糖卷成，数百年来风靡全城。",
+      "source": "https://en.visitbergen.com/food-and-drink/bergen-city-of-gastronomy/skillingsbolle-favourite-pastry-in-Bergen"
     }
   ],
   "reservations": [
@@ -158,6 +193,32 @@
       "method": "由Visit Tromsø等官方渠道及当地持牌运营商在线预订追光团；多数极光活动约9月初起开放。",
       "leadTime": "极光季约9月至次年4月初(11-2月概率最高)；旺季团位紧张，建议提前数周预订，并预留多个夜晚以应对天气。",
       "source": "https://www.visittromso.no/northern-lights/when-and-where"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "奥斯陆",
+      "to": "卑尔根",
+      "mode": "train",
+      "durationText": "约6.5-7.5小时",
+      "detail": "卑尔根铁路(Bergensbanen)，由Vy运营，每日约6-7班，翻越北欧最高铁路线、沿途高山雪原风光。",
+      "source": "https://www.vy.no/en/train/routes/the-bergen-line"
+    },
+    {
+      "from": "卑尔根",
+      "to": "弗洛姆",
+      "mode": "train",
+      "durationText": "约1小时(至米达尔)+约55分钟弗洛姆铁路",
+      "detail": "「挪威缩影」经典段：先乘卑尔根铁路至米达尔(Myrdal)，换乘弗洛姆高山铁路(Flåmsbana)下行至弗洛姆。",
+      "source": "https://en.visitbergen.com/things-to-do/norway-in-a-nutshell-r-p825223"
+    },
+    {
+      "from": "弗洛姆",
+      "to": "古德旺恩",
+      "mode": "ferry",
+      "durationText": "约2小时",
+      "detail": "纳柔依峡湾(Nærøyfjord)世遗游船段，电动游船穿越世界最窄峡湾至古德旺恩(Gudvangen)，可接巴士续往沃斯/卑尔根。",
+      "source": "https://www.fjordtours.com/en/norway/tours/norway-in-a-nutshell"
     }
   ],
   "seasonalTips": [

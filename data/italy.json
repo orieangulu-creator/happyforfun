@@ -1,7 +1,7 @@
 {
   "country": "italy",
   "countryNameZh": "意大利",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "spring",
@@ -114,6 +114,33 @@
       "suggestedDurationMin": 90,
       "moodTags": ["culture", "scenery"],
       "source": "https://www.visitflorence.com/florence-churches/duomo.html"
+    },
+    {
+      "id": "st-marks-square",
+      "name": "圣马可广场与圣马可大教堂 (Piazza San Marco & Basilica di San Marco)",
+      "region": "威尼斯",
+      "summary": "威尼斯的心脏，拜占庭风格大教堂金碧辉煌，广场被誉为欧洲会客厅。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://www.basilicasanmarco.it/en/"
+    },
+    {
+      "id": "doges-palace",
+      "name": "总督宫与叹息桥 (Palazzo Ducale & Ponte dei Sospiri)",
+      "region": "威尼斯",
+      "summary": "哥特杰作的威尼斯政权官邸，可跨越著名的叹息桥。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore"],
+      "source": "https://palazzoducale.visitmuve.it/en/visitor-information/"
+    },
+    {
+      "id": "grand-canal",
+      "name": "大运河 (Canal Grande)",
+      "region": "威尼斯",
+      "summary": "贯穿威尼斯的主水道，乘1号水上巴士沿岸览尽古典宫邸。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["scenery", "slow"],
+      "source": "https://palazzoducale.visitmuve.it/en/visitor-information/"
     }
   ],
   "foods": [
@@ -148,6 +175,22 @@
       "region": "佛罗伦萨",
       "reason": "佛罗伦萨被誉为gelato发源地，开心果、香草等简单口味凭慢搅奶基底成就独特绵密风味。",
       "source": "https://www.trafalgar.com/real-word/traditional-italian-food/"
+    },
+    {
+      "id": "nero-di-seppia",
+      "name": "墨鱼汁意面 (Spaghetti al Nero di Seppia)",
+      "type": "意面",
+      "region": "威尼斯",
+      "reason": "威尼斯潟湖渔家代表菜，墨鱼汁烩面通体乌黑，鲜味浓郁，源自不浪费的渔民传统。",
+      "source": "https://www.tours-italy.com/blog/venetian-food-culinary-voyage-through-flavors-la-serenissima"
+    },
+    {
+      "id": "cicchetti",
+      "name": "威尼斯小吃 (Cicchetti)",
+      "type": "下酒小食",
+      "region": "威尼斯",
+      "reason": "威尼斯版西班牙tapas，在小酒馆bacaro配白葡萄酒或Spritz，一口一份畅尝潟湖风味。",
+      "source": "https://www.tours-italy.com/blog/venetian-food-culinary-voyage-through-flavors-la-serenissima"
     }
   ],
   "reservations": [
@@ -166,6 +209,32 @@
       "method": "官网 tickets.uffizi.it 在线预约，或致电预约中心（+39 055 0354135）选定日期与时段。",
       "leadTime": "建议提前2至4周预订，清晨开馆时段最紧俏，需尽早锁定。",
       "source": "https://www.uffizi.it/en/tickets"
+    },
+    {
+      "id": "doges-palace-booking",
+      "name": "总督宫 (Palazzo Ducale)",
+      "region": "威尼斯",
+      "method": "官网 palazzoducale.visitmuve.it 在线购票并预约入场时段，可加购「总督密室」导览参观叹息桥两侧密道。",
+      "leadTime": "建议提前数日预订；五月至九月每周五、六延长至23点开放，旺季时段易满。",
+      "source": "https://palazzoducale.visitmuve.it/en/visitor-information/"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "罗马",
+      "to": "佛罗伦萨",
+      "mode": "train",
+      "durationText": "约1小时30分",
+      "detail": "Frecciarossa高铁直达，罗马Termini站至佛罗伦萨S.M.Novella站，每日班次密集。",
+      "source": "https://www.thetrainline.com/en-us/train-times/rome-to-florence"
+    },
+    {
+      "from": "佛罗伦萨",
+      "to": "威尼斯",
+      "mode": "train",
+      "durationText": "约2小时",
+      "detail": "Frecciarossa高铁直达，佛罗伦萨S.M.Novella站至威尼斯Santa Lucia站，每日约26班。",
+      "source": "https://www.thetrainline.com/en/train-times/florence-to-venice"
     }
   ],
   "seasonalTips": [

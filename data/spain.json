@@ -1,7 +1,7 @@
 {
   "country": "spain",
   "countryNameZh": "西班牙",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "spring",
@@ -122,6 +122,33 @@
       "suggestedDurationMin": 90,
       "moodTags": ["relax", "scenery"],
       "source": "https://www.visitmadrid.es/en/donde-ir-comunidad-madrid/ver-madrid-imprescindibles/parque-retiro"
+    },
+    {
+      "id": "catedral-sevilla-giralda",
+      "name": "塞维利亚大教堂与吉拉达塔 (Catedral de Sevilla y La Giralda)",
+      "region": "塞维利亚",
+      "summary": "世界最大哥特式教堂，藏哥伦布陵墓，登原清真寺宣礼塔吉拉达塔可俯瞰全城。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.catedraldesevilla.es/en/cultural-visit/schedules-and-rates/"
+    },
+    {
+      "id": "real-alcazar-sevilla",
+      "name": "塞维利亚王宫 (Real Alcázar de Sevilla)",
+      "region": "塞维利亚",
+      "summary": "欧洲现存最古老在用王宫，穆德哈尔宫殿与花园美轮美奂，列世界遗产，须预约。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://alcazarsevilla.org/"
+    },
+    {
+      "id": "plaza-espana-sevilla",
+      "name": "西班牙广场 (Plaza de España)",
+      "region": "塞维利亚",
+      "summary": "为1929年世博会而建的半圆形广场，瓷砖长椅、运河与拱廊气势恢宏。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["scenery", "explore"],
+      "source": "https://en.andalucia.org/listing/espa%C3%B1a-square/16337101/"
     }
   ],
   "foods": [
@@ -156,6 +183,22 @@
       "region": "全国",
       "reason": "传说起源于西班牙牧羊人，金黄酥脆的油炸面点蘸浓稠热巧克力，是冬日与清晨的经典享受。",
       "source": "https://en.wikipedia.org/wiki/Churro"
+    },
+    {
+      "id": "pescaito-frito",
+      "name": "安达卢西亚炸鱼 (Pescaíto Frito)",
+      "type": "炸物",
+      "region": "塞维利亚",
+      "reason": "安达卢西亚经典炸小鱼，鳀鱼、小乌贼等裹薄粉高温油炸，外酥里嫩，配Fino雪利酒最佳。",
+      "source": "https://spanaly.com/pescaito-frito-seville/"
+    },
+    {
+      "id": "jerez-sherry",
+      "name": "雪利酒 (Jerez / Sherry)",
+      "type": "佐餐酒",
+      "region": "塞维利亚",
+      "reason": "产自邻近赫雷斯的加强型葡萄酒，干型Fino、Manzanilla清爽，是塞维利亚tapas与炸鱼的灵魂搭档。",
+      "source": "https://devourtours.com/blog/top-10-traditional-tapas-in-seville/"
     }
   ],
   "reservations": [
@@ -174,6 +217,40 @@
       "method": "必须通过官网 parkguell.barcelona 提前在线购买分时段门票，最早可提前3个月预订时段。",
       "leadTime": "建议提前数日至数周预订，旺季时段易售罄",
       "source": "https://parkguell.barcelona/en/buy-tickets"
+    },
+    {
+      "id": "real-alcazar-ticket",
+      "name": "塞维利亚王宫门票 (Real Alcázar de Sevilla)",
+      "region": "塞维利亚",
+      "method": "请通过官网 alcazarsevilla.org 预约定时门票，可加购导览或音频导览，避免现场长队。",
+      "leadTime": "官网仅提前约60天放票，春秋旺季常提前数日售罄，建议一开售即预订",
+      "source": "https://alcazarsevilla.org/prepara-la-visita/"
+    },
+    {
+      "id": "catedral-sevilla-ticket",
+      "name": "塞维利亚大教堂门票 (Catedral de Sevilla)",
+      "region": "塞维利亚",
+      "method": "请通过官方售票平台 catedraldesevilla.entradasdemuseos.com 购买定时门票，含大教堂、吉拉达塔与救主堂。",
+      "leadTime": "旺季时段易满，建议提前数日预订并选清晨或傍晚错峰",
+      "source": "https://www.catedraldesevilla.es/en/cultural-visit/schedules-and-rates/"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "巴塞罗那",
+      "to": "马德里",
+      "mode": "train",
+      "durationText": "约2小时30分",
+      "detail": "Renfe AVE高铁直达，巴塞罗那Sants站至马德里Atocha站，每30至40分钟一班。",
+      "source": "https://www.thetrainline.com/en-us/train-times/barcelona-sants-to-madrid-atocha"
+    },
+    {
+      "from": "马德里",
+      "to": "塞维利亚",
+      "mode": "train",
+      "durationText": "约2小时30分",
+      "detail": "Renfe AVE高铁直达，马德里Atocha站至塞维利亚Santa Justa站，每日约24班。",
+      "source": "https://www.thetrainline.com/en-us/train-times/madrid-to-seville"
     }
   ],
   "seasonalTips": [

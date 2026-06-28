@@ -1,7 +1,7 @@
 {
   "country": "japan",
   "countryNameZh": "日本",
-  "updatedAt": "2026-06-26",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "spring",
@@ -97,6 +97,62 @@
       "suggestedDurationMin": 90,
       "moodTags": ["relax", "scenery", "slow"],
       "source": "https://www.fun-japan.jp/en/articlesPromotion/14239"
+    },
+    {
+      "id": "kt-kiyomizu",
+      "name": "清水寺 (Kiyomizu-dera)",
+      "region": "京都",
+      "summary": "始建于780年的世界遗产，悬空木造舞台俯瞰京都与四季林木。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "scenery", "explore"],
+      "source": "https://www.kiyomizudera.or.jp/en/"
+    },
+    {
+      "id": "kt-fushimiinari",
+      "name": "伏见稻荷大社 (Fushimi Inari Taisha)",
+      "region": "京都",
+      "summary": "全日本稻荷神社总本宫，千本鸟居朱红长廊蜿蜒上山，免费且24小时开放。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore", "scenery"],
+      "source": "https://inari.jp/en/"
+    },
+    {
+      "id": "kt-nara-todaiji",
+      "name": "奈良东大寺与奈良公园 (Todai-ji & Nara Park)",
+      "region": "京都",
+      "summary": "世界最大木造殿堂内15米大佛，公园千余只自由放养的鹿，京都/大阪一日游经典。",
+      "suggestedDurationMin": 240,
+      "moodTags": ["culture", "explore", "scenery"],
+      "dayTrip": true,
+      "parentCity": "京都",
+      "source": "https://www.todaiji.or.jp/en/"
+    },
+    {
+      "id": "os-castle",
+      "name": "大阪城 (Osaka Castle)",
+      "region": "大阪",
+      "summary": "大阪地标天守阁，顶层瞭望台可眺望全城，护城河与园林环绕。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "scenery", "explore"],
+      "source": "https://osakacastle.org/"
+    },
+    {
+      "id": "os-dotonbori",
+      "name": "道顿堀 (Dotonbori)",
+      "region": "大阪",
+      "summary": "霓虹璀璨的运河美食街，固力果跑步人招牌前是章鱼烧与大阪烧天堂。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["food", "explore", "shopping"],
+      "source": "https://www.japan.travel/en/spot/716/"
+    },
+    {
+      "id": "os-usj",
+      "name": "日本环球影城 (Universal Studios Japan)",
+      "region": "大阪",
+      "summary": "亚洲首座环球影城，含哈利波特魔法世界与超级任天堂世界，建议提前购票。",
+      "suggestedDurationMin": 480,
+      "moodTags": ["explore", "shopping"],
+      "source": "https://www.usj.co.jp/web/en/us"
     }
   ],
   "foods": [
@@ -131,6 +187,38 @@
       "region": "东京/月岛",
       "reason": "东京特色铁板料理，与大阪烧不同，月岛是其发源地。",
       "source": "https://www.foodinjapan.org/kanto-food-guide/tokyo-food-guide/"
+    },
+    {
+      "id": "jp-takoyaki",
+      "name": "章鱼烧 (Takoyaki)",
+      "type": "小吃",
+      "region": "大阪",
+      "reason": "大阪国民小吃，面糊裹章鱼丁烤成球状，淋酱汁与木鱼花，道顿堀必尝。",
+      "source": "https://www.foodinjapan.org/article/the-complete-kansai-food-guide/"
+    },
+    {
+      "id": "jp-okonomiyaki",
+      "name": "大阪烧 (Okonomiyaki)",
+      "type": "铁板烧",
+      "region": "大阪",
+      "reason": "被誉为大阪灵魂料理的什锦煎饼，铁板现煎，佐特制酱汁与美乃滋。",
+      "source": "https://www.foodinjapan.org/article/the-complete-kansai-food-guide/"
+    },
+    {
+      "id": "jp-yudofu",
+      "name": "汤豆腐 (Yudofu)",
+      "type": "豆腐料理",
+      "region": "京都",
+      "reason": "京都软水成就的细腻豆腐，于昆布高汤中慢炖，是寺院与禅意料理代表。",
+      "source": "https://www.foodinjapan.org/article/the-complete-kansai-food-guide/"
+    },
+    {
+      "id": "jp-kaiseki",
+      "name": "京怀石料理 (Kyo-Kaiseki)",
+      "type": "正餐",
+      "region": "京都",
+      "reason": "京都顶级会席料理，讲究时令、出汁与京野菜，承袭精进料理传统。",
+      "source": "https://www.foodinjapan.org/article/the-complete-kansai-food-guide/"
     }
   ],
   "reservations": [
@@ -149,6 +237,32 @@
       "method": "官方票务网站定时入场制(teamlabplanets.dmm.com)，提前选择日期与时段。",
       "leadTime": "至少提前2周，周末与樱花季、黄金周常提前2-3周售罄。",
       "source": "https://teamlabplanets.dmm.com/en"
+    },
+    {
+      "id": "jp-usj",
+      "name": "日本环球影城 (Universal Studios Japan)",
+      "region": "大阪",
+      "method": "官网(usj.co.jp)购入园影城通行证(Studio Pass)，每日入场日期最早于60天前(日本时间0:00)开放、每天放出一个新日期；快速通行证(Express Pass)另购。",
+      "leadTime": "提前购票，周末、暑假与黄金周热门日期常提前数周售罄，Express Pass于当月中放出次月。",
+      "source": "https://www.usj.co.jp/web/en/us/tickets"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "东京",
+      "to": "京都",
+      "mode": "train",
+      "durationText": "约2小时15分",
+      "detail": "东海道新干线希望号(Nozomi)直达；JR Pass持有者需改乘光号(Hikari，约2小时40分)。",
+      "source": "https://www.japan-guide.com/e/e2363.html"
+    },
+    {
+      "from": "京都",
+      "to": "大阪",
+      "mode": "train",
+      "durationText": "约13-28分",
+      "detail": "新干线至新大阪约13分(1450日元)；更经济的JR京都线新快速到大阪站约28分(580日元)。",
+      "source": "https://www.japan-guide.com/e/e4006.html"
     }
   ],
   "seasonalTips": [

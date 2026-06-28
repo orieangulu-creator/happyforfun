@@ -1,7 +1,7 @@
 {
   "country": "denmark",
   "countryNameZh": "丹麦",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "summer",
@@ -106,6 +106,33 @@
       "suggestedDurationMin": 150,
       "moodTags": ["culture", "explore", "scenery"],
       "source": "https://www.visitaarhus.com/areas-and-cities/aarhus/see-and-do-aarhus/top-attractions"
+    },
+    {
+      "id": "ode-hcandersen",
+      "name": "安徒生博物馆 (H.C. Andersens Hus)",
+      "region": "欧登塞",
+      "summary": "安徒生故乡的沉浸式博物馆，由隈研吾设计，三分之二建于地下，环绕童话花园，带你走进安徒生的童话世界。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore", "slow"],
+      "source": "https://hcandersenshus.dk/en/"
+    },
+    {
+      "id": "ode-fynskelandsby",
+      "name": "菲英露天博物馆 (Den Fynske Landsby)",
+      "region": "欧登塞",
+      "summary": "重现安徒生年代菲英岛乡村的露天博物馆，汇集25栋18至19世纪老建筑，有身着古装的工匠与丹麦本土牲畜。",
+      "suggestedDurationMin": 150,
+      "moodTags": ["culture", "slow", "explore"],
+      "source": "https://www.visitodense.com/tourist/plan-your-trip/funen-village-open-air-museum-gdk631954"
+    },
+    {
+      "id": "ode-egeskov",
+      "name": "伊埃斯科城堡 (Egeskov Slot)",
+      "region": "欧登塞",
+      "summary": "欧登塞以南约30分钟的文艺复兴水上城堡，北欧保存最好之一，花园与树梢吊桥、欧洲最长树篱迷宫适合一日游。",
+      "suggestedDurationMin": 240,
+      "moodTags": ["scenery", "explore", "slow"],
+      "source": "https://egeskov.dk/en"
     }
   ],
   "foods": [
@@ -140,6 +167,14 @@
       "region": "丹麦",
       "reason": "经投票评选为丹麦国菜：煎得酥脆的五花肉片配欧芹奶油酱与水煮土豆，是丹麦人最钟爱的暖心家常菜。",
       "source": "https://www.visitdenmark.com/denmark/things-to-do/eat-drink/traditional-danish-food"
+    },
+    {
+      "id": "ode-brunsviger",
+      "name": "菲英焦糖面包 (Brunsviger)",
+      "type": "甜点面包",
+      "region": "欧登塞",
+      "reason": "源自菲英岛与欧登塞的经典酵母蛋糕，表面铺满红糖与黄油焦糖，是当地生日与下午茶的代表甜点，欧登塞被视为其历史发源地。",
+      "source": "https://www.visitdenmark.com/denmark/things-to-do/eat-drink/pastries-cakes-biscuits"
     }
   ],
   "reservations": [
@@ -158,6 +193,32 @@
       "method": "官网 aros.dk 在线购票，含屋顶《你的彩虹全景》走道。",
       "leadTime": "建议出行前在线预订当日票，旺季与特展期间尤其推荐提前订以确保入场时段。",
       "source": "https://www.visitaarhus.com/areas-and-cities/aarhus/see-and-do-aarhus/top-attractions"
+    },
+    {
+      "id": "ode-hcandersen-tickets",
+      "name": "安徒生博物馆门票 (H.C. Andersens Hus tickets)",
+      "region": "欧登塞",
+      "method": "须于参观前在 museumodense.dk 在线订票并选定入场时段；门票当日免费畅游安徒生童年故居。",
+      "leadTime": "官方明确要求提前预订，旺季时段易满，建议出行前在线锁定日期与时段。",
+      "source": "https://hcandersenshus.dk/en/practical-information/"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "哥本哈根",
+      "to": "欧登塞",
+      "mode": "train",
+      "durationText": "约1小时15分",
+      "detail": "DSB城际/快车直达，哥本哈根中央站至欧登塞站，快车约1小时15分、城际约1小时40分，班次密集。",
+      "source": "https://www.dsb.dk/en/train-rides-in-denmark/odense-copenhagen/"
+    },
+    {
+      "from": "欧登塞",
+      "to": "奥胡斯",
+      "mode": "train",
+      "durationText": "约1小时30分",
+      "detail": "DSB城际列车直达，欧登塞站至奥胡斯中央站，跨小贝尔特海峡与日德兰半岛，官方称约1.5小时车程，每日多班。",
+      "source": "https://www.dsb.dk/en/train-rides-in-denmark/odense-copenhagen/"
     }
   ],
   "seasonalTips": [

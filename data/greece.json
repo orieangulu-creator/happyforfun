@@ -1,7 +1,7 @@
 {
   "country": "greece",
   "countryNameZh": "希腊",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "spring",
@@ -118,6 +118,33 @@
       "suggestedDurationMin": 90,
       "moodTags": ["culture", "explore"],
       "source": "https://www.greeka.com/cyclades/santorini/sightseeing/santorini-caldera/"
+    },
+    {
+      "id": "little-venice-mykonos",
+      "name": "小威尼斯与米科诺斯老城 (Little Venice & Mykonos Town)",
+      "region": "米科诺斯",
+      "summary": "米科诺斯老城（Chora）西缘的临海街区，威尼斯风格三层老宅阳台凌驾爱琴海之上，墙面在海浪映照下色彩斑斓，是欧洲最上镜地点之一，也是观赏日落的人气去处。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["scenery", "island"],
+      "source": "https://www.greeka.com/cyclades/mykonos/sightseeing/little-venice/"
+    },
+    {
+      "id": "kato-mili-windmills",
+      "name": "卡托米利风车 (Windmills of Kato Mili)",
+      "region": "米科诺斯",
+      "summary": "米科诺斯的标志性景观，一排雪白圆筒形风车带尖顶矗立在小威尼斯前的山坡上，由威尼斯人于16世纪建造以借强风磨制谷物，俯瞰爱琴海，是岛上经典明信片画面。",
+      "suggestedDurationMin": 45,
+      "moodTags": ["scenery", "island"],
+      "source": "https://www.greeka.com/cyclades/mykonos/sightseeing/windmills/"
+    },
+    {
+      "id": "paradise-beach-mykonos",
+      "name": "天堂海滩 (Paradise Beach)",
+      "region": "米科诺斯",
+      "summary": "米科诺斯最负盛名的海滩，位于岛屿南部、距老城约6公里，金色细沙与碧蓝海水闻名，白天是设施齐备的海滩，午后起沙滩酒吧与俱乐部派对气氛热烈，是岛上夜生活地标。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["island", "relax"],
+      "source": "https://www.greeka.com/cyclades/mykonos/beaches/paradise/"
     }
   ],
   "foods": [
@@ -152,6 +179,22 @@
       "region": "全希腊",
       "reason": "用腌制的猪肉或鸡肉在垂直旋转烤架上烤制后切成薄片，多以皮塔饼盛装，是希腊街头随处可见的人气快餐。",
       "source": "https://www.visit-greece.info/en/travel-tips/typical-greek-dishes/"
+    },
+    {
+      "id": "kopanisti-mykonos",
+      "name": "辛辣发酵奶酪 (Kopanisti)",
+      "type": "奶酪/开胃小食",
+      "region": "米科诺斯",
+      "reason": "米科诺斯招牌的辛辣发酵软奶酪，口感绵密、味道浓烈，获基克拉泽斯PDO原产地认证，常涂抹于面包或大麦干面包配番茄，是当地最知名的meze下酒小食。",
+      "source": "https://www.greekgastronomyguide.gr/en/item/kopanisti-cheese-mykonos/"
+    },
+    {
+      "id": "louza-mykonos",
+      "name": "米科诺斯风干猪肉 (Louza)",
+      "type": "腌制冷盘",
+      "region": "米科诺斯",
+      "reason": "用整条猪里脊以盐、胡椒及香料腌制，经初冬北风与阳光风干而成，切成薄片做开胃冷盘，搭配当地葡萄酒，是米科诺斯标志性的传统肉制品。",
+      "source": "https://www.mykonosgreece.com/mykonos-local-products/"
     }
   ],
   "reservations": [
@@ -170,6 +213,32 @@
       "method": "可在 Ferryhopper 等官方平台比较船班与价格并在线预订，获取手机电子票直接登船（票价约46.50欧元起）。",
       "leadTime": "旺季（6月至9月，尤其7、8月）热门高速船班易售罄，建议提前2-3个月预订。",
       "source": "https://www.ferryhopper.com/en/ferry-routes/direct/athens-piraeus-to-santorini"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "雅典",
+      "to": "圣托里尼",
+      "mode": "ferry",
+      "durationText": "约5-8小时（高速船约5小时）",
+      "detail": "由雅典比雷埃夫斯港出发，高速船（如Seajets）最快约5小时，常规渡轮约7-8小时；旺季每日多班，可经Ferryhopper比价订票。",
+      "source": "https://www.ferryhopper.com/en/ferry-routes/direct/athens-piraeus-to-santorini"
+    },
+    {
+      "from": "圣托里尼",
+      "to": "米科诺斯",
+      "mode": "ferry",
+      "durationText": "约2-3.5小时（高速船最快约1小时50分）",
+      "detail": "高速渡轮（Seajets、Golden Star、Fast Ferries等）连接两岛，最快约1小时50分，5至9月旺季每日3-5班，季节性班次。",
+      "source": "https://www.ferryhopper.com/en/ferry-routes/direct/santorini-to-mykonos"
+    },
+    {
+      "from": "雅典",
+      "to": "米科诺斯",
+      "mode": "ferry",
+      "durationText": "约2小时40分-5小时50分（高速船最快约2小时40分）",
+      "detail": "由比雷埃夫斯港出发，Seajets高速船4至11月运营、最快约2小时40分，Blue Star常规渡轮约4小时40分至5小时50分，全年每日有班。",
+      "source": "https://www.ferryhopper.com/en/ferry-routes/direct/piraeus-athens-to-mykonos"
     }
   ],
   "seasonalTips": [

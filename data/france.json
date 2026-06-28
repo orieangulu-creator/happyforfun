@@ -1,7 +1,7 @@
 {
   "country": "france",
   "countryNameZh": "法国",
-  "updatedAt": "2026-06-26",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "spring",
@@ -87,11 +87,49 @@
     {
       "id": "par-versailles",
       "name": "凡尔赛宫 (Palace of Versailles)",
-      "region": "凡尔赛(巴黎近郊)",
-      "summary": "法国王室的宏伟宫殿与花园，是热门的一日游目的地。",
+      "region": "巴黎",
+      "dayTrip": true,
+      "parentCity": "巴黎",
+      "summary": "巴黎近郊王室宫殿与花园，热门一日游。",
       "suggestedDurationMin": 240,
       "moodTags": ["culture", "scenery", "explore"],
       "source": "https://en.chateauversailles.fr/plan-your-visit/practical-information"
+    },
+    {
+      "id": "nce-promenade",
+      "name": "盎格鲁大道 (Promenade des Anglais)",
+      "region": "尼斯",
+      "summary": "尼斯滨海大道，棕榈成排，沿天使湾散步赏地中海。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["scenery", "slow", "explore"],
+      "source": "https://www.explorenicecotedazur.com/en/info/promenade-des-anglais-en/"
+    },
+    {
+      "id": "nce-castle-hill",
+      "name": "城堡山公园 (Parc de la Colline du Château)",
+      "region": "尼斯",
+      "summary": "92米高城堡山，可俯瞰老城、港口与天使湾全景。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["scenery", "explore"],
+      "source": "https://www.explorenicecotedazur.com/en/culture/parc-de-la-colline-du-chateau/"
+    },
+    {
+      "id": "lyo-fourviere",
+      "name": "富维耶圣母圣殿 (Basilique Notre-Dame de Fourvière)",
+      "region": "里昂",
+      "summary": "山顶新拜占庭风格教堂，露台俯瞰里昂全城。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "scenery", "explore"],
+      "source": "https://www.fourviere.org/en/"
+    },
+    {
+      "id": "lyo-vieux-lyon",
+      "name": "里昂老城与穿巷 (Vieux Lyon & Traboules)",
+      "region": "里昂",
+      "summary": "文艺复兴老城，UNESCO遗产，穿行隐秘穿巷traboules。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore", "slow"],
+      "source": "https://en.visiterlyon.com/discover/heritage-unesco/renaissance/the-vieux-lyon-old-lyon"
     }
   ],
   "foods": [
@@ -126,6 +164,38 @@
       "region": "巴黎",
       "reason": "法国日常主食，外脆内软，是巴黎面包房文化的象征。",
       "source": "https://www.bloggeratlarge.com/the-absolute-best-things-to-eat-in-paris/"
+    },
+    {
+      "id": "nce-socca",
+      "name": "鹰嘴豆薄饼 (Socca)",
+      "type": "街头小吃",
+      "region": "尼斯",
+      "reason": "尼斯经典街头小吃，鹰嘴豆粉加橄榄油柴火烤制，趁热撒黑胡椒最佳。",
+      "source": "https://www.explorenicecotedazur.com/en/explore/art-of-living/gastronomy-and-local-produce/nicoise-recipes/"
+    },
+    {
+      "id": "nce-salade-nicoise",
+      "name": "尼斯沙拉 (Salade niçoise)",
+      "type": "沙拉",
+      "region": "尼斯",
+      "reason": "发源于尼斯的经典沙拉，以番茄、水煮蛋、尼斯橄榄与金枪鱼或鳀鱼橄榄油拌成。",
+      "source": "https://www.explorenicecotedazur.com/en/explore/art-of-living/gastronomy-and-local-produce/nicoise-recipes/"
+    },
+    {
+      "id": "lyo-quenelle",
+      "name": "里昂鱼糜丸 (Quenelle)",
+      "type": "主菜",
+      "region": "里昂",
+      "reason": "里昂招牌名菜，狗鱼糜与奶油制成的松软丸子，常焗烤配南图阿小龙虾酱。",
+      "source": "https://en.visiterlyon.com/taste-the-finest/bons-plans/lyon-s-specialities"
+    },
+    {
+      "id": "lyo-saucisson-brioche",
+      "name": "布里欧修香肠 (Saucisson brioché)",
+      "type": "里昂小馆菜 (bouchon)",
+      "region": "里昂",
+      "reason": "里昂小馆bouchon代表菜，里昂熟香肠裹于布里欧修面包烘烤，常嵌开心果。",
+      "source": "https://en.visiterlyon.com/taste-the-finest/bons-plans/lyon-s-specialities"
     }
   ],
   "reservations": [
@@ -144,6 +214,24 @@
       "method": "官方在线售票 ticket.louvre.fr，强制预约(含免费入场者)。",
       "leadTime": "强烈建议提前预订定时票，仅预约可保证入场，票限所选日期与时段。",
       "source": "https://contact.louvre.fr/hc/en-gb/articles/12837462851229"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "巴黎",
+      "to": "里昂",
+      "mode": "train",
+      "durationText": "约2小时",
+      "detail": "TGV INOUI高铁直达，巴黎里昂站(Gare de Lyon)至里昂，每日约30班。",
+      "source": "https://www.sncf-connect.com/en-en/train/route/paris/lyon"
+    },
+    {
+      "from": "里昂",
+      "to": "尼斯",
+      "mode": "train",
+      "durationText": "约4小时30分",
+      "detail": "SNCF TGV INOUI直达里昂至尼斯Ville站，每日约10班。",
+      "source": "https://www.sncf-connect.com/en-en/train/route/lyon/nice"
     }
   ],
   "seasonalTips": [

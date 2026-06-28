@@ -1,7 +1,7 @@
 {
   "country": "sweden",
   "countryNameZh": "瑞典",
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "bestSeasons": [
     {
       "season": "summer",
@@ -106,6 +106,33 @@
       "suggestedDurationMin": 90,
       "moodTags": ["slow", "food", "shopping"],
       "source": "https://www.goteborg.com/en"
+    },
+    {
+      "id": "mal-turningtorso",
+      "name": "旋转大厦 (Turning Torso)",
+      "region": "马尔默",
+      "summary": "西港区的扭转地标，由建筑师卡拉特拉瓦设计，190米高、九段立方体自底至顶旋转90度，是斯堪的纳维亚的标志性摩天楼(仅顶层可预约团体参观)。",
+      "suggestedDurationMin": 45,
+      "moodTags": ["scenery", "explore"],
+      "source": "https://visitskane.com/classic-attractions/turning-torso"
+    },
+    {
+      "id": "mal-malmohus",
+      "name": "马尔默城堡 (Malmöhus Slott)",
+      "region": "马尔默",
+      "summary": "1526至1539年间建造，北欧现存最古老的文艺复兴城堡，今为马尔默博物馆群所在，设有水族馆、自然史与艺术展及一艘二战潜艇。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "explore", "slow"],
+      "source": "https://www.visitcastles.eu/malmohus-castle/"
+    },
+    {
+      "id": "mal-lillatorg",
+      "name": "老城小广场 (Lilla Torg, Gamla Staden)",
+      "region": "马尔默",
+      "summary": "老城区中心的鹅卵石广场，1590年辟建，半木结构老屋环绕，餐厅露台林立，是马尔默最宜慢逛与小酌的社交核心。",
+      "suggestedDurationMin": 60,
+      "moodTags": ["slow", "food", "scenery"],
+      "source": "https://en.wikipedia.org/wiki/Lilla_Torg,_Malm%C3%B6"
     }
   ],
   "foods": [
@@ -140,6 +167,22 @@
       "region": "瑞典",
       "reason": "瑞典传统硬质黑麦脆面包，可追溯数百年，常配奶酪、鱼或火腿食用，是瑞典日常餐桌的常见主食。",
       "source": "https://www.tasteatlas.com/best-rated-dishes-in-sweden"
+    },
+    {
+      "id": "mal-falafel",
+      "name": "马尔默法拉费 (Malmö Falafel)",
+      "type": "街头小吃",
+      "region": "马尔默",
+      "reason": "法拉费是马尔默的非官方代表小食，斯堪人将其本土化，经典吃法是裹饼配mixed酱，被誉为全瑞典最好的法拉费。",
+      "source": "https://thatsup.co.uk/malmo/guide/the-guide-to-malmos-best-falafel/"
+    },
+    {
+      "id": "mal-spettekaka",
+      "name": "斯堪烤塔糕 (Spettekaka)",
+      "type": "甜点",
+      "region": "马尔默",
+      "reason": "瑞典南部斯科讷地区(Skåne)的标志性甜点，以蛋、糖、面粉调成稀面糊，于明火上的旋转烤架层层浇成空心金字塔状，外脆内空。",
+      "source": "https://en.wikipedia.org/wiki/Spettekaka"
     }
   ],
   "reservations": [
@@ -158,6 +201,32 @@
       "method": "瑞典旅游协会官网 swedishtouristassociation.com 在线预订；套餐含缆车上下、保暖连体服与山顶导览，缆车每晚约21:00-1:00运行。",
       "leadTime": "营业期约11月至3月中，强烈建议提前在线预订以免售罄(现场候补视余位而定)。",
       "source": "https://www.swedishtouristassociation.com/activities/abisko-aurora-night-visit/"
+    },
+    {
+      "id": "mal-turning-torso-visit",
+      "name": "旋转大厦顶层参观 (Turning Torso Study Visit)",
+      "region": "马尔默",
+      "method": "大厦不设公众观景台，仅53/54层可预约参观；由Sky High Meetings承接团体study visit，经其官网 skyhighmeetings.com 预约，价格随人数而定。",
+      "leadTime": "需提前预约，团体上限约80人；夏季可另安排导览，旺季建议尽早联系确认档期。",
+      "source": "https://skyhighmeetings.com/en/visit/"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "斯德哥尔摩",
+      "to": "哥德堡",
+      "mode": "train",
+      "durationText": "约3小时",
+      "detail": "SJ高速列车(X2000)直达，斯德哥尔摩中央站至哥德堡中央站，最快约3小时10分至3小时30分，每日多班。",
+      "source": "https://www.sj.se/en"
+    },
+    {
+      "from": "哥德堡",
+      "to": "马尔默",
+      "mode": "train",
+      "durationText": "约2.5至3小时",
+      "detail": "SJ列车与Öresundståg区域列车直达，哥德堡中央站至马尔默中央站，约2小时15分至3小时，班次频密。",
+      "source": "https://www.sj.se/en"
     }
   ],
   "seasonalTips": [
