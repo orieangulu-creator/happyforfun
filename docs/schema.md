@@ -177,6 +177,11 @@ UI 收集用户查询。**零必填**：任何字段都可不填，系统据已�
       "detail": "东海道新干线希望号(Nozomi)直达", "source": "https://example.com/shinkansen" }
   ],
 
+  "arrivalGateway": {                 // (可选) 无直飞国家的推荐入境走法，附于首段航班
+    "note": "无中国直飞；较省心：飞邻近枢纽再转大巴/火车入境。",
+    "source": "https://example.com/gateway"
+  },
+
   "budgetNotes": null                  // (v2 预留) v1 留空
 }
 ```
@@ -195,6 +200,7 @@ UI 收集用户查询。**零必填**：任何字段都可不填，系统据已�
 | `reservations[]` | array | 是 | 需预约项，每条带 `source` |
 | `seasonalTips[]` | array | 是 | 季节建议，每条带 `source` |
 | `intercityTransport[]` | array | 否 | 真实城市间交通 `{from,to,mode,durationText,detail,source}`；缺失则回落通用建议 |
+| `arrivalGateway` | object | 否 | 无直飞国家的推荐入境走法 `{note,source}`，引擎附于首段航班 |
 | `*.tags` / `budgetNotes` | - | 否 (v2) | 主题标签 / 预算备注，留空 |
 
 ---

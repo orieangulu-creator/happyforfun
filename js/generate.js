@@ -235,7 +235,10 @@
     const realDays = dailyPlan.length;
     const coreDays = (alloc[0] ? alloc[0].days : realDays);
     const seq = alloc.map(a => ({ city: a.city, country: a.country }));
-    const segs = [{ mode: "flight", from: input.origin || "出发地", to: seq[0].city, detail: input.origin ? transportFor(seq[0].country, input.origin).note : "建议直飞首站", source: "交通估算" }];
+    const gw0 = (DATA.libraries[seq[0].country] || {}).arrivalGateway;
+    const seg0 = { mode: "flight", from: input.origin || "出发地", to: seq[0].city, detail: input.origin ? transportFor(seq[0].country, input.origin).note : "建议直飞首站", source: "交通估算" };
+    if (gw0 && gw0.note) { seg0.detail += "。" + gw0.note; if (gw0.source) seg0.source = gw0.source; }
+    const segs = [seg0];
     for (let i = 1; i < seq.length; i++) {
       const cross = seq[i].country !== seq[i - 1].country;
       let detail = cross ? "跨国：高铁或廉价航空" : "同国火车 / 大巴", source = "交通估算", mode = cross ? "flight/train" : "train";
@@ -447,8 +450,11 @@
     }
 
     const firstCity = usedCities[0] || lib.countryNameZh;
-    const segments = [{ mode: "flight", from: input.origin || "出发地", to: firstCity,
-      detail: input.origin ? transportFor(country, input.origin).note : "建议直飞，填写出发地可估算时长", source: "交通估算" }];
+    const flightSeg = { mode: "flight", from: input.origin || "出发地", to: firstCity,
+      detail: input.origin ? transportFor(country, input.origin).note : "建议直飞，填写出发地可估算时长", source: "交通估算" };
+    // 无直飞国家：附「入境网关」建议（如斯洛文尼亚经米兰大巴入境）
+    if (lib.arrivalGateway && lib.arrivalGateway.note) { flightSeg.detail += "。" + lib.arrivalGateway.note; if (lib.arrivalGateway.source) flightSeg.source = lib.arrivalGateway.source; }
+    const segments = [flightSeg];
     // 真实城市间交通：优先用数据库 intercityTransport，缺失则回落通用建议
     const itc = lib.intercityTransport || [];
     const findItc = (a, b) => itc.find(t => (t.from === a && t.to === b) || (t.from === b && t.to === a));

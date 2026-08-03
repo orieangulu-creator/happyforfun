@@ -263,6 +263,10 @@
       "source": "https://www.postojnska-jama.eu/en/information/tickets/"
     }
   ],
+  "arrivalGateway": {
+    "note": "斯洛文尼亚无中国直飞航班。较省心的走法：上海直飞米兰(东航/国航每日约2班、约12.5小时)，再从米兰(Lampugnano长途站或马尔彭萨机场)搭 FlixBus 直达卢布尔雅那(约7.5小时、每日多班)；也可经维也纳/苏黎世/法兰克福/威尼斯等邻近枢纽转火车或大巴入境。",
+    "source": "https://global.flixbus.com/bus-routes/bus-milan-malpensa-airport-ljubljana"
+  },
   "seasonalTips": [
     {
       "season": "spring",
