@@ -1,0 +1,288 @@
+{
+  "country": "slovenia",
+  "countryNameZh": "斯洛文尼亚",
+  "updatedAt": "2026-06-28",
+  "bestSeasons": [
+    {
+      "season": "spring",
+      "reason": "春季（尤其4至5月）气候转暖、山野新绿，阿尔卑斯融雪注满湖泊瀑布，游客远少于盛夏，是漫步卢布尔雅那老城与布莱德湖的黄金时段；唯早春多雨需备雨具。",
+      "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-slovenia"
+    },
+    {
+      "season": "summer",
+      "reason": "夏季（6至8月）气候温暖少雨、亚得里亚海水温和，布莱德湖与博希尼湖适合戏水泛舟，皮兰海岸阳光明媚，是全境体验最全的旺季，但也最拥挤、物价最高。",
+      "source": "https://www.wildernesstravel.com/europe/slovenia/best-time-to-visit-slovenia/"
+    },
+    {
+      "season": "autumn",
+      "reason": "秋季（9至10月）夏日人潮退去、物价回落，山林层林尽染红金，布莱德湖等热门景点更从容，白天仍暖适合户外，是摄影与徒步的绝佳季节。",
+      "source": "https://www.wildernesstravel.com/europe/slovenia/best-time-to-visit-slovenia/"
+    }
+  ],
+  "moodTags": ["scenery", "explore", "slow", "food", "culture"],
+  "idealDuration": {
+    "minDays": 5,
+    "maxDays": 8,
+    "note": "斯洛文尼亚国土精巧、景点集中，卢布尔雅那加布莱德约2至3天即可深度游；再串联皮兰海岸与波斯托伊纳溶洞需5至6天，若深入特里格拉夫国家公园与博希尼湖则8天更从容。",
+    "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-slovenia"
+  },
+  "signatureExperiencesByPeriod": [
+    {
+      "period": "spring",
+      "season": "spring",
+      "experiences": [
+        "春日乘传统pletna木船登布莱德湖心岛，敲响圣母升天教堂许愿钟",
+        "漫步卢布尔雅那三重桥与河畔咖啡座，欣赏普列奇尼克建筑与新绿"
+      ],
+      "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-slovenia"
+    },
+    {
+      "period": "summer",
+      "season": "summer",
+      "experiences": [
+        "在皮兰塔尔蒂尼广场与老城巷弄感受亚得里亚海威尼斯风情，傍晚海堤看日落",
+        "布莱德湖或博希尼湖畔戏水、划船消暑"
+      ],
+      "source": "https://www.wildernesstravel.com/europe/slovenia/best-time-to-visit-slovenia/"
+    },
+    {
+      "period": "autumn",
+      "season": "autumn",
+      "experiences": [
+        "秋色中登布莱德城堡俯瞰湖心岛与背后的朱利安阿尔卑斯",
+        "探访波斯托伊纳溶洞与文特加峡谷，感受喀斯特地貌的凉爽秋景"
+      ],
+      "source": "https://www.wildernesstravel.com/europe/slovenia/best-time-to-visit-slovenia/"
+    },
+    {
+      "period": "winter",
+      "season": "winter",
+      "experiences": [
+        "在卢布尔雅那圣诞市集感受节庆灯饰与热红酒氛围",
+        "淡季登卢布尔雅那城堡与观景塔，人潮稀少饱览雪意山城"
+      ],
+      "source": "https://www.visitljubljana.com/en/poi/ljubljana-castle"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "ljubljana-castle",
+      "name": "卢布尔雅那城堡 (Ljubljana Castle / Ljubljanski grad)",
+      "region": "卢布尔雅那",
+      "summary": "城堡山上的中世纪古堡，可乘缆索登顶，观景塔尽览红顶老城。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://www.ljubljanskigrad.si/en/tickets/"
+    },
+    {
+      "id": "dragon-bridge",
+      "name": "龙桥 (Dragon Bridge / Zmajski most)",
+      "region": "卢布尔雅那",
+      "summary": "以四尊铜龙守护的新艺术风格名桥，卢布尔雅那的城市象征。",
+      "suggestedDurationMin": 20,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.visitljubljana.com/en/poi/dragon-bridge"
+    },
+    {
+      "id": "triple-bridge",
+      "name": "三重桥 (Triple Bridge / Tromostovje)",
+      "region": "卢布尔雅那",
+      "summary": "建筑师普列奇尼克设计的三联桥，连接老城与普列舍伦广场。",
+      "suggestedDurationMin": 20,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://www.visitljubljana.com/en/poi/triple-bridge"
+    },
+    {
+      "id": "lake-bled",
+      "name": "布莱德湖 (Lake Bled / Blejsko jezero)",
+      "region": "布莱德",
+      "summary": "阿尔卑斯冰川湖，湖中小岛与崖上古堡构成斯洛文尼亚经典明信片。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["scenery", "relax", "slow"],
+      "source": "https://www.slovenia.info/en/places-to-go/destinations/bled"
+    },
+    {
+      "id": "bled-island-church",
+      "name": "布莱德湖心岛圣母升天教堂 (Church of the Assumption, Bled Island)",
+      "region": "布莱德",
+      "summary": "乘传统pletna木船登湖心岛，进巴洛克教堂敲许愿钟。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://finestayslovenia.com/whattosee/church-island-lake-bled/"
+    },
+    {
+      "id": "bled-castle",
+      "name": "布莱德城堡 (Bled Castle / Blejski grad)",
+      "region": "布莱德",
+      "summary": "斯洛文尼亚最古老城堡，立于湖畔峭壁，俯瞰湖心岛与阿尔卑斯。",
+      "suggestedDurationMin": 90,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://www.blejski-grad.si/en/"
+    },
+    {
+      "id": "vintgar-gorge",
+      "name": "文特加峡谷 (Vintgar Gorge / Blejski Vintgar)",
+      "region": "布莱德",
+      "summary": "拉多夫纳河切出的石灰岩峡谷，栈道贴壁而行终抵瀑布。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["scenery", "explore"],
+      "dayTrip": true,
+      "parentCity": "布莱德",
+      "source": "https://en.wikipedia.org/wiki/Vintgar_Gorge"
+    },
+    {
+      "id": "piran-old-town",
+      "name": "皮兰老城 (Piran Old Town)",
+      "region": "皮兰",
+      "summary": "亚得里亚海畔的威尼斯风情古城，石板巷弄与彩色房屋依海而建。",
+      "suggestedDurationMin": 180,
+      "moodTags": ["scenery", "slow", "culture"],
+      "source": "https://www.slovenia.info/en/press-centre/news-of-the-tourism-press-agency/27977-piran-unveiling-the-venetian-charms-along-the-adriatic-coast"
+    },
+    {
+      "id": "tartini-square",
+      "name": "塔尔蒂尼广场 (Tartini Square / Tartinijev trg)",
+      "region": "皮兰",
+      "summary": "皮兰核心广场，由旧渔港填筑而成，纪念小提琴家塔尔蒂尼。",
+      "suggestedDurationMin": 45,
+      "moodTags": ["culture", "explore"],
+      "source": "https://www.slovenia.info/en/press-centre/news-of-the-tourism-press-agency/27977-piran-unveiling-the-venetian-charms-along-the-adriatic-coast"
+    },
+    {
+      "id": "piran-st-george-church",
+      "name": "圣乔治教堂 (St George's Parish Church / Cerkev sv. Jurija)",
+      "region": "皮兰",
+      "summary": "山丘上的威尼斯文艺复兴式教堂，钟楼可俯瞰皮兰半岛与海湾。",
+      "suggestedDurationMin": 45,
+      "moodTags": ["culture", "scenery"],
+      "source": "https://en.wikipedia.org/wiki/St._George's_Parish_Church_(Piran)"
+    },
+    {
+      "id": "postojna-cave",
+      "name": "波斯托伊纳溶洞 (Postojna Cave / Postojnska jama)",
+      "region": "卢布尔雅那",
+      "summary": "欧洲著名喀斯特溶洞，乘洞内小火车深入钟乳石殿堂。",
+      "suggestedDurationMin": 120,
+      "moodTags": ["explore", "scenery"],
+      "dayTrip": true,
+      "parentCity": "卢布尔雅那",
+      "source": "https://www.postojnska-jama.eu/en/information/tickets/"
+    }
+  ],
+  "foods": [
+    {
+      "id": "potica",
+      "name": "核桃卷 (Potica)",
+      "type": "传统糕点",
+      "region": "卢布尔雅那",
+      "reason": "斯洛文尼亚国民节庆糕点，发酵薄面卷入核桃、龙蒿等馅料层层盘绕，逢节必备。",
+      "source": "https://the-slovenia.com/en/slovenia/top-10-slovenian-dishes/"
+    },
+    {
+      "id": "kranjska-klobasa",
+      "name": "卡尼奥拉香肠 (Kranjska klobasa)",
+      "type": "肉肠",
+      "region": "卢布尔雅那",
+      "reason": "斯洛文尼亚最著名的美食符号，获欧盟地理标志保护，多以芥末与酸菜相佐。",
+      "source": "https://slovenia.si/this-is-slovenia/the-carniolan-sausage"
+    },
+    {
+      "id": "blejska-kremsnita",
+      "name": "布莱德奶油蛋糕 (Blejska kremšnita)",
+      "type": "甜品",
+      "region": "布莱德",
+      "reason": "布莱德招牌甜点，酥皮夹香草卡仕达与轻盈奶油，1953年成型并获原产地保护。",
+      "source": "https://the-slovenia.com/en/slovenia/blejska-kremsnita-bled-cream-cake/"
+    },
+    {
+      "id": "struklji",
+      "name": "斯特鲁克利卷 (Štruklji)",
+      "type": "传统主食/甜点",
+      "region": "卢布尔雅那",
+      "reason": "斯洛文尼亚传统卷筒面食，可咸可甜，以奶渣核桃或龙蒿馅最经典。",
+      "source": "https://the-slovenia.com/en/slovenia/top-10-slovenian-dishes/"
+    },
+    {
+      "id": "jota",
+      "name": "酸菜豆汤 (Jota)",
+      "type": "炖菜",
+      "region": "皮兰",
+      "reason": "沿海与喀斯特地区的家常炖菜，以酸菜、豆子与熏肉慢炖，冬日暖身。",
+      "source": "https://the-slovenia.com/en/slovenia/top-10-slovenian-dishes/"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "bled-castle-booking",
+      "name": "布莱德城堡 (Bled Castle)",
+      "region": "布莱德",
+      "method": "通过官方网站 blejski-grad.si 在线购票，或现场售票处购买；官方提醒仅经官网及授权渠道购票以免第三方加价。",
+      "leadTime": "全年每日开放（4至10月8:00–20:00，11至3月8:00–18:00），旺季人多建议提前网购避免排队。",
+      "source": "https://www.blejski-grad.si/en/plan-your-visit/price-list/"
+    },
+    {
+      "id": "postojna-cave-booking",
+      "name": "波斯托伊纳溶洞 (Postojna Cave)",
+      "region": "卢布尔雅那",
+      "method": "官网 postojnska-jama.eu 在线购票，凭邮件二维码入场；可加购普雷德亚马城堡联票。",
+      "leadTime": "洞内小火车按固定时段发车，全年每日开放，旺季及节假日时段易满，建议提前在线预订指定时段。",
+      "source": "https://www.postojnska-jama.eu/en/information/tickets/"
+    },
+    {
+      "id": "ljubljana-castle-booking",
+      "name": "卢布尔雅那城堡 (Ljubljana Castle)",
+      "region": "卢布尔雅那",
+      "method": "官网 ljubljanskigrad.si 或城堡售票机购票，可选含缆索车往返、观景塔与展览的联票。",
+      "leadTime": "缆索车夏季10:00–22:00、冬季10:00–21:00运行；无需长期预约，现场或当日线上购票即可。",
+      "source": "https://www.ljubljanskigrad.si/en/tickets/"
+    }
+  ],
+  "intercityTransport": [
+    {
+      "from": "卢布尔雅那",
+      "to": "布莱德",
+      "mode": "bus",
+      "durationText": "约1小时15分",
+      "detail": "大巴最便捷，从卢布尔雅那长途汽车站发车、班次密集，直达布莱德镇中心近湖畔；火车虽有直达但停靠Lesce-Bled站距湖约4-5公里，需再转乘巴士或出租。",
+      "source": "https://wander-lush.org/ljubljana-to-lake-bled/"
+    },
+    {
+      "from": "卢布尔雅那",
+      "to": "皮兰",
+      "mode": "bus",
+      "durationText": "约2小时",
+      "detail": "皮兰无直达铁路。首选Arriva直达大巴，约2小时到皮兰汽车站；亦可乘火车至科佩尔(Koper)再转当地巴士(约40-47分钟)接驳皮兰。",
+      "source": "https://www.rome2rio.com/s/Ljubljana/Piran"
+    },
+    {
+      "from": "卢布尔雅那",
+      "to": "波斯托伊纳",
+      "mode": "train",
+      "durationText": "约1小时",
+      "detail": "斯洛文尼亚铁路(SŽ)直达波斯托伊纳(Postojna)站，下车后步行或短驳约十余分钟至溶洞入口；亦有大巴直达，适合当日往返。",
+      "source": "https://www.postojnska-jama.eu/en/information/tickets/"
+    }
+  ],
+  "seasonalTips": [
+    {
+      "season": "spring",
+      "tip": "春季山区早晚仍凉、天气多变，早春多雨，建议分层穿衣并备防水鞋与雨具；部分高山步道及文特加峡谷通常4月才开放。",
+      "source": "https://www.lonelyplanet.com/articles/best-time-to-visit-slovenia"
+    },
+    {
+      "season": "summer",
+      "tip": "夏季为旅游高峰，布莱德与皮兰海岸最拥挤、住宿物价最高，正午偏热；热门景点与湖畔住宿务必提前预订。",
+      "source": "https://www.wildernesstravel.com/europe/slovenia/best-time-to-visit-slovenia/"
+    },
+    {
+      "season": "autumn",
+      "tip": "秋季人潮减少、物价回落、秋色宜人，是徒步与摄影好时节；10月后渐凉且早晚温差大，建议带保暖外套。",
+      "source": "https://www.wildernesstravel.com/europe/slovenia/best-time-to-visit-slovenia/"
+    },
+    {
+      "season": "winter",
+      "tip": "冬季为淡季，湿冷多阴、部分户外景点缩短开放；圣诞新年期间卢布尔雅那市集热闹例外，山区可滑雪，注意保暖防滑。",
+      "source": "https://www.wildernesstravel.com/europe/slovenia/best-time-to-visit-slovenia/"
+    }
+  ]
+}

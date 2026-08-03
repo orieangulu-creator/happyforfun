@@ -1537,5 +1537,90 @@
         "source": "https://www.timeanddate.com/holidays/croatia/2026"
       }
     ]
+  },
+  {
+    "region": "slovenia",
+    "year": 2026,
+    "lastReviewed": "2026-06-28",
+    "holidays": [
+      {
+        "id": "si-2026-preseren-day",
+        "nameZh": "普列舍伦日(斯洛文尼亚文化节)",
+        "nameLocal": "Prešernov dan, slovenski kulturni praznik",
+        "start": "2026-02-08",
+        "end": "2026-02-08",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "纪念国民诗人普列舍伦的文化节，全国众多博物馆与文化机构免费开放、举办活动，是文化游看点；同时为公休日，部分商铺关闭(2026年恰逢周日)。"
+        },
+        "source": "https://www.gov.si/en/topics/national-holidays/"
+      },
+      {
+        "id": "si-2026-easter",
+        "nameZh": "复活节(周日与周一)",
+        "nameLocal": "velika noč in velikonočni ponedeljek",
+        "start": "2026-04-05",
+        "end": "2026-04-06",
+        "type": "closure_crowd_price",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "复活节周日与周一均为公休，多数商铺、部分餐厅与景点关门或缩短营业，公共交通减班；出行前需确认开放时间。"
+        },
+        "source": "https://www.gov.si/en/topics/national-holidays/"
+      },
+      {
+        "id": "si-2026-labour-day",
+        "nameZh": "劳动节",
+        "nameLocal": "praznik dela",
+        "start": "2026-05-01",
+        "end": "2026-05-02",
+        "type": "closure_crowd_price",
+        "destinationImpact": {
+          "highlight": "closure_crowd_price",
+          "note": "连放两天的公休假日，多数商铺与办公机构关闭；恰逢旅游旺季开端，热门景点与住宿人多价高，建议提前预订。"
+        },
+        "source": "https://www.gov.si/en/topics/national-holidays/"
+      },
+      {
+        "id": "si-2026-statehood-day",
+        "nameZh": "国庆日(建国日)",
+        "nameLocal": "dan državnosti",
+        "start": "2026-06-25",
+        "end": "2026-06-25",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "纪念1991年脱南独立的国庆日，卢布尔雅那有官方庆典与升旗仪式等看点；同为公休日，部分商铺关闭。"
+        },
+        "source": "https://www.gov.si/en/topics/national-holidays/"
+      },
+      {
+        "id": "si-2026-assumption",
+        "nameZh": "圣母升天节",
+        "nameLocal": "Marijino vnebovzetje",
+        "start": "2026-08-15",
+        "end": "2026-08-15",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "重要天主教节日，布莱德湖心岛圣母升天教堂为朝圣看点、当日格外热闹；同为公休日，部分商铺关闭。"
+        },
+        "source": "https://finestayslovenia.com/whattosee/church-island-lake-bled/"
+      },
+      {
+        "id": "si-2026-christmas-unity",
+        "nameZh": "圣诞节与独立统一日",
+        "nameLocal": "božič in dan samostojnosti in enotnosti",
+        "start": "2026-12-25",
+        "end": "2026-12-26",
+        "type": "both",
+        "destinationImpact": {
+          "highlight": "both",
+          "note": "12月卢布尔雅那圣诞市集与灯饰是节庆看点；但25-26日连放两天公休，多数商铺、餐厅与景点关闭或缩短营业，交通减班。"
+        },
+        "source": "https://www.gov.si/en/topics/national-holidays/"
+      }
+    ]
   }
 ]
