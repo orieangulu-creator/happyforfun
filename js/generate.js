@@ -8,7 +8,8 @@
   const moodZh = x => MOOD_ZH[x] || x;
   // 未知国家(主要是欧洲)的兜底估算
   const costOf = c => COST[c] || "high";
-  const flightOf = c => FLIGHT[c] || { h: 11, direct: false };
+  // 直飞白名单(日/泰/法有沪直飞)外，用 geo.json 各国真实航时(多为中转总时长)，缺失回落 11
+  const flightOf = c => FLIGHT[c] || { h: (DATA.geo && DATA.geo.flightHoursFromChina && DATA.geo.flightHoursFromChina[c]) || 11, direct: false };
   const regionOf = c => { const m = (DATA.manifest || []).find(x => x.id === c); return m ? m.region : ""; };
   const MAX_DAYS_PER_CITY = 3; // 一城上限 3 天 2 晚
   // 转场日：城市/国家切换当天，给公共交通 + 自驾租车两套方案（含大致耗时与出发建议）
@@ -241,7 +242,7 @@
       if (!cross) { // 同国段优先用该国真实城市间交通
         const itc = (DATA.libraries[seq[i].country] || {}).intercityTransport || [];
         const tt = itc.find(t => (t.from === seq[i - 1].city && t.to === seq[i].city) || (t.from === seq[i].city && t.to === seq[i - 1].city));
-        if (tt) { detail = tt.detail + (tt.durationText ? `（约${tt.durationText}）` : ""); source = tt.source || source; mode = tt.mode || mode; }
+        if (tt) { detail = tt.detail + (tt.durationText ? `（${tt.durationText}）` : ""); source = tt.source || source; mode = tt.mode || mode; }
       }
       segs.push({ mode, from: seq[i - 1].city, to: seq[i].city, detail, crossBorder: cross, source });
     }
@@ -454,7 +455,7 @@
     for (let i = 1; i < usedCities.length; i++) {
       const tt = findItc(usedCities[i - 1], usedCities[i]);
       segments.push(tt
-        ? { mode: tt.mode || "train", from: usedCities[i - 1], to: usedCities[i], detail: tt.detail + (tt.durationText ? `（约${tt.durationText}）` : ""), source: tt.source || "交通估算" }
+        ? { mode: tt.mode || "train", from: usedCities[i - 1], to: usedCities[i], detail: tt.detail + (tt.durationText ? `（${tt.durationText}）` : ""), source: tt.source || "交通估算" }
         : { mode: "train", from: usedCities[i - 1], to: usedCities[i], detail: "城市间建议火车 / 大巴", source: "交通估算" });
     }
 
