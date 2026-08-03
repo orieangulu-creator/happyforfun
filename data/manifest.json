@@ -17,5 +17,6 @@
   { "id": "denmark", "nameZh": "丹麦", "region": "欧洲" },
   { "id": "sweden", "nameZh": "瑞典", "region": "欧洲" },
   { "id": "norway", "nameZh": "挪威", "region": "欧洲" },
-  { "id": "croatia", "nameZh": "克罗地亚", "region": "欧洲" }
+  { "id": "croatia", "nameZh": "克罗地亚", "region": "欧洲" },
+  { "id": "slovenia", "nameZh": "斯洛文尼亚", "region": "欧洲" }
 ]

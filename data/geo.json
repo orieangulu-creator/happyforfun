@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-06-27",
+  "updatedAt": "2026-06-28",
   "adjacency": {
     "japan": [],
     "thailand": [],
     "france": ["switzerland", "germany", "italy", "spain", "netherlands", "unitedkingdom"],
-    "italy": ["switzerland", "austria", "france", "croatia", "greece"],
+    "italy": ["switzerland", "austria", "france", "croatia", "greece", "slovenia"],
     "spain": ["france", "portugal"],
     "germany": ["austria", "czechia", "netherlands", "switzerland", "france", "poland", "denmark"],
     "unitedkingdom": ["france", "netherlands"],
@@ -12,14 +12,15 @@
     "netherlands": ["germany", "france", "unitedkingdom"],
     "portugal": ["spain"],
     "greece": ["italy", "croatia"],
-    "austria": ["germany", "czechia", "italy", "switzerland", "hungary"],
+    "austria": ["germany", "czechia", "italy", "switzerland", "hungary", "slovenia"],
     "czechia": ["austria", "germany", "poland", "hungary"],
-    "hungary": ["austria", "czechia", "croatia"],
+    "hungary": ["austria", "czechia", "croatia", "slovenia"],
     "poland": ["czechia", "germany"],
     "denmark": ["sweden", "germany", "norway"],
     "sweden": ["denmark", "norway"],
     "norway": ["sweden", "denmark"],
-    "croatia": ["italy", "hungary", "greece"]
+    "croatia": ["italy", "hungary", "greece", "slovenia"],
+    "slovenia": ["italy", "austria", "croatia", "hungary"]
   },
   "combos": [
     { "countries": ["france", "italy", "switzerland"], "note": "经典法意瑞，巴黎-瑞士-意北铁路顺路，欧洲最热门首刷线", "source": "马蜂窝/穷游欧洲热门路线" },
@@ -37,7 +38,11 @@
     { "countries": ["croatia", "italy"], "note": "克罗地亚+意大利，亚得里亚海两岸，杜布罗夫尼克+威尼斯", "source": "小红书巴尔干/亚得里亚海攻略" },
     { "countries": ["croatia", "hungary", "austria"], "note": "巴尔干北段，克罗地亚-匈牙利-奥地利，中东欧串联", "source": "穷游巴尔干路线" },
     { "countries": ["italy", "greece"], "note": "意大利+希腊，罗马-雅典-圣托里尼，地中海经典线", "source": "携程地中海路线" },
-    { "countries": ["unitedkingdom", "france"], "note": "英法两国，伦敦-巴黎，欧洲之星海底隧道直达", "source": "穷游英法路线" }
+    { "countries": ["unitedkingdom", "france"], "note": "英法两国，伦敦-巴黎，欧洲之星海底隧道直达", "source": "穷游英法路线" },
+    { "countries": ["croatia", "slovenia"], "note": "克罗地亚+斯洛文尼亚，杜布罗夫尼克/普利特维采-布莱德湖-卢布尔雅那，亚得里亚海+朱利安阿尔卑斯", "source": "小红书巴尔干/斯洛文尼亚攻略" },
+    { "countries": ["italy", "slovenia", "croatia"], "note": "意-斯-克，威尼斯-卢布尔雅那/布莱德-伊斯特拉半岛，跨亚得里亚海北岸顺路", "source": "穷游亚得里亚海路线" },
+    { "countries": ["austria", "slovenia"], "note": "奥地利+斯洛文尼亚，维也纳/萨尔茨堡-卢布尔雅那-布莱德，阿尔卑斯南麓串联", "source": "马蜂窝中欧路线" },
+    { "countries": ["slovenia", "croatia", "hungary"], "note": "斯-克-匈，卢布尔雅那-萨格勒布-布达佩斯，中东欧巴尔干北段", "source": "穷游巴尔干路线" }
   ],
   "costTier": {
     "japan": "medium",
@@ -58,7 +63,8 @@
     "denmark": "high",
     "sweden": "high",
     "norway": "high",
-    "croatia": "medium"
+    "croatia": "medium",
+    "slovenia": "medium"
   },
   "flightHoursFromChina": {
     "japan": 3.5,
@@ -79,6 +85,7 @@
     "denmark": 11,
     "sweden": 11,
     "norway": 11.5,
-    "croatia": 13
+    "croatia": 13,
+    "slovenia": 13
   }
 }
