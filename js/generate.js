@@ -2,7 +2,8 @@
 (function () {
   const SLOTS = ["上午", "下午", "傍晚", "晚上"];
   const COST = { thailand: "low", japan: "medium", france: "high" };
-  const FLIGHT = { japan: { h: 4, direct: true }, thailand: { h: 4.5, direct: true }, france: { h: 12, direct: true } };
+  // 直飞时长(自上海等主要口岸的大致直飞小时数)；来源见提交说明，属主要枢纽估算
+  const FLIGHT = { japan: { h: 3, direct: true }, thailand: { h: 4.5, direct: true }, france: { h: 12, direct: true } };
   const SEASON_ZH = { spring: "春季", summer: "夏季", autumn: "秋季", winter: "冬季" };
   const MOOD_ZH = { relax: "想放松", explore: "想玩透", food: "美食", scenery: "风景", culture: "文化", shopping: "购物", hotspring: "温泉", island: "海岛", snow: "雪山", slow: "慢城" };
   const moodZh = x => MOOD_ZH[x] || x;
