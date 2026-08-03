@@ -690,6 +690,12 @@
 
     html += `<div class="module"><h4>🚄 1. 最佳出行路线</h4><div>${esc(t.route.summary)}</div>`;
     t.route.segments.forEach(s => html += `<div class="route-seg">· [${esc(s.mode)}] ${esc(s.from)} → ${esc(s.to)}：${esc(s.detail)} <span class="source">（${esc(s.source)}）</span></div>`);
+    if (t.route.arrival && t.route.arrival.options && t.route.arrival.options.length) {
+      const ar = t.route.arrival;
+      html += `<div class="route-seg" style="margin-top:6px"><b>🛬 如何抵达（按轻松度${ar.relaxedPick ? "·已按「轻松」为你精选最省心" : ""}）</b></div>`;
+      ar.options.forEach((o, i) => html += `<div class="route-seg">${i === 0 ? "⭐" : "·"} <b>${esc(o.tag)}</b>（${esc(o.hub)}）：${esc(o.detail)} <span class="source">（${esc(o.source)}）</span></div>`);
+      if (ar.note) html += `<div class="route-seg" style="opacity:.75;font-size:12px">${esc(ar.note)}</div>`;
+    }
     if (t.route.tips) html += `<div class="route-seg">💡 ${esc(t.route.tips)}</div>`;
     html += `</div><div class="module"><h4>🗓️ 2. 按天安排（含景点 · 美食）</h4>`;
     t.dailyPlan.forEach(d => {

@@ -264,8 +264,47 @@
     }
   ],
   "arrivalGateway": {
-    "note": "斯洛文尼亚无中国直飞航班。较省心的走法：上海直飞米兰(东航/国航每日约2班、约12.5小时)，再从米兰(Lampugnano长途站或马尔彭萨机场)搭 FlixBus 直达卢布尔雅那(约7.5小时、每日多班)；也可经维也纳/苏黎世/法兰克福/威尼斯等邻近枢纽转火车或大巴入境。",
-    "source": "https://global.flixbus.com/bus-routes/bus-milan-malpensa-airport-ljubljana"
+    "note": "斯洛文尼亚无中国直飞。按抵达轻松度排序：首选同机场中转直飞卢布尔雅那(全程飞行、不换机场)，其次机场直发的短程穿梭巴士，长途进城大巴为备选。",
+    "options": [
+      {
+        "easeScore": 100,
+        "tag": "同机场中转·最省心",
+        "hub": "法兰克福 (FRA)",
+        "detail": "上海直飞法兰克福(汉莎/国航)，同一机场转汉莎 FRA→卢布尔雅那(约1小时15分、每日约2班)。中转层建议预留4-5小时过境；全程飞行、行李直挂、不换机场。",
+        "source": "https://www.flightsfrom.com/FRA-LJU"
+      },
+      {
+        "easeScore": 95,
+        "tag": "同机场中转",
+        "hub": "伊斯坦布尔 (IST)",
+        "detail": "上海/北京直飞伊斯坦布尔(土耳其航空)，同机场转 IST→卢布尔雅那。土航中国航点多、衔接密，中转层同样建议预留4-5小时。",
+        "source": "https://www.flightsfrom.com/LJU"
+      },
+      {
+        "easeScore": 80,
+        "tag": "机场直发·陆路最短",
+        "hub": "威尼斯马可波罗机场 (VCE)",
+        "ground": { "fromAirport": true, "mode": "shuttle", "durationText": "约2.5-3小时" },
+        "detail": "飞抵威尼斯马可波罗机场后，GoOpti 穿梭巴士机场直发、直达卢布尔雅那(约2.5-3小时)——落地即上车、陆路最短，还能顺道威尼斯；威尼斯多需1次中转。",
+        "source": "https://www.goopti.com/en/transfers/italy-venice-venice-marco-polo-airport-vce/slovenia-ljubljana"
+      },
+      {
+        "easeScore": 60,
+        "tag": "机场直发",
+        "hub": "维也纳机场 (VIE)",
+        "ground": { "fromAirport": true, "mode": "bus", "durationText": "约4.5-5.5小时" },
+        "detail": "上海/北京直飞维也纳后，FlixBus/GoOpti 机场直发卢布尔雅那(约4.5-5.5小时、每日约19班)；若维也纳有同机场转 LJU 航班则更省心。",
+        "source": "https://global.flixbus.com/bus-routes/bus-vienna-airport-ljubljana"
+      },
+      {
+        "easeScore": 40,
+        "tag": "备选·可顺游米兰",
+        "hub": "米兰 (MXP)",
+        "ground": { "fromAirport": false, "mode": "bus", "durationText": "约7.5小时" },
+        "detail": "上海直飞米兰(东航/国航、约12.5小时)，但需先进市区Lampugnano站转 FlixBus(约7.5小时)才到卢布尔雅那——飞得省心、陆路偏久，适合想顺便玩米兰或偏好沪直飞。",
+        "source": "https://global.flixbus.com/bus-routes/bus-milan-malpensa-airport-ljubljana"
+      }
+    ]
   },
   "seasonalTips": [
     {

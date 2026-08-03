@@ -177,9 +177,16 @@ UI 收集用户查询。**零必填**：任何字段都可不填，系统据已�
       "detail": "东海道新干线希望号(Nozomi)直达", "source": "https://example.com/shinkansen" }
   ],
 
-  "arrivalGateway": {                 // (可选) 无直飞国家的推荐入境走法，附于首段航班
-    "note": "无中国直飞；较省心：飞邻近枢纽再转大巴/火车入境。",
-    "source": "https://example.com/gateway"
+  "arrivalGateway": {                 // (可选) 无直飞国家的入境走法，按轻松度排序；引擎输出到 route.arrival
+    "note": "无中国直飞；按抵达轻松度排序：同机场中转 > 机场直发短程巴士 > 进城长途巴士。",
+    "options": [                       // easeScore 越高越省心，引擎据此排序、按节奏取 1 或 3 条
+      { "easeScore": 100, "tag": "同机场中转·最省心", "hub": "法兰克福 (FRA)",
+        "detail": "上海直飞法兰克福，同机场转 FRA→目的地(约1h15)，层间隔预留4-5h。",
+        "source": "https://example.com/fra-lju" },
+      { "easeScore": 80, "tag": "机场直发·陆路最短", "hub": "威尼斯机场 (VCE)",
+        "ground": { "fromAirport": true, "mode": "shuttle", "durationText": "约3小时" },
+        "detail": "落地威尼斯机场，穿梭巴士机场直发直达(约3h)。", "source": "https://example.com/vce" }
+    ]
   },
 
   "budgetNotes": null                  // (v2 预留) v1 留空
@@ -200,7 +207,7 @@ UI 收集用户查询。**零必填**：任何字段都可不填，系统据已�
 | `reservations[]` | array | 是 | 需预约项，每条带 `source` |
 | `seasonalTips[]` | array | 是 | 季节建议，每条带 `source` |
 | `intercityTransport[]` | array | 否 | 真实城市间交通 `{from,to,mode,durationText,detail,source}`；缺失则回落通用建议 |
-| `arrivalGateway` | object | 否 | 无直飞国家的推荐入境走法 `{note,source}`，引擎附于首段航班 |
+| `arrivalGateway` | object | 否 | 无直飞国家的入境走法 `{note,options[]}`；option 带 `easeScore/tag/hub/detail/source`(+可选 `ground`)，引擎按 easeScore 排序、按节奏取 1 或 3 条输出到 `route.arrival` |
 | `*.tags` / `budgetNotes` | - | 否 (v2) | 主题标签 / 预算备注，留空 |
 
 ---

@@ -56,7 +56,7 @@ function originAllowed(req, allowed) {
 const OUTPUT_SPECS = {
   trip: `{
   "meta": {"origin": string|null, "destinationCountry": "<country slug，取自 libraryData 的 key>", "destinationNameZh": string, "days": number, "season": "spring|summer|autumn|winter"|null, "pace": "intense|balanced|relaxed", "companion": string|null, "moodTags": string[], "freeText": string},
-  "route": {"summary": string, "segments": [{"mode": string, "from": string, "to": string, "detail": string, "source": string}], "tips": string, "source": string},
+  "route": {"summary": string, "segments": [{"mode": string, "from": string, "to": string, "detail": string, "source": string}], "tips": string, "source": string, "arrival": {"note": string, "options": [{"tag": string, "hub": string, "detail": string, "source": string}]}|null},
   "dailyPlan": [{"day": number, "title": string, "intensity": "intense|balanced|relaxed", "dayType": "core|optional", "activities": [{"name": string, "timeSlot": string, "durationMin": number, "summary": string, "source": string}], "meals": [{"name": string, "slot": "breakfast|lunch|dinner|snack", "reason": string, "source": string}], "transfer": {"from": string, "to": string, "crossBorder": boolean, "note": string, "options": [{"mode": "public|drive", "label": string, "detail": string, "source": string}]}}],
   "reservations": [{"id": string, "name": string, "method": string, "leadTime": string, "source": string}],
   "seasonalTips": [{"season": "spring|summer|autumn|winter", "tip": string, "source": string}],
@@ -67,7 +67,7 @@ const OUTPUT_SPECS = {
 【城市停留规则】每座城市安排 2-3 天，单城上限 3 天 2 晚——除非用户在 freeText 明确要求某城久留，否则一城超过 3 天就应换到下一座城市；dailyPlan 每天的 title 标明所在城市；多城市时 route.summary 串联城市、segments 标注城市间交通。
 【转场日规则】换城的当天=转场日：考虑出发时间与在途耗时，当天上午在途、活动从简(1-2 项、从下午起)，该天加 transfer 字段，给【公共交通】和【自驾租车】两套方案(各含大致耗时与出发建议)；非转场日 transfer 省略或不输出。
 【单国天数过长】当 days 超过"城市数 × 3"能排满的上限时，**不要截断天数、也不要虚构城市或硬塞景点**：把现有城市按每城 ≤3 天排满，多出的天数标为机动/深度日(dayType=optional、title 注明"机动/深度日"、活动 0-1 项，以自由活动·周边一日游·纯放松为主)；并在 flexibility.note 提示"可考虑加邻国串成多国行程"。
-【入境网关】若 libraryData 该国含 arrivalGateway 字段(无直飞时的推荐入境走法，如经邻国枢纽航班+大巴)，请把其 note 融入首段 flight 的 detail 并透传其 source，不要臆造直飞。`,
+【入境网关·抵达轻松度】若 libraryData 该国含 arrivalGateway(无直飞国家的推荐入境走法)，把它按 options[].easeScore 从高到低排序后填入 route.arrival：轻松诉求(pace=relaxed 或 moodTags 含 relax)只保留最省心的 1 条，否则保留前 3 条；透传各 option 的 tag/hub/detail/source。轻松度优先级：同机场中转(层间隔4-5h)>机场直发短程巴士(越短越优)>进城长途巴士。**不要臆造直飞**；无 arrivalGateway 时 route.arrival 置 null。`,
   recommend: `{"isFallback": boolean, "basis": string, "coverageNote": string|null,
  "candidates": [{"id": string, "nameZh": string, "country": "<country slug，取自 libraryData 的 key>"|null, "matchLevel": "strong|related", "matchReason": string, "bestVisitTime": string, "suggestedDays": number, "costTier": "low|medium|high", "moodTags": string[], "source": string}]}
 要求：给 3-5 个候选，优先从 libraryData 的国家中选；强匹配标 strong，其余 related。`,

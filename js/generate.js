@@ -169,6 +169,18 @@
       note: `${origin}出发约 ${f.h} 小时${f.direct ? "，有直飞" : "，多需中转"}`, source: "交通时长估算" };
   }
 
+  // 抵达轻松度：无直飞国家按 easeScore 排序网关选项（同机场中转>机场直发短程巴士>进城长途巴士）。
+  // 「轻松」诉求(节奏 relaxed 或含 relax 标签)只给最省心 1 条，否则给前 3 条。
+  function arrivalPlan(lib, pace, moodTags) {
+    const gw = lib && lib.arrivalGateway;
+    if (!gw || !gw.options || !gw.options.length) return null;
+    const relaxed = pace === "relaxed" || (moodTags || []).includes("relax");
+    const opts = gw.options.slice().sort((a, b) => (b.easeScore || 0) - (a.easeScore || 0));
+    const picked = (relaxed ? opts.slice(0, 1) : opts.slice(0, 3))
+      .map(o => ({ tag: o.tag, hub: o.hub, detail: o.detail, source: o.source }));
+    return { note: gw.note || "", relaxedPick: relaxed, options: picked };
+  }
+
   // 多国行程（DEMO）：跨国城市铺排 + 总城市数随天数封顶 + 跨国交通 + 签证提示
   function buildMultiTrip(countryOrder, input) {
     const order0 = (countryOrder || []).filter(c => DATA.libraries[c]);
@@ -235,10 +247,7 @@
     const realDays = dailyPlan.length;
     const coreDays = (alloc[0] ? alloc[0].days : realDays);
     const seq = alloc.map(a => ({ city: a.city, country: a.country }));
-    const gw0 = (DATA.libraries[seq[0].country] || {}).arrivalGateway;
-    const seg0 = { mode: "flight", from: input.origin || "出发地", to: seq[0].city, detail: input.origin ? transportFor(seq[0].country, input.origin).note : "建议直飞首站", source: "交通估算" };
-    if (gw0 && gw0.note) { seg0.detail += "。" + gw0.note; if (gw0.source) seg0.source = gw0.source; }
-    const segs = [seg0];
+    const segs = [{ mode: "flight", from: input.origin || "出发地", to: seq[0].city, detail: input.origin ? transportFor(seq[0].country, input.origin).note : "建议直飞首站", source: "交通估算" }];
     for (let i = 1; i < seq.length; i++) {
       const cross = seq[i].country !== seq[i - 1].country;
       let detail = cross ? "跨国：高铁或廉价航空" : "同国火车 / 大巴", source = "交通估算", mode = cross ? "flight/train" : "train";
@@ -266,7 +275,7 @@
       meta: { origin: input.origin || null, destinationCountry: order[0], destinationCountries: order, tripKind: "multi", countryOrder: order,
         destinationNameZh: order.map(c => DATA.libraries[c].countryNameZh).join(" · "),
         days: realDays, dateRange: input.dateRange || null, season, pace, companion: input.companion || null, moodTags: input.moodTags || [], freeText: input.freeText || "", themes: [], budget: null, generatedBy: "claude-opus-4-8", generatedAt: new Date().toISOString() },
-      route: { summary: [input.origin || "出发地"].concat(seq.map(s => s.city)).join(" → "), segments: segs, tips: "跨国段预留半天交通；多国建议买点对点车票或廉航联程。", source: "交通估算" },
+      route: { summary: [input.origin || "出发地"].concat(seq.map(s => s.city)).join(" → "), segments: segs, tips: "跨国段预留半天交通；多国建议买点对点车票或廉航联程。", source: "交通估算", arrival: arrivalPlan(DATA.libraries[order[0]], pace, input.moodTags) },
       dailyPlan, reservations: resvOut, seasonalTips: tipsOut,
       flexibility: { coreDays, optionalDays: realDays - coreDays, note: (cappedCities ? `已按"总天数→城市上限(${use.length}城)"铺排；` : "") + "想更深可加天数，或在描述里指定某城/某国停留更久。" },
       regionNotes, timingWarning: null,
@@ -450,11 +459,8 @@
     }
 
     const firstCity = usedCities[0] || lib.countryNameZh;
-    const flightSeg = { mode: "flight", from: input.origin || "出发地", to: firstCity,
-      detail: input.origin ? transportFor(country, input.origin).note : "建议直飞，填写出发地可估算时长", source: "交通估算" };
-    // 无直飞国家：附「入境网关」建议（如斯洛文尼亚经米兰大巴入境）
-    if (lib.arrivalGateway && lib.arrivalGateway.note) { flightSeg.detail += "。" + lib.arrivalGateway.note; if (lib.arrivalGateway.source) flightSeg.source = lib.arrivalGateway.source; }
-    const segments = [flightSeg];
+    const segments = [{ mode: "flight", from: input.origin || "出发地", to: firstCity,
+      detail: input.origin ? transportFor(country, input.origin).note : "建议直飞，填写出发地可估算时长", source: "交通估算" }];
     // 真实城市间交通：优先用数据库 intercityTransport，缺失则回落通用建议
     const itc = lib.intercityTransport || [];
     const findItc = (a, b) => itc.find(t => (t.from === a && t.to === b) || (t.from === b && t.to === a));
@@ -487,7 +493,8 @@
       },
       route: {
         summary: [input.origin || "出发地"].concat(usedCities).join(" → "),
-        segments, tips: "落地后建议购买当地交通卡 / 通票；多城之间预留半天交通。", source: "交通估算"
+        segments, tips: "落地后建议购买当地交通卡 / 通票；多城之间预留半天交通。", source: "交通估算",
+        arrival: arrivalPlan(lib, pace, input.moodTags)
       },
       dailyPlan,
       reservations: lib.reservations.map(r => ({ id: r.id, name: r.name, day: 1, method: r.method, leadTime: r.leadTime, source: r.source })),
